@@ -1,8 +1,8 @@
 [user]
-  name = $GIT_FULLNAME
-  email = $GIT_EMAIL
+  name = Tim Heuett
+  email = tim.heuett@gmail.com
 [core]
-  editor = vim
+  editor = nvim
   excludesfile = ~/.gitignore
 [push]
   default = simple

@@ -19,11 +19,11 @@
 ## Not actually issues, but still TODOs
 
 - [ ] Consolidated install script for all files.
+- [ ] Make user agnostic template for gitconfig and interpolate env variables on install.
 - [ ] Install script for homebrew and packages.
 - [ ] Init script for git, hub credentials.
 - [ ] Init for .env file
   - [ ] Name, email for git
   - [ ] Github token for hub
   - [ ] Default ruby version
-- [ ] Add an alias for macdown.
 - [ ] ???
