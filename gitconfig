@@ -1,3 +1,6 @@
+[user]
+  name = $GIT_FULLNAME
+  email = $GIT_EMAIL
 [core]
   editor = vim
   excludesfile = ~/.gitignore
