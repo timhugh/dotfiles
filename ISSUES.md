@@ -18,6 +18,7 @@
 
 ## Not actually issues, but still TODOs
 
+- [ ] Consolidated install script for all files.
 - [ ] Install script for homebrew and packages.
 - [ ] Init script for git, hub credentials.
 - [ ] Add an alias for macdown.
