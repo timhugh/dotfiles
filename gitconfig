@@ -1,9 +1,6 @@
 [core]
   editor = vim
   excludesfile = ~/.gitignore
-[user]
-  name = Tim Heuett
-  email = tim.heuett@gmail.com
 [push]
   default = simple
 [credential]

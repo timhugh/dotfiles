@@ -1,4 +1,13 @@
-#! /bin/bash
+#!/bin/bash
+
+# bash/install.sh
+#
+# creates symlinks in ~/. for:
+# .bashrc
+# .bash_profile
+# .bash_aliases
+# .bash_prompt
+# .bash_profile.d/
 
 src_files='bashrc bash_aliases bash_profile bash_prompt'
 
