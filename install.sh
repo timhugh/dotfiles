@@ -38,21 +38,16 @@ function _backup() {
 ########
 # BASH #
 ########
-echo
-echo ----------------------
-echo Installing bash config
-echo
 source ${DOT_ROOT}/bash/install.sh
 
-# install misc (ctags, tmuxconf, etc)
+########
+# MISC #
+########
+source ${DOT_ROOT}/misc/install.sh
 
 #######
 # VIM #
 #######
-echo
-echo ---------------------
-echo Installing vim config
-echo
 source ${DOT_ROOT}/vim/install.sh
 
 # prompt for name and email (for git config)

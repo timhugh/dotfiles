@@ -1,4 +1,11 @@
-#!/bin/bash
+# vim/install.sh
+#
+# creates symlinks in ~/. for:
+# .vim
+# .vimrc
+# .config/nvim
+#
+# clones Vundle and installs all plugins from .vimrc
 
 VIM_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 

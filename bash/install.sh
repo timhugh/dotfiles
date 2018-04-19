@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # bash/install.sh
 #
 # creates symlinks in ~/. for:
