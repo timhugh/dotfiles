@@ -7,7 +7,7 @@
 #
 # clones Vundle and installs all plugins from .vimrc
 
-VIM_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+VIM_ROOT="${DOT_ROOT}/vim"
 
 echo Backing up existing .vim, .vimrc, .config/nvim...
 _backup "${HOME}/.vimrc" "vim"
