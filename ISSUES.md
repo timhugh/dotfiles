@@ -15,6 +15,7 @@
 ## Misc
 
 - [x] No install script for ctags, tmux.conf, gitconfig.
+- [ ] Tmux open-pane-in-same-dir seems to have stopped working.
 
 ## Not actually issues, but still TODOs
 
