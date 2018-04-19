@@ -20,4 +20,5 @@
 
 - Install script for homebrew and packages.
 - Init script for git, hub credentials.
+- Add an alias for macdown.
 - ???
