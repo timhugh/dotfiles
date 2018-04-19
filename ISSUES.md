@@ -2,23 +2,25 @@
 
 ## Bash
 
-- [ ] If the ~/.bash_profile.d symlink already exists, another one will be created inside the directory.
-- [ ] I haven't actually tested, but I suspect the install script will shit the bed if you run it outside the `/bash` directory.
+- [x] If the ~/.bash_profile.d symlink already exists, another one will be created inside the directory.
+- [x] I haven't actually tested, but I suspect the install script will shit the bed if you run it outside the `/bash` directory.
 
 ## Vim
 
-- [ ] The install script doesn't install .vimrc.
-- [ ] The install script doesn't install the neovim init script.
-- [ ] Again, I think this will do crazy stuff if run outside the `/vim` directory.
+- [x] The install script doesn't install .vimrc.
+- [x] The install script doesn't install the neovim init script.
+- [x] Again, I think this will do crazy stuff if run outside the `/vim` directory.
 
 
 ## Misc
 
-- [ ] No install script for ctags, tmux.conf, gitconfig.
+- [x] No install script for ctags, tmux.conf, gitconfig.
 
 ## Not actually issues, but still TODOs
 
-- [ ] Consolidated install script for all files.
+- [x] Consolidated install script for all files.
+- [ ] Reduce duplication in install scripts (backup, ln loops are essentially identical).
+- [ ] Improve logging.
 - [ ] Make user agnostic template for gitconfig and interpolate env variables on install.
 - [ ] Install script for homebrew and packages.
 - [ ] Init script for git, hub credentials.
