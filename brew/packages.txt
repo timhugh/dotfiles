@@ -37,3 +37,4 @@ httpie
 hub
 ngrok
 macdown
+tig
