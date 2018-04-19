@@ -10,7 +10,8 @@
 - [x] The install script doesn't install .vimrc.
 - [x] The install script doesn't install the neovim init script.
 - [x] Again, I think this will do crazy stuff if run outside the `/vim` directory.
-
+- [ ] The Y, <leader>p, and <leader>P clipboard mappings seem to be inconsistent.
+  - *Think I need to read about the difference between the + and * clipboard buffers to understand this better.*
 
 ## Misc
 
