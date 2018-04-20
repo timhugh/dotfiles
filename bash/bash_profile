@@ -1,8 +1,8 @@
 # put homebrew first in path
-export PATH=/usr/local/bin:$(getconf PATH)
+export PATH=/usr/local/bin:$PATH
 
 # add user bin to path
-export PATH="${HOME}"/bin:$(getconf PATH)
+export PATH="${HOME}"/bin:$PATH
 
 # eternal instant history (without duplicates)
 # eternal history from (http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login)
