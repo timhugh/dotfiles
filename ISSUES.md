@@ -18,8 +18,12 @@
 - [x] No install script for ctags, tmux.conf, gitconfig.
 - [ ] Tmux open-pane-in-same-dir seems to have stopped working.
 
+## Bin
+- [ ] Bin install script doesn't actually backup old files (because it uses absolute paths)
+
 ## Not actually issues, but still TODOs
 
+- [ ] I'm not convinced that install script is actually safe to run...
 - [x] Consolidated install script for all files.
 - [ ] Reduce duplication in install scripts (backup, ln loops are essentially identical).
 - [ ] Improve logging.

@@ -1,4 +1,4 @@
-# bash/install.sh
+# install/bash.sh
 #
 # creates symlinks in ~/. for:
 # .bashrc
@@ -19,5 +19,3 @@ echo Symlinking new files...
 for f in $sources; do
   _ln "${bash_root}/$f" "${HOME}/.$f"
 done
-
-echo Done!
