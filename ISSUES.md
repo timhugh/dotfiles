@@ -16,7 +16,7 @@
 ## Misc
 
 - [x] No install script for ctags, tmux.conf, gitconfig.
-- [ ] Tmux open-pane-in-same-dir seems to have stopped working.
+- [x] Tmux open-pane-in-same-dir seems to have stopped working.
 
 ## Bin
 - [ ] Bin install script doesn't actually backup old files (because it uses absolute paths)
