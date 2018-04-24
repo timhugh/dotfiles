@@ -1,5 +1,5 @@
 #!/bin/bash
 
-DOT_ROOT=$(echo "$HOME"/.dotfiles_root)
+DOT_ROOT=$(cat "$HOME"/.dotfiles_root)
 
 "${DOT_ROOT}/install.sh"
