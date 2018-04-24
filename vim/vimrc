@@ -120,6 +120,7 @@ let g:strip_trailing_lines = 1
 
 " vim-fugitive config
 nnoremap <leader>gl :Glog<CR>:copen<CR>
+nnoremap <leader>gs :Gstatus<CR>
 
 """ END PLUGIN CONFIG
 
@@ -141,7 +142,7 @@ nnoremap <leader>W :set wrap!<CR>
 " open tab and set local working directory in first window
 " (effectively, this should mean that every window opened in that tab will use
 " the local working directory)
-command! -nargs=1 -complete=file Tab silent! :tabe <args> | :lcd <args>
+command! -nargs=? -complete=file Tab silent! :tabe <args> | :lcd <args>
 nnoremap <leader>E :Tab<SPACE>
 
 " auto display line numbers in active buffer
