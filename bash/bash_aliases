@@ -10,7 +10,7 @@ alias du='du -h'
 
 # vim shortcuts
 export EDITOR='nvim'
-export MYVIMRC=~/.vim/.vimrc
+export MYVIMRC=~/.vimrc
 alias edit='$EDITOR'
 alias e=edit
 

@@ -16,7 +16,7 @@ _backup "${HOME}/.config/nvim" "vim"
 
 echo Linking new files...
 _ln "${vim_root}"              "${HOME}/.vim"
-_ln "${HOME}/.vim/vimrc"       "${HOME}/.vimrc"
+_ln "${vim_root}/vimrc"        "${HOME}/.vimrc"
 _mkdir "${HOME}/.config"
 _ln "${vim_root}/nvim"         "${HOME}/.config/nvim"
 
