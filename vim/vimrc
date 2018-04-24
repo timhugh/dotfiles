@@ -104,7 +104,6 @@ nnoremap <leader>R :TagbarOpenAutoClose<CR>
 let g:jsx_ext_required = 0
 
 " ctrlp.vim config
-let g:ctrlp_map = '<leader>t'
 let g:ctrlp_show_hidden=1
 let g:ctrlp_switch_buffer=0
 nnoremap <leader>r :CtrlPBufTag<CR>
@@ -127,6 +126,7 @@ nnoremap <leader>gl :Glog<CR>:copen<CR>
 
 " fzf
 if executable('fzf')
+  nnoremap <leader>t :FZF<CR>
   set rtp+=/usr/local/opt/fzf
 endif
 
