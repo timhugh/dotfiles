@@ -7,6 +7,7 @@ set noerrorbells novisualbell
 let mapleader=","
 inoremap jj <esc>
 inoremap JJ <esc>
+noremap [[ <esc>
 
 
 """ START VUNDLE CONFIG
