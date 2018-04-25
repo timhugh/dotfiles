@@ -8,7 +8,6 @@ chruby
 ruby-install
 
 [javacript]
-nvm
 yarn
 
 [go]
