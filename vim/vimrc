@@ -53,9 +53,8 @@ Plugin 'gasparch/ctrlp-tagbar.vim'
 " ruby
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rake'
-Plugin 'ecomba/vim-ruby-refactoring'
+"Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'ngmy/vim-rubocop'
-Plugin 'rainerborene/vim-reek'
 Plugin 'tpope/vim-bundler'
 
 " rails
