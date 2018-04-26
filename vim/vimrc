@@ -45,16 +45,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 
-" tag browsing / searching
-Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'gasparch/ctrlp-tagbar.vim'
-
 " ruby
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rake'
-"Plugin 'ecomba/vim-ruby-refactoring'
-Plugin 'ngmy/vim-rubocop'
 Plugin 'tpope/vim-bundler'
 
 " rails
@@ -96,23 +89,8 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-" tagbar config
-nnoremap <leader>R :TagbarOpenAutoClose<CR>
-
 " vim-jsx config
 let g:jsx_ext_required = 0
-
-" ctrlp.vim config
-let g:ctrlp_show_hidden=1
-let g:ctrlp_switch_buffer=0
-nnoremap <leader>r :CtrlPBufTag<CR>
-let g:ctrlp_buftag_types = {
-\   'go' : '--language-force=go --go-types=d'
-\ }
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching = 0
-endif
 
 " StripWhiteSpaces config
 let g:strip_trailing_lines = 1
@@ -127,7 +105,54 @@ nnoremap <leader>gs :Gstatus<CR>
 " fzf
 if executable('fzf')
   nnoremap <leader>t :FZF<CR>
+  nnoremap <leader>r :FZFTags<CR>
   set rtp+=/usr/local/opt/fzf
+
+  " tag search borrowed from (https://github.com/junegunn/fzf/wiki/Examples-(vim)#jump-to-tags-in-the-current-buffer)
+  function! s:align_lists(lists)
+    let maxes = {}
+    for list in a:lists
+      let i = 0
+      while i < len(list)
+        let maxes[i] = max([get(maxes, i, 0), len(list[i])])
+        let i += 1
+      endwhile
+    endfor
+    for list in a:lists
+      call map(list, "printf('%-'.maxes[v:key].'s', v:val)")
+    endfor
+    return a:lists
+  endfunction
+
+  function! s:btags_source()
+    let lines = map(split(system(printf(
+          \ 'ctags -f - --sort=no --excmd=number --language-force=%s %s',
+          \ &filetype, expand('%:S'))), "\n"), 'split(v:val, "\t")')
+    if v:shell_error
+      throw 'failed to extract tags'
+    endif
+    return map(s:align_lists(lines), 'join(v:val, "\t")')
+  endfunction
+
+  function! s:btags_sink(line)
+    execute split(a:line, "\t")[2]
+  endfunction
+
+  function! s:btags()
+    try
+      call fzf#run({
+            \ 'source':  s:btags_source(),
+            \ 'options': '+m -d "\t" --with-nth 1,4.. -n 1 --tiebreak=index',
+            \ 'down':    '40%',
+            \ 'sink':    function('s:btags_sink')})
+    catch
+      echohl WarningMsg
+      echom v:exception
+      echohl None
+    endtry
+  endfunction
+
+  command! FZFTags call s:btags()
 endif
 
 " silent wrapper
