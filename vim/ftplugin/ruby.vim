@@ -1,1 +1,1 @@
-autocmd BufWritePost * :Ctags
+autocmd BufWritePost * :GenerateCtags

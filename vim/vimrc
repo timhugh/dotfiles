@@ -124,7 +124,7 @@ if executable('fzf')
     return a:lists
   endfunction
 
-  function! s:btags_source()
+  function! s:fzf_tags_source()
     let lines = map(split(system(printf(
           \ 'ctags -f - --sort=no --excmd=number --language-force=%s %s',
           \ &filetype, expand('%:S'))), "\n"), 'split(v:val, "\t")')
@@ -138,10 +138,10 @@ if executable('fzf')
     execute split(a:line, "\t")[2]
   endfunction
 
-  function! s:btags()
+  function! s:fzf_tags()
     try
       call fzf#run({
-            \ 'source':  s:btags_source(),
+            \ 'source':  s:fzf_tags_source(),
             \ 'options': '+m -d "\t" --with-nth 1,4.. -n 1 --tiebreak=index',
             \ 'down':    '40%',
             \ 'sink':    function('s:btags_sink')})
@@ -152,7 +152,7 @@ if executable('fzf')
     endtry
   endfunction
 
-  command! FZFTags call s:btags()
+  command! FZFTags call s:fzf_tags()
 endif
 
 " silent wrapper
@@ -173,8 +173,8 @@ nnoremap <leader>E :Tab<SPACE>
 set relativenumber
 
 " ctags
-command! Ctags call Ctags()
-function! Ctags()
+command! GenerateCtags call GenerateCtags()
+function! GenerateCtags()
   if executable('ctags')
     execute 'Silent ctags -R > /dev/null &'
   endif
