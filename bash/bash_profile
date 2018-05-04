@@ -55,3 +55,9 @@ done
 
 # load custom prompt
 [[ -f ~/.bash_prompt ]] && . ~/.bash_prompt
+
+# finally, display welcome banner and start snowing
+trap ' ' INT
+snow
+clear
+header

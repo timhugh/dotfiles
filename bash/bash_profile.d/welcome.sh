@@ -22,5 +22,3 @@ EOF
   echo "${date} - ${time} - ${utc}"
   echo
 }
-
-header
