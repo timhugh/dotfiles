@@ -44,7 +44,7 @@ function watch {
 }
 
 # load additional configs
-for f in ~/.bash_profile.d/* ; do
+for f in ~/.bash_profile.d/*.sh ; do
   source $f
 done
 

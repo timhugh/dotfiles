@@ -102,6 +102,11 @@ nnoremap <leader>gs :Gstatus<CR>
 """ END PLUGIN CONFIG
 
 
+" set dictionary for autocomplete
+set dictionary+=/usr/share/dict/words
+set dictionary+=~/.vim/dictionary
+set complete+=k
+
 " fzf
 if executable('fzf')
   nnoremap <leader>t :FZF<CR>
