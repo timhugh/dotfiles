@@ -98,6 +98,8 @@ let g:strip_trailing_lines = 1
 " vim-fugitive config
 nnoremap <leader>gl :Glog<CR>:copen<CR>
 nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gn :GitGutterNextHunk<CR>
+nnoremap <leader>gp :GitGutterPrevHunk<CR>
 
 """ END PLUGIN CONFIG
 
