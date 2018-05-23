@@ -131,6 +131,7 @@ if executable('fzf')
     return a:lists
   endfunction
 
+  " TODO: might as well use existing tags file
   function! s:fzf_tags_source()
     let lines = map(split(system(printf(
           \ 'ctags -f - --sort=no --excmd=number --language-force=%s %s',
