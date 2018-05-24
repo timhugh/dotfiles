@@ -1,5 +1,6 @@
 autocmd BufWritePost * :GenerateCtags
 
+noremap <leader>nn o# NOTE: <esc>==A
 noremap <leader>nt O# TODO: <esc>==A
 noremap <leader>nf O# FIXME: <esc>==A
 
