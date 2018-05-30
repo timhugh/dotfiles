@@ -174,6 +174,8 @@ nnoremap <leader>W :set wrap!<CR>
 " open tab and set local working directory in first window
 " (effectively, this should mean that every window opened in that tab will use
 " the local working directory)
+" FIXME: lcd can't cd to a file and errors out -- need to strip the file from
+" the end of the path before passing to lcd
 command! -nargs=? -complete=file Tab silent! :tabe <args> | :lcd <args>
 nnoremap <leader>E :Tab<SPACE>
 
