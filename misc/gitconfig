@@ -25,5 +25,6 @@
   rba = rebase --abort
   rbc = rebase --continue
   rbi = rebase -i
+  s = log -S
   st = status --short --branch
   u = merge --no-commit --ff-only
