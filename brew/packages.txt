@@ -29,6 +29,7 @@ mongodb
 postgresql
 
 [misc tools]
+bash
 git
 gource
 heroku
