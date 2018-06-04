@@ -34,6 +34,7 @@ gource
 heroku
 httpie
 hub
+imagemagick@6
 ngrok
 macdown
 terminal-notifier
