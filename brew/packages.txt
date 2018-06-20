@@ -31,12 +31,18 @@ postgresql
 [misc tools]
 bash
 git
-gource
 heroku
 httpie
 hub
-imagemagick@6
 ngrok
 macdown
+pkg-config
 terminal-notifier
+
+[other misc]
+gource
 tig
+
+[libraries]
+libgit2
+imagemagick@6
