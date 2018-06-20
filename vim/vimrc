@@ -237,7 +237,7 @@ noremap <leader>ev :tabnew $MYVIMRC<CR>
 noremap <leader>sv :source $MYVIMRC<CR>
 
 " diff colors
-hi DiffAdd    ctermfg=40    ctermbg=240  cterm=NONE
-hi DiffChange ctermfg=190   ctermbg=240  cterm=NONE
-hi DiffDelete ctermfg=196   ctermbg=240  cterm=NONE
-hi DiffText   ctermfg=NONE  ctermbg=NONE cterm=reverse
+highlight DiffAdd    ctermfg=40    ctermbg=240  cterm=NONE
+highlight DiffChange ctermfg=190   ctermbg=240  cterm=NONE
+highlight DiffDelete ctermfg=196   ctermbg=240  cterm=NONE
+highlight DiffText   ctermfg=NONE  ctermbg=NONE cterm=reverse

@@ -1,5 +1,7 @@
+" autogenerate tags on save
 autocmd BufWritePost * :GenerateCtags
 
+" shortcuts for note comments
 noremap <leader>nn o# NOTE: <esc>==A
 noremap <leader>nt O# TODO: <esc>==A
 noremap <leader>nf O# FIXME: <esc>==A
@@ -10,3 +12,6 @@ if executable('ripper-tags')
     execute 'Silent ripper-tags -R > /dev/null &'
   endfunction
 endif
+
+" highlight characters exceeding the 120 limit
+match ErrorMsg '\%>120v.\+'
