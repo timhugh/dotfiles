@@ -25,6 +25,7 @@
   rba = rebase --abort
   rbc = rebase --continue
   rbi = rebase -i
+  repush = !git pull --rebase && git push
   s = log -S
   st = status --short --branch
   u = merge --no-commit --ff-only
