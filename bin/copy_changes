@@ -7,8 +7,4 @@
 SRC_FILE=$1
 DEST_FILE=$2
 
-git diff HEAD^ -- $SRC_FILE > .tmp-patch
-patch -p1 $DEST_FILE .tmp-patch
-EXIT=$?
-rm .tmp-patch
-exit $EXIT
+git diff HEAD^ -- $SRC_FILE | patch -p1 $DEST_FILE
