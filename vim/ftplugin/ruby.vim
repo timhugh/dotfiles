@@ -1,5 +1,5 @@
 " autogenerate tags on save
-autocmd BufWritePost * :GenerateCtags
+" autocmd BufWritePost * :GenerateCtags
 
 " shortcuts for note comments
 noremap <leader>nn o# NOTE: <esc>==A
