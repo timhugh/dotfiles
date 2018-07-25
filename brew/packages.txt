@@ -34,9 +34,11 @@ git
 heroku
 httpie
 hub
+jq
 ngrok
 macdown
 pkg-config
+pup
 terminal-notifier
 
 [other misc]
