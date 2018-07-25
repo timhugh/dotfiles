@@ -103,6 +103,9 @@ nnoremap <leader>gp :GitGutterPrevHunk<CR>
 
 """ END PLUGIN CONFIG
 
+" autosave buffers when focus is lost
+" (ignores warnings from unnamed buffers)
+autocmd FocusLost * silent! wa
 
 " set dictionary for autocomplete
 set dictionary+=/usr/share/dict/words
