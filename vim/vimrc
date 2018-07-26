@@ -26,8 +26,15 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-endwise'
+Plugin 'tomtom/tcomment_vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vim-scripts/StripWhiteSpaces'
+
+" snipmate and dependencies
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
 " enhanced selectors
 Plugin 'tmhedberg/matchit'
@@ -35,13 +42,13 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'lucapette/vim-textobj-underscore'
 
-" git stuff
+" git
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
 Plugin 'tommcdo/vim-fubitive'
 Plugin 'airblade/vim-gitgutter'
 
-" writing stuff
+" writing
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 
@@ -49,8 +56,6 @@ Plugin 'junegunn/limelight.vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-bundler'
-
-" rails
 Plugin 'tpope/vim-rails'
 Plugin 'thoughtbot/vim-rspec'
 
