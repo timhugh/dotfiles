@@ -111,7 +111,15 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gn :GitGutterNextHunk<CR>
 nnoremap <leader>gp :GitGutterPrevHunk<CR>
 
+" vim-rspec config
+let g:rspec_command = "!bundle exec rspec {spec}"
+" map <Leader>rt :call RunCurrentSpecFile()<CR>
+" map <Leader>rs :call RunNearestSpec()<CR>
+" map <Leader>rl :call RunLastSpec()<CR>
+" map <Leader>ra :call RunAllSpecs()<CR>
+
 """ END PLUGIN CONFIG
+
 
 " autosave buffers when focus is lost
 " (ignores warnings from unnamed buffers)
