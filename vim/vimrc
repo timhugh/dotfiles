@@ -9,6 +9,11 @@ inoremap jj <esc>
 inoremap JJ <esc>
 noremap [[ <esc>
 
+" provider config
+" TODO I really doubt this is portable
+let g:python_host_prog  = '/usr/local/opt/python2/bin/python2'
+let g:python3_host_prog = '/usr/local/bin/python3'
+
 
 """ START VUNDLE CONFIG
 filetype off
