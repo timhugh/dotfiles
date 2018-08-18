@@ -12,6 +12,8 @@
 - [x] Again, I think this will do crazy stuff if run outside the `/vim` directory.
 - [ ] The Y, <leader>p, and <leader>P clipboard mappings seem to be inconsistent.
   - *Think I need to read about the difference between the + and * clipboard buffers to understand this better.*
+- [ ] Fix/finish the "search for todo" feature
+- [ ] Write a list of all mappings and come up with a better system for less-used ones
 
 ## Misc
 
