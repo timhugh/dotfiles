@@ -28,6 +28,8 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+Plugin 'majutsushi/tagbar'
+
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-endwise'
