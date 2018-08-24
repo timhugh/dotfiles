@@ -35,6 +35,7 @@ postgresql
 
 [misc tools]
 bash
+cmake
 git
 heroku
 httpie

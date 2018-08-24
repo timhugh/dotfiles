@@ -8,3 +8,5 @@ gem install ripper-tags # ruby tag parser
 gem install gem-ctags # generates tags for gems on install
 gem ctags
 # TODO: generate gem ctags using ripper-tags instead?
+
+gem install pronto pronto-rubocop
