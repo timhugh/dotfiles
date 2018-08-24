@@ -127,6 +127,10 @@ let g:rspec_command = "!bundle exec rspec {spec}"
 " (ignores warnings from unnamed buffers)
 autocmd FocusLost * silent! wa
 
+" persistent undo history
+set undodir=~/.vim/undo
+set undofile
+
 " set dictionary for autocomplete
 set dictionary+=/usr/share/dict/words
 set dictionary+=~/.vim/dictionary
