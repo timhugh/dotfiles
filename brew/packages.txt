@@ -53,4 +53,4 @@ tig
 
 [libraries]
 libgit2
-imagemagick@6
+imagemagick@6 (link --force)
