@@ -28,6 +28,8 @@ Plugin 'tpope/vim-vinegar'
 
 Plugin 'benmills/vimux'
 
+Plugin 'junegunn/fzf.vim'
+
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
@@ -144,10 +146,17 @@ set dictionary+=~/.vim/dictionary
 set complete+=k
 
 " fzf
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
 if executable('fzf')
-  nnoremap <leader>t :FZF<CR>
-  nnoremap <leader>r :FZFTags<CR>
   set rtp+=/usr/local/opt/fzf
+
+  nnoremap <leader>t :FZF<CR>
+  nnoremap <leader>? :Commands<CR>
+  nnoremap <leader>r :FZFTags<CR>
 
   " tag search borrowed from (https://github.com/junegunn/fzf/wiki/Examples-(vim)#jump-to-tags-in-the-current-buffer)
   function! s:align_lists(lists)
