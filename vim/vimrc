@@ -26,6 +26,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'tpope/vim-vinegar'
 
+Plugin 'benmills/vimux'
+
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
@@ -101,6 +103,10 @@ function! s:goyo_leave()
 endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+" vimux config
+map <leader>vp :VimuxPromptCommand<CR>
+map <leader>vl :VimuxRunLastCommand<CR>
 
 " vim-jsx config
 let g:jsx_ext_required = 0
