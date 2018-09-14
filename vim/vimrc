@@ -3,6 +3,7 @@ syntax on
 set encoding=utf8
 colorscheme delek
 set noerrorbells novisualbell
+set number
 
 let mapleader=","
 inoremap jj <esc>
@@ -206,9 +207,6 @@ command! -nargs=* Wrap set wrap!
 " the end of the path before passing to lcd
 command! -nargs=? -complete=file Tab silent! :tabe <args> | :lcd <args>
 nnoremap <leader>E :Tab<SPACE>
-
-" auto display line numbers in active buffer
-set relativenumber
 
 " ctags
 command! GenerateCtags call GenerateCtags()
