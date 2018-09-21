@@ -4,6 +4,7 @@ set encoding=utf8
 colorscheme delek
 set noerrorbells novisualbell
 set number
+set mouse=n
 
 let mapleader=","
 inoremap jj <esc>
