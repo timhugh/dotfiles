@@ -8,7 +8,6 @@ set number
 let mapleader=","
 inoremap jj <esc>
 inoremap JJ <esc>
-noremap [[ <esc>
 
 " provider config
 " TODO I really doubt this is portable
