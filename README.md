@@ -2,6 +2,8 @@
 
 ## Intro
 
+Some time ago, my beautiful bash profile was lost in a tragic backup accident, and I was forced to start fresh. With very little memory of what was actually in the original, I am now on a journey to terminal re-enlightenment, and you can follow along.
+
 ## Issues
 
 [ISSUES.md](https://github.com/timhugh/dotfiles/blob/master/ISSUES.md)
