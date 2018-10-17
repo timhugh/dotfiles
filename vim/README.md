@@ -24,5 +24,10 @@ JJ: <esc>
 
 ,gl: git log
 ,gs: git status
-,gn:
+,gn: next git hunk
+,gp: prev git hunk
+
+,vv: run rspec at current line
+,vG: run rspec with current file
+     (runs spec for current file if current file is not a spec)
 ```
