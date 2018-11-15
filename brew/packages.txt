@@ -30,6 +30,8 @@ tmux
 
 [db clients]
 mysql
+# need 5.x for work
+mysql@5.6
 mongodb
 postgresql
 
