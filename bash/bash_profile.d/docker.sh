@@ -1,24 +1,64 @@
-# docker-compose
+# docker-compose shortcut
 alias dc='docker-compose'
 
-# docker-machine
+# docker-machine shortcut
 alias dm='docker-machine'
-function dmc {
-  dmc-check-current && return
-  docker-machine $@ $CURRENT_DOCKER_MACHINE
-}
+
+# Utilities for managing multiple docker-machines.
+#
+# NOTE: This is all much easier with the use of docker-machine-ipconfig:
+#       https://github.com/fivestars/docker-machine-ipconfig
+#
+#       It allows you to assign static IPs to each docker-machine VM so you
+#       don't have to worry about boot order messing up your hosts file or
+#       requiring you to renegerate certificates
+
+DMC_FILE=~/.current-docker-machine
+
+# dmc-env
+# Sets docker environment variables in the current sessions for the
+# preferred/current machine.
 function dmc-env {
-  dmc-check-current && return
-  eval $(docker-machine env $CURRENT_DOCKER_MACHINE)
+  machine=$(_dmc-get-current)
+  if [ -z "$machine" ]; then
+    echo 'Preferred machine is not set (use dmc-set)'
+    return 1
+  fi
+
+  eval $(docker-machine env $machine)
 }
-function dmc-check-current {
-  [[ -z $CURRENT_DOCKER_MACHINE ]] && echo 'current docker machine is not set' && return 1
-}
-function dm-env {
-  [[ -z $1 ]] && echo 'Must specify name of docker machine' && return 1
-  export CURRENT_DOCKER_MACHINE=$1
+
+# dmc-set
+# Sets preferred/current machine, which will be used for all sessions until
+# dmc-set is called again for a different machine).
+function dmc-set {
+  machine="$1"
+  if [ -z "$machine" ]; then
+    echo 'Must specify a machine: `dmc-set mymachine`'
+    return 1
+  fi
+  export CURRENT_DOCKER_MACHINE="$machine"
+  _dmc-write "$machine"
   dmc-env
 }
 
-# init docker env for default machine
-[[ -n $CURRENT_DOCKER_MACHINE ]] && [[ "$(docker-machine status $CURRENT_DOCKER_MACHINE)" == *"Running"* ]] && dmc-env
+function _dmc-get-current {
+  if [ -n "$CURRENT_DOCKER_MACHINE" ]; then
+    echo "$CURRENT_DOCKER_MACHINE"
+  else
+    if [ -f "$DMC_FILE" ]; then
+      echo $(cat "$DMC_FILE")
+    fi
+  fi
+}
+
+function _dmc-write {
+  machine="$1"
+  if [ -n "$machine" ]; then
+    echo "$machine" > $DMC_FILE
+  fi
+}
+
+# Call dmc-env when session starts, if there's a current/preferred machine.
+machine=$(_dmc-get-current)
+[[ -n $machine ]] && dmc-env

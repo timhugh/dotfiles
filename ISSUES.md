@@ -4,6 +4,7 @@
 
 - [x] If the ~/.bash_profile.d symlink already exists, another one will be created inside the directory.
 - [x] I haven't actually tested, but I suspect the install script will shit the bed if you run it outside the `/bash` directory.
+- [ ] New dmc-set command will happily write the name of a nonexistent machine to the config file.
 
 ## Vim
 
