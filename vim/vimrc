@@ -145,11 +145,6 @@ autocmd FocusLost * silent! wa
 set undodir=~/.vim/undo
 set undofile
 
-" set dictionary for autocomplete
-set dictionary+=/usr/share/dict/words
-set dictionary+=~/.vim/dictionary
-set complete+=k
-
 " fzf
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
