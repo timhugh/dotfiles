@@ -49,6 +49,7 @@ macdown
 pkg-config
 pup
 terminal-notifier
+wget
 
 [other misc]
 gource
