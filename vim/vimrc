@@ -84,6 +84,9 @@ Plugin 'mxw/vim-jsx'
 " confluence
 Plugin 'vim-scripts/confluencewiki.vim'
 
+" ledger
+Plugin 'ledger/vim-ledger'
+
 call vundle#end()
 filetype plugin indent on
 """ END VUNDLE CONFIG
