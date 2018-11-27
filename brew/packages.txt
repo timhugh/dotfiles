@@ -51,6 +51,7 @@ pkg-config
 pup
 terminal-notifier
 wget
+wrk
 
 [other misc]
 gource
