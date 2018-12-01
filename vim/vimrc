@@ -41,6 +41,8 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vim-scripts/StripWhiteSpaces'
 
+Plugin 'janko-m/vim-test'
+
 " snipmate and dependencies
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -68,8 +70,6 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rails'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'skalnik/vim-vroom'
 
 " go
 Plugin 'fatih/vim-go'
@@ -113,10 +113,11 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 map <leader>vp :VimuxPromptCommand<CR>
 map <leader>vl :VimuxRunLastCommand<CR>
 
-" vroom config
-let g:vroom_use_vimux = 1
-map <leader>vv :VroomRunNearestTest<CR>
-map <leader>vG :VroomRunTestFile<CR>
+" vim-test config
+map <leader>tt :TestNearest<CR>
+map <leader>tG :TestFile<CR>
+map <leader>tT :TestSuite<CR>
+map <leader>tl :TestLast<CR>
 
 " vim-jsx config
 let g:jsx_ext_required = 0
@@ -129,13 +130,6 @@ nnoremap <leader>gl :Glog<CR>:copen<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gn :GitGutterNextHunk<CR>
 nnoremap <leader>gp :GitGutterPrevHunk<CR>
-
-" vim-rspec config
-let g:rspec_command = "!bundle exec rspec {spec}"
-" map <Leader>rt :call RunCurrentSpecFile()<CR>
-" map <Leader>rs :call RunNearestSpec()<CR>
-" map <Leader>rl :call RunLastSpec()<CR>
-" map <Leader>ra :call RunAllSpecs()<CR>
 
 """ END PLUGIN CONFIG
 
