@@ -244,6 +244,9 @@ nnoremap Y "*y
 nnoremap <leader>p "*p
 nnoremap <leader>P "*P
 
+" reindent entire file
+map <leader>= mzgg=G`z
+
 " search settings
 set hlsearch incsearch ignorecase
 nmap <silent> <leader>/ :nohlsearch<CR>
