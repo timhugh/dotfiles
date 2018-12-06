@@ -41,10 +41,10 @@ bash-completion
 cmake
 git
 heroku
+hledger
 httpie
 hub
 jq
-ledger
 ngrok
 macdown
 pkg-config
