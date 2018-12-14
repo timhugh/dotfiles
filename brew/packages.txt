@@ -47,6 +47,7 @@ hub
 jq
 ngrok
 macdown
+pandoc
 pkg-config
 pup
 terminal-notifier
