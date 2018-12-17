@@ -8,7 +8,7 @@
 # .tmux.conf
 
 misc_root="${DOT_ROOT}/misc"
-sources="crontab ctags gitconfig gitignore tmux.conf"
+sources="crontab ctags gitconfig gitignore tmux.conf ruby-version"
 
 echo Backing up existing ${sources}...
 for f in $sources; do
