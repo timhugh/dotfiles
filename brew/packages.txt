@@ -44,6 +44,7 @@ heroku
 hledger
 httpie
 hub
+hugo
 jq
 ngrok
 macdown
