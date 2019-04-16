@@ -30,8 +30,6 @@ tmux
 
 [db clients]
 mysql
-# need 5.x for work
-mysql@5.6
 mongodb
 postgresql
 
@@ -58,7 +56,3 @@ wrk
 [other misc]
 gource
 tig
-
-[libraries]
-libgit2
-imagemagick@6 (link --force)
