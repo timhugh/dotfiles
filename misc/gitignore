@@ -2,3 +2,4 @@ tags
 .vscode
 .DS_Store
 .byebug_history
+.idea
