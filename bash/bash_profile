@@ -26,6 +26,12 @@ export PATH=~/bin:$PATH
 # homebrew bash completion
 [[ -f `brew --prefix`/etc/bash_completion ]] && . `brew --prefix`/etc/bash_completion
 
+# override `cd` to run hooks in current directory (if applicable)
+function cd {
+  builtin cd "$@" || return
+  [[ -f .cd_hook ]] && . .cd_hook || return
+}
+
 # hacky watch script for triggering tasks when files change
 # example:
 #   $ watch "app spec" "bundle exec rake"

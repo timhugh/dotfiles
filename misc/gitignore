@@ -3,3 +3,4 @@ tags
 .DS_Store
 .byebug_history
 .idea
+.cd_hook
