@@ -26,12 +26,6 @@ export PATH=~/bin:$PATH
 # homebrew bash completion
 [[ -f `brew --prefix`/etc/bash_completion ]] && . `brew --prefix`/etc/bash_completion
 
-# override `cd` to run hooks in current directory (if applicable)
-function cd {
-  builtin cd "$@" || return
-  [[ -f .cd_hook ]] && . .cd_hook || return
-}
-
 # hacky watch script for triggering tasks when files change
 # example:
 #   $ watch "app spec" "bundle exec rake"
@@ -54,11 +48,16 @@ for f in ~/.bash_profile.d/*.sh ; do
   source $f
 done
 
-# load custom prompt
+# override `cd` to run hooks in current directory (if applicable)
+function cd {
+  builtin cd "$@" || return
+  [[ -f .cd_hook ]] && . .cd_hook || return
+}
+[[ -f .cd_hook ]] && . .cd_hook
+
+# set prompt
 [[ -f ~/.bash_prompt ]] && . ~/.bash_prompt
 
 # finally, display welcome banner and start snowing
-# trap ' ' INT
-# snow
-# clear
+snow
 header

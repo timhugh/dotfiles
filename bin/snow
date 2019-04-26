@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 LINES=$(tput lines)
 COLUMNS=$(tput cols)
@@ -6,6 +6,7 @@ COLUMNS=$(tput cols)
 declare -A snowflakes
 declare -A lastflakes
 
+trap 'clear && exit' INT
 clear
 
 function move_flake() {
@@ -36,5 +37,5 @@ do
     move_flake "$x"
   done
 
-  sleep 0.1
+  read -t0.1 -rs -n1 input && clear && exit
 done
