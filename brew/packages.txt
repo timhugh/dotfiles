@@ -49,6 +49,7 @@ macdown
 pandoc
 pkg-config
 pup
+rclone
 terminal-notifier
 wget
 wrk

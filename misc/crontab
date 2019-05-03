@@ -7,3 +7,5 @@
 # │ │ │ │ │
 # │ │ │ │ │
 # * * * * *  command to execute
+
+30 * * * * * wallpaper_sync >>$HOME/.cron.stdout 2>>$HOME/.cron.stderr
