@@ -7,4 +7,4 @@ set tabstop=4
 set shiftwidth=4
 set noexpandtab
 
-" autocmd BufWritePost * :GoImports
+let g:go_fmt_command = "goimports"
