@@ -5,12 +5,13 @@
 # .ctags
 # .gitignore
 # .gitconfig
+# .ideavimrc
 # .irbrc
 # .tmux.conf
 # .ruby-version
 
 misc_root="${DOT_ROOT}/misc"
-sources="crontab ctags gitconfig gitignore irbrc ruby-version tmux.conf"
+sources="crontab ctags gitconfig gitignore ideavimrc irbrc ruby-version tmux.conf"
 
 echo Backing up existing ${sources}...
 for f in $sources; do
