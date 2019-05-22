@@ -49,6 +49,9 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
+" ycm
+Plugin 'Valloric/YouCompleteMe'
+
 " enhanced selectors
 Plugin 'tmhedberg/matchit'
 Plugin 'kana/vim-textobj-user'
