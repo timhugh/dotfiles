@@ -10,4 +10,8 @@ if [ -x "$(command -v fzf)" ]; then
 
   # Key bindings
   source "/usr/local/opt/fzf/shell/key-bindings.bash"
+
+  # Use fd instead of find
+  # (ignores .gitignore files, for one)
+  export FZF_DEFAULT_COMMAND="fd --type f"
 fi
