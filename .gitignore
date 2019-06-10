@@ -1,4 +1,6 @@
-.netrwhist
-swapfiles/
-undo/
-bundle/
+# vim stuff
+vim/.netrwhist
+vim/nvim/.netrwhist
+vim/swapfiles/
+vim/undo/
+vim/bundle/
