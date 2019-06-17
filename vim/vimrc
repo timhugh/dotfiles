@@ -75,6 +75,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 
+" java / kotlin
+Plugin 'udalov/kotlin-vim'
+
 " ruby
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rake'
