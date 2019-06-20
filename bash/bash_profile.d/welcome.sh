@@ -1,3 +1,4 @@
+# mountain art courtesy of https://www.asciiart.eu/nature/mountains
 function header {
   cat << "EOF"
 
