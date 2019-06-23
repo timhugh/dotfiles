@@ -41,6 +41,7 @@ Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'majutsushi/tagbar'
 
+Plugin 'luochen1990/rainbow'
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-endwise'
@@ -106,6 +107,9 @@ filetype plugin indent on
 
 
 """ START PLUGIN CONFIG
+
+" enable rainbow
+let g:rainbow_active = 1
 
 " goyo / limelight config
 nnoremap <leader>G :Goyo<CR>
