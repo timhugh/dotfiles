@@ -136,6 +136,10 @@ map <leader>tG :TestFile<CR>
 map <leader>tT :TestSuite<CR>
 map <leader>tl :TestLast<CR>
 
+" make config
+map <leader>mm :make<CR>
+map <leader>m :make<SPACE>
+
 " vim-jsx config
 let g:jsx_ext_required = 0
 
