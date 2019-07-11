@@ -21,7 +21,12 @@ DMC_FILE=~/.current-docker-machine
 function dmc-env {
   machine=$(_dmc-get-current)
   if [ -z "$machine" ]; then
-    echo 'Preferred machine is not set (use dmc-set)'
+    echo "Preferred machine is not set (use dmc-set)"
+    return 1
+  fi
+  status=`docker-machine status`
+  if [ $status != "Running" ]; then
+    echo "Docker machine is not running: $status"
     return 1
   fi
 
