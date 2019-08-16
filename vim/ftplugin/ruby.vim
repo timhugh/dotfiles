@@ -14,4 +14,11 @@ if executable('ripper-tags')
 endif
 
 " highlight characters exceeding the 120 limit
-match ErrorMsg '\%>120v.\+'
+set colorcolumn=120
+highlight ColorColumn ctermbg=darkgray
+
+" indentation stuff
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab autoindent smartindent

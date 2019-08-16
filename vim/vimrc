@@ -111,6 +111,11 @@ filetype plugin indent on
 " enable rainbow
 let g:rainbow_active = 1
 
+" ycm config
+"  disable tab for completions so it won't conflict with snipmate
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
+
 " goyo / limelight config
 nnoremap <leader>G :Goyo<CR>
 let g:goyo_width = 120
@@ -252,7 +257,8 @@ endfunction
 " indentation stuff
 set tabstop=2
 set shiftwidth=2
-set expandtab autoindent smartindent
+set expandtab
+set autoindent smartindent
 
 " more natural backspace behaviour
 set backspace=indent,eol,start
