@@ -41,6 +41,7 @@ Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'majutsushi/tagbar'
 
+Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'luochen1990/rainbow'
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
@@ -107,6 +108,13 @@ filetype plugin indent on
 
 
 """ START PLUGIN CONFIG
+
+" vim-indent-guides config
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size = 1
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
 
 " enable rainbow
 let g:rainbow_active = 1
