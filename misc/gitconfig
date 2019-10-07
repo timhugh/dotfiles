@@ -9,7 +9,7 @@
 [credential]
   helper = osxkeychain
 [alias]
-  br = branch -a
+  br = branch
   c = commit -m
   ca = commit --amend --reuse-message=HEAD
   cam = commit --amend -m
