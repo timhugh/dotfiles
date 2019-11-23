@@ -2,7 +2,7 @@ set nocompatible
 syntax on
 set encoding=utf8
 
-colorscheme delek
+colorscheme default
 set background=dark
 if $ITERM_PROFILE == 'Light'
   colorscheme peachpuff
