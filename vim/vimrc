@@ -89,6 +89,9 @@ Plugin 'tpope/vim-rails'
 " go
 Plugin 'fatih/vim-go'
 
+" crystal
+Plugin 'rhysd/vim-crystal'
+
 " html
 Plugin 'mattn/emmet-vim'
 
