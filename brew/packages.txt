@@ -47,6 +47,7 @@ hugo
 jq
 ngrok
 macdown
+openssl
 pandoc
 pkg-config
 pup

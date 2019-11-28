@@ -26,6 +26,9 @@ export PATH=~/bin:$PATH
 # homebrew bash completion
 [[ -f `brew --prefix`/etc/bash_completion ]] && . `brew --prefix`/etc/bash_completion
 
+# make libssl visible to pkg-config
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+
 # hacky watch script for triggering tasks when files change
 # example:
 #   $ watch "app spec" "bundle exec rake"
