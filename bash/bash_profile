@@ -61,6 +61,5 @@ function cd {
 # set prompt
 [[ -f ~/.bash_prompt ]] && . ~/.bash_prompt
 
-# finally, display welcome banner and start snowing
-# snow
+# finally, display welcome banner
 header
