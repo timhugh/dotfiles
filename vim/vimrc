@@ -69,16 +69,13 @@ Plugin 'lucapette/vim-textobj-underscore'
 
 " git
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rhubarb'
-Plugin 'tommcdo/vim-fubitive'
 Plugin 'airblade/vim-gitgutter'
+" github
+Plugin 'tpope/vim-rhubarb'
 
 " writing
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
-
-" java / kotlin
-Plugin 'udalov/kotlin-vim'
 
 " ruby
 Plugin 'vim-ruby/vim-ruby'
