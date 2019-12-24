@@ -6,7 +6,7 @@ colorscheme default
 set background=dark
 if $ITERM_PROFILE == 'Light'
   colorscheme peachpuff
-set background=light
+  set background=light
 endif
 
 set noerrorbells novisualbell
