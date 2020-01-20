@@ -30,6 +30,7 @@ call vundle#begin()
 " Vundle manages itself
 Plugin 'VundleVim/Vundle.vim'
 
+" vim-vinegar enhances netrw
 Plugin 'tpope/vim-vinegar'
 
 Plugin 'benmills/vimux'
