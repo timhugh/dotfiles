@@ -4,6 +4,9 @@ export PATH=/usr/local/bin:$PATH
 # add user bin to path
 export PATH="${HOME}"/bin:$PATH
 
+# disable mac os catalina zsh warning
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # eternal instant history (without duplicates)
 # eternal history from (http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login)
 # sync and duplicate handling from (https://unix.stackexchange.com/a/18443)
