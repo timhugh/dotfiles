@@ -1,10 +1,5 @@
 " autogenerate tags on save
-" autocmd BufWritePost * :GenerateCtags
-
-" shortcuts for note comments
-noremap <leader>nn o# NOTE: <esc>==A
-noremap <leader>nt O# TODO: <esc>==A
-noremap <leader>nf O# FIXME: <esc>==A
+autocmd BufWritePost * :GenerateCtags
 
 " use ripper-tags if it's available
 if executable('ripper-tags')
