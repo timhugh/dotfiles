@@ -33,8 +33,6 @@ Plugin 'VundleVim/Vundle.vim'
 " vim-vinegar enhances netrw
 Plugin 'tpope/vim-vinegar'
 
-Plugin 'benmills/vimux'
-
 Plugin 'junegunn/fzf.vim'
 
 Plugin 'vim-airline/vim-airline'
@@ -140,19 +138,15 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-" vimux config
-map <leader>vp :VimuxPromptCommand<CR>
-map <leader>vl :VimuxRunLastCommand<CR>
-
 " vim-test config
-map <leader>tt :TestNearest<CR>
-map <leader>tG :TestFile<CR>
-map <leader>tT :TestSuite<CR>
-map <leader>tl :TestLast<CR>
+" map <leader>tt :TestNearest<CR>
+" map <leader>tG :TestFile<CR>
+" map <leader>tT :TestSuite<CR>
+" map <leader>tl :TestLast<CR>
 
 " make config
-map <leader>mm :make<CR>
-map <leader>m :make<SPACE>
+" map <leader>mm :make<CR>
+" map <leader>m :make<SPACE>
 
 " vim-jsx config
 let g:jsx_ext_required = 0
