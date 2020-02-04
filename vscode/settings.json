@@ -3,13 +3,17 @@
     "autoDarkMode.darkTheme": "Material Theme Darker",
     "autoDarkMode.lightTheme": "Github",
     "editor.fontFamily": "Monaco",
-    "editor.fontSize": 10,
+    "editor.fontSize": 11,
     "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
+    "gitlens.currentLine.enabled": false,
     "workbench.colorTheme": "Github",
     "workbench.sideBar.location": "right",
     // editor behavior
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
     "files.trimTrailingWhitespace": true,
+    "git.autofetch": true,
     // go specific
     "go.formatTool": "goimports",
     "go.useLanguageServer": true,
