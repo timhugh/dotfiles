@@ -2,7 +2,6 @@
 docker
 docker-compose
 docker-machine
-ctop
 
 [ruby]
 chruby
@@ -16,7 +15,6 @@ go
 
 [python]
 python
-python@2
 
 [vim]
 ctags
@@ -24,10 +22,6 @@ fd
 fzf
 neovim
 the_silver_searcher
-
-[tmux]
-reattach-to-user-namespace
-tmux
 
 [db clients]
 mysql
@@ -40,22 +34,28 @@ bash-completion
 cmake
 git
 heroku
-hledger
 httpie
 hub
-hugo
 jq
 ngrok
-macdown
 openssl
-pandoc
 pkg-config
-pup
-rclone
 terminal-notifier
 wget
-wrk
 
-[other misc]
-gource
-tig
+[cask apps]
+1password
+1password-cli
+caffeine
+firefox
+github
+google-chrome
+iterm2
+keybase
+rocket
+slack
+spectacle
+spotify
+virtualbox
+visual-studio-code
+zoomus
