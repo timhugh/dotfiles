@@ -1,78 +1,72 @@
 {
-    // theme and appearance
-    "autoDarkMode.darkTheme": "Material Theme Darker",
-    "autoDarkMode.lightTheme": "Github",
-    "editor.fontFamily": "Monaco",
-    "editor.fontSize": 11,
-    "editor.lineNumbers": "relative",
-    "editor.minimap.enabled": false,
-    "gitlens.currentLine.enabled": false,
-    "workbench.colorTheme": "Github",
-    "workbench.sideBar.location": "right",
-    // editor behavior
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "files.trimTrailingWhitespace": true,
-    "git.autofetch": true,
-    // go specific
-    "go.formatTool": "goimports",
-    "go.useLanguageServer": true,
-    // ruby specific
-    "ruby.format": "rubocop",
-    "ruby.lint": {
-        "rubocop": {
-            "useBundler": true
-        }
+  // theme and appearance
+  "autoDarkMode.darkTheme": "Material Theme Darker",
+  "autoDarkMode.lightTheme": "Github",
+  "editor.fontFamily": "Monaco",
+  "editor.fontSize": 11,
+  "editor.lineNumbers": "relative",
+  "editor.minimap.enabled": false,
+  "gitlens.currentLine.enabled": false,
+  "workbench.colorTheme": "Github",
+  "workbench.sideBar.location": "right",
+  // editor behavior
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "files.trimTrailingWhitespace": true,
+  "git.autofetch": true,
+  // go specific
+  "go.formatTool": "goimports",
+  "go.useLanguageServer": true,
+  // ruby specific
+  "ruby.format": "rubocop",
+  "ruby.useLanguageServer": true,
+  // vim specific
+  "vim.insertModeKeyBindings": [
+    { // use j-j to exit insert mode
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  "vim.hlsearch": true,
+  "vim.leader": ",",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    { // hide search higlighting
+      "before": [
+        "<leader>",
+        "/"
+      ],
+      "commands": [
+        ":nohl"
+      ]
     },
-    "ruby.useBundler": true,
-    "ruby.useLanguageServer": true,
-    // vim specific
-    "vim.insertModeKeyBindings": [
-        { // use j-j to exit insert mode
-            "before": [
-                "j",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        }
-    ],
-    "vim.hlsearch": true,
-    "vim.leader": ",",
-    "vim.normalModeKeyBindingsNonRecursive": [
-        { // hide search higlighting
-            "before": [
-                "<leader>",
-                "/"
-            ],
-            "commands": [
-                ":nohl"
-            ]
-        },
-        { // indent selected lines
-            "before": [
-                ">"
-            ],
-            "commands": [
-                "editor.action.indentLines"
-            ]
-        },
-        { // unindent selected lines
-            "before": [
-                "<"
-            ],
-            "commands": [
-                "editor.action.outdentLines"
-            ]
-        },
-        { // find all
-            "before": [
-                "\\"
-            ],
-            "commands": [
-                "workbench.action.findInFiles"
-            ]
-        }
-    ]
+    { // indent selected lines
+      "before": [
+        ">"
+      ],
+      "commands": [
+        "editor.action.indentLines"
+      ]
+    },
+    { // unindent selected lines
+      "before": [
+        "<"
+      ],
+      "commands": [
+        "editor.action.outdentLines"
+      ]
+    },
+    { // find all
+      "before": [
+        "\\"
+      ],
+      "commands": [
+        "workbench.action.findInFiles"
+      ]
+    }
+  ],
 }
