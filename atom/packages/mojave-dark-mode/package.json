@@ -1,0 +1,77 @@
+{
+  "_from": "https://www.atom.io/api/packages/mojave-dark-mode/versions/0.4.0/tarball",
+  "_id": "mojave-dark-mode@0.4.0",
+  "_inBundle": false,
+  "_integrity": "sha512-6HDQkhKJNmoZcvJtGjkruJeFh+2JlTT78ky/+E4SY1gHfxb0JWCjLoLKcwdl6ScMvDGeIVFz5bqviYoTkMuYfQ==",
+  "_location": "/mojave-dark-mode",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/mojave-dark-mode/versions/0.4.0/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/mojave-dark-mode/versions/0.4.0/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/mojave-dark-mode/versions/0.4.0/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/mojave-dark-mode/versions/0.4.0/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/mojave-dark-mode/versions/0.4.0/tarball",
+  "_shasum": "87b8564967ab2e213f41be9019eff32baf7a0ad9",
+  "_spec": "https://www.atom.io/api/packages/mojave-dark-mode/versions/0.4.0/tarball",
+  "_where": "/private/var/folders/7g/pgxf29_n5c112l0_g4b96z3w0000gp/T/apm-install-dir-120117-31023-sx4j4u.4pg7p",
+  "activationCommands": {},
+  "author": {
+    "name": "Payson Wallach"
+  },
+  "bugs": {
+    "url": "https://github.com/paysonwallach/mojave-dark-mode/issues"
+  },
+  "bundleDependencies": false,
+  "configSchema": {
+    "darkProfile": {
+      "order": 1,
+      "description": "UI and syntax theme for dark mode",
+      "type": "string",
+      "default": "one-dark-ui one-dark-syntax"
+    },
+    "lightProfile": {
+      "order": 2,
+      "description": "UI and syntax theme for light mode",
+      "type": "string",
+      "default": "one-light-ui one-light-syntax"
+    },
+    "notifyOnChange": {
+      "order": 3,
+      "description": "Send a notification when the theme is changed",
+      "type": "boolean",
+      "default": "true"
+    }
+  },
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Dark Mode support for macOS Mojave.",
+  "devDependencies": {
+    "@types/atom": "^1.36.1",
+    "typescript": "^3.6.3"
+  },
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/paysonwallach/mojave-dark-mode#readme",
+  "keywords": [
+    "dark mode",
+    "themes",
+    "switch",
+    "macOS",
+    "atom"
+  ],
+  "license": "MIT",
+  "main": "./dist/main",
+  "name": "mojave-dark-mode",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paysonwallach/mojave-dark-mode.git"
+  },
+  "version": "0.4.0"
+}

@@ -1,0 +1,50 @@
+{
+  "_from": "https://www.atom.io/api/packages/ruby-block/versions/0.3.6/tarball",
+  "_id": "ruby-block@0.3.6",
+  "_inBundle": false,
+  "_integrity": "sha512-yT46G0AQtCCL5ve156MgNtyklNdU/riWZmoIXj6UDl0kQe+oF344daJOk/dGtyUUtVL+4OP/CKmiSN4crweBtQ==",
+  "_location": "/ruby-block",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/ruby-block/versions/0.3.6/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/ruby-block/versions/0.3.6/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/ruby-block/versions/0.3.6/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/ruby-block/versions/0.3.6/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/ruby-block/versions/0.3.6/tarball",
+  "_shasum": "0fd7ca2ed6dd2f74f4c8eb82b1ee15c9a4479987",
+  "_spec": "https://www.atom.io/api/packages/ruby-block/versions/0.3.6/tarball",
+  "_where": "/private/var/folders/7g/pgxf29_n5c112l0_g4b96z3w0000gp/T/apm-install-dir-120118-91817-1dhpsdr.r53f",
+  "bugs": {
+    "url": "https://github.com/hmatsuda/ruby-block/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "atom-space-pen-views": "^2.1.0",
+    "underscore-plus": "1.x"
+  },
+  "deprecated": false,
+  "description": "Atom highlight matching ruby block",
+  "engines": {
+    "atom": ">=1.13.0 <2.0.0"
+  },
+  "homepage": "https://github.com/hmatsuda/ruby-block#readme",
+  "keywords": [
+    "ruby",
+    "highlight",
+    "jump"
+  ],
+  "license": "GPLv2",
+  "main": "./lib/ruby-block",
+  "name": "ruby-block",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hmatsuda/ruby-block.git"
+  },
+  "version": "0.3.6"
+}

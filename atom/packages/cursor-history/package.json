@@ -1,0 +1,140 @@
+{
+  "_from": "https://www.atom.io/api/packages/cursor-history/versions/0.14.0/tarball",
+  "_id": "cursor-history@0.14.0",
+  "_inBundle": false,
+  "_integrity": "sha512-rCKKa8klJGerYxYakDhxB7jiT1LhIa9P+OLaWSxlkhR8Pa/QYq1P8jRCBBse0N/6gyTojAUH9j5YAH8TefJjJg==",
+  "_location": "/cursor-history",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/cursor-history/versions/0.14.0/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/cursor-history/versions/0.14.0/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/cursor-history/versions/0.14.0/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/cursor-history/versions/0.14.0/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/cursor-history/versions/0.14.0/tarball",
+  "_shasum": "516cd66eacef5d88868e76380847e5e14bf174cb",
+  "_spec": "https://www.atom.io/api/packages/cursor-history/versions/0.14.0/tarball",
+  "_where": "/private/var/folders/7g/pgxf29_n5c112l0_g4b96z3w0000gp/T/apm-install-dir-120118-44083-17kvbuk.gi0m",
+  "bugs": {
+    "url": "https://github.com/t9md/atom-cursor-history/issues"
+  },
+  "bundleDependencies": false,
+  "configSchema": {
+    "max": {
+      "default": 100,
+      "minimum": 1,
+      "description": "number of history to keep",
+      "order": 0,
+      "type": "integer"
+    },
+    "rowDeltaToRemember": {
+      "default": 4,
+      "minimum": 0,
+      "description": "Save history when row delta was greater than this value",
+      "order": 1,
+      "type": "integer"
+    },
+    "columnDeltaToRemember": {
+      "default": 9999,
+      "minimum": 0,
+      "description": "Save history when cursor moved within same row and column delta was greater than this value",
+      "order": 2,
+      "type": "integer"
+    },
+    "excludeClosedBuffer": {
+      "default": false,
+      "description": "Don't open closed Buffer on history excursion",
+      "order": 3,
+      "type": "boolean"
+    },
+    "keepSingleEntryPerBuffer": {
+      "default": false,
+      "description": "Keep latest entry only per buffer",
+      "order": 4,
+      "type": "boolean"
+    },
+    "searchAllPanes": {
+      "default": true,
+      "description": "Search existing buffer from all panes before opening new editor",
+      "order": 5,
+      "type": "boolean"
+    },
+    "openInPendingState": {
+      "default": false,
+      "description": "If the target location is not currently opened, open editor in pending-state (preview mode)",
+      "order": 6,
+      "type": "boolean"
+    },
+    "flashOnLand": {
+      "default": true,
+      "description": "flash cursor on land",
+      "order": 7,
+      "type": "boolean"
+    },
+    "ignoreCommands": {
+      "default": [
+        "command-palette:toggle"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "description": "list of commands to exclude from history tracking.",
+      "order": 8,
+      "type": "array"
+    },
+    "debug": {
+      "default": false,
+      "order": 9,
+      "type": "boolean"
+    }
+  },
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Cursor position history manager",
+  "devDependencies": {
+    "prettier": "^1.10.2",
+    "standard": "^10.0.3"
+  },
+  "engines": {
+    "atom": "^1.19.0"
+  },
+  "homepage": "https://github.com/t9md/atom-cursor-history#readme",
+  "keywords": [
+    "jumplist",
+    "history",
+    "navigation"
+  ],
+  "license": "MIT",
+  "main": "./lib/main",
+  "name": "cursor-history",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t9md/atom-cursor-history.git"
+  },
+  "scripts": {
+    "lint": "standard lib/*.js spec/*.js",
+    "prettier": "prettier --write --no-semi --print-width=120 --no-bracket-spacing --trailing-comma=es5 'lib/**/*.js' 'spec/*.js'",
+    "test": "apm test",
+    "watch": "fswatch -0 spec lib | xargs -0 -n1 -I{} apm test"
+  },
+  "standard": {
+    "env": {
+      "atomtest": true,
+      "browser": true,
+      "jasmine": true,
+      "node": true
+    },
+    "globals": [
+      "atom"
+    ],
+    "ignore": [
+      "spec/fixtures/*"
+    ]
+  },
+  "version": "0.14.0"
+}

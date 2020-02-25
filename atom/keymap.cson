@@ -1,0 +1,16 @@
+'body':
+  # vim mappings for splitting and navigating panes
+  'alt--': 'pane:split-down-and-copy-active-item'
+  'alt-\\': 'pane:split-right-and-copy-active-item'
+  'alt-h': 'window:focus-pane-on-left'
+  'alt-j': 'window:focus-pane-below'
+  'alt-k': 'window:focus-pane-above'
+  'alt-l': 'window:focus-pane-on-right'
+  # end splitting/navigating
+  'ctrl-h': 'unset!' # mapped to backspace for some reason?
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'ctrl-b': 'unset!'
+'atom-text-editor':
+  'alt-h': 'unset!'
+'atom-text-editor.vim-mode-plus.insert-mode':
+  'j j': 'vim-mode-plus:activate-normal-mode' # use jj to exit insert mode

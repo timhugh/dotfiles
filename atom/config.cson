@@ -1,0 +1,37 @@
+"*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "90fe5d47-3d7d-42f4-a09c-ef6f223bd6c6"
+  "atom-ide-ui":
+    "atom-ide-code-format":
+      formatOnSave: true
+  "autocomplete-plus":
+    confirmCompletion: "tab always, enter when suggestion explicitly selected"
+  "better-git-blame":
+    searchInLayerEnabled: false
+  core:
+    telemetryConsent: "limited"
+    themes: [
+      "one-light-ui"
+      "one-light-syntax"
+    ]
+  editor:
+    fontSize: 12
+    preferredLineLength: 120
+  "exception-reporting":
+    userId: "875ce4c6-c53e-43c8-aba8-5e2efb69b1ce"
+  "mojave-dark-mode": {}
+  "ruby-block":
+    highlightLineNumber: true
+    showBottomPanel: false
+  "ruby-test":
+    minitestAllCommand: "ruby -I lib -I test test"
+    minitestFileCommand: "ruby -I lib -I test {relative_path}"
+    minitestSingleCommand: "ruby -I lib -I test  {relative_path} -n \"/{regex}/\""
+    specFramework: "rspec"
+    testAllCommand: "ruby -I lib -I test test"
+    testFileCommand: "ruby -I lib -I test {relative_path}"
+    testFramework: "minitest"
+    testSingleCommand: "ruby -I lib -I test {relative_path}:{line_number}"
+  welcome:
+    showOnStartup: false

@@ -1,0 +1,88 @@
+{
+  "_from": "https://www.atom.io/api/packages/keystroke/versions/0.4.0/tarball",
+  "_id": "keystroke@0.4.0",
+  "_inBundle": false,
+  "_integrity": "sha512-Uqg7GWxBh5GJD8Jr3r3Lo19Hf3qCUIH8lP6MYaqtvV4KfhxZ7V/rxNl8ilu8OE2IIl/zTFfOtDG3MLQeTVLsjA==",
+  "_location": "/keystroke",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/keystroke/versions/0.4.0/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/keystroke/versions/0.4.0/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/keystroke/versions/0.4.0/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/keystroke/versions/0.4.0/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/keystroke/versions/0.4.0/tarball",
+  "_shasum": "cb2722fb89ca206db469546c1d647035eac1c6bc",
+  "_spec": "https://www.atom.io/api/packages/keystroke/versions/0.4.0/tarball",
+  "_where": "/private/var/folders/7g/pgxf29_n5c112l0_g4b96z3w0000gp/T/apm-install-dir-120118-44187-1xefc8t.ddd8f",
+  "bugs": {
+    "url": "https://github.com/t9md/atom-keystroke/issues"
+  },
+  "bundleDependencies": false,
+  "configSchema": {
+    "commands": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "keystroke": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "deprecated": false,
+  "description": "define command from keystroke",
+  "devDependencies": {
+    "prettier": "^1.11.1",
+    "standard": "^11.0.1"
+  },
+  "engines": {
+    "atom": "^1.19.0"
+  },
+  "homepage": "https://github.com/t9md/atom-keystroke#readme",
+  "keywords": [],
+  "license": "MIT",
+  "main": "./lib/main",
+  "name": "keystroke",
+  "providedServices": {
+    "keystroke": {
+      "description": "keystroke",
+      "versions": {
+        "1.0.0": "provideKeystroke"
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t9md/atom-keystroke.git"
+  },
+  "scripts": {
+    "lint": "standard lib/*.js spec/*.js"
+  },
+  "standard": {
+    "globals": [
+      "atom",
+      "describe",
+      "jasmine",
+      "expect"
+    ],
+    "ignore": [
+      "spec/fixtures/*"
+    ]
+  },
+  "version": "0.4.0"
+}
