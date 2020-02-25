@@ -5,7 +5,7 @@ alias dc='docker-compose'
 alias dm='docker-machine'
 
 # some other handy aliases for things I tend to have running in docker
-alias pg-local="psql -h$(docker-machine ip)"
+alias pg-local="psql -h$(docker-machine ip) -Uroot"
 alias rmq-manage="open http://$(docker-machine ip):15672"
 
 # Utilities for managing multiple docker-machines.
