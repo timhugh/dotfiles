@@ -1,0 +1,4 @@
+#!/bin/sh
+# reads .env file in current working directory and sets specified environment variables
+
+[[ -f .env ]] && env $(cat .env | grep -v "#" | xargs) $@
