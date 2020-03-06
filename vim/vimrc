@@ -10,7 +10,7 @@ if $ITERM_PROFILE == 'Light'
 endif
 
 set noerrorbells novisualbell
-set number
+set number relativenumber
 
 let mapleader=","
 inoremap jj <esc>
