@@ -1,9 +1,8 @@
 {
   // theme and appearance
-  "autoDarkMode.darkTheme": "Material Theme Darker",
+  "autoDarkMode.darkTheme": "Brogrammer",
   "autoDarkMode.lightTheme": "Github",
-  "editor.fontFamily": "Monaco",
-  "editor.fontSize": 11,
+  "editor.fontFamily": "Source Code Pro",
   "editor.lineNumbers": "relative",
   "editor.minimap.enabled": false,
   "gitlens.currentLine.enabled": false,
