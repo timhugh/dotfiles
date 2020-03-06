@@ -21,7 +21,8 @@
     preferredLineLength: 120
   "exception-reporting":
     userId: "875ce4c6-c53e-43c8-aba8-5e2efb69b1ce"
-  "mojave-dark-mode": {}
+  "mojave-dark-mode":
+    darkProfile: "one-dark-ui brogrammer-harder-syntax"
   "ruby-block":
     highlightLineNumber: true
     showBottomPanel: false
