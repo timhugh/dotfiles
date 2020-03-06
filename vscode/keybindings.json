@@ -1,5 +1,8 @@
-// Place your key bindings in this file to override the defaultsauto[]
 [
+    {
+        "key": "ctrl+]",
+        "command": "editor.action.revealDefinition"
+    },
     {
         "key": "ctrl+=",
         "command": "editor.action.reindentselectedlines"
@@ -13,16 +16,8 @@
         "command": "workbench.action.splitEditor"
     },
     {
-        "key": "cmd+k left",
-        "command": "-workbench.action.splitEditor"
-    },
-    {
         "key": "alt+-",
         "command": "workbench.action.splitEditorDown"
-    },
-    {
-        "key": "ctrl+]",
-        "command": "editor.action.revealDefinition"
     },
     {
         "key": "alt+h",
