@@ -16,6 +16,7 @@
       "one-light-syntax"
     ]
   editor:
+    fontFamily: "Source Code Pro"
     fontSize: 12
     preferredLineLength: 120
   "exception-reporting":
