@@ -6,7 +6,7 @@
   "editor.lineNumbers": "relative",
   "editor.minimap.enabled": false,
   "gitlens.currentLine.enabled": false,
-  "workbench.colorTheme": "Github",
+  "workbench.colorTheme": "Brogrammer",
   "workbench.sideBar.location": "right",
   // editor behavior
   "editor.formatOnPaste": true,
@@ -14,12 +14,26 @@
   "files.trimTrailingWhitespace": true,
   "git.autofetch": true,
   // go specific
+  "go.coverageOptions": "showUncoveredCodeOnly",
   "go.formatTool": "goimports",
   "go.useLanguageServer": true,
+  "[go]": {
+    "editor.insertSpaces": false,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+    "editor.snippetSuggestions": "none"
+  },
+  "go.languageServerExperimentalFeatures": {
+    "format": true,
+    "diagnostics": true,
+    "documentLink": true
+  },
   // ruby specific
   "ruby.format": "rubocop",
   "ruby.useLanguageServer": true,
   "[ruby]": {
+    "editor.insertSpaces": true,
     "editor.rulers": [
       80,
       120
