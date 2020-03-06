@@ -20,6 +20,12 @@
   // ruby specific
   "ruby.format": "rubocop",
   "ruby.useLanguageServer": true,
+  "[ruby]": {
+    "editor.rulers": [
+      80,
+      120
+    ]
+  },
   // vim specific
   "vim.insertModeKeyBindings": [
     { // use j-j to exit insert mode
