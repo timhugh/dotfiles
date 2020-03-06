@@ -42,6 +42,8 @@ Plugin 'majutsushi/tagbar'
 
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'luochen1990/rainbow'
+Plugin 'marciomazza/vim-brogrammer-theme'
+
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-endwise'
