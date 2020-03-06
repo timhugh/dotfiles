@@ -24,9 +24,6 @@ alias g='git'
 # (https://hub.github.com/)
 [[ $(command -v hub) ]] && alias git='hub'
 
-# reads .env file in current working directory and sets specified environment variables
-alias with_env='env $(cat .env | grep -v "#" | xargs) $@'
-
 # java / maven aliases
 alias nuke-maven="rm -rf ~/.m2/repository"
 alias list-maven="find ~/.m2 -name *.jar"
