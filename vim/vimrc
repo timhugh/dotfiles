@@ -99,6 +99,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'mxw/vim-jsx'
 Plugin 'nikvdp/ejs-syntax'
+Plugin 'MaxMEllon/vim-jsx-pretty'
 
 " confluence
 Plugin 'vim-scripts/confluencewiki.vim'
