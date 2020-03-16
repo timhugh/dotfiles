@@ -95,7 +95,7 @@ Plugin 'mattn/emmet-vim'
 
 " javascript
 Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
+Plugin 'MaxMEllon/vim-jsx-pretty'
 
 " confluence
 Plugin 'vim-scripts/confluencewiki.vim'
