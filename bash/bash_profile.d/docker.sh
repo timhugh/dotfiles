@@ -5,69 +5,29 @@ alias dc='docker-compose'
 alias dm='docker-machine'
 
 # some other handy aliases for things I tend to have running in docker
-alias pg-local="psql -h$(docker-machine ip) -Uroot"
-alias rmq-manage="open http://$(docker-machine ip):15672"
+function pg-local {
+  psql -h$DOCKER_MACHINE_IP -Uroot
+}
+function rmq-manage {
+  open http://$DOCKER_MACHINE_IP:15672
+}
 
-# Utilities for managing multiple docker-machines.
-#
-# NOTE: This is all much easier with the use of docker-machine-ipconfig:
-#       https://github.com/fivestars/docker-machine-ipconfig
-#
-#       It allows you to assign static IPs to each docker-machine VM so you
-#       don't have to worry about boot order messing up your hosts file or
-#       requiring you to renegerate certificates
+# unset environment variables to fall back to Docker for Mac
+function dmc-unset {
+  eval $(docker-machine env -u)
+  export DOCKER_MACHINE_IP=127.0.0.1
+}
 
-DMC_FILE=~/.current-docker-machine
+# set environment variables for specified docker machine (defaults to "default")
+function dmc-set {
+  machine="${1:-default}"
 
-# dmc-env
-# Sets docker environment variables in the current sessions for the
-# preferred/current machine.
-function dmc-env {
-  machine=$(_dmc-get-current)
-  if [ -z "$machine" ]; then
-    echo "Preferred machine is not set (use dmc-set)"
-    return 1
-  fi
-  status=`docker-machine status`
+  status=`docker-machine status $machine`
   if [ $status != "Running" ]; then
-    echo "Docker machine is not running: $status"
+    echo "Docker machine $machine is not running: $status"
     return 1
   fi
 
   eval $(docker-machine env $machine)
+  export DOCKER_MACHINE_IP=$(docker-machine ip)
 }
-
-# dmc-set
-# Sets preferred/current machine, which will be used for all sessions until
-# dmc-set is called again for a different machine).
-function dmc-set {
-  machine="$1"
-  if [ -z "$machine" ]; then
-    echo 'Must specify a machine: `dmc-set mymachine`'
-    return 1
-  fi
-  export CURRENT_DOCKER_MACHINE="$machine"
-  _dmc-write "$machine"
-  dmc-env
-}
-
-function _dmc-get-current {
-  if [ -n "$CURRENT_DOCKER_MACHINE" ]; then
-    echo "$CURRENT_DOCKER_MACHINE"
-  else
-    if [ -f "$DMC_FILE" ]; then
-      echo $(cat "$DMC_FILE")
-    fi
-  fi
-}
-
-function _dmc-write {
-  machine="$1"
-  if [ -n "$machine" ]; then
-    echo "$machine" > $DMC_FILE
-  fi
-}
-
-# Call dmc-env when session starts, if there's a current/preferred machine.
-machine=$(_dmc-get-current)
-[[ -n $machine ]] && dmc-env
