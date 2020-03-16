@@ -95,7 +95,10 @@ Plugin 'mattn/emmet-vim'
 
 " javascript
 Plugin 'pangloss/vim-javascript'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/tsuquyomi'
 Plugin 'mxw/vim-jsx'
+Plugin 'nikvdp/ejs-syntax'
 
 " confluence
 Plugin 'vim-scripts/confluencewiki.vim'
