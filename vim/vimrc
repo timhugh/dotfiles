@@ -73,6 +73,9 @@ Plugin 'tpope/vim-rails'
 " go
 Plugin 'fatih/vim-go'
 
+" elixir
+Plugin 'elixir-editors/vim-elixir'
+
 " crystal
 Plugin 'rhysd/vim-crystal'
 
