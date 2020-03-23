@@ -2,20 +2,6 @@ set nocompatible
 syntax on
 set encoding=utf8
 
-colorscheme default
-set background=dark
-if $ITERM_PROFILE == 'Light'
-  colorscheme peachpuff
-  set background=light
-endif
-
-set noerrorbells novisualbell
-set number relativenumber
-
-let mapleader=","
-inoremap jj <esc>
-inoremap JJ <esc>
-
 " provider config
 " TODO I really doubt this is portable
 let g:python_host_prog  = '/usr/local/opt/python2/bin/python2'
@@ -40,7 +26,6 @@ Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'majutsushi/tagbar'
 
-Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'luochen1990/rainbow'
 Plugin 'marciomazza/vim-brogrammer-theme'
 
@@ -111,15 +96,22 @@ call vundle#end()
 filetype plugin indent on
 """ END VUNDLE CONFIG
 
+if $ITERM_PROFILE == 'Light'
+  colorscheme peachpuff
+  set background=light
+else
+  colorscheme brogrammer
+  set background=dark
+endif
+
+set noerrorbells novisualbell
+set number relativenumber
+
+let mapleader=","
+inoremap jj <esc>
+inoremap JJ <esc>
 
 """ START PLUGIN CONFIG
-
-" vim-indent-guides config
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_guide_size = 1
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
 
 " enable rainbow
 let g:rainbow_active = 1
