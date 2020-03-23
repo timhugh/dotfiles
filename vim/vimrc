@@ -28,6 +28,7 @@ Plugin 'majutsushi/tagbar'
 
 Plugin 'luochen1990/rainbow'
 Plugin 'marciomazza/vim-brogrammer-theme'
+Plugin 'vim-scripts/summerfruit256.vim'
 
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
@@ -97,7 +98,7 @@ filetype plugin indent on
 """ END VUNDLE CONFIG
 
 if $ITERM_PROFILE == 'Light'
-  colorscheme peachpuff
+  colorscheme summerfruit256
   set background=light
 else
   colorscheme brogrammer
