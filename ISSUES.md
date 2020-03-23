@@ -37,4 +37,5 @@
   - [ ] Name, email for git
   - [ ] Github token for hub
   - [ ] Default ruby version
+- [ ] Install powerline fonts (https://github.com/powerline/fonts)
 - [ ] ???

@@ -108,11 +108,19 @@ endif
 set noerrorbells novisualbell
 set number relativenumber
 
-let mapleader=","
+let mapleader = ","
 inoremap jj <esc>
 inoremap JJ <esc>
 
 """ START PLUGIN CONFIG
+
+" airline
+let g:airline_powerline_fonts = 1
+if $ITERM_PROFILE == 'Light'
+  let g:airline_theme = 'light'
+else
+  let g:airline_theme = 'badwolf'
+endif
 
 " enable rainbow
 let g:rainbow_active = 1
