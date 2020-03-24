@@ -100,7 +100,7 @@ call vundle#end()
 filetype plugin indent on
 """ END VUNDLE CONFIG
 
-if $ITERM_PROFILE == 'Light'
+if $ITERM_PROFILE == 'light'
   colorscheme summerfruit256
   set background=light
 else
@@ -119,7 +119,7 @@ inoremap JJ <esc>
 
 " airline
 let g:airline_powerline_fonts = 1
-if $ITERM_PROFILE == 'Light'
+if $ITERM_PROFILE == 'light'
   let g:airline_theme = 'light'
 else
   let g:airline_theme = 'badwolf'
