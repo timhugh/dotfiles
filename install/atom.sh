@@ -7,7 +7,7 @@
 #   packages/
 
 atom_root="${DOT_ROOT}/atom"
-sources="config.cson github.cson keymap.cson packages/"
+sources="config.cson github.cson keymap.cson packages"
 
 echo Backing up existing ${sources}...
 for f in $sources; do
