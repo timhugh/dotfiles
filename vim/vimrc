@@ -63,7 +63,6 @@ Plugin 'tpope/vim-rhubarb'
 
 " ruby
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rails'
@@ -126,6 +125,14 @@ let g:strip_trailing_lines = 1
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gn :GitGutterNextHunk<CR>
 nnoremap <leader>gp :GitGutterPrevHunk<CR>
+
+" vim-test config
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ts :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tg :TestVisit<CR>
+let test#ruby#rspec#executable = 'bundle exec spring rspec'
 
 " autosave buffers when focus is lost
 " (ignores warnings from unnamed buffers)
