@@ -38,6 +38,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vim-scripts/StripWhiteSpaces'
 
 Plugin 'janko-m/vim-test'
+Plugin 'tpope/vim-dispatch'
 
 " snipmate and dependencies
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -60,24 +61,15 @@ Plugin 'airblade/vim-gitgutter'
 " github
 Plugin 'tpope/vim-rhubarb'
 
-" writing
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
-
 " ruby
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rails'
 
 " go
 Plugin 'fatih/vim-go'
-
-" elixir
-Plugin 'elixir-editors/vim-elixir'
-
-" crystal
-Plugin 'rhysd/vim-crystal'
 
 " html
 Plugin 'mattn/emmet-vim'
@@ -90,16 +82,11 @@ Plugin 'mxw/vim-jsx'
 Plugin 'nikvdp/ejs-syntax'
 Plugin 'MaxMEllon/vim-jsx-pretty'
 
-" confluence
-Plugin 'vim-scripts/confluencewiki.vim'
-
-" ledger
-Plugin 'ledger/vim-ledger'
-
 call vundle#end()
 filetype plugin indent on
 """ END VUNDLE CONFIG
 
+" iterm-dependent theme
 if $ITERM_PROFILE == 'light'
   colorscheme summerfruit256
   set background=light
@@ -115,48 +102,19 @@ let mapleader = ","
 inoremap jj <esc>
 inoremap JJ <esc>
 
-""" START PLUGIN CONFIG
-
-" airline
+" airline config
 let g:airline_powerline_fonts = 1
+" iterm-dependent airline theme
 if $ITERM_PROFILE == 'light'
   let g:airline_theme = 'light'
 else
   let g:airline_theme = 'badwolf'
 endif
 
-" enable rainbow
-let g:rainbow_active = 1
-
 " ycm config
 "  disable tab for completions so it won't conflict with snipmate
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
-
-" goyo / limelight config
-nnoremap <leader>G :Goyo<CR>
-let g:goyo_width = 120
-let g:limelight_conceal_ctermfg = 'gray'
-function! s:goyo_enter()
-  set wrap
-  Limelight
-endfunction
-function! s:goyo_leave()
-  set nowrap
-  Limelight!
-endfunction
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
-" vim-test config
-" map <leader>tt :TestNearest<CR>
-" map <leader>tG :TestFile<CR>
-" map <leader>tT :TestSuite<CR>
-" map <leader>tl :TestLast<CR>
-
-" make config
-" map <leader>mm :make<CR>
-" map <leader>m :make<SPACE>
 
 " vim-jsx config
 let g:jsx_ext_required = 0
@@ -165,13 +123,9 @@ let g:jsx_ext_required = 0
 let g:strip_trailing_lines = 1
 
 " vim-fugitive config
-nnoremap <leader>gl :Glog<CR>:copen<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gn :GitGutterNextHunk<CR>
 nnoremap <leader>gp :GitGutterPrevHunk<CR>
-
-""" END PLUGIN CONFIG
-
 
 " autosave buffers when focus is lost
 " (ignores warnings from unnamed buffers)
@@ -182,11 +136,6 @@ set undodir=~/.vim/undo
 set undofile
 
 " fzf
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
-
 if executable('fzf')
   set rtp+=/usr/local/opt/fzf
 
@@ -279,11 +228,6 @@ set backspace=indent,eol,start
 " set swap file directory to keep git working directories clean
 set directory=$HOME/.vim/swapfiles//
 
-" clipboard shortcuts
-nnoremap Y "*y
-nnoremap <leader>p "*p
-nnoremap <leader>P "*P
-
 " reindent entire file
 map <leader>= mzgg=G`z
 
@@ -301,10 +245,6 @@ endif
 " search cwd for highlighted word
 nnoremap <silent> <leader>* :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-" search for todo, etc. comments in cwd and display them
-" TODO this doesn't actually work
-" nnoremap <silent> <leader>td :grep "TODO\|FIXME\|HACK\|NOTE" -r .<CR>:cw<CR>
-
 " join lines with comma delimiter
 nnoremap <leader>J :s/\n/, /<CR>
 
@@ -315,10 +255,6 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-
-" .vimrc editing shortcuts
-noremap <leader>ev :tabnew $MYVIMRC<CR>
-noremap <leader>sv :source $MYVIMRC<CR>
 
 " diff colors
 highlight DiffAdd    ctermfg=40    ctermbg=240  cterm=NONE
