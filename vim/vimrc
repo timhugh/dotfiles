@@ -147,7 +147,7 @@ set undofile
 if executable('fzf')
   set rtp+=/usr/local/opt/fzf
 
-  nnoremap <leader>t :FZF<CR>
+  nnoremap <leader>p :FZF<CR>
   nnoremap <leader>? :Commands<CR>
   nnoremap <leader>r :FZFTags<CR>
 
