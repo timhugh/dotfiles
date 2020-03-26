@@ -19,5 +19,7 @@ function! ToggleDarkMode()
   call SetTheme()
 endfunction
 
+noremap <leader>D :call ToggleDarkMode()<CR>
+
 " set theme on startup
 call SetTheme()
