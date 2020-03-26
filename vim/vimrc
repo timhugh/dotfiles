@@ -85,15 +85,6 @@ call vundle#end()
 filetype plugin indent on
 """ END VUNDLE CONFIG
 
-" iterm-dependent theme
-if $ITERM_PROFILE == 'light'
-  colorscheme summerfruit256
-  set background=light
-else
-  colorscheme brogrammer
-  set background=dark
-endif
-
 set noerrorbells novisualbell
 set number relativenumber
 
@@ -103,12 +94,6 @@ inoremap JJ <esc>
 
 " airline config
 let g:airline_powerline_fonts = 1
-" iterm-dependent airline theme
-if $ITERM_PROFILE == 'light'
-  let g:airline_theme = 'light'
-else
-  let g:airline_theme = 'badwolf'
-endif
 
 " ycm config
 "  disable tab for completions so it won't conflict with snipmate
@@ -269,3 +254,7 @@ highlight DiffAdd    ctermfg=40    ctermbg=240  cterm=NONE
 highlight DiffChange ctermfg=190   ctermbg=240  cterm=NONE
 highlight DiffDelete ctermfg=196   ctermbg=240  cterm=NONE
 highlight DiffText   ctermfg=NONE  ctermbg=NONE cterm=reverse
+
+" .vimrc editing shortcuts
+noremap <leader>ev :tabnew $MYVIMRC<CR>
+noremap <leader>sv :source $MYVIMRC<CR>

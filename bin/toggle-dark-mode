@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# toggle-dark-mode attempts to toggle themes between dark/light across all apps.
+#
+# See lib/dark_mode_shared.sh for more information.
+
+source $DOTFILES_ROOT/lib/dark_mode_shared.sh
+
+toggle-global-dark-mode

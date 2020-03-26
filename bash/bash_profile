@@ -61,6 +61,9 @@ function cd {
 }
 [[ -f .cd_hook ]] && . .cd_hook
 
+# sync iterm profile with OS dark mode setting
+sync-dark-mode
+
 # set prompt
 [[ -f ~/.bash_prompt ]] && . ~/.bash_prompt
 
