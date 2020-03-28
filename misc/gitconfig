@@ -2,7 +2,7 @@
   name = Tim Heuett
   email = tim.heuett@gmail.com
 [core]
-  editor = nvim
+  editor = vim
   excludesfile = ~/.gitignore
 [push]
   default = simple

@@ -81,6 +81,8 @@ Plugin 'mxw/vim-jsx'
 Plugin 'nikvdp/ejs-syntax'
 Plugin 'MaxMEllon/vim-jsx-pretty'
 
+Plugin 'sirtaj/vim-openscad'
+
 call vundle#end()
 filetype plugin indent on
 """ END VUNDLE CONFIG
