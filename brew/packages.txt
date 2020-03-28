@@ -46,16 +46,17 @@ wget
 [cask apps]
 1password
 1password-cli
+adobe-creative-cloud
 caffeine
-firefox
 github
 google-chrome
+intellij-idea-ce
 iterm2
 keybase
-rocket
 slack
 spectacle
 spotify
+ultimaker-cura
 virtualbox
-visual-studio-code
+vuescan
 zoomus
