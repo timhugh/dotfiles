@@ -13,19 +13,3 @@ alias ~='cd ~'
 # human readable file sizes
 alias df='df -h'
 alias du='du -h'
-
-# vim shortcuts
-export EDITOR='nvim'
-export MYVIMRC=~/.vimrc
-alias edit='$EDITOR'
-alias e=edit
-
-# handy git alias
-alias g='git'
-# use hub in place of git
-# (https://hub.github.com/)
-[[ $(command -v hub) ]] && alias git='hub'
-
-# java / maven aliases
-alias nuke-maven="rm -rf ~/.m2/repository"
-alias list-maven="find ~/.m2 -name *.jar"
