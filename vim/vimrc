@@ -121,6 +121,7 @@ nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tg :TestVisit<CR>
 let test#strategy = "dispatch"
 let test#ruby#rspec#executable = 'bundle exec spring rspec'
+let test#java#maventest#options = "-DfailIfNoTests=false"
 
 " autosave buffers when focus is lost
 " (ignores warnings from unnamed buffers)
