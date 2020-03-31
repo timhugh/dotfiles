@@ -113,6 +113,9 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gn :GitGutterNextHunk<CR>
 nnoremap <leader>gp :GitGutterPrevHunk<CR>
 
+" vim-bundle config
+command Dbundle Dispatch bundle
+
 " vim-test config
 nmap <silent> <leader>tn :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
