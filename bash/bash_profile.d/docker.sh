@@ -5,12 +5,10 @@ alias dc='docker-compose'
 alias dm='docker-machine'
 
 # some other handy aliases for things I tend to have running in docker
-function pg-local {
-  psql -h$DOCKER_MACHINE_IP -Uroot
-}
-function rmq-manage {
-  open http://$DOCKER_MACHINE_IP:15672
-}
+alias pg-local='psql -hdb -Upostgres'
+alias rmq-manage='open http://rmq:15672'
+alias elasticsearch='open http://elasticsearch:9200'
+alias kibana='open http://kibana:5601'
 
 # unset environment variables to fall back to Docker for Mac
 function dmc-unset {
