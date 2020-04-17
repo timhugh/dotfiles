@@ -94,6 +94,10 @@ let mapleader = ","
 inoremap jj <esc>
 inoremap JJ <esc>
 
+" nvim terminal
+nnoremap <leader>T :terminal<CR>
+tnoremap jj <c-\><c-n>
+
 " airline config
 let g:airline_powerline_fonts = 1
 
