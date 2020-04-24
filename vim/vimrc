@@ -130,6 +130,10 @@ let test#strategy = "dispatch"
 let test#ruby#rspec#executable = 'bundle exec rspec'
 let test#java#maventest#options = "-DfailIfNoTests=false"
 
+" make / dispatch mappings
+nmap <silent> <leader>m :Dispatch make
+nmap <silent> <leader>mm :Dispatch make<CR>
+
 " autosave buffers when focus is lost
 " (ignores warnings from unnamed buffers)
 autocmd FocusLost * silent! wa
