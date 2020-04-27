@@ -16,6 +16,9 @@ call vundle#begin()
 " Vundle manages itself
 Plugin 'VundleVim/Vundle.vim'
 
+" coc autocompletion
+Plugin 'neoclide/coc.nvim'
+
 " vim-vinegar enhances netrw
 Plugin 'tpope/vim-vinegar'
 
@@ -45,9 +48,6 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
-
-" ycm
-Plugin 'Valloric/YouCompleteMe'
 
 " enhanced selectors
 Plugin 'tmhedberg/matchit'
@@ -100,11 +100,6 @@ tnoremap jj <c-\><c-n>
 
 " airline config
 let g:airline_powerline_fonts = 1
-
-" ycm config
-"  disable tab for completions so it won't conflict with snipmate
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
 
 " vim-jsx config
 let g:jsx_ext_required = 0

@@ -22,7 +22,7 @@ function set-iterm-dark-mode {
     newProfile='light'
   fi
 
-  printf "\033]50;SetProfile=$newProfile\a" > /dev/tty
+  printf "\033]50;SetProfile=$newProfile\a"
 }
 
 function os-dark-mode-enabled {
