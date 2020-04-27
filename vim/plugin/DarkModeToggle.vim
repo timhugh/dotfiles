@@ -12,6 +12,11 @@ function! SetTheme()
     set background=light
     let g:airline_theme = 'light'
   endif
+
+  " refresh airline if it has already been loaded
+  if exists(':AirlineRefresh')
+    AirlineRefresh
+  endif
 endfunction
 
 function! ToggleDarkMode()
