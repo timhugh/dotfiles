@@ -2,9 +2,6 @@
 
 ## Vim
 
-- [ ] Rebuild YCM in the install script
-- [ ] :ToggleDarkMode does not work in neovim
-
 ## Bin
 - [ ] Bin install script doesn't actually backup old files (because it uses absolute paths)
 
