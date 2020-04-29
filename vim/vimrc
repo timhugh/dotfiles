@@ -22,13 +22,14 @@ Plugin 'neoclide/coc.nvim'
 Plugin 'junegunn/fzf.vim'
 
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'majutsushi/tagbar'
 
+" pretty stuff
 Plugin 'luochen1990/rainbow'
 Plugin 'marciomazza/vim-brogrammer-theme'
 Plugin 'vim-scripts/summerfruit256.vim'
+Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
@@ -37,20 +38,9 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vim-scripts/StripWhiteSpaces'
 
+" launching tests and other tasks
 Plugin 'janko-m/vim-test'
 Plugin 'tpope/vim-dispatch'
-
-" snipmate and dependencies
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-
-" enhanced selectors
-Plugin 'tmhedberg/matchit'
-Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'lucapette/vim-textobj-underscore'
 
 " git
 Plugin 'tpope/vim-fugitive'
@@ -63,12 +53,13 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rails'
+" special selectors for ruby
+Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'lucapette/vim-textobj-underscore'
 
 " go
 Plugin 'fatih/vim-go'
-
-" html
-Plugin 'mattn/emmet-vim'
 
 " javascript
 Plugin 'pangloss/vim-javascript'
@@ -77,8 +68,6 @@ Plugin 'Quramy/tsuquyomi'
 Plugin 'mxw/vim-jsx'
 Plugin 'nikvdp/ejs-syntax'
 Plugin 'MaxMEllon/vim-jsx-pretty'
-
-Plugin 'sirtaj/vim-openscad'
 
 call vundle#end()
 filetype plugin indent on
