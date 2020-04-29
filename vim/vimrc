@@ -131,7 +131,10 @@ nmap <silent> <leader>mm :Dispatch make<CR>
 
 " autosave buffers when focus is lost
 " (ignores warnings from unnamed buffers)
-autocmd FocusLost * silent! wa
+augroup focusAutosave
+  autocmd!
+  autocmd FocusLost * silent! wa
+augroup END
 
 " persistent undo history
 set undodir=~/.vim/undo

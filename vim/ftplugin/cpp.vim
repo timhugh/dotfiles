@@ -11,4 +11,7 @@ set colorcolumn=110
 highlight ColorColumn ctermbg=darkgray
 
 " generate tags on save
-autocmd BufWritePost * :GenerateCtags
+augroup ctags
+  autocmd!
+  autocmd BufWritePost * :GenerateCtags
+augroup END
