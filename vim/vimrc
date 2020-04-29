@@ -19,9 +19,6 @@ Plugin 'VundleVim/Vundle.vim'
 " coc autocompletion
 Plugin 'neoclide/coc.nvim'
 
-" vim-vinegar enhances netrw
-Plugin 'tpope/vim-vinegar'
-
 Plugin 'junegunn/fzf.vim'
 
 Plugin 'vim-airline/vim-airline'
@@ -94,9 +91,9 @@ let mapleader = ","
 inoremap jj <esc>
 inoremap JJ <esc>
 
-" nvim terminal
-nnoremap <leader>T :terminal<CR>
-tnoremap jj <c-\><c-n>
+" netrw config
+let g:netrw_banner = 0
+nmap - :Explore<CR>
 
 " airline config
 let g:airline_powerline_fonts = 1
