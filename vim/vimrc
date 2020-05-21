@@ -7,29 +7,13 @@ set encoding=utf8
 let g:python_host_prog  = '/usr/local/opt/python2/bin/python2'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
-
 """ START VUNDLE CONFIG
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
-" Vundle manages itself
 Plugin 'VundleVim/Vundle.vim'
-
-" coc autocompletion
 Plugin 'neoclide/coc.nvim'
-
 Plugin 'junegunn/fzf.vim'
-
-Plugin 'vim-airline/vim-airline'
-
-Plugin 'majutsushi/tagbar'
-
-" pretty stuff
-Plugin 'luochen1990/rainbow'
-Plugin 'marciomazza/vim-brogrammer-theme'
-Plugin 'vim-scripts/summerfruit256.vim'
-Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
@@ -37,6 +21,9 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vim-scripts/StripWhiteSpaces'
+
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " launching tests and other tasks
 Plugin 'janko-m/vim-test'
@@ -47,6 +34,13 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 " github
 Plugin 'tpope/vim-rhubarb'
+
+" pretty stuff
+Plugin 'luochen1990/rainbow'
+Plugin 'marciomazza/vim-brogrammer-theme'
+Plugin 'vim-scripts/summerfruit256.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " ruby
 Plugin 'vim-ruby/vim-ruby'
@@ -97,6 +91,9 @@ let g:strip_trailing_lines = 1
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gn :GitGutterNextHunk<CR>
 nnoremap <leader>gp :GitGutterPrevHunk<CR>
+
+" ultisnips config
+let g:UltiSnipsExpandTrigger="<tab>"
 
 " vim-bundle config
 command! Dbundle Dispatch bundle
