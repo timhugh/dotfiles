@@ -1,6 +1,5 @@
-# handy git alias (now with autocomplete!)
+# handy git alias
 alias g='git'
-__git_complete g __git_main
 
 # use hub in place of git
 # (https://hub.github.com/)

@@ -27,7 +27,7 @@ PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
 export PATH=~/bin:$PATH
 
 # homebrew bash completion
-[[ -f `brew --prefix`/etc/bash_completion ]] && . `brew --prefix`/etc/bash_completion
+[[ -f `brew --prefix`/etc/profile.d/bash_completion ]] && . `brew --prefix`/etc/profile.d/bash_completion
 
 # make libssl visible to pkg-config
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
