@@ -32,23 +32,6 @@ export PATH=~/bin:$PATH
 # make libssl visible to pkg-config
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
 
-# hacky watch script for triggering tasks when files change
-# example:
-#   $ watch "app spec" "bundle exec rake"
-function watch {
-  lastsum=""
-
-  while [[ true ]]
-  do
-    cursum=`find $1 -type f -exec md5 {} \;`
-    if [[ $lastsum != $cursum ]] ; then
-      eval $2
-      lastsum=$cursum
-    fi
-    sleep 2
-  done
-}
-
 # load additional configs
 for f in ~/.bash_profile.d/*.sh ; do
   source $f
