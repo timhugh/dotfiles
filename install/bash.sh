@@ -8,9 +8,9 @@
 # .bash_profile.d/
 
 bash_root="${DOT_ROOT}/bash"
-sources='bashrc bash_aliases bash_profile bash_prompt bash_profile.d'
+sources='bashrc bash_aliases bash_profile bash_prompt bash_completion bash_profile.d'
 
-echo Backing up existing bashrc, bash_aliases, bash_profile...
+echo Backing up existing bash profile...
 for f in $sources; do
   _backup "${HOME}/.$f" "bash"
 done
