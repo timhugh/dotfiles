@@ -3,11 +3,19 @@ docker
 docker-compose
 docker-machine
 
+[kubernetes]
+helm
+kubernetes-cli
+kubetail
+minikube
+
 [ruby]
 chruby
 ruby-install
 
 [javacript]
+node
+nodenv
 yarn
 
 [go]
@@ -37,17 +45,18 @@ heroku
 httpie
 hub
 jq
-ngrok
 openssl
 pkg-config
 terminal-notifier
 wget
 
-[cask apps]
+[cask]
 1password
 1password-cli
 adobe-creative-cloud
 caffeine
+docker
+firefox
 github
 google-chrome
 intellij-idea-ce
