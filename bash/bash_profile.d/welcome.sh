@@ -1,5 +1,5 @@
-# mountain art courtesy of https://www.asciiart.eu/nature/mountains
-function header {
+function mountains_header {
+  # https://www.asciiart.eu/nature/mountains
   cat << "EOF"
 
           /\
@@ -11,9 +11,13 @@ function header {
     /  /    \/ /\     \    /    \ \  /    \/ /   /  \/  \/  \  /    \   \
    /  /      \/  \/\   \  /      \    /   /    \
 __/__/_______/___/__\___\__________________________________________________
-
 EOF
+}
 
+function header {
+  mountains_header
+
+  echo
   echo "$(whoami) : $(uname -n)"
 
   date="$(date +"%A, %B %d")"
