@@ -1,7 +1,5 @@
-# docker-compose shortcut
+alias d='docker'
 alias dc='docker-compose'
-
-# docker-machine shortcut
 alias dm='docker-machine'
 
 # some other handy aliases for things I tend to have running in docker
