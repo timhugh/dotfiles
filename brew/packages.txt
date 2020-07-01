@@ -62,6 +62,7 @@ google-chrome
 intellij-idea-ce
 iterm2
 keybase
+sensiblesidebuttons
 slack
 spectacle
 spotify
