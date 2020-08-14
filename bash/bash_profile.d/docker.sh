@@ -1,12 +1,12 @@
-alias d='docker'
+alias  d='docker'
 alias dc='docker-compose'
 alias dm='docker-machine'
 
 # some other handy aliases for things I tend to have running in docker
-alias pg-local='psql -hdb -Upostgres'
-alias rmq-manage='open http://rmq:15672'
-alias elasticsearch='open http://elasticsearch:9200'
-alias kibana='open http://kibana:5601'
+alias     pg-dev='psql -hdb -Upostgres'
+alias    rmq-dev='open http://rmq:15672'
+alias     es-dev='open http://elasticsearch:9200'
+alias kibana-dev='open http://kibana:5601'
 
 # unset environment variables to fall back to Docker for Mac
 function dmc-unset {
