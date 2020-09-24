@@ -216,6 +216,10 @@ set backspace=indent,eol,start
 " set swap file directory to keep git working directories clean
 set directory=$HOME/.vim/swapfiles//
 
+" make a file copy and overwrite the old one
+" this is just to play nice with file watchers
+set backupcopy=yes
+
 " reindent entire file
 map <leader>= mzgg=G`z
 
