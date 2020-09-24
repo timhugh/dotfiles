@@ -69,6 +69,7 @@ filetype plugin indent on
 
 set noerrorbells novisualbell
 set number relativenumber
+set cursorcolumn
 
 let mapleader = ","
 inoremap jj <esc>
