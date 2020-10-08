@@ -63,6 +63,9 @@ Plugin 'mxw/vim-jsx'
 Plugin 'nikvdp/ejs-syntax'
 Plugin 'MaxMEllon/vim-jsx-pretty'
 
+" elixir
+Plugin 'elixir-editors/vim-elixir'
+
 call vundle#end()
 filetype plugin indent on
 """ END VUNDLE CONFIG
