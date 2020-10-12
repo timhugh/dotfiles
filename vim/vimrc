@@ -63,12 +63,16 @@ Plugin 'mxw/vim-jsx'
 Plugin 'nikvdp/ejs-syntax'
 Plugin 'MaxMEllon/vim-jsx-pretty'
 
+" elixir
+Plugin 'elixir-editors/vim-elixir'
+
 call vundle#end()
 filetype plugin indent on
 """ END VUNDLE CONFIG
 
 set noerrorbells novisualbell
 set number relativenumber
+set cursorcolumn
 
 let mapleader = ","
 inoremap jj <esc>
@@ -215,6 +219,10 @@ set backspace=indent,eol,start
 
 " set swap file directory to keep git working directories clean
 set directory=$HOME/.vim/swapfiles//
+
+" make a file copy and overwrite the old one
+" this is just to play nice with file watchers
+set backupcopy=yes
 
 " reindent entire file
 map <leader>= mzgg=G`z

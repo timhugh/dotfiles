@@ -20,6 +20,7 @@
   la = log --patch --stat --pretty=format:\"%C(bold red)%h %Cgreen%cr %Cblue%cn%C(yellow)%d %Creset%s\"
   ll = log --pretty=format:\"%Cred%h %>(11,trunc)%Cgreen%cr %<(10,trunc)%Cblue%cn%C(yellow)%d %Creset%s\"
   m = merge
+  ma = merge --abort
   mc = merge --continue
   mm = merge -m
   p = pull
