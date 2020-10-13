@@ -32,3 +32,5 @@
   s = log -S
   st = status --short --branch
   u = merge --no-commit --ff-only
+[pull]
+	ff = only
