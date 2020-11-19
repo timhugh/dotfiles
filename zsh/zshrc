@@ -7,8 +7,6 @@ ZSH_THEME="robbyrussell"
 plugins=(brew git chruby ruby bundler rails npm heroku zsh-interactive-cd osx docker docker-compose)
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR='vim'
-
 # load config directory
 for f in $HOME/.zsh_profile.d/*.sh; do
   source $f
