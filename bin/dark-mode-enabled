@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-# dark-mode-enabled returns the current global dark mode state, as dictated by OS X
-#
-# See lib/dark_mode_shared.sh for more information.
-
-source $DOTFILES_ROOT/lib/dark_mode_shared.sh
-
-
-os-dark-mode-enabled

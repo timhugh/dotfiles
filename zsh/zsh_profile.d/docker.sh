@@ -1,8 +1,4 @@
-alias  d='docker'
-alias dc='docker-compose'
-alias dm='docker-machine'
-
-# some other handy aliases for things I tend to have running in docker
+# handy aliases for things I tend to have running in docker
 alias     pg-dev='psql -hdb -Upostgres'
 alias    rmq-dev='open http://rmq:15672'
 alias     es-dev='open http://elasticsearch:9200'

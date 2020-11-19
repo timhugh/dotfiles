@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-# sync-dark-mode is intended to be called in new iTerm sessions.
-# It sets the correct profile to match global dark mode settings, keeping everything in sync.
-#
-# See lib/dark_mode_shared.sh for more information.
-
-source $DOTFILES_ROOT/lib/dark_mode_shared.sh
-
-sync-iterm-dark-mode-with-os

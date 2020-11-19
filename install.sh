@@ -47,4 +47,4 @@ done
 
 # prompt for desired ruby version and install it?
 
-source "${HOME}/.bash_profile"
+source "${HOME}/.zshrc"
