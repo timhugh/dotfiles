@@ -1,5 +1,8 @@
+let g:dark_mode_enabled = 'true'
+
 function! DarkModeEnabled()
-  return system('dark-mode-enabled') =~ 'true'
+  return g:dark_mode_enabled =~ 'true'
+"   return system('dark-mode-enabled') =~ 'true'
 endfunction
 
 function! SetTheme()
@@ -20,11 +23,16 @@ function! SetTheme()
 endfunction
 
 function! ToggleDarkMode()
-  silent execute '!toggle-dark-mode'
+  " silent execute '!toggle-dark-mode'
+  if DarkModeEnabled()
+    let g:dark_mode_enabled = 'false'
+  else
+    let g:dark_mode_enabled = 'true'
+  endif
   call SetTheme()
 endfunction
 
-" noremap <leader>D :call ToggleDarkMode()<CR>
+noremap <leader>D :call ToggleDarkMode()<CR>
 
 " set theme on startup
-" call SetTheme()
+call SetTheme()
