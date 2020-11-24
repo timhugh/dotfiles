@@ -1,8 +1,9 @@
 DOT_ROOT := $(shell pwd)
 NODE_VERSION ?= 15.2.1
 RUBY_VERSION ?= 2.7.2
+GO_VERSION ?= 1.15.5
 
-install: build-essential oh-my-zsh misc-dotfiles bin vim node ruby
+install: build-essential oh-my-zsh misc-dotfiles bin vim node ruby golang
 
 .PHONY: oh-my-zsh
 oh-my-zsh: zsh ${HOME}/.oh-my-zsh zshrc chsh
@@ -27,11 +28,11 @@ chsh:
 	chsh -s $(shell which zsh)
 
 .PHONY: vim
-vim: neovim vimrc vim-plugins
+vim: neovim vimrc vim-plugins coc-extensions
 
 .PHONY: neovim
 neovim: ${HOME}/src/neovim cmake pkg-config automake libtool libtool-bin unzip gettext
-	command -v nvim || (cd ${HOME}/src/neovim && make && sudo make install)
+	command -v nvim || (cd ${HOME}/src/neovim && $(MAKE) && sudo $(MAKE) install)
 
 ${HOME}/src/neovim: git
 	mkdir -p ${HOME}/src
@@ -50,6 +51,10 @@ ${HOME}/.vim: ${DOT_ROOT}/vim
 .PHONY: vim-plugins
 vim-plugins: vundle fzf silversearcher-ag
 	nvim +PluginClean +PluginInstall +qall
+
+.PHONY: coc-extensions
+coc-extensions: clangd
+	nvim +CocInstall coc-clangd +qall
 
 .PHONY: vundle
 vundle: ${DOT_ROOT}/vim/bundle/Vundle.vim
@@ -81,20 +86,39 @@ ${HOME}/.nodenv/plugins/node-build: git
 ruby: chruby ruby-install ${HOME}/.ruby-version
 	test -d ${HOME}/.rubies/ruby-${RUBY_VERSION} || \
 		ruby-install ruby ${RUBY_VERSION}
-chruby: wget
-	mkdir ${HOME}/src; cd ${HOME}/src; \
-		wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz && \
-		tar -xzvf chruby-0.3.9.tar.gz && \
-		cd chruby-0.3.9/; \
-		sudo make install
-ruby-install: wget
-	mkdir ${HOME}/src; cd ${HOME}/src; \
-		wget -O ruby-install-0.7.1.tar.gz https://github.com/postmodern/ruby-install/archive/v0.7.1.tar.gz && \
-		tar -xzvf ruby-install-0.7.1.tar.gz && \
-		cd ruby-install-0.7.1/; \
-		sudo make install
+
+CHRUBY_VERSION ?= 0.3.9
+.PHONY: chruby
+chruby: /usr/local/bin/chruby-exec
+/usr/local/bin/chruby-exec: ${HOME}/src/chruby-${CHRUBY_VERSION}
+	sudo $(MAKE) -C ${HOME}/src/chruby-${CHRUBY_VERSION} install
+	cd chruby-${CHRUBY_VERSION}/ && sudo $(MAKE) install
+${HOME}/src/chruby-${CHRUBY_VERSION}: ${HOME}/src/chruby-${CHRUBY_VERSION}.tar.gz
+	tar -xzvf $< -C ${HOME}/src
+${HOME}/src/chruby-${CHRUBY_VERSION}.tar.gz: wget
+	mkdir -p ${HOME}/src
+	wget -O $@ https://github.com/postmodern/chruby/archive/v${CHRUBY_VERSION}.tar.gz
+
+RUBY_INSTALL_VERSION ?= 0.7.1
+.PHONY: ruby-install
+ruby-install: /usr/local/bin/ruby-install
+/usr/local/bin/ruby-install: ${HOME}/src/ruby-install-${RUBY_INSTALL_VERSION}
+	sudo $(MAKE) -C ${HOME}/src/ruby-install-${RUBY_INSTALL_VERSION} install
+${HOME}/src/ruby-install-${RUBY_INSTALL_VERSION}: ${HOME}/src/ruby-install-${RUBY_INSTALL_VERSION}.tar.gz
+	tar -xzvf $< -C ${HOME}/src
+${HOME}/src/ruby-install-${RUBY_INSTALL_VERSION}.tar.gz: wget
+	mkdir -p ${HOME}/src
+	wget -O $@ https://github.com/postmodern/ruby-install/archive/v${RUBY_INSTALL_VERSION}.tar.gz
+
 ${HOME}/.ruby-version:
 	echo ruby-${RUBY_VERSION} > $@
+
+.PHONY: golang
+golang: /usr/local/go
+/usr/local/go: ${HOME}/src/go${GO_VERSION}.linux-amd64.tar.gz
+	sudo tar -C /usr/local -xzvf $<
+${HOME}/src/go${GO_VERSION}.linux-amd64.tar.gz:
+	wget -O $@ https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz
 
 .PHONY: bin
 bin: ${HOME}/bin
@@ -130,7 +154,7 @@ fzf: apt-update
 	command -v $@ || sudo apt install -y $@
 .PHONY: silversearcher-ag
 silversearcher-ag: apt-update
-	command -v $@ || sudo apt install -y $@
+	command -v ag || sudo apt install -y $@
 .PHONY: cmake
 cmake: apt-update
 	command -v $@ || sudo apt install -y $@
@@ -139,10 +163,10 @@ pkg-config: apt-update
 	command -v $@ || sudo apt install -y $@
 .PHONY: libtool
 libtool: apt-update
-	command -v $@ || sudo apt install -y $@
+	command -v libtoolize || sudo apt install -y $@
 .PHONY: libtool-bin
 libtool-bin: apt-update
-	command -v $@ || sudo apt install -y $@
+	command -v libtool || sudo apt install -y $@
 .PHONY: automake
 automake: apt-update
 	command -v $@ || sudo apt install -y $@
@@ -155,6 +179,9 @@ gettext: apt-update
 .PHONY: build-essential
 build-essential: apt-update
 	sudo apt install -y $@
+.PHONY: clangd
+clangd: apt-update
+	sudo apt install -y clangd-8
 
 .PHONY: apt-update
 apt-update:
