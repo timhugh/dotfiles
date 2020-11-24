@@ -153,7 +153,8 @@ unzip: apt-update
 gettext: apt-update
 	command -v $@ || sudo apt install -y $@
 .PHONY: build-essential
-	command -v $@ || sudo apt install -y $@
+build-essential: apt-update
+	sudo apt install -y $@
 
 .PHONY: apt-update
 apt-update:
