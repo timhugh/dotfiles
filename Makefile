@@ -182,6 +182,7 @@ build-essential: apt-update
 .PHONY: clangd
 clangd: apt-update
 	sudo apt install -y clangd-8
+	sudo ln -s /usr/bin/clangd-8 /usr/bin/clangd
 
 .PHONY: apt-update
 apt-update:
