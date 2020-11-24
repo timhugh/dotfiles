@@ -2,7 +2,7 @@ DOT_ROOT := $(shell pwd)
 NODE_VERSION = 15.2.1
 RUBY_VERSION = 2.7.2
 
-install: oh-my-zsh vim node ruby bin misc-dotfiles
+install: build-essential oh-my-zsh misc-dotfiles bin vim node ruby
 
 .PHONY: oh-my-zsh
 oh-my-zsh: zsh ${HOME}/.oh-my-zsh zshrc
@@ -15,6 +15,7 @@ zsh: apt-update
 .PHONY: zshrc
 zshrc: ${HOME}/.zshrc ${HOME}/.zsh_aliases ${HOME}/.zsh_profile.d
 ${HOME}/.zshrc: ${DOT_ROOT}/zsh/zshrc
+	chsh -s $(shell which zsh)
 	ln -s $< $@
 ${HOME}/.zsh_aliases: ${DOT_ROOT}/zsh/zsh_aliases
 	ln -s $< $@
@@ -26,7 +27,7 @@ vim: neovim vimrc vim-plugins
 
 .PHONY: neovim
 neovim: ${HOME}/src/neovim cmake pkg-config automake libtool libtool-bin unzip gettext
-	cd ${HOME}/src/neovim && make && sudo make install
+	command -v nvim || (cd ${HOME}/src/neovim && make && sudo make install)
 
 ${HOME}/src/neovim: git
 	mkdir -p ${HOME}/src
@@ -44,7 +45,7 @@ ${HOME}/.vim: ${DOT_ROOT}/vim
 
 .PHONY: vim-plugins
 vim-plugins: vundle fzf silversearcher-ag
-	vim -u NONE +PluginClean +PluginInstall +qall
+	nvim +PluginClean +PluginInstall +qall
 
 .PHONY: vundle
 vundle: ${DOT_ROOT}/vim/bundle/Vundle.vim
@@ -55,18 +56,27 @@ ${DOT_ROOT}/vim/bundle/Vundle.vim: git
 	)
 
 .PHONY: node
-node: nodenv
-	${HOME}/.nodenv/bin/nodenv install ${NODE_VERSION}
+node: nodenv node-build
+	test -d ${HOME}/.nodenv/versions/${NODE_VERSION} || \
+		${HOME}/.nodenv/bin/nodenv install ${NODE_VERSION}
 	${HOME}/.nodenv/bin/nodenv global ${NODE_VERSION}
 
 .PHONY: nodenv
 nodenv: ${HOME}/.nodenv
 ${HOME}/.nodenv: git
-	git clone https://github.com/nodenv/nodenv.git ${HOME}/.nodenv
+	test -d $@ || git clone https://github.com/nodenv/nodenv.git $@
+
+.PHONY: node-build
+node-build: ${HOME}/.nodenv/plugins/node-build
+
+${HOME}/.nodenv/plugins/node-build: git
+	mkdir -p ${HOME}/.nodenv/plugins
+	test -d $@ || git clone https://github.com/nodenv/node-build.git $@
 
 .PHONY: ruby
 ruby: chruby ruby-install ${HOME}/.ruby-version
-	ruby-install ruby ${RUBY_VERSION}
+	test -d ${HOME}/.rubies/ruby-${RUBY_VERSION} || \
+		ruby-install ruby ${RUBY_VERSION}
 chruby: wget
 	mkdir ${HOME}/src; cd ${HOME}/src; \
 		wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz && \
@@ -90,7 +100,7 @@ ${HOME}/bin: ${DOT_ROOT}/bin
 	# for f in $<; do echo 'linking $f'; ln -s $f ${HOME}/bin/; done
 
 .PHONY: misc-dotfiles
-misc-dotfiles: ${HOME}/.ctags ${HOME}/.gitignore ${HOME}/gitconfig ${HOME}/.irbrc ${HOME}/.tmux.conf
+misc-dotfiles: ${HOME}/.ctags ${HOME}/.gitignore ${HOME}/.gitconfig ${HOME}/.irbrc ${HOME}/.tmux.conf
 ${HOME}/.ctags: ${DOT_ROOT}/misc/ctags
 	ln -s $< $@
 ${HOME}/.gitignore: ${DOT_ROOT}/misc/gitignore
@@ -137,6 +147,8 @@ unzip: apt-update
 	command -v $@ || sudo apt install -y $@
 .PHONY: gettext
 gettext: apt-update
+	command -v $@ || sudo apt install -y $@
+.PHONY: build-essential
 	command -v $@ || sudo apt install -y $@
 
 .PHONY: apt-update
