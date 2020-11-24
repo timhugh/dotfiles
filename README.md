@@ -10,11 +10,25 @@ Right now, the steps for installation are:
 
 1. Install linux
 2. Add your user to sudo group
-3. Install git, make
+3. Install git, make, sudo
 4. Clone this repo
 5. Run make inside this repo
 
 A couple steps are having issues still because they depend on environment setup by previous steps and the easiest fix is just logging out and back in, then running it again (if you're running a window system, a new terminal session should be adequate)
+
+On debian, those steps look like this (skipping #1):
+```
+su -
+apt update && apt install -y git make sudo
+usermod -aG sudo tim
+exit # back to user
+exit # log out
+# log back in with new permissions
+git clone https://github.com/timhugh/dotfiles.git ~/.dotfiles
+make -C .dotfiles
+exit
+```
+Log back in, et voila!
 
 ## Issues
 
