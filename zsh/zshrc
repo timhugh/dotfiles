@@ -12,5 +12,7 @@ for f in $HOME/.zsh_profile.d/*.sh; do
   source $f
 done
 
+source $HOME/.zsh_aliases
+
 # and display a nice banner
 header
