@@ -1,31 +1,12 @@
-DOT_ROOT := $(shell pwd)
+DOT_ROOT := $(shell git rev-parse --show-toplevel)
 NODE_VERSION ?= 15.2.1
 RUBY_VERSION ?= 2.7.2
 GO_VERSION ?= 1.15.5
 
-install: build-essential oh-my-zsh misc-dotfiles bin vim node ruby golang
+install: build-essential node ruby golang misc-dotfiles bin vim oh-my-zsh
 
-.PHONY: oh-my-zsh
-oh-my-zsh: zsh ${HOME}/.oh-my-zsh zshrc chsh
-${HOME}/.oh-my-zsh: curl zsh
-	test -d $@ || (cd ${HOME}; curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash)
-
-zsh: apt-update
-	command -v $@ || sudo apt install -y $@
-
-.PHONY: zshrc
-zshrc: ${HOME}/.zshrc ${HOME}/.zsh_aliases ${HOME}/.zsh_profile.d
-# zshrc is phony b/c it needs to overwrite the one oh-my-zsh creates
-.PHONY: ${HOME}/.zshrc
-${HOME}/.zshrc: ${DOT_ROOT}/zsh/zshrc
-	rm $@ && ln -s $< $@
-${HOME}/.zsh_aliases: ${DOT_ROOT}/zsh/zsh_aliases
-	ln -s $< $@
-${HOME}/.zsh_profile.d: ${DOT_ROOT}/zsh/zsh_profile.d
-	ln -s $< $@
-
-chsh:
-	chsh -s $(shell which zsh)
+oh-my-zsh:
+	$(MAKE) --file ${DOT_ROOT}/install/oh-my-zsh.mk
 
 .PHONY: vim
 vim: neovim vimrc vim-plugins coc-extensions
