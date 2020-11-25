@@ -54,7 +54,9 @@ vim-plugins: vundle fzf silversearcher-ag
 
 .PHONY: coc-extensions
 coc-extensions: clangd
-	nvim +CocInstall coc-clangd +qall
+	mkdir -p ${HOME}/.config/coc/extensions
+	npm --prefix ${HOME}/.config/coc/extensions install coc-clangd coc-css coc-html coc-tsserver coc-json coc-solargraph coc-go \
+		--global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
 
 .PHONY: vundle
 vundle: ${DOT_ROOT}/vim/bundle/Vundle.vim
@@ -181,8 +183,10 @@ build-essential: apt-update
 	sudo apt install -y $@
 .PHONY: clangd
 clangd: apt-update
-	sudo apt install -y clangd-8
-	sudo ln -s /usr/bin/clangd-8 /usr/bin/clangd
+	command -v $@ || (\
+		sudo apt install -y clangd-8 && \
+		sudo ln -s /usr/bin/clangd-8 /usr/bin/clangd \
+	)
 
 .PHONY: apt-update
 apt-update:
