@@ -5,8 +5,13 @@ GO_VERSION ?= 1.15.5
 
 install: build-essential node ruby golang misc-dotfiles bin vim oh-my-zsh
 
+.PHONY: node
+node:
+	$(MAKE) --file ${DOT_ROOT}/install/$@.mk
+
+.PHONY: oh-my-zsh
 oh-my-zsh:
-	$(MAKE) --file ${DOT_ROOT}/install/oh-my-zsh.mk
+	$(MAKE) --file ${DOT_ROOT}/install/$@.mk
 
 .PHONY: vim
 vim: neovim vimrc vim-plugins coc-extensions
@@ -46,24 +51,6 @@ ${DOT_ROOT}/vim/bundle/Vundle.vim: git
 		mkdir -p ${DOT_ROOT}/vim/bundle; \
 		git clone https://github.com/VundleVim/Vundle.vim.git ${DOT_ROOT}/vim/bundle/Vundle.vim \
 	)
-
-.PHONY: node
-node: nodenv node-build
-	test -d ${HOME}/.nodenv/versions/${NODE_VERSION} || \
-		${HOME}/.nodenv/bin/nodenv install ${NODE_VERSION}
-	${HOME}/.nodenv/bin/nodenv global ${NODE_VERSION}
-
-.PHONY: nodenv
-nodenv: ${HOME}/.nodenv
-${HOME}/.nodenv: git
-	test -d $@ || git clone https://github.com/nodenv/nodenv.git $@
-
-.PHONY: node-build
-node-build: ${HOME}/.nodenv/plugins/node-build
-
-${HOME}/.nodenv/plugins/node-build: git
-	mkdir -p ${HOME}/.nodenv/plugins
-	test -d $@ || git clone https://github.com/nodenv/node-build.git $@
 
 .PHONY: ruby
 ruby: chruby ruby-install ${HOME}/.ruby-version

@@ -1,6 +1,6 @@
 DOT_ROOT ?= $(shell git rev-parse --show-toplevel)
 
-.PHONY:
+.PHONY: oh-my-zsh
 oh-my-zsh: zsh zshrc ${HOME}/.oh-my-zsh chsh
 
 .PHONY: zsh
