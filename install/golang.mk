@@ -6,7 +6,7 @@ golang: /usr/local/go
 
 include ${DOT_ROOT}/install/_common.mk
 
-/usr/local/go: ${HOME}/src/go${GO_VERSION}.linux-amd64.tar.gz
+/usr/local/go: ${DOT_ROOT}/tmp/go${GO_VERSION}.linux-amd64.tar.gz
 	sudo tar -C /usr/local -xzvf $<
-${HOME}/src/go${GO_VERSION}.linux-amd64.tar.gz: wget
+${DOT_ROOT}/tmp/go${GO_VERSION}.linux-amd64.tar.gz: wget
 	wget -O $@ https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz

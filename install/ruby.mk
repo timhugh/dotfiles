@@ -4,7 +4,7 @@ CHRUBY_VERSION ?= 0.3.9
 RUBY_INSTALL_VERSION ?= 0.7.1
 
 .PHONY: ruby
-ruby: ruby-${RUBY_VERSION} chruby ${HOME}/.ruby-version
+ruby: ruby-${RUBY_VERSION} chruby ${HOME}/.ruby-version bundler
 
 include ${DOT_ROOT}/install/_common.mk
 
@@ -12,7 +12,7 @@ include ${DOT_ROOT}/install/_common.mk
 ruby-${RUBY_VERSION}: ${HOME}/.rubies/ruby-${RUBY_VERSION}
 
 ${HOME}/.rubies/ruby-${RUBY_VERSION}: ruby-install
-		ruby-install ruby ${RUBY_VERSION}
+		ruby-install ruby ${RUBY_VERSION} -s ${DOT_ROOT}/tmp/
 
 .PHONY: chruby
 chruby: /usr/local/bin/chruby-exec
