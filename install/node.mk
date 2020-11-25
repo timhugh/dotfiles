@@ -1,4 +1,5 @@
 DOT_ROOT ?= $(shell git rev-parse --show-toplevel)
+NODE_VERSION ?= 15.2.1
 
 .PHONY: node
 node: nodenv node-build
