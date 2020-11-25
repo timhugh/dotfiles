@@ -3,6 +3,8 @@ DOT_ROOT ?= $(shell git rev-parse --show-toplevel)
 .PHONY: oh-my-zsh
 oh-my-zsh: zsh zshrc ${HOME}/.oh-my-zsh chsh
 
+include ${DOT_ROOT}/install/_common.mk
+
 .PHONY: zsh
 zsh:
 	@command -v $@ || sudo apt install -y $@
@@ -10,7 +12,7 @@ zsh:
 ${HOME}/.oh-my-zsh: ${DOT_ROOT}/tmp/oh-my-zsh-installer.sh
 	CHSH=no RUNZSH=no KEEP_ZSHRC=yes sh $<
 
-${DOT_ROOT}/tmp/oh-my-zsh-installer.sh:
+${DOT_ROOT}/tmp/oh-my-zsh-installer.sh: wget
 	@mkdir -p ${DOT_ROOT}/tmp
 	@wget -O $@ https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 

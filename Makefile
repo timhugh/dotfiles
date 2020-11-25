@@ -5,8 +5,14 @@ GO_VERSION ?= 1.15.5
 
 install: build-essential node ruby golang misc-dotfiles bin vim oh-my-zsh
 
+include install/_common.mk
+
 .PHONY: node
 node:
+	$(MAKE) --file ${DOT_ROOT}/install/$@.mk
+
+.PHONY: ruby
+ruby:
 	$(MAKE) --file ${DOT_ROOT}/install/$@.mk
 
 .PHONY: oh-my-zsh
@@ -52,37 +58,6 @@ ${DOT_ROOT}/vim/bundle/Vundle.vim: git
 		git clone https://github.com/VundleVim/Vundle.vim.git ${DOT_ROOT}/vim/bundle/Vundle.vim \
 	)
 
-.PHONY: ruby
-ruby: chruby ruby-install ${HOME}/.ruby-version
-	test -d ${HOME}/.rubies/ruby-${RUBY_VERSION} || \
-		ruby-install ruby ${RUBY_VERSION}
-
-CHRUBY_VERSION ?= 0.3.9
-.PHONY: chruby
-chruby: /usr/local/bin/chruby-exec
-/usr/local/bin/chruby-exec: ${HOME}/src/chruby-${CHRUBY_VERSION}
-	sudo $(MAKE) -C ${HOME}/src/chruby-${CHRUBY_VERSION} install
-	cd chruby-${CHRUBY_VERSION}/ && sudo $(MAKE) install
-${HOME}/src/chruby-${CHRUBY_VERSION}: ${HOME}/src/chruby-${CHRUBY_VERSION}.tar.gz
-	tar -xzvf $< -C ${HOME}/src
-${HOME}/src/chruby-${CHRUBY_VERSION}.tar.gz: wget
-	mkdir -p ${HOME}/src
-	wget -O $@ https://github.com/postmodern/chruby/archive/v${CHRUBY_VERSION}.tar.gz
-
-RUBY_INSTALL_VERSION ?= 0.7.1
-.PHONY: ruby-install
-ruby-install: /usr/local/bin/ruby-install
-/usr/local/bin/ruby-install: ${HOME}/src/ruby-install-${RUBY_INSTALL_VERSION}
-	sudo $(MAKE) -C ${HOME}/src/ruby-install-${RUBY_INSTALL_VERSION} install
-${HOME}/src/ruby-install-${RUBY_INSTALL_VERSION}: ${HOME}/src/ruby-install-${RUBY_INSTALL_VERSION}.tar.gz
-	tar -xzvf $< -C ${HOME}/src
-${HOME}/src/ruby-install-${RUBY_INSTALL_VERSION}.tar.gz: wget
-	mkdir -p ${HOME}/src
-	wget -O $@ https://github.com/postmodern/ruby-install/archive/v${RUBY_INSTALL_VERSION}.tar.gz
-
-${HOME}/.ruby-version:
-	echo ruby-${RUBY_VERSION} > $@
-
 .PHONY: golang
 golang: /usr/local/go
 /usr/local/go: ${HOME}/src/go${GO_VERSION}.linux-amd64.tar.gz
@@ -109,53 +84,3 @@ ${HOME}/.irbrc: ${DOT_ROOT}/misc/irbrc
 	ln -s $< $@
 ${HOME}/.tmux.conf: ${DOT_ROOT}/misc/tmux.conf
 	ln -s $< $@
-
-.PHONY: git
-git: apt-update
-	command -v $@ || sudo apt install -y $@
-.PHONY: curl
-curl: apt-update
-	command -v $@ || sudo apt install -y $@
-.PHONY: wget
-wget: apt-update
-	command -v $@ || sudo apt install -y $@
-.PHONY: fzf
-fzf: apt-update
-	command -v $@ || sudo apt install -y $@
-.PHONY: silversearcher-ag
-silversearcher-ag: apt-update
-	command -v ag || sudo apt install -y $@
-.PHONY: cmake
-cmake: apt-update
-	command -v $@ || sudo apt install -y $@
-.PHONY: pkg-config
-pkg-config: apt-update
-	command -v $@ || sudo apt install -y $@
-.PHONY: libtool
-libtool: apt-update
-	command -v libtoolize || sudo apt install -y $@
-.PHONY: libtool-bin
-libtool-bin: apt-update
-	command -v libtool || sudo apt install -y $@
-.PHONY: automake
-automake: apt-update
-	command -v $@ || sudo apt install -y $@
-.PHONY: unzip
-unzip: apt-update
-	command -v $@ || sudo apt install -y $@
-.PHONY: gettext
-gettext: apt-update
-	command -v $@ || sudo apt install -y $@
-.PHONY: build-essential
-build-essential: apt-update
-	sudo apt install -y $@
-.PHONY: clangd
-clangd: apt-update
-	command -v $@ || (\
-		sudo apt install -y clangd-8 && \
-		sudo ln -s /usr/bin/clangd-8 /usr/bin/clangd \
-	)
-
-.PHONY: apt-update
-apt-update:
-	sudo apt update
