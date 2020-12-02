@@ -1,9 +1,12 @@
 DOT_ROOT ?= $(shell git rev-parse --show-toplevel)
 
-# so this make file doesn't go weird if you call it alone
+# invoking this file by itself is a no-op
 .PHONY: nothing
 nothing:
 
+.PHONY: hub
+hub: apt-update git
+	command -v $@ || sudo apt install -y $@
 .PHONY: git
 git: apt-update
 	command -v $@ || sudo apt install -y $@
@@ -49,6 +52,9 @@ clangd: apt-update
 		sudo apt install -y clangd-8 && \
 		sudo ln -s /usr/bin/clangd-8 /usr/bin/clangd \
 	)
+.PHONY: openssh-client
+openssh-client: apt-update
+	sudo apt install -y $@
 
 .PHONY: apt-update
 apt-update:

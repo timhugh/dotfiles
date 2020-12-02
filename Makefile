@@ -3,7 +3,7 @@ NODE_VERSION ?= 15.2.1
 RUBY_VERSION ?= 2.7.2
 GO_VERSION ?= 1.15.5
 
-install: build-essential node ruby golang misc-dotfiles bin vim oh-my-zsh
+install: build-essential node ruby golang misc-dotfiles git-config bin vim oh-my-zsh
 
 include install/_common.mk
 
@@ -17,6 +17,10 @@ ruby:
 
 .PHONY: golang
 golang:
+	$(MAKE) --file ${DOT_ROOT}/install/$@.mk
+
+.PHONY: git-config
+git-config:
 	$(MAKE) --file ${DOT_ROOT}/install/$@.mk
 
 .PHONY: vim
@@ -35,12 +39,8 @@ ${HOME}/bin: ${DOT_ROOT}/bin
 	# for f in $<; do echo 'linking $f'; ln -s $f ${HOME}/bin/; done
 
 .PHONY: misc-dotfiles
-misc-dotfiles: ${HOME}/.ctags ${HOME}/.gitignore ${HOME}/.gitconfig ${HOME}/.irbrc ${HOME}/.tmux.conf
+misc-dotfiles: ${HOME}/.ctags ${HOME}/.irbrc ${HOME}/.tmux.conf
 ${HOME}/.ctags: ${DOT_ROOT}/misc/ctags
-	ln -s $< $@
-${HOME}/.gitignore: ${DOT_ROOT}/misc/gitignore
-	ln -s $< $@
-${HOME}/.gitconfig: ${DOT_ROOT}/misc/gitconfig
 	ln -s $< $@
 ${HOME}/.irbrc: ${DOT_ROOT}/misc/irbrc
 	ln -s $< $@
