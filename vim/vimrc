@@ -53,6 +53,9 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'lucapette/vim-textobj-underscore'
 
+" java / kotlin
+Plugin 'udalov/kotlin-vim'
+
 " go
 Plugin 'fatih/vim-go'
 

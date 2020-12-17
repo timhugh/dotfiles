@@ -1,5 +1,12 @@
 {
   "solargraph.useBundler": true,
   "solargraph.completion": true,
-  "solargraph.autoformat": true
+  "solargraph.autoformat": true,
+  "languageserver": {
+    "kotlin": {
+      "command": "/Users/tim/src/kotlin-language-server/server/build/install/server/bin/kotlin-language-server",
+      "filetypes": ["kotlin"]
+    }
+  },
+  "diagnostic.checkCurrentLine": true
 }
