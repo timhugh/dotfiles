@@ -1,0 +1,13 @@
+# handy LS aliases (and color!)
+alias ls='ls -GF'
+alias la='ls -a'
+alias ll='ls -l'
+alias lla='ls -la'
+
+# folder navigation
+alias ..='cd ..'
+alias ~='cd ~'
+
+# human readable file sizes
+alias df='df -h'
+alias du='du -h'
