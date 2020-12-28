@@ -6,3 +6,4 @@ tags
 .idea
 .cd_hook
 .factorypath
+.nvimlog

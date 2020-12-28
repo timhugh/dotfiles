@@ -34,3 +34,5 @@
   u = merge --no-commit --ff-only
 [pull]
 	ff = only
+[hub]
+	protocol = git
