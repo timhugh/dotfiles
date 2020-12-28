@@ -42,6 +42,9 @@ Plugin 'vim-scripts/summerfruit256.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+" markdown
+Plugin 'iamcco/markdown-preview.nvim'
+
 " ruby
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rake'
