@@ -3,7 +3,7 @@ NODE_VERSION ?= 15.2.1
 RUBY_VERSION ?= 2.7.2
 GO_VERSION ?= 1.15.5
 
-install: build-essential node ruby golang misc-dotfiles git-config bin vim oh-my-zsh
+install: wget build-essential node ruby golang misc-dotfiles git-config bin oh-my-zsh vim
 
 include install/_common.mk
 

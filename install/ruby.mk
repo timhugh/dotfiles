@@ -4,7 +4,7 @@ CHRUBY_VERSION ?= 0.3.9
 RUBY_INSTALL_VERSION ?= 0.7.1
 
 .PHONY: ruby
-ruby: ruby-${RUBY_VERSION} chruby ${HOME}/.ruby-version bundler
+ruby: ruby-${RUBY_VERSION} chruby ${HOME}/.ruby-version 
 
 include ${DOT_ROOT}/install/_common.mk
 
