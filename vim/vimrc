@@ -42,6 +42,12 @@ Plugin 'vim-scripts/summerfruit256.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+" ledger
+Plugin 'ledger/vim-ledger'
+
+" html
+Plugin 'mattn/emmet-vim'
+
 " markdown
 Plugin 'iamcco/markdown-preview.nvim'
 
