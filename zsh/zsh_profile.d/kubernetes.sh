@@ -1,4 +1,4 @@
-if [ command -v kubectl ]; then
+if [ -x "$(command -v kubectl)" ]; then
   alias  k='kubectl'
   alias kt='kubetail'
   alias  h='helm'
