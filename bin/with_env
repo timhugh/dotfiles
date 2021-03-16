@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # reads .env file in current working directory and sets specified environment variables
 
 ENV_FILE=${ENV_FILE:-'.env'}

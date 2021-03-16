@@ -1,7 +1,7 @@
 DOT_ROOT := $(shell git rev-parse --show-toplevel)
 NODE_VERSION ?= 15.2.1
 RUBY_VERSION ?= 2.7.2
-GO_VERSION ?= 1.15.5
+GO_VERSION ?= 1.16
 
 install: wget build-essential node ruby golang misc-dotfiles git-config bin oh-my-zsh vim
 
