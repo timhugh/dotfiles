@@ -7,3 +7,5 @@ tags
 .cd_hook
 .factorypath
 .nvimlog
+.ruby-version
+.node-version
