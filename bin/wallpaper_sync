@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-echo Wallpaper Sync $(date)
-if [ -x "$(command -v rclone)" ]; then
-  rclone sync -v dropbox:/wallpapers $HOME/Pictures/wallpapers && echo "=> finished sync in $HOME/Pictures/wallpapers"
-else
-  echo "=> rclone not present. skipping sync"
-fi
