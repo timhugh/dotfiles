@@ -19,6 +19,10 @@ ruby:
 golang:
 	$(MAKE) --file ${DOT_ROOT}/install/$@.mk
 
+.PHONY: java
+java:
+	$(MAKE) --file ${DOT_ROOT}/install/$@.mk
+
 .PHONY: git-config
 git-config:
 	$(MAKE) --file ${DOT_ROOT}/install/$@.mk
