@@ -22,7 +22,7 @@ ${DOT_ROOT}/tmp/chruby-${CHRUBY_VERSION}: ${DOT_ROOT}/tmp/chruby-${CHRUBY_VERSIO
 	tar -xzvf $< -C ${DOT_ROOT}/tmp
 ${DOT_ROOT}/tmp/chruby-${CHRUBY_VERSION}.tar.gz: wget
 	mkdir -p ${DOT_ROOT}/tmp
-	wget -O $@ https://github.com/postmodern/chruby/archive/v${CHRUBY_VERSION}.tar.gz
+	test -f $@ || wget -O $@ https://github.com/postmodern/chruby/archive/v${CHRUBY_VERSION}.tar.gz
 
 .PHONY: ruby-install
 ruby-install: /usr/local/bin/ruby-install
@@ -32,7 +32,7 @@ ${DOT_ROOT}/tmp/ruby-install-${RUBY_INSTALL_VERSION}: ${DOT_ROOT}/tmp/ruby-insta
 	tar -xzvf $< -C ${DOT_ROOT}/tmp
 ${DOT_ROOT}/tmp/ruby-install-${RUBY_INSTALL_VERSION}.tar.gz: wget
 	mkdir -p ${DOT_ROOT}/tmp
-	wget -O $@ https://github.com/postmodern/ruby-install/archive/v${RUBY_INSTALL_VERSION}.tar.gz
+	test -f $@ || wget -O $@ https://github.com/postmodern/ruby-install/archive/v${RUBY_INSTALL_VERSION}.tar.gz
 
 ${HOME}/.ruby-version:
 	echo ruby-${RUBY_VERSION} > $@
