@@ -4,6 +4,8 @@ alias    rmq-dev='open http://rmq:15672'
 alias     es-dev='open http://elasticsearch:9200'
 alias kibana-dev='open http://kibana:5601'
 
+alias dc="docker-compose"
+
 # unset environment variables to fall back to Docker for Mac
 function dmc-unset {
   eval $(docker-machine env -u)
