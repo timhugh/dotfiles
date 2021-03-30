@@ -21,7 +21,7 @@ function header {
   echo "$(whoami) : $(uname -n)"
 
   date="$(date +"%A, %B %d")"
-  time="$(date +"%l:%M %p")"
+  time="$(date +"%I:%M %p")"
   utc="$(date -u +"%H:%M UTC")"
 
   echo "${date} - ${time} - ${utc}"
