@@ -4,10 +4,10 @@ git-config: gitconfig gitignore
 
 include install/_common.mk
 
-# .PHONY: github-key
-# github-key: ${HOME}/.ssh/github_key
-# ${HOME}/.ssh/github_key: openssh-client
-# 	ssh-keygen -f $@ -q -N ''
+.PHONY: github-key
+github-key: ${HOME}/.ssh/github_key
+${HOME}/.ssh/github_key: openssh-client
+	ssh-keygen -f $@ -q -N ''
 
 .PHONY: gitignore
 gitignore: ${HOME}/.gitignore

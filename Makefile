@@ -3,8 +3,6 @@ NODE_VERSION ?= 15.2.1
 RUBY_VERSION ?= 2.7.2
 GO_VERSION ?= 1.16
 
-install: wget build-essential node ruby golang misc-dotfiles git-config bin oh-my-zsh vim
-
 include install/_common.mk
 
 .PHONY: node
@@ -33,6 +31,10 @@ vim:
 
 .PHONY: oh-my-zsh
 oh-my-zsh:
+	$(MAKE) --file ${DOT_ROOT}/install/$@.mk
+
+.PHONY: docker
+docker:
 	$(MAKE) --file ${DOT_ROOT}/install/$@.mk
 
 .PHONY: bin

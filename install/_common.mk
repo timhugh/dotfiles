@@ -55,6 +55,18 @@ clangd: apt-update
 .PHONY: openssh-client
 openssh-client: apt-update
 	sudo apt install -y $@
+.PHONY: apt-transport-https
+apt-transport-https: apt-update
+	command -v $@ || sudo apt install -y $@
+.PHONY: ca-certificates
+ca-certificates: apt-update
+	command -v $@ || sudo apt install -y $@
+.PHONY: gnupg
+gnupg: apt-update
+	command -v $@ || sudo apt install -y $@
+.PHONY: lsb-release
+lsb-release: apt-update
+	command -v $@ || sudo apt install -y $@
 
 .PHONY: apt-update
 apt-update:
