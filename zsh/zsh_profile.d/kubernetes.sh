@@ -1,7 +1,6 @@
 if [ -x "$(command -v kubectl)" ]; then
-  alias  k='kubectl'
+  alias kc='kubectl'
   alias kt='kubetail'
-  alias  h='helm'
 
   alias kp='kubectl get pod'
   alias kd='kubectl get deployment'
