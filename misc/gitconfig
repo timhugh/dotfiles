@@ -36,3 +36,5 @@
 	ff = only
 [hub]
 	protocol = git
+[init]
+	defaultBranch = main
