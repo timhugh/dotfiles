@@ -5,6 +5,7 @@ alias     es-dev='open http://elasticsearch:9200'
 alias kibana-dev='open http://kibana:5601'
 
 alias dc="docker-compose"
+alias dcl="docker-compose logs -f --tail 0"
 
 # unset environment variables to fall back to Docker for Mac
 function dmc-unset {
