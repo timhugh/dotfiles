@@ -1,7 +1,7 @@
 DOT_ROOT ?= $(shell git rev-parse --show-toplevel)
 
 .PHONY: oh-my-zsh
-oh-my-zsh: zsh zshrc ${HOME}/.oh-my-zsh chsh
+oh-my-zsh: zsh zshrc ${HOME}/.oh-my-zsh fzf chsh
 
 include ${DOT_ROOT}/install/_common.mk
 
