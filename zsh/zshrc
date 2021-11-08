@@ -4,7 +4,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # oh-my-zsh directory and config
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
-plugins=(brew git chruby ruby bundler rails npm heroku zsh-interactive-cd osx docker docker-compose)
+plugins=(brew git chruby ruby bundler rails npm heroku zsh-interactive-cd macos docker docker-compose)
 source $ZSH/oh-my-zsh.sh
 
 # load config directory
