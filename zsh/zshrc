@@ -1,5 +1,7 @@
-# add user bin and brew to path
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+# add extra bin directories to path
+export PATH=/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/bin:$PATH
 
 # oh-my-zsh directory and config
 export ZSH="$HOME/.oh-my-zsh"
