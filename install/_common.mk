@@ -67,6 +67,12 @@ gnupg: apt-update
 .PHONY: lsb-release
 lsb-release: apt-update
 	command -v $@ || sudo apt install -y $@
+.PHONY: python3.7
+python3.7: apt-update
+	command -v $@ || sudo apt install -y $@
+.PHONY: python3-pip
+python3-pip: apt-update python3.7
+	command -v $@ || sudo apt install -y $@
 
 .PHONY: apt-update
 apt-update:

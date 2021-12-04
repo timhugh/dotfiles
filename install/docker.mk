@@ -18,8 +18,8 @@ containerd.io: docker-apt-repository apt-update
 	command -v $@ || sudo apt install -y $@
 
 .PHONY: docker-compose
-docker-compose: docker-apt-repository apt-update
-	command -v $@ || sudo apt install -y $@
+docker-compose: python3-pip
+	command -v $@ || pip3 install docker-compose
 
 .PHONY: docker-permissions
 docker-permissions:
