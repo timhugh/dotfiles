@@ -1,5 +1,5 @@
 # handy aliases for things I tend to have running in docker
-alias     pg-dev='psql -hdb -Upostgres'
+alias     pg-dev='psql postgres://postgres:postgres@db/postgres'
 alias    rmq-dev='open http://rmq:15672'
 alias     es-dev='open http://elasticsearch:9200'
 alias kibana-dev='open http://kibana:5601'
