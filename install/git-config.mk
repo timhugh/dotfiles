@@ -18,3 +18,10 @@ ${HOME}/.gitignore: ${DOT_ROOT}/misc/gitignore
 gitconfig: ${HOME}/.gitconfig
 ${HOME}/.gitconfig: ${DOT_ROOT}/misc/gitconfig
 	ln -s $< $@
+
+.PHONY: sshconfig
+sshconfig: ${HOME}/.ssh/config
+${HOME}/.ssh/config: ${DOT_ROOT}/misc/sshconfig
+	mkdir -p ${HOME}/.ssh
+	ln -s $< $@
+
