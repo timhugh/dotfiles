@@ -15,6 +15,8 @@ EOF
 }
 
 function header {
+  snow
+
   mountains_header
 
   echo
