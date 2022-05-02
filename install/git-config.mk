@@ -22,6 +22,6 @@ ${HOME}/.gitconfig: ${DOT_ROOT}/misc/gitconfig
 .PHONY: sshconfig
 sshconfig: ${HOME}/.ssh/config
 ${HOME}/.ssh/config: ${DOT_ROOT}/misc/sshconfig
-	mkdir -p ${HOME}/.ssh
+	mkdir -p ${HOME}/.ssh/config.d
 	ln -s $< $@
 
