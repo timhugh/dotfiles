@@ -1,5 +1,5 @@
 DOT_ROOT ?= $(shell git rev-parse --show-toplevel)
-GO_VERSION ?= 1.16
+GO_VERSION ?= 1.19.5
 PLATFORM ?= linux-amd64
 
 .PHONY: golang
