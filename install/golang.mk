@@ -1,6 +1,6 @@
 DOT_ROOT ?= $(shell git rev-parse --show-toplevel)
-GO_VERSION ?= 1.19.5
-PLATFORM ?= linux-amd64
+GO_VERSION ?= 1.20.3
+PLATFORM ?= darwin-arm64
 
 .PHONY: golang
 golang: /usr/local/go
