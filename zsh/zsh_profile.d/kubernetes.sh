@@ -1,4 +1,6 @@
 if [ -x "$(command -v kubectl)" ]; then
+  source <(kubectl completion zsh)
+
   alias kc='kubectl'
   alias kt='kubetail'
 
