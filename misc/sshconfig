@@ -7,3 +7,8 @@ Host github.com
 Host gist.github.com
   User git
   IdentityFile ~/.ssh/github_key
+
+Host gitlab.com
+  User git
+  IdentityFile ~/.ssh/gitlab_key
+
