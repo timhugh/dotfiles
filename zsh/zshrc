@@ -25,3 +25,11 @@ source $HOME/.zsh_aliases
 
 # and display a nice banner
 header
+
+# override `cd` to run hooks in current directory (if applicable)
+function cd {
+  builtin cd "$@" || return 1
+  [[ -f ./.cd_hook ]] && . ./.cd_hook || return 0
+}
+# finally, run any cd_hooks in the current dir
+[[ -f ./.cd_hook ]] && . ./.cd_hook
