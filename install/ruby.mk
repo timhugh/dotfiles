@@ -1,10 +1,10 @@
 DOT_ROOT ?= $(shell git rev-parse --show-toplevel)
-RUBY_VERSION ?= 3.2.1
+RUBY_VERSION ?= 3.2.2
 CHRUBY_VERSION ?= 0.3.9
-RUBY_INSTALL_VERSION ?= 0.8.3
+RUBY_INSTALL_VERSION ?= 0.9.1
 
 .PHONY: ruby
-ruby: ruby-${RUBY_VERSION} chruby ${HOME}/.ruby-version
+ruby: ruby-${RUBY_VERSION} chruby ${HOME}/.ruby-version ruby-gems
 
 include ${DOT_ROOT}/install/_common.mk
 
@@ -36,3 +36,8 @@ ${DOT_ROOT}/tmp/ruby-install-${RUBY_INSTALL_VERSION}.tar.gz:
 
 ${HOME}/.ruby-version:
 	echo ruby-${RUBY_VERSION} > $@
+
+.PHONY: ruby-gems
+ruby-gems:
+	gem install bundler solargraph rubocop
+	gem update --system
