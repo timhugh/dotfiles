@@ -3,8 +3,8 @@ tags
 .vscode
 .DS_Store
 .byebug_history
-.idea
 .cd_hook
 .factorypath
 .nvimlog
 .java-version
+
