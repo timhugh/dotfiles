@@ -1,7 +1,7 @@
 DOT_ROOT ?= $(shell git rev-parse --show-toplevel)
-RUBY_VERSION ?= 3.2.2
+RUBY_VERSION ?= 3.3.0
 CHRUBY_VERSION ?= 0.3.9
-RUBY_INSTALL_VERSION ?= 0.9.1
+RUBY_INSTALL_VERSION ?= 0.9.3
 
 .PHONY: ruby
 ruby: ruby-${RUBY_VERSION} chruby ${HOME}/.ruby-version ruby-gems
