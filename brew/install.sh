@@ -21,5 +21,5 @@ for package in $(echo ${PACKAGES}); do
   cat "${DOT_ROOT}/brew/Brewfile.${package}" >> ${HOME}/.Brewfile
 done
 
-# /opt/homebrew/bin/brew bundle --global
+/opt/homebrew/bin/brew bundle --global
 
