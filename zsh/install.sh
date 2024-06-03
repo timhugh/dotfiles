@@ -4,7 +4,7 @@ set -e
 
 DOT_ROOT="$(git rev-parse --show-toplevel)"
 
-if [ -d $ZSH ]
+if [[ -n "$ZSH" && -d $ZSH ]]
 then
   echo "oh-my-zsh is already installed; skipping"
   exit 0
