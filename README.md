@@ -9,7 +9,7 @@ Some time ago, my beautiful bash profile was lost in a tragic backup accident, a
 This is decidedly mac-specific at the moment and will probably remain as such for a while. Generally I wouldn't actually suggest running the installer unless you wanted your computer set up exactly how I like mine, but if you wanted to do that:
 
 ```
-bin/sh -c $(curl -fsSL https://raw.githubusercontent.com/timhugh/dotfiles/HEAD/install.sh)
+/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/timhugh/dotfiles/HEAD/install.sh)"
 ```
 
 ## History
