@@ -1,0 +1,26 @@
+# standard
+brew "dockutil"
+cask "1password"
+cask "1password-cli"
+cask "caffeine"
+cask "firefox"
+cask "google-chrome"
+cask "mos"
+
+# productivity
+cask "dropbox"
+cask "notion"
+cask "notion-calendar"
+cask "openvpn-connect"
+cask "postman"
+cask "readdle-spark"
+cask "slack"
+cask "zoom"
+
+# entertainment
+cask "spotify"
+
+# keyboard
+cask "qmk-toolbox"
+cask "via"
+

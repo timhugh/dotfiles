@@ -1,0 +1,26 @@
+# dev
+brew "bash"
+brew "git"
+brew "zsh"
+cask "docker"
+cask "iterm2"
+cask "tableplus"
+cask "utm"
+
+# nvim
+brew "neovim"
+brew "ripgrep"
+
+# jetbrains
+cask "jetbrains-toolbox"
+cask "clion"
+cask "goland"
+cask "intellij-idea-ce"
+cask "rubymine"
+
+# c++
+brew "gcc"
+brew "llvm"
+brew "cmake"
+brew "make"
+

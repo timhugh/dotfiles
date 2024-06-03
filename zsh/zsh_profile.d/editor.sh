@@ -1,2 +1,2 @@
-export EDITOR='code'
+export EDITOR='nvim'
 alias e=$EDITOR

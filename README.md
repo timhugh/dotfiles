@@ -5,34 +5,12 @@
 Some time ago, my beautiful bash profile was lost in a tragic backup accident, and I was forced to start fresh. With very little memory of what was actually in the original, I am now on a journey to terminal re-enlightenment, and you can follow along.
 
 ## Installation
-I've been testing this on a VM running Debian 10.6.0. The installation process is decidedly not cross-platform yet.
-Right now, the steps for installation are:
 
-1. Install linux
-2. Add your user to sudo group
-3. Install git, make, sudo
-4. Clone this repo
-5. Run make inside this repo
+This is decidedly mac-specific at the moment and will probably remain as such for a while. Generally I wouldn't actually suggest running the installer unless you wanted your computer set up exactly how I like mine, but if you wanted to do that:
 
-A couple steps are having issues still because they depend on environment setup by previous steps and the easiest fix is just logging out and back in, then running it again (if you're running a window system, a new terminal session should be adequate)
-
-On debian, those steps look like this (skipping #1):
 ```
-su -
-apt update && apt install -y git make sudo
-usermod -aG sudo tim
-exit # back to user
-exit # log out
-# log back in with new permissions
-git clone https://github.com/timhugh/dotfiles.git ~/.dotfiles
-make -C .dotfiles
-exit
+bin/sh -c $(curl -fsSL https://raw.githubusercontent.com/timhugh/dotfiles/HEAD/install.sh)
 ```
-Log back in, et voila!
-
-## Issues
-
-[ISSUES.md](https://github.com/timhugh/dotfiles/blob/master/ISSUES.md)
 
 ## History
 
