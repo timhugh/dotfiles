@@ -14,12 +14,12 @@ else
 fi
 
 # build master brewfile
-: ${PACKAGES:=base dev gamedev outdoors}
+: ${PACKAGES:=base dev gamedev outdoors 3dprinting}
 echo "Installing all formulas for packages: (${PACKAGES})"
 echo > ${HOME}/.Brewfile
 for package in $(echo ${PACKAGES}); do
   cat "${DOT_ROOT}/brew/Brewfile.${package}" >> ${HOME}/.Brewfile
 done
 
-/opt/homebrew/bin/brew bundle --global
+# /opt/homebrew/bin/brew bundle --global
 
