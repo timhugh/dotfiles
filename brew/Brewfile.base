@@ -1,5 +1,6 @@
 # standard
 brew "dockutil"
+brew "fzf"
 cask "1password"
 cask "1password-cli"
 cask "caffeine"
