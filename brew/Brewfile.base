@@ -6,6 +6,7 @@ cask "caffeine"
 cask "firefox"
 cask "google-chrome"
 cask "mos"
+cask "rectangle"
 
 # productivity
 cask "dropbox"
