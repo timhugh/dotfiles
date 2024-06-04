@@ -12,7 +12,7 @@ git clone https://github.com/timhugh/dotfiles ${HOME}/.dotfiles
 cd ${HOME}/.dotfiles
 brew/install.sh
 zsh/install.sh
-dock/install.sh
+os/install.sh
 git/install.sh
 iterm2/install.sh
 

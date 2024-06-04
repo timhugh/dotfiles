@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -e
+
 /opt/homebrew/bin/dockutil --remove all
 /opt/homebrew/bin/dockutil --add ${HOME} --display folder --view grid
 /opt/homebrew/bin/dockutil --add ${HOME}/Downloads --display folder --view grid
