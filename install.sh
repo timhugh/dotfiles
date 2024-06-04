@@ -14,4 +14,5 @@ brew/install.sh
 zsh/install.sh
 dock/install.sh
 git/install.sh
+iterm2/install.sh
 
