@@ -17,6 +17,8 @@ vim.opt.wildmode = { "longest", "list" }
 
 vim.opt.cursorline = true
 
+require('mappings')
+
 local lazy = {}
 
 function lazy.install(path)
