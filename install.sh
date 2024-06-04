@@ -13,4 +13,5 @@ cd ${HOME}/.dotfiles
 brew/install.sh
 zsh/install.sh
 dock/install.sh
+git/install.sh
 

@@ -14,7 +14,7 @@ else
 fi
 
 # build master brewfile
-: ${PACKAGES:=base dev gamedev outdoors 3dprinting}
+: ${PACKAGES:=base dev}
 echo "Installing all formulas for packages: (${PACKAGES})"
 echo > ${HOME}/.Brewfile
 for package in $(echo ${PACKAGES}); do
