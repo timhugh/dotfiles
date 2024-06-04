@@ -8,7 +8,6 @@ DOT_ROOT="$(git rev-parse --show-toplevel)"
 if [[ -n "$ZSH" && -d $ZSH ]]
 then
   echo "oh-my-zsh is already installed; skipping"
-  exit 0
 else
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
