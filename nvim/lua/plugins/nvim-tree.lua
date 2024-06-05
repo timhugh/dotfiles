@@ -1,14 +1,19 @@
-require('nvim-tree').setup({
-    update_focused_file = {
-        enable = true,
+return {
+    "nvim-tree/nvim-tree.lua",
+    lazy = false,
+    keys = {
+        { "<leader>t", "<cmd>:NvimTreeToggle<cr>", desc = "toggle NvimTree" },
     },
-    actions = {
-        change_dir = {
-            enable = false,
-            restrict_above_cwd = true,
+    opts = {
+        update_focused_file = {
+            enable = true,
+        },
+        actions = {
+            change_dir = {
+                enable = false,
+                restrict_above_cwd = true,
+            },
         },
     },
-})
-
-vim.api.nvim_set_keymap("n", "<leader>t", ":NvimTreeToggle<cr>", { silent = true, noremap = true })
+}
 

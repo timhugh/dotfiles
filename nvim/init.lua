@@ -1,5 +1,4 @@
-require('ui')
-require('mappings')
-require('plugins')
+require("core.options")
+require("core.mappings")
+require("core.lazy").setup()
 
-vim.cmd.colorscheme('atom-dark')
