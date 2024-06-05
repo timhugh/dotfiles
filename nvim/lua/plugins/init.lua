@@ -33,8 +33,18 @@ lazy.setup({
 
     {'nvim-lualine/lualine.nvim'},
     {'nvim-tree/nvim-tree.lua'},
+
+    {'nvim-lua/plenary.nvim'},
+    {
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.8',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+        },
+    },
 })
 
 require('plugins/nvim-tree')
 require('plugins/lualine')
+require('plugins/telescope')
 
