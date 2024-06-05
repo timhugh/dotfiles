@@ -8,6 +8,8 @@ do
 done
 
 git clone https://github.com/timhugh/dotfiles ${HOME}/.dotfiles
+mkdir -p ${HOME}/git
+ln -s ${HOME}/.dotfiles ${HOME}/git/dotfiles
 
 cd ${HOME}/.dotfiles
 brew/install.sh
