@@ -1,4 +1,4 @@
-vim.g.mapleader = " "
+vim.g.mapleader = ","
 
 -- quick exit to normal mode
 vim.keymap.set('i', 'jj', '<ESC>')
