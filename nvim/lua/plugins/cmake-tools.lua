@@ -1,5 +1,5 @@
 return {
-    'Civitasv/cmake-tools.nvim',
+    "Civitasv/cmake-tools.nvim",
     opts = {
         cmake_generate_options = {
             "-DBUILD_TESTING=ON",
