@@ -61,6 +61,8 @@ return {
                     "lua_ls",
                     "gopls",
                     "clangd",
+                    "solargraph",
+                    "standardrb"
                 },
                 handlers = {
                     lsp_zero.default_setup,
