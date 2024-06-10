@@ -1,6 +1,7 @@
 # dev
 brew "bash"
 brew "git"
+brew "whalebrew"
 brew "zsh"
 cask "docker"
 cask "iterm2"
@@ -12,15 +13,15 @@ brew "neovim"
 brew "ripgrep"
 
 # jetbrains
-cask "jetbrains-toolbox"
 cask "clion"
 cask "goland"
 cask "intellij-idea-ce"
+cask "jetbrains-toolbox"
 cask "rubymine"
 
 # c++
+brew "cmake"
 brew "gcc"
 brew "llvm"
-brew "cmake"
 brew "make"
 

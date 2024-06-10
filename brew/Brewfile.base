@@ -1,6 +1,7 @@
 # standard
 brew "dockutil"
 brew "fzf"
+brew "mas"
 cask "1password"
 cask "1password-cli"
 cask "caffeine"
@@ -8,6 +9,7 @@ cask "firefox"
 cask "google-chrome"
 cask "mos"
 cask "rectangle"
+mas "Velja", id: 1607635845
 
 # productivity
 cask "dropbox"
