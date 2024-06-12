@@ -6,13 +6,27 @@ Some time ago, my beautiful bash profile was lost in a tragic backup accident, a
 
 ## Installation
 
-This is decidedly mac-specific at the moment and will probably remain as such for a while. Generally I wouldn't actually suggest running the installer unless you wanted your computer set up exactly how I like mine, but if you wanted to do that:
+Before getting into it, some notes:
+
+- I wouldn't actually recommend running this installer unless you want your laptop set up exactly like mine
+- This is super mac-specific, and will probably remain as such for a while
+
+To run the installer, you don't have to clone this repo (the installer does that!), just run this command:
 
 ```
 /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/timhugh/dotfiles/HEAD/install.sh)"
 ```
 
-After installing, I follow this manual checklist (hopefully I can automate more of this as time allows):
+It will occasionally ask for your password for sudo things, and anything installed using `mas` (App Store) will require logging into an Apple account. That's where I pause to log in to 1Password, personally.
+
+The installer is grouped into packages, sort of. Each root directory in this repo represents one of the packages. The main installer will install the `base`, `zsh`, and `dev` packages (since that's kind of my baseline). For more eccentric setups, the installers in the additional packages can be run individually after everything else is installed, e.g.:
+
+```
+${DOT_FILES}/3dprinting/install.sh
+```
+
+There are some manual steps after running the installer. Hopefully some of these can be automated later. Skip over ones that aren't relevant, depending on your packages:
+
 - [ ] 1password login
 - [ ] Firefox login
 - [ ] Chrome login

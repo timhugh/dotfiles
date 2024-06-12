@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-DOT_ROOT=${DOOT_ROOT:-${HOME}/.dotfiles}
+DOT_ROOT="${DOOT_ROOT:-${HOME}/.dotfiles}"
 
 # install xcode tools and wait for completion
 xcode-select --install
