@@ -4,13 +4,13 @@ set -ex
 
 DOT_ROOT="${DOOT_ROOT:-${HOME}/.dotfiles}"
 
-if [ $(xcode-select --print-path &> /dev/null) ]
+if xcode-select --print-path &> /dev/null
 then
     echo "xcode tools are already installed"
 else
     # install xcode tools and wait for completion
     xcode-select --install
-    until $(xcode-select --print-path &> /dev/null)
+    until xcode-select --print-path &> /dev/null
     do
         sleep 5
     done
