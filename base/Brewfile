@@ -13,7 +13,6 @@ mas "Velja", id: 1607635845
 
 # productivity
 cask "dropbox"
-cask "notion"
 cask "notion-calendar"
 cask "openvpn-connect"
 cask "postman"
