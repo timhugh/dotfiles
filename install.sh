@@ -4,17 +4,25 @@ set -ex
 
 DOT_ROOT="${DOOT_ROOT:-${HOME}/.dotfiles}"
 
-# install xcode tools and wait for completion
-xcode-select --install
-until $(xcode-select --print-path &> /dev/null)
-do
-  sleep 5
-done
+if [ $(xcode-select --print-path &> /dev/null) ]
+then
+    echo "xcode tools are already installed"
+else
+    # install xcode tools and wait for completion
+    xcode-select --install
+    until $(xcode-select --print-path &> /dev/null)
+    do
+        sleep 5
+    done
+fi
 
-# clone this repo and link it in the git projects dir
-git clone "https://github.com/timhugh/dotfiles" "${DOT_ROOT}"
-mkdir -p ${HOME}/git
-ln -s "${DOT_ROOT}" "${HOME}/git/dotfiles"
+if [ ! -f "${DOT_ROOT}" ]
+then
+    # clone this repo and link it in the git projects dir
+    git clone "https://github.com/timhugh/dotfiles" "${DOT_ROOT}"
+    mkdir -p ${HOME}/git
+    ln -s "${DOT_ROOT}" "${HOME}/git/dotfiles"
+fi
 
 # create secrets file with first "secret"
 #
