@@ -16,16 +16,7 @@ for f in "${HOME}/.zsh_profile.d"/*.sh; do
 done
 
 # load secrets (shhhhhh)
-if [ -f "${HOME}/.secrets" ]
-then
-    export $(cat "${HOME}/.secrets" | xargs)
-fi
-
-# load env
-if [ -f "${HOME}/.env" ]
-then
-    export $(cat "${HOME}/.env" | xargs)
-fi
+source "${HOME}/.secrets"
 
 # load aliases
 source "${HOME}/.zsh_aliases"
