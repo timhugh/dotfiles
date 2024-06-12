@@ -30,11 +30,12 @@ defaults write com.apple.screencapture show-thumbnail -bool "false"
 echo "configuring menu bar clock"
 defaults write com.apple.menuextra.clock "DateFormat" -string "\"EEE MMM d HH:mm\""
 
+# these two are piped to /dev/null and the return is ignored because we don't
+# totally care if they succeed, and they tend to have errors even when they do
 echo "restarting dock"
-killall Dock
-
+killall Dock &> /dev/null || true
 echo "restarting system ui server"
-killall SystemUIServer
+killall SystemUIServer &> /dev/null || true
 
 echo "base/os subpackage complete"
 
