@@ -37,8 +37,18 @@ fi
 #
 # secrets is a bit of a misnomer; this does often contain api keys and the like
 # but I also use it for system-specific configuration that I don't want in this repo
-echo "creating ~/.secrets"
-echo "export DOT_ROOT=${DOT_ROOT}" >> "${HOME}/.secrets"
+
+if [ ! -f "${HOME}/.secrets" ]
+then
+    echo "creating ~/.secrets"
+    touch "${HOME}/.secrets"
+fi
+source "${HOME}/.secrets"
+if [ -z "${DOT_ROOT}" ]
+then
+    echo "adding DOT_ROOT to ~/.secrets"
+    echo "export DOT_ROOT=${DOT_ROOT}" >> "${HOME}/.secrets"
+fi
 source "${HOME}/.secrets"
 
 # fire off the usual suspect installers
