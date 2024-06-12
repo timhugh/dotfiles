@@ -2,7 +2,8 @@
 
 set -ex
 
-# install oh-my-zsh
+# install oh-my-zsh if necessary
+test -f "${HOME}/.zshrc" && source "${HOME}/.zshrc"
 if [[ -n "$ZSH" && -d $ZSH ]]
 then
   echo "oh-my-zsh is already installed; skipping"
