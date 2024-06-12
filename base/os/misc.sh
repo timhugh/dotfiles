@@ -2,8 +2,6 @@
 
 set -e
 
-DOT_ROOT="$(git rev-parse --show-toplevel)"
-
 # screenshot tool
 defaults write com.apple.screencapture location -string "~/Downloads"
 defaults write com.apple.screencapture show-thumbnail -bool "false"
