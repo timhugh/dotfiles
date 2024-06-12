@@ -17,7 +17,7 @@ To run the installer, you don't have to clone this repo (the installer does that
 /usr/bin/env zsh -c "$(curl -fsSL https://raw.githubusercontent.com/timhugh/dotfiles/HEAD/install.sh)"
 ```
 
-It will occasionally ask for your password for sudo things, and anything installed using `mas` (App Store) will require logging into an Apple account. That's where I pause to log in to 1Password, personally.
+It will occasionally ask for your password for sudo things, and anything installed using `mas` (App Store) will require logging into an Apple account, if you haven't already.
 
 The installer is grouped into packages, sort of. Each root directory in this repo represents one of the packages. The main installer will install the `base`, `zsh`, and `dev` packages (since that's kind of my baseline). For more eccentric setups, the installers in the additional packages can be run individually after everything else is installed, e.g.:
 
