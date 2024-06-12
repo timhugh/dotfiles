@@ -2,6 +2,6 @@
 
 set -ex
 
-"${DOT_ROOT}/os/dock.sh"
-"${DOT_ROOT}/os/misc.sh"
+"${DOT_ROOT}/base/os/dock.sh"
+"${DOT_ROOT}/base/os/misc.sh"
 
