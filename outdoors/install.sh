@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -e
+
 echo "installing outdoors package"
 
 echo "bundling brewfile"

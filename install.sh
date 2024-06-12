@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -e
+
 DOT_ROOT="${DOOT_ROOT:-${HOME}/.dotfiles}"
 echo "installing dotfiles to ${DOT_ROOT}"
 

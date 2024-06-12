@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -e
+
 echo "installing 3dprinting subpackage"
 
 echo "bundling brewfile"

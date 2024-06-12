@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -e
+
 echo "installing bin package"
 
 echo "creating ~/bin"

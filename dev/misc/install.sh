@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -e
+
 echo "installing dev/misc subpackage"
 
 MISC_ROOT="${DOT_ROOT}/dev/misc"

@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -e
+
 echo "configuring dock icons"
 /opt/homebrew/bin/dockutil --remove all
 /opt/homebrew/bin/dockutil --add "${HOME}" --display folder --view grid

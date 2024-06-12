@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+set -e 
 
 # screenshot tool
 echo "configuring screenshot tool"

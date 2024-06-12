@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -e
+
 echo "installing dev package"
 
 echo "bundling brewfile"

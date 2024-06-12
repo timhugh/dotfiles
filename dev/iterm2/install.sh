@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -e
+
 echo "installing dev/iterm2 subpackage"
 
 # load/save settings from dotfiles

@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -e
+
 echo "installing gamedev package"
 
 echo "bundling brewfile"

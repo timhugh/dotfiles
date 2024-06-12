@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -e
+
 echo "installing zsh package"
 
 # install oh-my-zsh if necessary

@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -e
+
 echo "installing dev/git subpackage"
 
 GIT_ROOT="${DOT_ROOT}/dev/git"
