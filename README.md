@@ -45,6 +45,13 @@ There are some manual steps after running the installer. Hopefully some of these
 - [ ] Clion settings sync
 - [ ] Rubymine settings sync
 - [ ] Docker login
+- [ ] Set default browser
+- [ ] Set Spark as default mail
+- [ ] Set Notion Calendar as default calendar
+- [ ] Configure login items:
+    - 1Password
+    - Caffeine
+    - Velja
 
 ## History
 
