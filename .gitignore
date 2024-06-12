@@ -4,3 +4,6 @@
 # ignore lock files
 Brewfile.lock.json
 
+# nvim plugins lock file
+nvim/lazy-lock.json
+
