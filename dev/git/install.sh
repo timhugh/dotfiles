@@ -12,7 +12,7 @@ test -f "${HOME}/.gitignore" || ln -s "${GIT_ROOT}/gitignore" "${HOME}/.gitignor
 # ssh config
 echo "installing ssh configuration files"
 mkdir -p "${HOME}/.ssh/config.d"
-test -f "${HOME}/.ssh/config" || "ln -s ${GIT_ROOT}/sshconfig" "${HOME}/.ssh/config"
+test -f "${HOME}/.ssh/config" || ln -s "${GIT_ROOT}/sshconfig" "${HOME}/.ssh/config"
 
 # create github key
 echo "generating a new ssh key for github"
