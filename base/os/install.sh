@@ -26,16 +26,19 @@ echo "configuring screenshot tool"
 defaults write com.apple.screencapture location -string "~/Downloads"
 defaults write com.apple.screencapture show-thumbnail -bool "false"
 
-# 24 hr time
-echo "configuring menu bar clock"
-defaults write com.apple.menuextra.clock "DateFormat" -string "\"EEE MMM d HH:mm\""
-
 # these two are piped to /dev/null and the return is ignored because we don't
 # totally care if they succeed, and they tend to have errors even when they do
 echo "restarting dock"
 killall Dock &> /dev/null || true
 echo "restarting system ui server"
 killall SystemUIServer &> /dev/null || true
+
+# TODO: some things I'd like to figure out and add to this:
+# - clicking on the background to bring up expose or whatever its called
+# - default to dark mode
+# - show battery percentage in menu bar
+# - set clock to 24hr time
+# - setting display scale to "more space"
 
 echo "base/os subpackage complete"
 
