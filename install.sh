@@ -49,10 +49,14 @@ echo "installing standard packages"
 echo "package installs complete"
 
 echo "installation complete!"
-echo "killing terminal and launching iterm2"
-read -s -k "?press any key to continue"
 
 # switch to iterm
-open /Applications/iTerm.app
-killall Terminal
+if [ $TERM_PROGRAM != "iTerm.app"]
+then
+    echo "killing terminal and launching iterm2"
+    read -s -k "?press any key to continue"
+
+    open /Applications/iTerm.app
+    killall Terminal
+fi
 
