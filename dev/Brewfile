@@ -9,10 +9,6 @@ cask "iterm2"
 cask "tableplus"
 cask "utm"
 
-# nvim
-brew "neovim"
-brew "ripgrep"
-
 # jetbrains
 cask "clion"
 cask "goland"
