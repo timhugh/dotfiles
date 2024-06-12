@@ -14,7 +14,7 @@ Before getting into it, some notes:
 To run the installer, you don't have to clone this repo (the installer does that!), just run this command:
 
 ```
-/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/timhugh/dotfiles/HEAD/install.sh)"
+/usr/bin/env zsh -c "$(curl -fsSL https://raw.githubusercontent.com/timhugh/dotfiles/HEAD/install.sh)"
 ```
 
 It will occasionally ask for your password for sudo things, and anything installed using `mas` (App Store) will require logging into an Apple account. That's where I pause to log in to 1Password, personally.

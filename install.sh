@@ -47,8 +47,8 @@ echo "installing standard packages"
 echo "package installs complete"
 
 echo "installation complete!"
-echo "press any key to close terminal and open iterm2"
-read -n 1 -s
+echo "killing terminal and launching iterm2"
+read -s -k "?press any key to continue"
 
 # switch to iterm
 open /Applications/iTerm2.app
