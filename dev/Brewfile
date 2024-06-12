@@ -9,6 +9,10 @@ cask "iterm2"
 cask "tableplus"
 cask "utm"
 
+# go
+brew "golang"
+brew "golangci-lint"
+
 # jetbrains
 cask "clion"
 cask "goland"

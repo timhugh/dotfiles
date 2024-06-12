@@ -2,6 +2,8 @@
 
 set -e
 
+DOT_ROOT=$(cat "${HOME}/.dotfiles_root")
+
 echo "installing dev/iterm2 subpackage"
 
 # load/save settings from dotfiles

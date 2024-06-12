@@ -2,6 +2,8 @@
 
 set -e
 
+DOT_ROOT=$(cat "${HOME}/.dotfiles_root")
+
 echo "installing base package"
 
 # check for homebrew install

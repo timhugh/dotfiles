@@ -2,6 +2,8 @@
 
 set -e
 
+DOT_ROOT=$(cat "${HOME}/.dotfiles_root")
+
 echo "installing gamedev package"
 
 echo "bundling brewfile"

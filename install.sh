@@ -3,6 +3,8 @@
 set -e
 
 DOT_ROOT="${DOOT_ROOT:-${HOME}/.dotfiles}"
+echo "${DOT_ROOT}" > "${HOME}/.dotfiles_root"
+
 echo "installing dotfiles to ${DOT_ROOT}"
 
 if xcode-select --print-path &> /dev/null

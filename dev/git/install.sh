@@ -2,6 +2,8 @@
 
 set -e
 
+DOT_ROOT=$(cat "${HOME}/.dotfiles_root")
+
 echo "installing dev/git subpackage"
 
 GIT_ROOT="${DOT_ROOT}/dev/git"
