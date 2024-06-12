@@ -13,24 +13,24 @@ This is decidedly mac-specific at the moment and will probably remain as such fo
 ```
 
 After installing, I follow this manual checklist (hopefully I can automate more of this as time allows):
--[ ] 1password login
--[ ] Firefox login
--[ ] Chrome login
--[ ] Velja config
--[ ] Dropbox login
--[ ] Upload generated ssh key to Github (`cat ~/.ssh/github_key.pub | pbcopy`)
--[ ] Notion calendar login
--[ ] Spark login
--[ ] Slack login
--[ ] Zoom login
--[ ] Spotify login
--[ ] Rectangle setup (I use the old Spectacle bindings -- old habits)
--[ ] Jetbrains toolbox login
--[ ] Intellij settings sync
--[ ] Goland settings sync
--[ ] Clion settings sync
--[ ] Rubymine settings sync
--[ ] Docker login
+- [ ] 1password login
+- [ ] Firefox login
+- [ ] Chrome login
+- [ ] Velja config
+- [ ] Dropbox login
+- [ ] Upload generated ssh key to Github (`cat ~/.ssh/github_key.pub | pbcopy`)
+- [ ] Notion calendar login
+- [ ] Spark login
+- [ ] Slack login
+- [ ] Zoom login
+- [ ] Spotify login
+- [ ] Rectangle setup (I use the old Spectacle bindings -- old habits)
+- [ ] Jetbrains toolbox login
+- [ ] Intellij settings sync
+- [ ] Goland settings sync
+- [ ] Clion settings sync
+- [ ] Rubymine settings sync
+- [ ] Docker login
 
 ## History
 
