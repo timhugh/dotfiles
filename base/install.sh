@@ -7,11 +7,14 @@ echo "installing base package"
 # check for homebrew install
 if ! command -v /opt/homebrew/bin/brew >/dev/null 2>&1
 then
-  echo "no homebrew installation found. starting install script..."
+  echo "installing homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
   echo "homebrew found; skipping installation"
 fi
+
+echo "installing rosetta"
+/usr/bin/softwareupdate --install-rosetta --agree-to-license
 
 echo "bundling brewfile"
 /opt/homebrew/bin/brew bundle --file "${DOT_ROOT}/base/Brewfile"
