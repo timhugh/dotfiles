@@ -19,7 +19,7 @@ mkdir -p "${HOME}/.ssh/config.d"
 test -f "${HOME}/.ssh/config" || ln -s "${GIT_ROOT}/sshconfig" "${HOME}/.ssh/config"
 
 # create github key
-if [ ! -f "${HOME}/.ssh/github-key" ]
+if [ ! -f "${HOME}/.ssh/github_key" ]
 then
     echo "generating new ssh key for github"
     ssh-keygen -f "${HOME}/.ssh/github_key" -q -N ''
