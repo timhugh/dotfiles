@@ -12,6 +12,7 @@ echo "configuring dock icons"
 /opt/homebrew/bin/dockutil --add "${HOME}/Downloads" --display folder --view grid
 
 echo "configuring dock settings"
+defaults write com.apple.dock autohide -bool "true"
 defaults write com.apple.dock show-recents -bool "false"
 defaults write com.apple.dock minimize-to-application -bool "true"
 
