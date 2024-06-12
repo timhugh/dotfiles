@@ -17,8 +17,11 @@ mkdir -p "${HOME}/.ssh/config.d"
 test -f "${HOME}/.ssh/config" || ln -s "${GIT_ROOT}/sshconfig" "${HOME}/.ssh/config"
 
 # create github key
-echo "generating a new ssh key for github"
-test -f "${HOME}/.ssh/github_key" || ssh-keygen -f "${HOME}/.ssh/github_key" -q -N ''
+if [ ! -f "${HOME}/.ssh/github-key" ]
+then
+    echo "generating new ssh key for github"
+    ssh-keygen -f "${HOME}/.ssh/github_key" -q -N ''
+fi
 
 echo "dev/git subpackage complete"
 

@@ -10,3 +10,4 @@ defaults write com.googlecode.iterm2 PrefsCustomFolder -string "${DOT_ROOT}/dev/
 defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 
 echo "dev/iterm2 subpackage complete"
+
