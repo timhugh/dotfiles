@@ -53,6 +53,6 @@ echo "killing terminal and launching iterm2"
 read -s -k "?press any key to continue"
 
 # switch to iterm
-open /Applications/iTerm2.app
+open /Applications/iTerm.app
 killall Terminal
 
