@@ -17,9 +17,9 @@ cask "notion"
 cask "notion-calendar"
 cask "openvpn-connect"
 cask "postman"
-cask "readdle-spark"
 cask "slack"
 cask "zoom"
+mas "Spark", id: 1176895641
 
 # entertainment
 cask "spotify"
