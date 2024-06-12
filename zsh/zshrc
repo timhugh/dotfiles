@@ -18,13 +18,13 @@ done
 # load secrets (shhhhhh)
 if [ -f "${HOME}/.secrets" ]
 then
-    source "${HOME}/.secrets"
+    export $(cat "${HOME}/.secrets" | xargs)
 fi
 
 # load env
 if [ -f "${HOME}/.env" ]
 then
-    source "${HOME}/.env"
+    export $(cat "${HOME}/.env" | xargs)
 fi
 
 # load aliases

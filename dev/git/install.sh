@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-set -e
+set -ex
 
 GIT_ROOT="${DOT_ROOT}/dev/git"
 

@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -ex
+
 DOT_ROOT="${DOOT_ROOT:-${HOME}/.dotfiles}"
 
 # install xcode tools and wait for completion
@@ -18,7 +20,7 @@ then
     ln -s "${DOT_ROOT}/zsh/env" "${HOME}/.env"
     echo "DOT_ROOT=${DOT_ROOT}" >> "${HOME}/.env"
 fi
-source "${HOME}/.env"
+export $(cat "${HOME}/.env" | xargs)
 
 ./base/install.sh
 ./zsh/install.sh

@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-set -e
+set -ex
 
 # check for homebrew install
 if ! command -v /opt/homebrew/bin/brew >/dev/null 2>&1

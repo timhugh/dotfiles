@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-set -e
+set -ex
 
 MISC_ROOT="${DOT_ROOT}/dev/misc"
 

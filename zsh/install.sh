@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-set -e
+set -ex
 
 # install oh-my-zsh
 if [[ -n "$ZSH" && -d $ZSH ]]
