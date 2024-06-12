@@ -58,3 +58,11 @@ Previously, all of this configuration was scattered across separate repos and gi
 I finally put in the time to make my bash_profile applicable to my personal laptop and my work laptop, and keeping the disparate repos/gists in sync became a pain point.
 
 There's a little bit of inspiration from JackDanger's [apple_store](https://github.com/JackDanger/apple_store), too, because--let's be honest--I don't actually need to be able to setup a dev environment on a random system at any given moment, but the idea is cool!
+
+## Resources
+
+Here are some of the excellent resources I've used to build this.
+
+- https://macos-defaults.com/
+- https://www.defaults-write.com/
+
