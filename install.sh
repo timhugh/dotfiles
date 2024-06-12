@@ -16,7 +16,7 @@ else
     done
 fi
 
-if [ ! -f "${DOT_ROOT}" ]
+if [ ! -d "${DOT_ROOT}" ]
 then
     # clone this repo and link it in the git projects dir
     git clone "https://github.com/timhugh/dotfiles" "${DOT_ROOT}"
