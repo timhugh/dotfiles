@@ -14,7 +14,7 @@ else
 fi
 
 echo "installing rosetta"
-/usr/bin/softwareupdate --install-rosetta --agree-to-license
+/usr/sbin/softwareupdate --install-rosetta --agree-to-license
 
 echo "bundling brewfile"
 /opt/homebrew/bin/brew bundle --file "${DOT_ROOT}/base/Brewfile"
