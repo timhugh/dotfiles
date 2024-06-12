@@ -9,7 +9,7 @@ if [[ -n "$ZSH" && -d $ZSH ]]
 then
   echo "oh-my-zsh is already installed; skipping"
 else
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
 # link configuration files
