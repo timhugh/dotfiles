@@ -51,6 +51,7 @@ There are some manual steps after running the installer. Hopefully some of these
 - [ ] Configure login items:
     - 1Password
     - Caffeine
+    - Rectangle
     - Velja
 
 ## History
