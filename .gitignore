@@ -1,2 +1,6 @@
-# build/install artifacts
-tmp
+# build artifacts, etc
+/tmp/
+
+# ignore lock files
+Brewfile.lock.json
+
