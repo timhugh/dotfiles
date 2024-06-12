@@ -32,9 +32,9 @@ echo "export DOT_ROOT=${DOT_ROOT}" >> "${HOME}/.secrets"
 source "${HOME}/.secrets"
 
 # fire off the usual suspect installers
-./base/install.sh
-./zsh/install.sh
-./dev/install.sh
+"${DOT_ROOT}/base/install.sh"
+"${DOT_ROOT}/zsh/install.sh"
+"${DOT_ROOT}/dev/install.sh"
 
 # switch to iterm
 open /Applications/iTerm2.app
