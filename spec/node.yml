@@ -1,0 +1,24 @@
+---
+name: node env
+needs: dev tools
+steps:
+  - name: nodenv
+    brew:
+      brews:
+        - nodenv
+  - name: nodenv-update
+    unless: -f "$(/opt/homebrew/bin/nodenv root)/plugins/nodenv-update"
+    run:
+      - mkdir -p "$(/opt/homebrew/bin/nodenv root)/plugins"
+      - git clone https://github.com/nodenv/nodenv-update.git "$(/opt/homebrew/bin/nodenv root)/plugins/nodenv-update"
+  - name: ~/.node-version
+    link:
+      src: node/node-version
+      dest: ${HOME}/.node-version
+---
+name: node
+needs: node env
+run: >
+  VERSION=$(cat "${HOME}/.node-version")
+  /opt/homebrew/bin/nodenv install ${VERSION}
+

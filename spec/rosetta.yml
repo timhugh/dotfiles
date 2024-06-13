@@ -1,0 +1,7 @@
+---
+name: rosetta
+if: 
+  - "`uname -m` = \"arm64\""
+  - "!(arch -arch x86_64 uname -m &> /dev/null)"
+run: /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+

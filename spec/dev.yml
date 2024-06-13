@@ -1,0 +1,13 @@
+---
+name: dev tools
+brew:
+  brews:
+    - bash
+    - zsh
+  casks:
+    - docker
+    - postman
+    - tableplus
+    - utm
+    - jetbrains-toolbox
+

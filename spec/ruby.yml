@@ -1,0 +1,25 @@
+---
+name: ruby env
+needs: dev tools
+steps:
+  - brew:
+      brews:
+        - chruby
+        - ruby-install
+      casks:
+        - rubymine
+  - name: ~/.ruby-version
+    link:
+      src: ruby/ruby-version
+      dest: ${HOME}/.ruby-version
+  - name: ~/.irbrc
+    link:
+      src: ruby/irbrc
+      dest: ${HOME}/.irbrc
+---
+name: ruby
+needs: ruby env
+run: >
+  VERSION=$(cat "${HOME}/.ruby-version")
+  /opt/homebrew/bin/ruby-install ${VERSION}
+

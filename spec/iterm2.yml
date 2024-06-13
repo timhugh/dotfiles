@@ -1,0 +1,12 @@
+---
+name: iterm2
+after: iterm2 config
+steps:
+  - brew:
+      casks:
+        - iterm2
+        - font-meslo-lg-nerd-font
+  - run:
+    - defaults write com.googlecode.iterm2 PrefsCustomFolder -string "${SPEC_ROOT}/iterm/"
+    - defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+

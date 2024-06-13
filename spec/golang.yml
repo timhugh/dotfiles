@@ -1,0 +1,8 @@
+---
+name: golang
+needs: dev tools
+brew:
+  brews:
+    - golang
+    - golangci-lint
+    - goland

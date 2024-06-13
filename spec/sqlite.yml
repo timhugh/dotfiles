@@ -1,0 +1,9 @@
+name: sqlite
+brew:
+  brews:
+    - sqlite
+---
+name: sqliterc
+link:
+  src: sqliterc/sqliterc
+  dest: ${HOME}/.sqliterc

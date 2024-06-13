@@ -1,0 +1,12 @@
+---
+name: nvim
+brew:
+  brews:
+    - neovim
+    - ripgrep
+---
+name: nvim config
+link:
+  src: nvim
+  dest: ${HOME}/.config/nvim
+

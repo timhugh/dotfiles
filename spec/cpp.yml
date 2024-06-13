@@ -1,0 +1,11 @@
+---
+name: c++
+needs: dev tools
+brew:
+  brews:
+    - cmake
+    - gcc
+    - llvm
+    - make
+  casks:
+    - clion

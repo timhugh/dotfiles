@@ -1,0 +1,11 @@
+---
+name: bin dir
+unless: -d ${HOME}/bin
+run: mkdir -p ${HOME}/bin
+---
+name: with_env
+needs: bin dir
+link:
+  src: bin/with_env
+  dest: ${HOME}/bin
+

@@ -1,0 +1,9 @@
+---
+name: gamedev apps
+brew:
+  casks:
+    - unity-hub
+    - godot-mono
+    - blender
+    - rider
+

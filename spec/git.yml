@@ -1,0 +1,32 @@
+name: git
+brew:
+  brews:
+    - git
+    - openssh
+---
+name: gitconfig
+link:
+  src: git/gitconfig
+  dest: ${HOME}/.gitconfig
+---
+name: gitignore
+link:
+  src: git/gitignore
+  dest: ${HOME}/.gitignore
+---
+name: ssh env
+run:
+  - mkdir -p ${HOME}/.ssh
+  - mkdir -p ${HOME}/.ssh/config.d
+---
+name: ssh config
+needs: ssh env
+link:
+  src: git/sshconfig
+  dest: ${HOME}/.ssh/config
+---
+name: github ssh key
+unless: -f ${HOME}/.ssh/github_key
+needs: ssh env
+run: ssh-keygen -f "${HOME}/.ssh/github_key" -q -N ''
+

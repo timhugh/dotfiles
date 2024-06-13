@@ -1,0 +1,11 @@
+---
+name: homebrew
+if: "! command -v /opt/homebrew/bin/brew"
+run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+---
+name: homebrew bundle installers
+brew:
+  brews:
+    - whalebrew
+    - mas
+
