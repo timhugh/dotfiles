@@ -59,4 +59,78 @@ class TestSpecYAMLLoaderTest < Minitest::Test
     assert_equal "second command", step.commands[1]
     assert_equal "third command", step.commands[2]
   end
+
+  def test_loads_spec_with_multiple_steps
+    name = "a spec with multiple steps"
+    spec = @specs.find(name)
+
+    assert_equal name, spec.name
+    assert_equal 2, spec.steps.size
+
+    first_step = spec.steps.first
+    assert first_step.is_a? RunStep
+    assert_equal 1, first_step.commands.size
+    assert_equal "some command", first_step.commands[0]
+
+    second_step = spec.steps.last
+    assert second_step.is_a? LinkStep
+    assert_equal "source-file", second_step.source
+    assert_equal "destination-file", second_step.destination
+    refute second_step.force
+  end
+
+  def test_loads_a_spec_with_named_steps
+    name = "a spec with named steps"
+    spec = @specs.find(name)
+
+    assert_equal name, spec.name
+    assert_equal 2, spec.steps.size
+
+    first_step = spec.steps.first
+    assert first_step.is_a? RunStep
+    assert_equal "run the command", first_step.name
+    assert_equal "some command", first_step.commands[0]
+
+    second_step = spec.steps.last
+    assert second_step.is_a? LinkStep
+    assert_equal "link the config file", second_step.name
+    assert_equal "src/config-file", second_step.source
+    assert_equal "dest/config-file", second_step.destination
+  end
+
+  def test_loads_a_spec_with_a_dependency
+    name = "a spec with a dependency"
+    spec = @specs.find(name)
+
+    assert_equal name, spec.name
+    assert_equal 1, spec.steps.size
+    assert_equal ["a basic run spec"], spec.needs
+
+    step = spec.steps.first
+    assert step.is_a? RunStep
+    assert_equal 1, step.commands.size
+    assert_equal "some command", step.commands.first
+  end
+
+  def test_loads_a_spec_with_multiple_dependencies
+    name = "a spec with multiple dependencies"
+    spec = @specs.find(name)
+
+    assert_equal name, spec.name
+    assert_equal 1, spec.steps.size
+    assert_equal ["a basic run spec", "a basic link spec"], spec.needs
+
+    step = spec.steps.first
+    assert step.is_a? RunStep
+    assert_equal 1, step.commands.size
+    assert_equal "some command", step.commands.first
+  end
+
+  def test_loads_a_spec_with_an_if_condition
+    name = "a spec with an if condition"
+    spec = @specs.find(name)
+
+    assert_equal name, spec.name
+    assert_equal 1, spec.steps.size
+  end
 end

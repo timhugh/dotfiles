@@ -20,15 +20,27 @@ end
 class Spec
   attr_reader :name
   attr_reader :steps
+  attr_reader :needs
+  attr_reader :needs_after
+  attr_reader :conditions
 
-  def initialize(name, steps)
+  def initialize(name, steps, needs, needs_after, conditions)
     @name = name.freeze
     @steps = steps.freeze
+    @needs = Array(needs).freeze
+    @needs_after = Array(needs_after).freeze
+    @conditions = Array(conditions).freeze
   end
 
   class << self
     def build_from_raw!(raw_spec)
-      Spec.new(raw_spec["name"], build_steps(raw_spec))
+      Spec.new(
+        raw_spec["name"],
+        build_steps(raw_spec),
+        raw_spec["needs"],
+        raw_spec["needs_after"],
+        [] # TODO
+      )
     end
 
     private
@@ -123,5 +135,15 @@ class BrewStep < Step
       raw_spec["brew"]["casks"],
       raw_spec["brew"]["mas"]
     )
+  end
+end
+
+class Condition
+  attr_reader :command
+  attr_reader :condition
+
+  def initialize(command, condition)
+    @command = command
+    @condition = condition
   end
 end
