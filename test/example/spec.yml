@@ -1,0 +1,72 @@
+---
+name: a basic run spec
+run: some command
+---
+name: a basic link spec
+link:
+  src: source-file
+  dest: destination-file
+---
+name: a basic brew spec
+brew:
+  brews:
+    - brew-formula
+  casks:
+    - cask-formula
+  mas:
+    - name: apple-store-app
+      id: 1234567890
+---
+name: a spec with a multi-step run step
+run:
+  - first command
+  - second command
+  - >
+    third
+    command
+---
+name: a spec with multiple steps
+steps:
+  - run: some command
+  - link:
+      src: source-file
+      dest: destination-file
+---
+name: a spec with named steps
+steps:
+  - name: run the command
+    run: some command
+  - name: link the config file
+    link:
+      src: src/config-file
+      dest: dest/config-file
+---
+name: a spec with a dependency
+needs: a basic run spec
+run: some command
+---
+name: a spec with multiple dependencies
+needs:
+  - a basic run spec
+  - a basic link spec
+run: some command
+---
+name: a spec with an if condition
+if: some condition
+run: some command
+---
+name: a spec with multiple if conditions
+if:
+  - first condition
+  - second condition
+run: some command
+---
+name: a spec with an unless condition
+unless: some condition
+run: some command
+---
+name: a spec with multiple unless conditions
+unless:
+  - first condition
+  - second condition
+run: some command
