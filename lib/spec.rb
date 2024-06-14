@@ -74,7 +74,7 @@ class RunStep < Step
 
   def initialize(name, commands)
     super(name)
-    @commands = Array(commands).freeze
+    @commands = Array(commands).map(&:strip).freeze
   end
 
   def self.build_from_raw!(raw_spec)
@@ -83,6 +83,10 @@ class RunStep < Step
 end
 
 class LinkStep < Step
+  attr_reader :source
+  attr_reader :destination
+  attr_reader :force
+
   def initialize(name, source, destination, force)
     super(name)
     @source = source.freeze
@@ -91,11 +95,20 @@ class LinkStep < Step
   end
 
   def self.build_from_raw!(raw_spec)
-    LinkStep.new(raw_spec["name"], raw_spec["src"], raw_spec["dest"], raw_spec["force"] == "true")
+    LinkStep.new(
+      raw_spec["name"],
+      raw_spec["link"]["src"],
+      raw_spec["link"]["dest"],
+      raw_spec["link"]["force"] == "true"
+    )
   end
 end
 
 class BrewStep < Step
+  attr_reader :brews
+  attr_reader :casks
+  attr_reader :mas
+
   def initialize(name, brews, casks, mas)
     super(name)
     @brews = brews.freeze
@@ -104,6 +117,11 @@ class BrewStep < Step
   end
 
   def self.build_from_raw!(raw_spec)
-    BrewStep.new(raw_spec["name"], raw_spec["brews"], raw_spec["casks"], raw_spec["mas"])
+    BrewStep.new(
+      raw_spec["name"],
+      raw_spec["brew"]["brews"],
+      raw_spec["brew"]["casks"],
+      raw_spec["brew"]["mas"]
+    )
   end
 end
