@@ -57,6 +57,7 @@ return {
                 ensure_installed = {
                     "bashls",
                     "clangd",
+                    "cmake",
                     "cssls",
                     "gopls",
                     "html",
