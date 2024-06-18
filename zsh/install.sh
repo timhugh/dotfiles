@@ -18,7 +18,7 @@ fi
 
 # link configuration files
 echo "linking zsh configuration files"
-test -f "${HOME}/.zshrc" || ln -s "${DOT_ROOT}/zsh/zshrc" "${HOME}/.zshrc"
+ln -fs "${DOT_ROOT}/zsh/zshrc" "${HOME}/.zshrc"
 test -f "${HOME}/.zsh_aliases" || ln -s "${DOT_ROOT}/zsh/zsh_aliases" "${HOME}/.zsh_aliases"
 test -d "${HOME}/.zsh_profile.d" || ln -s "${DOT_ROOT}/zsh/zsh_profile.d" "${HOME}/.zsh_profile.d"
 
