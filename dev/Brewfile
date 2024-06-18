@@ -1,11 +1,14 @@
 # dev
 brew "bash"
+brew "fzf"
 brew "git"
 brew "whalebrew"
 brew "zsh"
+cask "1password-cli"
 cask "docker"
 cask "font-meslo-lg-nerd-font"
 cask "iterm2"
+cask "postman"
 cask "tableplus"
 cask "utm"
 
