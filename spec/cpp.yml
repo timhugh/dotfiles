@@ -9,3 +9,8 @@ brew:
     - make
   casks:
     - clion
+---
+name: vcpkg
+needs: git
+run: mkdir -p "${HOME}/share" && git clone https://github.com/microsoft/vcpkg.git "${HOME}/share/vcpkg"
+
