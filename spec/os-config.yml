@@ -3,7 +3,8 @@
 # - dark mode
 # - show battery percentage in menu bar
 # - set clock to 24hr time
-# - setting display scale to "more space"
+# - set display scale to "more space"
+# - turn off true tone
 ---
 name: dockutil
 needs: base brewfile
