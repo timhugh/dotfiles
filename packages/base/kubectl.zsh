@@ -1,6 +1,6 @@
-if command -v kubectl
+if command -v kubectl &> /dev/null
 then
-  source <(kubectl completion zsh)
+  # source <(kubectl completion zsh)
 
   alias kc='kubectl'
   alias kt='kubetail'

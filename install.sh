@@ -120,7 +120,7 @@ for package in "${packages[@]}"; do
   for f in *.zsh; do
     [[ -e $f ]] || continue
     echo "Linking $f in zsh profile"
-    ln -fs "$root/packages/$package/$f" "${HOME}/.zsh_profile.d/$f"
+    ln -fs "$root/packages/$package/$f" "${HOME}/.zsh_profile.d/${f%.*}.sh"
   done
 
   for f in *.symlink; do
