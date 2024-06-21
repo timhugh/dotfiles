@@ -5,6 +5,7 @@ set -e
 git_repo="git@github.com:timhugh/dotfiles.git"
 branch=main
 dotfiles_src="https://github.com/timhugh/dotfiles/archive/${branch}.zip"
+root="${HOME}/share/dotfiles"
 
 function install_xcode_tools() {
     if xcode-select -p &> /dev/null
@@ -18,19 +19,23 @@ function install_xcode_tools() {
     touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
     # get the version of the latest xcode tools and install
     VER="$(softwareupdate --list | grep "\*.*Command Line" | tail -n 1 | sed 's/^[^C]* //')"
-    softwareupdate --install "$VER"
+    mkdir -p "$root"/tmp
+    timestamp=$(date +%s)
+    softwareupdate --install "$VER" &> "$root"/tmp/xcode-cli-tools-"$timestamp".log
     echo "Xcode Command Line Tools installed successfully"
 }
 
 function install_homebrew() {
-    if command -v /opt/homebrew/bin/brew
+    if command -v /opt/homebrew/bin/brew &> /dev/null
     then
         echo "Homebrew already installed"
         return
     fi
 
     echo "Installing Homebrew"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    mkdir -p "$root"/tmp
+    timestamp=$(date +%s)
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" &> "$root"/tmp/homebrew"$timestamp".log
     echo "Homebrew installed successfully"
 }
 
@@ -40,6 +45,7 @@ function install_rosetta() {
         return
     fi
 
+    # TODO: this is not working; it's installing anyway
     if ! arch -arch x86_64 uname -m &> /dev/null
     then
         echo "Rosetta already installed"
@@ -47,11 +53,12 @@ function install_rosetta() {
     fi
 
     echo "Installing Rosetta"
-    /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+    mkdir -p "$root"/tmp
+    timestamp=$(date +%s)
+    /usr/sbin/softwareupdate --install-rosetta --agree-to-license &> "$root"/tmp/rosetta"$timestamp".log
     echo "Rosetta installed successfully"
 }
 
-root="${HOME}/share/dotfiles"
 echo "Welcome to your friendly dotfiles installer!"
 echo "Starting with the basics..."
 echo
@@ -71,7 +78,14 @@ else
     mv "${HOME}/share/dotfiles-${branch}" "$HOME"/share/dotfiles
 fi
 
-if [[ ! -L "${HOME}/.dotfiles" ]]; then
+if [[ -e "${HOME}"/.dotfiles ]] && [[ $(readlink -f "${HOME}"/.dotfiles) != "$root" ]]; then
+    echo "Dotfiles symlink exists at ${HOME}/.dotfiles but points to $(readlink -f "${HOME}"/.dotfiles)"
+    echo "Please remove the existing symlink and re-run this script:"
+    echo "  rm ${HOME}/.dotfiles"
+    exit 1
+elif [[ -e "${HOME}/.dotfiles" ]]; then
+    [[ -z $DEBUG ]] || echo "Dotfiles symlink already exists at ${HOME}/.dotfiles"
+else
     echo "Linking to ${HOME}/.dotfiles"
     ln -fs "$HOME"/share/dotfiles "$HOME"/.dotfiles
 fi
@@ -126,14 +140,18 @@ for package in "${packages[@]}"; do
     fi
 
     echo "Linking $f in zsh profile"
-    ln -fs "$root/packages/$package/$f" "${HOME}/.zsh_profile.d/${f%.*}.sh"
+    ln -fs "$root/packages/$package/$f" "$dest"
+
+    echo "Sourcing ${dest}"
+    source "$dest"
   done
 
   for f in *.symlink; do
     [[ -e $f ]] || continue
     dest="${HOME}/.${f%.symlink}"
+    # TODO: test actual destination of symlink against source using readlink -f
     if [[ -e $dest ]]; then
-        echo "Skipping $f, file exists at $dest"
+        [[ -z "$DEBUG" ]] || echo "Skipping $f, file exists at $dest"
         continue
     fi
 
@@ -143,7 +161,7 @@ for package in "${packages[@]}"; do
 
   for f in *.install; do
     [[ -e $f ]] || continue
-    echo "Executing installer $f"
+    [[ -z "$DEBUG" ]] || echo "Executing installer $f"
     source "$root/packages/$package/$f"
   done
 
@@ -152,7 +170,8 @@ done
 
 echo "Configuring git remote in dotfiles repo"
 cd "$root"
-git remote add origin $git_repo
+[[ -d .git ]] || git init
+[[ $(git remote get-url origin) == $git_repo ]] || git remote add origin $git_repo
 
 echo "Dotfiles installed successfully"
 

@@ -46,6 +46,4 @@ mas "velja", id: 1607635845
 # docker / kubernetes
 brew "kubectl"
 cask "docker"
-tap "johanhaleby/kubetail"
-brew "kubetail"
 
