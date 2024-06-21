@@ -1,14 +1,76 @@
 #!/usr/bin/env zsh
 
-# if dotfiles repo exists
-#   git update repo
-# else
-#   Download dotfiles repo to ${HOME}/.dotfiles
+set -e
 
-# Link to ${HOME}/git/dotfiles if not already linked
+git_repo="git@github.com:timhugh/dotfiles.git"
 
-# CD into dotfiles directory
-root=$(pwd)
+function install_xcode_tools() {
+    if xcode-select -p &> /dev/null
+    then
+        echo "Xcode tools already installed"
+        return;
+    fi
+
+    echo "Installing Xcode Command Line Tools"
+    # touch this file so softwareupdate will anticipate an xcode install
+    touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+    # get the version of the latest xcode tools and install
+    VER="$(softwareupdate --list | grep "\*.*Command Line" | tail -n 1 | sed 's/^[^C]* //')"
+    softwareupdate --install "$VER"
+    echo "Xcode Command Line Tools installed successfully"
+}
+
+function install_homebrew() {
+    if [[ command -v /opt/homebrew/bin/brew ]]; then
+        echo "Homebrew already installed"
+        return
+    fi
+
+    echo "Installing Homebrew"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo "Homebrew installed successfully"
+}
+
+function install_rosetta() {
+    if [[ "$(uname -m)" != "arm64" ]]; then
+        echo "Rosetta install not needed"
+        return
+    fi
+
+    if [[ ! "(arch -arch x86_64 uname -m &> /dev/null)" ]]
+    then
+        echo "Rosetta already installed"
+        return
+    fi
+
+    echo "Installing Rosetta"
+    /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+    echo "Rosetta installed successfully"
+}
+
+root="${HOME}"/.dotfiles
+echo "Installing dotfiles to $root"
+echo "Starting with the basics..."
+echo
+
+install_xcode_tools
+install_homebrew
+install_rosetta
+
+echo "Checking to see if dotfiles repo already exists at $root..."
+if [[ -d "$root" ]]; then
+    echo "Dotfiles repo already exists. Updating..."
+    cd "$root"
+    git pull
+else
+    echo "Dotfiles repo does not exist. Cloning..."
+    git clone "$git_repo" "$root"
+    echo "Dotfiles repo cloned successfully"
+fi
+echo "Linking to ${HOME}/share/dotfiles..."
+ln -s "$root" "${HOME}"/share/dotfiles
+
+cd $root
 
 # Determine the set of packages to install
 # (required_packages will always be installed)
@@ -66,7 +128,4 @@ for package in $(echo $packages); do
 done
 cd $root
 
-# add git remote to dotfiles repo
-git remote add origin git@github.com:timhugh/dotfiles.git
-git branch -u origin/main
-
+echo "Dotfiles installed successfully"
