@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 set -e
 set -x
@@ -24,7 +24,7 @@ function install_xcode_tools() {
 }
 
 function install_homebrew() {
-    if [[ command -v /opt/homebrew/bin/brew ]]; then
+    if command -v /opt/homebrew/bin/brew &> /dev/null
         echo "Homebrew already installed"
         return
     fi
@@ -40,7 +40,7 @@ function install_rosetta() {
         return
     fi
 
-    if [[ ! "(arch -arch x86_64 uname -m &> /dev/null)" ]]
+    if ! arch -arch x86_64 uname -m &> /dev/null
     then
         echo "Rosetta already installed"
         return
@@ -72,7 +72,7 @@ fi
 echo "Linking to ${HOME}/.dotfiles"
 ln -s "$HOME"/share/dotfiles "$HOME"/.dotfiles
 
-cd $root
+cd "$root"
 
 # Determine the set of packages to install
 # (required_packages will always be installed)
@@ -82,7 +82,7 @@ default_packages=(office)
 if [[ $(uname) == "Darwin" ]]; then
   default_packages+=(macos)
 fi
-if [[ -z $@ ]]; then
+if [[ -z $* ]]; then
   echo "No packages passed to install script. Installing the default set."
   packages+=$required_packages
   packages+=$default_packages
@@ -93,15 +93,15 @@ fi
 
 # confirm installation
 echo "Install packages?"
-for package in $(echo $packages); do
+for package in $(echo "$packages"); do
   echo "  - $package"
 done
-read -q "REPLY? (y/N)? "
+read -qr "REPLY? (y/N)? "
 echo
 [[ $REPLY == "y" ]] || exit 1
 
 # install packages
-for package in $(echo $packages); do
+for package in $(echo "$packages"); do
   echo "Installing $package"
 
   cd "$root/packages/$package"
@@ -130,7 +130,7 @@ for package in $(echo $packages); do
 done
 
 echo "Configuring git remote in dotfiles repo"
-cd $root
+cd "$root"
 git remote add origin $git_repo
 git fetch
 git branch -u origin/$branch

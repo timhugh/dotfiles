@@ -2,7 +2,7 @@
 # (github.com/nodenv/nodenv)
 export PATH="${HOME}/.nodenv/bin:${PATH}"
 
-if [ -x "$(command -v nodenv)" ]; then
+if command -v nodenv; then
   eval "$(nodenv init -)"
   export PATH="${HOME}/.nodenv/shims:${PATH}"
 fi
