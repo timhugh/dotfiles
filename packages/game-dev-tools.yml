@@ -1,7 +1,0 @@
----
-name: gamedev tools
-specs:
-  - blender
-  - godot-mono
-  - rider
-  - unity-hub

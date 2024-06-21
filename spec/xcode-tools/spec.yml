@@ -1,9 +1,0 @@
----
-name: xcode command line tools
-if: "!xcode-select -p &> /dev/null"
-run: 
-  - touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
-  - >
-    VER="$(softwareupdate --list | grep "\*.*Command Line" | tail -n 1 | sed 's/^[^C]* //')"
-    softwareupdate --install "$VER"
-

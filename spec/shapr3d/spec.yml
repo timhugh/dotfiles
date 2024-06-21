@@ -1,5 +1,0 @@
----
-name: shapr3d
-brew:
-  casks:
-    - shapr3d

@@ -1,5 +1,0 @@
----
-name: sqlite
-brew:
-  brews:
-    - sqlite

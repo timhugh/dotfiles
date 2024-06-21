@@ -1,0 +1,5 @@
+mkdir -p "${HOME}/.ssh/config.d"
+
+ln -s sshconfig "${HOME}/.ssh/config"
+
+[! -f "${HOME}/.ssh/github_key" ] && ssh-keygen -f "${HOME}/.ssh/github_key" -q -N ''

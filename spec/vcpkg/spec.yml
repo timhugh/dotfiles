@@ -1,5 +1,0 @@
----
-name: vcpkg
-git: 
-  repo: microsoft/vcpkg
-  dest: "${HOME}/share/vcpkg"

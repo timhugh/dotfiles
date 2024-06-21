@@ -1,5 +1,0 @@
----
-name: rider
-brew:
-  casks:
-    - rider

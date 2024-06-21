@@ -1,6 +1,0 @@
----
-name: 1password
-brew:
-  casks:
-    - 1password
-    - 1password-cli

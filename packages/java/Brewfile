@@ -1,0 +1,2 @@
+cask "intellij-idea-ce"
+brew "jenv"

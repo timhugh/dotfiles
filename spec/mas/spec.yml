@@ -1,5 +1,0 @@
----
-name: mas
-brew:
-  brews:
-    - mas

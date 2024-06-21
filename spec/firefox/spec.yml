@@ -1,5 +1,0 @@
----
-name: firefox
-brew:
-  casks:
-    - firefox

@@ -1,0 +1,24 @@
+# TODO: some things I'd like to figure out and add to this:
+# - clicking on the background to bring up expose or whatever its called
+# - dark mode
+# - show battery percentage in menu bar
+# - set clock to 24hr time
+# - set display scale to "more space"
+# - turn off true tone
+
+# dock settings
+defaults write com.apple.dock autohide -bool "true"
+defaults write com.apple.dock show-recents -bool "false"
+defaults write com.apple.dock minimize-to-application -bool "true"
+
+killall Dock || true
+
+# don't rearrange spaces 
+defaults write com.apple.dock mru-spaces -bool "false"
+
+# save screenshots to ~/Downloads
+defaults write com.apple.screencapture location -string "${HOME}/Downloads"
+# don't display screenshot thumbnails
+defaults write com.apple.screencapture show-thumbnail -bool "false"
+
+killall SystemUIServer || true

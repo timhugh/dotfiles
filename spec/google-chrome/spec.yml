@@ -1,5 +1,0 @@
----
-name: google chrome
-brew:
-  casks:
-    - google-chrome

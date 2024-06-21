@@ -1,8 +1,0 @@
----
-name: required (dependencies for installer)
-specs:
-  - dockutil
-  - homebrew
-  - mas
-  - whalebrew
-  - rosetta

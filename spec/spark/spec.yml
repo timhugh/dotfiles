@@ -1,6 +1,0 @@
----
-name: spark email
-brew:
-  mas:
-    - name: spark
-      id: 1176895641

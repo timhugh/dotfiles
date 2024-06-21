@@ -1,5 +1,0 @@
----
-name: make
-brew:
-  brews:
-    - make

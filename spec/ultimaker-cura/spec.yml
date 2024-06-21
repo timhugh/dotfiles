@@ -1,5 +1,0 @@
----
-name: ultimaker-cura
-brew:
-  casks:
-    - ultimaker-cura

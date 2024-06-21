@@ -1,5 +1,0 @@
----
-name: qmk
-brew:
-  brews:
-    - qmk-toolbox
