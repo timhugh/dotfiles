@@ -1,5 +1,5 @@
 VERSION="$(cat "${HOME}"/.ruby-version)"
-if chruby "$VERSION"; then
+if [[ -d ${HOME}/.rubies/ruby-${VERSION} ]]; then
   echo "ruby ${VERSION} is already installed."
 else
   echo "Installing ruby ${VERSION}..."

@@ -1,30 +1,51 @@
-brew "bash"
+# brewfile tools
 brew "dockutil"
-brew "fzf"
-brew "jq"
 brew "mas"
-brew "nvim"
-brew "ripgrep"
-brew "wget"
 brew "whalebrew"
+
+# standard shell tools / upgrade os tools
+brew "bash"
+brew "fzf"
+brew "git"
+brew "jq"
+brew "wget"
 brew "zsh"
-brew "sqlite"
+
+# misc dev tools
 brew "postgresql"
-brew "kubectl"
-brew "openssh"
-tap "heroku/brew"
-brew "heroku"
-cask "1password"
-cask "1password-cli"
-cask "docker"
-cask "firefox"
-cask "font-meslo-lg-nerd-font"
-cask "google-chrome"
-cask "iterm2"
-cask "jetbrains-toolbox"
-cask "mos"
-cask "postman"
-cask "rectangle"
+brew "sqlite"
 cask "tableplus"
 cask "utm"
+
+# nvim
+brew "nvim"
+brew "ripgrep"
+
+# heroku
+tap "heroku/brew"
+brew "heroku"
+
+# iterm
+cask "font-meslo-lg-nerd-font"
+cask "iterm2"
+
+# utilities
+brew "openssh"
+cask "1password"
+cask "1password-cli"
+cask "jetbrains-toolbox"
+cask "mos"
+cask "rectangle"
+
+# browsers
+cask "firefox"
+cask "google-chrome"
+cask "postman"
 mas "velja", id: 1607635845
+
+# docker / kubernetes
+brew "kubectl"
+cask "docker"
+tap "johanhaleby/kubetail"
+brew "kubetail"
+

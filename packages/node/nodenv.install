@@ -1,4 +1,3 @@
-
 # install nodenv-update
 if [ -d "${HOME}"/.nodenv/plugins/nodenv-update ]; then
   echo "nodenv-update is already installed."
@@ -8,7 +7,7 @@ else
 fi
 
 VERSION="$(cat "${HOME}"/.node-version)"
-if nodenv shell "$VERSION"; then
+if [[ -d ${HOME}/.nodenv/versions/${VERSION} ]]; then
   echo "node ${VERSION} is already installed."
 else
   echo "Installing node $VERSION..."

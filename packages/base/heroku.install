@@ -1,0 +1,2 @@
+# heroku autocomplete setup
+heroku autocomplete --refresh-cache
