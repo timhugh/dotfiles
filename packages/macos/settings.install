@@ -6,13 +6,15 @@
 # - set display scale to "more space"
 # - turn off true tone
 
-# dock settings
+echo "Configuring dock settings"
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock minimize-to-application -bool true
 
+echo "Reloading dock"
 killall Dock || true
 
+echo "Configuring other macos settings"
 # don't rearrange spaces 
 defaults write com.apple.dock mru-spaces -bool false
 
@@ -21,4 +23,6 @@ defaults write com.apple.screencapture location -string "${HOME}"/Downloads
 # don't display screenshot thumbnails
 defaults write com.apple.screencapture show-thumbnail -bool false
 
+echo "Reloading system ui server"
 killall SystemUIServer || true
+
