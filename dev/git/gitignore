@@ -6,6 +6,6 @@ tags
 .cd_hook
 .factorypath
 .nvimlog
-.java-version
 .idea
+.ruby-lsp
 
