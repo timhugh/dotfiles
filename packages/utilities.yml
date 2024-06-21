@@ -1,0 +1,13 @@
+---
+name: utilities
+casks:
+  - 1password
+  - 1password-cli
+  - firefox
+  - google-chrome
+  - mos
+  - rectangle
+mas:
+  - name: velja
+    id: 1607635845
+

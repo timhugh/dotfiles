@@ -1,6 +1,0 @@
----
-name: java
-needs: dev tools
-brew:
-  casks:
-    - intellij-idea-ce

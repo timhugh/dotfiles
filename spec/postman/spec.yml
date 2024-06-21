@@ -1,5 +1,0 @@
----
-name: postman
-brew:
-  casks:
-    - postman

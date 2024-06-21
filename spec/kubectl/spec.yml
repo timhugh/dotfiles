@@ -1,0 +1,4 @@
+---
+name: kubectl
+brews:
+  - kubectl

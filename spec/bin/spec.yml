@@ -1,0 +1,7 @@
+---
+name: with_env
+needs: bin dir
+link:
+  src: with_env
+  dest: ${HOME}/bin/with_env
+

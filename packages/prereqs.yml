@@ -1,0 +1,9 @@
+---
+name: prereqs
+brews:
+  - dockutil
+  - whalebrew
+  - mas
+specs:
+  - homebrew
+

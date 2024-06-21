@@ -1,5 +1,0 @@
----
-name: spotify
-brew:
-  casks:
-    - spotify

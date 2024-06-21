@@ -1,11 +1,14 @@
 ---
 name: dev tools
-specs:
+brews:
   - bash
+casks:
   - docker
   - jetbrains-toolbox
   - postman
   - tableplus
   - utm
+specs:
   - zsh
+  - iterm
 

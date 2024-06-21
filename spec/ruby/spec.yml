@@ -10,11 +10,11 @@ steps:
         - rubymine
   - name: ~/.ruby-version
     link:
-      src: ruby/ruby-version
+      src: ruby-version
       dest: ${HOME}/.ruby-version
   - name: ~/.irbrc
     link:
-      src: ruby/irbrc
+      src: irbrc
       dest: ${HOME}/.irbrc
 ---
 name: ruby

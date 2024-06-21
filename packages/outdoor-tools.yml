@@ -1,0 +1,9 @@
+---
+name: outdoors tools
+brews:
+  - chirp
+  - qgis
+  - garmin-express
+  - garmin-basecamp
+  - google-earth-pro
+

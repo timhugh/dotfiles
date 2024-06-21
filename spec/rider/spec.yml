@@ -1,7 +1,0 @@
----
-name: rider
-description: jetbrains rider
-brew:
-  casks:
-    - rider
-

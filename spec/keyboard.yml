@@ -1,7 +1,0 @@
----
-name: keyboard tools
-brew:
-  casks:
-    - qmk-toolbox
-    - via
-
