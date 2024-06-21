@@ -1,0 +1,7 @@
+---
+name: 3d printing tools
+specs:
+  - ultimaker-cura
+  - solvespace
+  - shapr3d
+

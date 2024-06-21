@@ -1,23 +1,22 @@
 ---
 name: oh-my-zsh
-needs: dev tools
+needs: 
+  - zsh
+  - fzf
 unless: -d ${HOME}/.oh-my-zsh
 steps:
   - run: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-  - brew:
-      brews:
-        - fzf
   - name: zshrc
     link:
-      src: zsh/zshrc
+      src: zshrc
       dest: ${HOME}/.zshrc
       force: true # oh-my-zsh install creates a .zshrc file
   - name: zsh_aliases
     link:
-      src: zsh/zsh_aliases
+      src: zsh_aliases
       dest: ${HOME}/.zsh_aliases
   - name: zsh_profile.d
     link:
-      src: zsh/zsh_profile.d
+      src: zsh_profile.d
       dest: ${HOME}/.zsh_profile.d
 

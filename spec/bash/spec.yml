@@ -1,0 +1,6 @@
+---
+name: bash
+brew:
+  brews:
+    - bash
+

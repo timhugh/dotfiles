@@ -1,0 +1,6 @@
+---
+name: solvespace
+brew:
+  casks:
+    - solvespace
+

@@ -1,0 +1,5 @@
+---
+name: jetbrains-toolbox
+brew:
+  casks:
+    - jetbrains-toolbox

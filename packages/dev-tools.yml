@@ -1,0 +1,11 @@
+---
+name: dev tools
+specs:
+  - bash
+  - docker
+  - jetbrains-toolbox
+  - postman
+  - tableplus
+  - utm
+  - zsh
+

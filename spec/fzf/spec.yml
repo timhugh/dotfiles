@@ -1,0 +1,6 @@
+---
+name: fzf
+brew:
+  brews:
+    - fzf
+

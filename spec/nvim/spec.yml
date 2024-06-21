@@ -7,6 +7,6 @@ brew:
 ---
 name: nvim config
 link:
-  src: nvim
+  src: config
   dest: ${HOME}/.config/nvim
 

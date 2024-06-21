@@ -1,0 +1,6 @@
+---
+name: docker
+brew:
+  casks:
+    - docker
+

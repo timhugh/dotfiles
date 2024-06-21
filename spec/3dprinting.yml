@@ -1,8 +1,0 @@
----
-name: 3dprinting tools
-brew:
-  casks:
-    - ultimaker-cura
-    - solvespace
-    - shapr3d
-

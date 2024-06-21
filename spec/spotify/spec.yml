@@ -1,6 +1,5 @@
 ---
-name: entertainment apps
+name: spotify
 brew:
   casks:
     - spotify
-

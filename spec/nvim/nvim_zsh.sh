@@ -1,2 +1,3 @@
 export EDITOR='nvim'
-alias e=$EDITOR
+alias e="$EDITOR"
+

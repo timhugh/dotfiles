@@ -1,0 +1,6 @@
+---
+name: tableplus
+brew:
+  casks:
+    - tableplus
+

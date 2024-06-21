@@ -6,12 +6,12 @@ brew:
 ---
 name: gitconfig
 link:
-  src: git/gitconfig
+  src: gitconfig
   dest: ${HOME}/.gitconfig
 ---
 name: gitignore
 link:
-  src: git/gitignore
+  src: gitignore
   dest: ${HOME}/.gitignore
 ---
 name: ssh env
@@ -22,7 +22,7 @@ run:
 name: ssh config
 needs: ssh env
 link:
-  src: git/sshconfig
+  src: sshconfig
   dest: ${HOME}/.ssh/config
 ---
 name: github ssh key
