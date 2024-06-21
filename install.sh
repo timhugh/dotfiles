@@ -97,7 +97,7 @@ echo "Install packages?"
 for package in "${packages[@]}"; do
   echo "  - $package"
 done
-read -r "(y/N) > " reply
+read -p "(y/N) > " -n 1 -r reply
 echo
 [[ $reply == "y" ]] || exit 1
 
