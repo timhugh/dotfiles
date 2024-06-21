@@ -63,12 +63,8 @@ echo "Welcome to your friendly dotfiles installer!"
 echo "Starting with the basics..."
 echo
 
-install_xcode_tools
-install_homebrew
-install_rosetta
-
 if [[ -d "$root" ]]; then
-    echo "Dotfiles repo already exists at $root"
+    [[ -z "$DEBUG" ]] || echo "Dotfiles repo already exists at $root"
 else
     echo "Downloading dotfiles..."
     mkdir -p "$HOME"/share
@@ -91,6 +87,10 @@ else
 fi
 
 cd "$root"
+
+install_xcode_tools
+install_homebrew
+install_rosetta
 
 # Determine the set of packages to install
 # (required_packages will always be installed)
