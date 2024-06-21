@@ -24,7 +24,7 @@ function install_xcode_tools() {
 }
 
 function install_homebrew() {
-    if command -v /opt/homebrew/bin/brew &> /dev/null
+    if command -v /opt/homebrew/bin/brew
         echo "Homebrew already installed"
         return
     fi
