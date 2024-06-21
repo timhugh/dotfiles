@@ -8,14 +8,6 @@ steps:
         - ruby-install
       casks:
         - rubymine
-  - name: ~/.ruby-version
-    link:
-      src: ruby-version
-      dest: ${HOME}/.ruby-version
-  - name: ~/.irbrc
-    link:
-      src: irbrc
-      dest: ${HOME}/.irbrc
 ---
 name: ruby
 needs: ruby env

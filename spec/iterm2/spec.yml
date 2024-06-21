@@ -8,5 +8,5 @@ steps:
         - font-meslo-lg-nerd-font
         - fzf
   - run:
-    - defaults write com.googlecode.iterm2 PrefsCustomFolder -string "${DOT_ROOT}/spec/iterm/config/"
+    - defaults write com.googlecode.iterm2 PrefsCustomFolder -string "${HOME}/.iterm"
     - defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true

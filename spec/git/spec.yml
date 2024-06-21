@@ -4,16 +4,6 @@ brew:
     - git
     - openssh
 ---
-name: gitconfig
-link:
-  src: gitconfig
-  dest: ${HOME}/.gitconfig
----
-name: gitignore
-link:
-  src: gitignore
-  dest: ${HOME}/.gitignore
----
 name: ssh config dir
 run:
   - mkdir -p ${HOME}/.ssh/config.d

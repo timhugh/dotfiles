@@ -1,0 +1,6 @@
+---
+name: zsh
+needs: fzf
+brew:
+  brews:
+    - zsh

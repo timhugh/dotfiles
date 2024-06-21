@@ -9,10 +9,6 @@ steps:
     git:
       repo: nodenv/nodenv-update
       dest: $(/opt/homebrew/bin/nodenv root)/plugins/nodenv-update
-  - name: ~/.node-version
-    link:
-      src: node/node-version
-      dest: ${HOME}/.node-version
 ---
 name: node
 needs: node env
