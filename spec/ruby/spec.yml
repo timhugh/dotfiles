@@ -19,6 +19,7 @@ steps:
 ---
 name: ruby
 needs: ruby env
+unless: chruby $(cat "${HOME}/.ruby-version")
 run: >
   VERSION=$(cat "${HOME}/.ruby-version")
   /opt/homebrew/bin/ruby-install ${VERSION}
