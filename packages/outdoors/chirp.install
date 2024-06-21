@@ -1,2 +1,2 @@
-mkdir -p "${HOME}/share"
-git clone git@github.com:timhugh/chirp-config.git "${HOME}/share/chirp"
+mkdir -p "${HOME}"/share
+git clone git@github.com:timhugh/chirp-config.git "${HOME}"/share/chirp

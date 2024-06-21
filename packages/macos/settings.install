@@ -7,18 +7,18 @@
 # - turn off true tone
 
 # dock settings
-defaults write com.apple.dock autohide -bool "true"
-defaults write com.apple.dock show-recents -bool "false"
-defaults write com.apple.dock minimize-to-application -bool "true"
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock show-recents -bool false
+defaults write com.apple.dock minimize-to-application -bool true
 
 killall Dock || true
 
 # don't rearrange spaces 
-defaults write com.apple.dock mru-spaces -bool "false"
+defaults write com.apple.dock mru-spaces -bool false
 
 # save screenshots to ~/Downloads
-defaults write com.apple.screencapture location -string "${HOME}/Downloads"
+defaults write com.apple.screencapture location -string "${HOME}"/Downloads
 # don't display screenshot thumbnails
-defaults write com.apple.screencapture show-thumbnail -bool "false"
+defaults write com.apple.screencapture show-thumbnail -bool false
 
 killall SystemUIServer || true

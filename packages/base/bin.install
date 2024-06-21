@@ -1,2 +1,2 @@
-ln -s bin/with_env "${HOME}/bin/with_env"
+ln -fs "$(pwd)"/bin/with_env "${HOME}"/bin/with_env
 

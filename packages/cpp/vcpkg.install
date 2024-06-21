@@ -1,2 +1,2 @@
-git clone git@github.com:microsoft/vcpkg.git "${HOME}/share/vcpkg"
+git clone git@github.com:microsoft/vcpkg.git "${HOME}"/share/vcpkg
 
