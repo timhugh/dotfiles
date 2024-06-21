@@ -68,6 +68,7 @@ else
     mkdir -p "$HOME"/share
     curl -L -o "$root".zip "$dotfiles_src"
     unzip "$root".zip -d "$HOME"/share
+    rm "$root".zip
     mv "${HOME}/share/dotfiles-${branch}" "$HOME"/share/dotfiles
 fi
 
