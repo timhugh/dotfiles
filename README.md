@@ -14,16 +14,18 @@ Before getting into it, some notes:
 To run the installer, you don't have to clone this repo (the installer does that!), just run this command:
 
 ```
-/usr/bin/env zsh -c "$(curl -fsSL https://raw.githubusercontent.com/timhugh/dotfiles/HEAD/install.sh)"
+/usr/bin/env bash -c "$(curl -fsSL https://raw.githubusercontent.com/timhugh/dotfiles/HEAD/install.sh)"
 ```
 
 It will occasionally ask for your password for sudo things, and anything installed using `mas` (App Store) will require logging into an Apple account, if you haven't already.
 
-The installer is grouped into packages, sort of. Each root directory in this repo represents one of the packages. The main installer will install the `base`, `zsh`, and `dev` packages (since that's kind of my baseline). For more eccentric setups, the installers in the additional packages can be run individually after everything else is installed, e.g.:
+The installer is grouped into packages, represented by each directory in `/packages`. The installer will install the `base`, `office`, and `macos` packages by default. For more eccentric setups, the installer can be given other packages as command line arguments: 
 
 ```
-${DOT_FILES}/3dprinting/install.sh
+/usr/bin/env bash -c "$(curl -fsSL https://raw.githubusercontent.com/timhugh/dotfiles/HEAD/install.sh)" <package1> <package2> ...
 ```
+
+Note the `base` package is always installed because it contains required dependencies for the installer. Also, the installer _intends_ to be idempotent, so it should be safe to run multiple time for the same package.
 
 There are some manual steps after running the installer. Hopefully some of these can be automated later. Skip over ones that aren't relevant, depending on your packages:
 
