@@ -142,8 +142,6 @@ done
 echo "Configuring git remote in dotfiles repo"
 cd "$root"
 git remote add origin $git_repo
-git fetch
-git branch -u origin/$branch
 
 echo "Dotfiles installed successfully"
 
