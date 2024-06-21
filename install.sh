@@ -85,10 +85,10 @@ if [[ $(uname) == "Darwin" ]]; then
 fi
 if [[ -z $* ]]; then
   echo "No packages passed to install script. Installing the default set."
-  packages+=$required_packages
-  packages+=$default_packages
+  packages+=($required_packages)
+  packages+=($default_packages)
 else
-  packages+=$required_packages
+  packages+=($required_packages)
   packages+=($@)
 fi
 
@@ -97,9 +97,9 @@ echo "Install packages?"
 for package in $(echo "$packages"); do
   echo "  - $package"
 done
-read -qr "REPLY? (y/N)? "
+read -r -p "(y/N) > " reply
 echo
-[[ $REPLY == "y" ]] || exit 1
+[[ $reply == "y" ]] || exit 1
 
 # install packages
 for package in $(echo "$packages"); do
