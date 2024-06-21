@@ -1,0 +1,5 @@
+---
+name: jq
+brew:
+  brews:
+    - jq

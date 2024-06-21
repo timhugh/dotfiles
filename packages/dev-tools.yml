@@ -5,8 +5,10 @@ specs:
   - docker
   - iterm
   - jetbrains-toolbox
+  - jq
   - nvim
   - postman
   - tableplus
   - utm
+  - wget
   - zsh
