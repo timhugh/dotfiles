@@ -1,6 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-set -e
+set -ex
+setopt nullglob
 
 git_repo="git@github.com:timhugh/dotfiles.git"
 branch=main
@@ -19,9 +20,7 @@ function install_xcode_tools() {
     touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
     # get the version of the latest xcode tools and install
     VER="$(softwareupdate --list | grep "\*.*Command Line" | tail -n 1 | sed 's/^[^C]* //')"
-    mkdir -p "$root"/tmp
-    timestamp=$(date +%s)
-    softwareupdate --install "$VER" &> "$root"/tmp/xcode-cli-tools-"$timestamp".log
+    softwareupdate --install "$VER"
     echo "Xcode Command Line Tools installed successfully"
 }
 
@@ -33,9 +32,7 @@ function install_homebrew() {
     fi
 
     echo "Installing Homebrew"
-    mkdir -p "$root"/tmp
-    timestamp=$(date +%s)
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" &> "$root"/tmp/homebrew"$timestamp".log
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     echo "Homebrew installed successfully"
 }
 
@@ -53,9 +50,7 @@ function install_rosetta() {
     fi
 
     echo "Installing Rosetta"
-    mkdir -p "$root"/tmp
-    timestamp=$(date +%s)
-    /usr/sbin/softwareupdate --install-rosetta --agree-to-license &> "$root"/tmp/rosetta"$timestamp".log
+    /usr/sbin/softwareupdate --install-rosetta --agree-to-license
     echo "Rosetta installed successfully"
 }
 
@@ -64,7 +59,7 @@ echo "Starting with the basics..."
 echo
 
 if [[ -d "$root" ]]; then
-    [[ -z "$DEBUG" ]] || echo "Dotfiles repo already exists at $root"
+    echo "Dotfiles repo already exists at $root"
 else
     echo "Downloading dotfiles..."
     mkdir -p "$HOME"/share
@@ -80,7 +75,7 @@ if [[ -e "${HOME}"/.dotfiles ]] && [[ $(readlink -f "${HOME}"/.dotfiles) != "$ro
     echo "  rm ${HOME}/.dotfiles"
     exit 1
 elif [[ -e "${HOME}/.dotfiles" ]]; then
-    [[ -z $DEBUG ]] || echo "Dotfiles symlink already exists at ${HOME}/.dotfiles"
+    echo "Dotfiles symlink already exists at ${HOME}/.dotfiles"
 else
     echo "Linking to ${HOME}/.dotfiles"
     ln -fs "$HOME"/share/dotfiles "$HOME"/.dotfiles
@@ -98,23 +93,24 @@ packages=()
 required_packages=(base)
 default_packages=(office)
 if [[ $(uname) == "Darwin" ]]; then
-  default_packages+=(macos node ruby go)
+    default_packages+=(macos node ruby go)
 fi
 if [[ -z "$*" ]]; then
-  echo "No packages passed to install script. Installing the default set."
-  packages+=("${required_packages[@]}")
-  packages+=("${default_packages[@]}")
+    echo "No packages passed to install script. Installing the default set."
+    packages+=("${required_packages[@]}")
+    packages+=("${default_packages[@]}")
 else
-  packages+=("${required_packages[@]}")
-  packages+=("${@[@]}")
+    packages+=("${required_packages[@]}")
+    packages+=("${@[@]}")
 fi
 
 # confirm installation
 echo "Install packages?"
 for package in "${packages[@]}"; do
-  echo "  - $package"
+    echo "  - $package"
 done
-read -p "(y/N) > " -n 1 -r reply
+echo "(y/N) > "
+read -rk 1 reply
 echo
 [[ $reply == "y" ]] || exit 1
 
@@ -122,50 +118,49 @@ mkdir -p "${HOME}/.zsh_profile.d"
 
 # install packages
 for package in "${packages[@]}"; do
-  echo "Installing $package"
+    echo "Installing $package"
 
-  cd "$root/packages/$package"
+    cd "$root/packages/$package"
 
-  if [[ -f Brewfile ]]; then
-    echo "Bundling brewfile"
-    /opt/homebrew/bin/brew bundle
-  fi
-
-  for f in *.zsh; do
-    [[ -e $f ]] || continue
-    dest="${HOME}/.zsh_profile.d/${f%.*}.sh"
-    if [[ -e $dest ]]; then
-        echo "Skipping $f, file exists at $dest"
-        continue
+    if [[ -f Brewfile ]]; then
+        echo "Bundling brewfile"
+        /opt/homebrew/bin/brew bundle
     fi
 
-    echo "Linking $f in zsh profile"
-    ln -fs "$root/packages/$package/$f" "$dest"
+    for f in *.zsh; do
+        dest="${HOME}/.zsh_profile.d/${f%.*}.sh"
 
-    echo "Sourcing ${dest}"
-    source "$dest"
-  done
+        if [[ -e $dest ]]; then
+            echo "Skipping $f, file exists at $dest"
+            continue
+        fi
 
-  for f in *.symlink; do
-    [[ -e $f ]] || continue
-    dest="${HOME}/.${f%.symlink}"
-    # TODO: test actual destination of symlink against source using readlink -f
-    if [[ -e $dest ]]; then
-        [[ -z "$DEBUG" ]] || echo "Skipping $f, file exists at $dest"
-        continue
-    fi
+        echo "Installing $f in zsh profile"
+        echo "Linking $f in zsh profile"
+        ln -fs "$root/packages/$package/$f" "$dest"
 
-    echo "Linking $f in home directory"
-    ln -fs "$root/packages/$package/$f" "$dest"
-  done
+        echo "Sourcing ${dest}"
+        source "$dest"
+    done
 
-  for f in *.install; do
-    [[ -e $f ]] || continue
-    [[ -z "$DEBUG" ]] || echo "Executing installer $f"
-    source "$root/packages/$package/$f"
-  done
+    for f in *.symlink; do
+        dest="${HOME}/.${f%.symlink}"
+        # TODO: test actual destination of symlink against source using readlink -f
+        if [[ -e $dest ]]; then
+            echo "Skipping $f, file exists at $dest"
+            continue
+        fi
 
-  echo "Done installing $package"
+        echo "Linking $f in home directory"
+        ln -fs "$root/packages/$package/$f" "$dest"
+    done
+
+    for f in *.install; do
+        echo "Executing installer $f"
+        source "$root/packages/$package/$f"
+    done
+
+    echo "Done installing $package"
 done
 
 echo "Configuring git remote in dotfiles repo"
