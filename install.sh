@@ -84,7 +84,7 @@ packages=()
 required_packages=(base)
 default_packages=(office)
 if [[ $(uname) == "Darwin" ]]; then
-  default_packages+=(macos)
+  default_packages+=(macos node ruby go)
 fi
 if [[ -z "$*" ]]; then
   echo "No packages passed to install script. Installing the default set."
@@ -119,14 +119,26 @@ for package in "${packages[@]}"; do
 
   for f in *.zsh; do
     [[ -e $f ]] || continue
+    dest="${HOME}/.zsh_profile.d/${f%.*}.sh"
+    if [[ -e $dest ]]; then
+        echo "Skipping $f, file exists at $dest"
+        continue
+    fi
+
     echo "Linking $f in zsh profile"
     ln -fs "$root/packages/$package/$f" "${HOME}/.zsh_profile.d/${f%.*}.sh"
   done
 
   for f in *.symlink; do
     [[ -e $f ]] || continue
+    dest="${HOME}/.${f%.symlink}"
+    if [[ -e $dest ]]; then
+        echo "Skipping $f, file exists at $dest"
+        continue
+    fi
+
     echo "Linking $f in home directory"
-    ln -fs "$root/packages/$package/$f" "${HOME}/.${f%.symlink}"
+    ln -fs "$root/packages/$package/$f" "$dest"
   done
 
   for f in *.install; do
