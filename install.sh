@@ -3,6 +3,8 @@
 set -e
 
 git_repo="git@github.com:timhugh/dotfiles.git"
+branch=installer
+dotfiles_src="https://github.com/timhugh/dotfiles/archive/${branch}.zip"
 
 function install_xcode_tools() {
     if xcode-select -p &> /dev/null
@@ -48,8 +50,8 @@ function install_rosetta() {
     echo "Rosetta installed successfully"
 }
 
-root="${HOME}"/.dotfiles
-echo "Installing dotfiles to $root"
+root="${HOME}/share/dotfiles"
+echo "Welcome to your friendly dotfiles installer!"
 echo "Starting with the basics..."
 echo
 
@@ -57,18 +59,17 @@ install_xcode_tools
 install_homebrew
 install_rosetta
 
-echo "Checking to see if dotfiles repo already exists at $root..."
 if [[ -d "$root" ]]; then
-    echo "Dotfiles repo already exists. Updating..."
-    cd "$root"
-    git pull
+    echo "Dotfiles repo already exists at $root"
 else
-    echo "Dotfiles repo does not exist. Cloning..."
-    git clone "$git_repo" "$root"
-    echo "Dotfiles repo cloned successfully"
+    echo "Downloading dotfiles..."
+    mkdir -p "$HOME"/share
+    curl -L -o "$root".zip "$dotfiles_src"
+    unzip "$root".zip -d "$HOME"/share
+    mv "${HOME}/share/dotfiles-${branch}" "$HOME"/share/dotfiles
 fi
-echo "Linking to ${HOME}/share/dotfiles..."
-ln -s "$root" "${HOME}"/share/dotfiles
+echo "Linking to ${HOME}/.dotfiles"
+ln -s "$HOME"/share/dotfiles "$HOME"/.dotfiles
 
 cd $root
 
@@ -111,12 +112,12 @@ for package in $(echo $packages); do
 
   for f in *.zsh; do
     echo "Linking $f in zsh profile"
-    ln -s "$root/packages/$package/$f" "${HOME}/.zsh_profile.d/$f"
+    ln -fs "$root/packages/$package/$f" "${HOME}/.zsh_profile.d/$f"
   done
 
   for f in *.symlink; do
     echo "Linking $f in home directory"
-    ln -s "$root/packages/$package/$f" "${HOME}/.${f%.symlink}"
+    ln -fs "$root/packages/$package/$f" "${HOME}/.${f%.symlink}"
   done
 
   for f in *.install; do
@@ -126,6 +127,12 @@ for package in $(echo $packages); do
 
   echo "Done installing $package"
 done
+
+echo "Configuring git remote in dotfiles repo"
 cd $root
+git remote add origin $git_repo
+git fetch
+git branch -u origin/$branch
 
 echo "Dotfiles installed successfully"
+
