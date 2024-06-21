@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
 set -e
-set -x
 
 git_repo="git@github.com:timhugh/dotfiles.git"
-branch=installer
+branch=main
 dotfiles_src="https://github.com/timhugh/dotfiles/archive/${branch}.zip"
 
 function install_xcode_tools() {
