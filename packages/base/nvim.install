@@ -1,1 +1,2 @@
+mkdir -p "${HOME}"/.config
 ln -fs nvim-config "${HOME}"/.config/nvim

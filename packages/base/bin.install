@@ -1,2 +1,3 @@
+mkdir -p "${HOME}"/bin
 ln -fs "$(pwd)"/bin/with_env "${HOME}"/bin/with_env
 
