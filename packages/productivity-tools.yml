@@ -1,13 +1,8 @@
 ---
 name: productivity tools
-brews:
+specs:
   - dropbox
   - notion-calendar
-  - openvpn-connect
-  - postman
   - slack
+  - spark
   - zoom
-mas:
-  - name: spark
-    id: 1176895641
-

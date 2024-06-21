@@ -1,0 +1,9 @@
+---
+name: chirp
+brew:
+  casks:
+    - chirp
+---
+name: chirp config repo
+git: timhugh/chirp-config
+

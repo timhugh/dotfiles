@@ -1,0 +1,5 @@
+---
+name: godot
+brew:
+  casks:
+    - godot-mono

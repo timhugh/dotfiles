@@ -1,0 +1,5 @@
+---
+name: jenv (java version manager)
+brew:
+  brews:
+    - jenv

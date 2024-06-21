@@ -1,0 +1,5 @@
+---
+name: slack
+brew:
+  casks:
+    - slack

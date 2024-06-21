@@ -1,0 +1,5 @@
+---
+name: unity-hub
+brew:
+  casks:
+    - unity-hub

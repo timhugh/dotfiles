@@ -6,13 +6,6 @@
 # - set display scale to "more space"
 # - turn off true tone
 ---
-name: dockutil
-needs: base brewfile
-run: 
-  - /opt/homebrew/bin/dockutil --remove all
-  - /opt/homebrew/bin/dockutil --add "${HOME}" --display folder --view grid
-  - /opt/homebrew/bin/dockutil --add "${HOME}/Downloads" --display folder --view grid
----
 name: dock config
 needs_after: restart dock
 run:

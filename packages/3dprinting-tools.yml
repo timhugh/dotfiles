@@ -1,7 +1,6 @@
 ---
 name: 3d printing tools
-brews:
-  - ultimaker-cura
-  - solvespace
+specs:
   - shapr3d
-
+  - solvespace
+  - ultimaker-cura

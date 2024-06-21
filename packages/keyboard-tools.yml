@@ -1,6 +1,6 @@
 ---
 name: keyboard tools
-casks:
+specs:
   - qmk-toolbox
   - via
 

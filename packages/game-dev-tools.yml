@@ -1,7 +1,7 @@
 ---
 name: gamedev tools
-casks:
-  - unity-hub
-  - godot-mono
+specs:
   - blender
+  - godot-mono
   - rider
+  - unity-hub

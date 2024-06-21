@@ -1,0 +1,5 @@
+---
+name: mos (mouse utility)
+brew:
+  casks:
+    - mos

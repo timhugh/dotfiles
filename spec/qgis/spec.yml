@@ -1,0 +1,5 @@
+---
+name: qgis
+brew:
+  casks:
+    - qgis

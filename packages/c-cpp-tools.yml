@@ -1,12 +1,10 @@
 ---
 name: c/c++ tools
 needs: dev-tools
-brews:
+specs:
+  - clion
   - cmake
   - gcc
   - llvm
   - make
-casks:
-  - clion
-specs:
   - vcpkg

@@ -1,4 +1,5 @@
 ---
 name: java tools
-casks:
-  - intellij-idea-ce
+specs:
+  - intellij-idea
+  - jenv

@@ -1,0 +1,5 @@
+---
+name: zoom
+brew:
+  casks:
+    - zoom
