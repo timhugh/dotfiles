@@ -118,16 +118,19 @@ for package in "${packages[@]}"; do
   fi
 
   for f in *.zsh; do
+    [[ -e $f ]] || continue
     echo "Linking $f in zsh profile"
     ln -fs "$root/packages/$package/$f" "${HOME}/.zsh_profile.d/$f"
   done
 
   for f in *.symlink; do
+    [[ -e $f ]] || continue
     echo "Linking $f in home directory"
     ln -fs "$root/packages/$package/$f" "${HOME}/.${f%.symlink}"
   done
 
   for f in *.install; do
+    [[ -e $f ]] || continue
     echo "Executing installer $f"
     source "$root/packages/$package/$f"
   done
