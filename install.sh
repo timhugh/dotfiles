@@ -83,18 +83,18 @@ default_packages=(office)
 if [[ $(uname) == "Darwin" ]]; then
   default_packages+=(macos)
 fi
-if [[ -z $* ]]; then
+if [[ -z "$*" ]]; then
   echo "No packages passed to install script. Installing the default set."
-  packages+=($required_packages)
-  packages+=($default_packages)
+  packages+=("${required_packages[@]}")
+  packages+=("${default_packages[@]}")
 else
-  packages+=($required_packages)
-  packages+=($@)
+  packages+=("${required_packages[@]}")
+  packages+=("${@[@]}")
 fi
 
 # confirm installation
 echo "Install packages?"
-for package in $(echo "$packages"); do
+for package in "${packages[@]}"; do
   echo "  - $package"
 done
 read -r "(y/N) > " reply
@@ -102,7 +102,7 @@ echo
 [[ $reply == "y" ]] || exit 1
 
 # install packages
-for package in $(echo "$packages"); do
+for package in "${packages[@]}"; do
   echo "Installing $package"
 
   cd "$root/packages/$package"
