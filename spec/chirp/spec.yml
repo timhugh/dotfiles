@@ -5,5 +5,7 @@ brew:
     - chirp
 ---
 name: chirp config repo
-git: timhugh/chirp-config
+git: 
+  repo: timhugh/chirp-config
+  dest: ${HOME}/share/chirp-config
 

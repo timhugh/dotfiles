@@ -1,4 +1,5 @@
 ---
 name: vcpkg
-needs: git
-run: mkdir -p "${HOME}/share" && git clone https://github.com/microsoft/vcpkg.git "${HOME}/share/vcpkg"
+git: 
+  repo: microsoft/vcpkg
+  dest: "${HOME}/share/vcpkg"
