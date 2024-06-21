@@ -7,3 +7,9 @@ alias lla='ls -la'
 # human readable file sizes
 alias df='df -h'
 alias du='du -h'
+
+# cd shortcuts
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ~='cd ~'
+
