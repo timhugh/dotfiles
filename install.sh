@@ -101,6 +101,8 @@ read -p "(y/N) > " -n 1 -r reply
 echo
 [[ $reply == "y" ]] || exit 1
 
+mkdir -p "${HOME}/.zsh_profile.d"
+
 # install packages
 for package in "${packages[@]}"; do
   echo "Installing $package"
