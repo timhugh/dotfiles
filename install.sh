@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 set -e
+set -x
 
 git_repo="git@github.com:timhugh/dotfiles.git"
 branch=installer
