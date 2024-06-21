@@ -71,7 +71,7 @@ else
     mv "${HOME}/share/dotfiles-${branch}" "$HOME"/share/dotfiles
 fi
 echo "Linking to ${HOME}/.dotfiles"
-ln -s "$HOME"/share/dotfiles "$HOME"/.dotfiles
+ln -fs "$HOME"/share/dotfiles "$HOME"/.dotfiles
 
 cd "$root"
 
@@ -97,7 +97,7 @@ echo "Install packages?"
 for package in $(echo "$packages"); do
   echo "  - $package"
 done
-read -r -p "(y/N) > " reply
+read -r "(y/N) > " reply
 echo
 [[ $reply == "y" ]] || exit 1
 
