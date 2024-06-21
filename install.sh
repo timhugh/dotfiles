@@ -70,8 +70,11 @@ else
     unzip "$root".zip -d "$HOME"/share
     mv "${HOME}/share/dotfiles-${branch}" "$HOME"/share/dotfiles
 fi
-echo "Linking to ${HOME}/.dotfiles"
-ln -fs "$HOME"/share/dotfiles "$HOME"/.dotfiles
+
+if [[ ! -L "${HOME}/.dotfiles" ]]; then
+    echo "Linking to ${HOME}/.dotfiles"
+    ln -fs "$HOME"/share/dotfiles "$HOME"/.dotfiles
+fi
 
 cd "$root"
 
