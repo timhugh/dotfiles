@@ -55,8 +55,7 @@ function install_rosetta() {
         return
     fi
 
-    # TODO: this is not working; it's installing anyway
-    if ! arch -arch x86_64 uname -m &> /dev/null
+    if arch -arch x86_64 uname -m &> /dev/null
     then
         print "You already have Rosetta installed."
         return
