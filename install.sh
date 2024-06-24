@@ -116,9 +116,9 @@ print "---"
 # (required_packages will always be installed)
 packages=()
 required_packages=(base)
-default_packages=(office)
+default_packages=(office node ruby go)
 if [[ $(uname) == "Darwin" ]]; then
-    default_packages+=(macos node ruby go)
+    default_packages+=(macos)
 fi
 if [[ -z "$*" ]]; then
     print "You didn't specify any packages, so I'll use the default set"
