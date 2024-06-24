@@ -47,3 +47,6 @@ mas "velja", id: 1607635845
 brew "kubectl"
 cask "docker"
 
+# remote
+cask "xquartz"
+
