@@ -15,12 +15,8 @@ source ruby.install
 
 # there are some manual installs, though!
 
-# neovim - the version in apt is just way too old
-mkdir -p ~/tmp
-cd ~/tmp
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-sudo rm -rf /opt/nvim
-sudo tar -C /opt -xzf nvim-linux64.tar.gz
+# pip
+sudo apt install python3-pip
 
 # chruby and ruby-install
 mkdir -p ~/tmp
@@ -40,4 +36,11 @@ git clone https://github.com/nodenv/node-build.git ~/.nodenv/plugins/node-build
 
 # golangci-lint -- just doesn't exist in apt
 curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "${GOPATH}"/bin v1.59.1
+
+# neovim - the version in apt is just way too old
+mkdir -p ~/tmp
+cd ~/tmp
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+sudo rm -rf /opt/nvim
+sudo tar -C /opt -xzf nvim-linux64.tar.gz
 
