@@ -5,5 +5,5 @@
 Brewfile.lock.json
 
 # nvim plugins lock file
-nvim/lazy-lock.json
+lazy-lock.json
 
