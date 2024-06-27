@@ -3,7 +3,7 @@ return {
     lazy = false,
     keys = {
         { "<leader>O", "<cmd>:NvimTreeToggle<cr>", desc = "toggle NvimTree" },
-        { "<leader>o", "<cmd>:NvimTreeFocus<cr>", desc = "toggle NvimTree" },
+        { "<leader>o", "<cmd>:NvimTreeFocus<cr>", desc = "focus NvimTree" },
     },
     opts = {
         update_focused_file = {
