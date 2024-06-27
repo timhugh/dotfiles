@@ -6,7 +6,7 @@ export PATH="${HOME}/bin:${PATH}"
 export PATH="./bin:${PATH}"
 
 # load config directory
-for f in "${HOME}/.zsh_profile.d"/*.sh; do
+for f in "${HOME}/.zsh_profile.d"/*.zsh; do
   source "$f"
 done
 

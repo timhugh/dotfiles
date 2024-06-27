@@ -160,7 +160,7 @@ for package in "${packages[@]}"; do
     fi
 
     for f in *.zsh; do
-        dest="${HOME}/.zsh_profile.d/${f%.*}.sh"
+        dest="${HOME}/.zsh_profile.d/${f}"
 
         if [[ -e $dest ]]; then
             echo "Skipping $f, file exists at $dest"
