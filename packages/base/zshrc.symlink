@@ -5,6 +5,8 @@ export PATH="${HOME}/.local/bin:${PATH}"
 export PATH="${HOME}/bin:${PATH}"
 export PATH="./bin:${PATH}"
 
+os="$(uname)"
+
 # load config directory
 for f in "${HOME}/.zsh_profile.d"/*.zsh; do
   source "$f"
@@ -16,11 +18,13 @@ done
 # load aliases
 source "${HOME}/.zsh_aliases"
 
-# load autocompletions
-# https://docs.brew.sh/Shell-Completion
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-autoload -Uz compinit
-compinit
+if [[ "$os" == "Darwin" ]]; then
+  # load homebrew autocompletions
+  # https://docs.brew.sh/Shell-Completion
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  autoload -Uz compinit
+  compinit
+fi
 
 # and display a nice banner
 function mountains_header {
