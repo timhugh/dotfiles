@@ -15,6 +15,9 @@ return {
                 restrict_above_cwd = true,
             },
         },
+        view = {
+            adaptive_size = true,
+        },
     },
 }
 
