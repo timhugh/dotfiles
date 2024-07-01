@@ -8,4 +8,7 @@ services:
       - 445:445/tcp
     volumes:
       - /mnt/vault:/media/vault
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/group:/etc/group:ro
+      - /etc/shadow:/etc/shadow:ro
 
