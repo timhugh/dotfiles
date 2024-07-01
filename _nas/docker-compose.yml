@@ -3,12 +3,9 @@ services:
     build: ./samba
     container_name: samba
     restart: unless-stopped
+    read_only: true
     ports:
       - 445:445/tcp
     volumes:
       - /mnt/vault:/media/vault
-      - /etc/passwd:/etc/passwd:ro
-      - /etc/group:/etc/group:ro
-      - /etc/shadow:/etc/shadow:ro
-
 

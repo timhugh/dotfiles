@@ -30,12 +30,13 @@ sudo mkdir -p /mnt/vault
 sudo mount /dev/md0 /mnt/vault
 
 # set up permissions
-sudo groupadd vault
-sudo usermod -aG ${USER} vault
-sudo chown root:vault /mnt/vault
+sudo useradd -M -s /sbin/nologin vault
+sudo useradd -M -s /sbin/nologin -G vault private
 
 # after copying all of the data over
-sudo chown -R root:vault /mnt/vault
+sudo chown -R vault:vault /mnt/vault
+sudo chown -R private:private /mnt/vault/private
+# NB: this will wipe the x flag on everything that isn't a directory, but that's fine for my use case
 find /mnt/vault -type d -exec chmod 0770 {} +
 find /mnt/vault -type f -exec chmod 0660 {} +
 
