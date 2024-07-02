@@ -39,11 +39,9 @@ return {
                 })
             end)
 
-            local mason = require("mason")
+            require("mason").setup()
             local mason_lspconfig = require("mason-lspconfig")
             local lspconfig = require('lspconfig')
-
-            mason.setup()
 
             mason_lspconfig.setup({
                 ensure_installed = {
@@ -62,21 +60,23 @@ return {
                     "yamlls",
                 },
                 handlers = {
-                    lsp_zero.default_setup,
+                    function(server_name)
+                        require('lspconfig')[server_name].setup({})
+                    end,
                     ["lua_ls"] = function ()
                         lspconfig.lua_ls.setup({
                             settings = {
                                 Lua = {
                                     diagnostics = {
-                                        globals = { "vim" }
-                                    }
-                                }
-                            }
+                                        globals = { "vim" },
+                                    },
+                                },
+                            },
                         })
                     end,
                     ["bashls"] = function ()
                         lspconfig.bashls.setup({
-                            filetypes = { 'bash', 'zsh' }
+                            filetypes = { 'bash', 'zsh' },
                         })
                     end,
                 },
