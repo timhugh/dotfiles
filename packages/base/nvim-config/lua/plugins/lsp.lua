@@ -14,8 +14,8 @@ return {
             local lsp_zero = require("lsp-zero")
             lsp_zero.extend_lspconfig()
 
-            lsp_zero.on_attach(function(_, buffer)
-                lsp_zero.default_keymaps({ buffer = buffer })
+            lsp_zero.on_attach(function(_, bufnr)
+                lsp_zero.default_keymaps({ buffer = bufnr })
             end)
 
             lsp_zero.configure("lua_ls", {
@@ -28,21 +28,21 @@ return {
 
             lsp_zero.setup()
 
-            lsp_zero.on_attach(function(_, buffer)
+            lsp_zero.on_attach(function(_, bufnr)
                 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
-                    buffer = buffer,
+                    buffer = bufnr,
                     desc = "Go to definition",
                 })
                 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {
-                    buffer = buffer,
+                    buffer = bufnr,
                     desc = "Go to declaration",
                 })
                 vim.keymap.set("n", "gI", vim.lsp.buf.implementation, {
-                    buffer = buffer,
+                    buffer = bufnr,
                     desc = "Go to implementation",
                 })
                 vim.keymap.set("n", "gr", vim.lsp.buf.references, {
-                    buffer = buffer,
+                    buffer = bufnr,
                     desc = "Go to references",
                 })
             end)
