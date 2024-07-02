@@ -18,14 +18,6 @@ return {
                 lsp_zero.default_keymaps({ buffer = bufnr })
             end)
 
-            lsp_zero.configure("lua_ls", {
-                settings = {
-                    diagnostics = {
-                        globals = { "vim" },
-                    },
-                },
-            })
-
             lsp_zero.setup()
 
             lsp_zero.on_attach(function(_, bufnr)
