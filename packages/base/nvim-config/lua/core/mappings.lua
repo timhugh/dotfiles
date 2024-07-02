@@ -12,6 +12,9 @@ vim.keymap.set("n", "<c-l>", "<c-w>l")
 -- clear highlights after searching
 vim.keymap.set("n", "<leader>/", "<cmd>:nohlsearch<cr>")
 
+-- tab navigation
+vim.keymap.set("n", "<c-t>", "<cmd>:tabnew<cr>:NvimTreeFocus<cr>")
+
 -- TODO: this should only be enabled in c/c++ files
 vim.keymap.set("n", "<leader>h", "<cmd>:ClangdSwitchSourceHeader<cr>")
 
