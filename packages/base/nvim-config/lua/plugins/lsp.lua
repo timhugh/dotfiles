@@ -21,6 +21,8 @@ return {
             lsp_zero.setup()
 
             lsp_zero.on_attach(function(_, bufnr)
+                vim.keymap.set('n', '<leader>gd', ":split | pclose | setlocal previewwindow nobuflisted | lua vim.lsp.buf.definition()<cr>", { buffer=0 })
+
                 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
                     buffer = bufnr,
                     desc = "Go to definition",
