@@ -39,6 +39,14 @@ return {
                     buffer = bufnr,
                     desc = "Go to references",
                 })
+                vim.keymap.set("n", "gen", vim.diagnostic.goto_next, {
+                    buffer = bufnr,
+                    desc = "Go to next diagnostic",
+                })
+                vim.keymap.set("n", "gep", vim.diagnostic.goto_prev, {
+                    buffer = bufnr,
+                    desc = "Go to previous diagnostic",
+                })
             end)
 
             require("mason").setup()
