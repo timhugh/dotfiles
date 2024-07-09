@@ -22,31 +22,12 @@ return {
 
             lsp_zero.on_attach(function(_, bufnr)
                 vim.keymap.set('n', '<leader>gd', ":split | pclose | setlocal previewwindow nobuflisted | lua vim.lsp.buf.definition()<cr>", { buffer=0 })
-
-                vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
-                    buffer = bufnr,
-                    desc = "Go to definition",
-                })
-                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {
-                    buffer = bufnr,
-                    desc = "Go to declaration",
-                })
-                vim.keymap.set("n", "gI", vim.lsp.buf.implementation, {
-                    buffer = bufnr,
-                    desc = "Go to implementation",
-                })
-                vim.keymap.set("n", "gr", vim.lsp.buf.references, {
-                    buffer = bufnr,
-                    desc = "Go to references",
-                })
-                vim.keymap.set("n", "gen", vim.diagnostic.goto_next, {
-                    buffer = bufnr,
-                    desc = "Go to next diagnostic",
-                })
-                vim.keymap.set("n", "gep", vim.diagnostic.goto_prev, {
-                    buffer = bufnr,
-                    desc = "Go to previous diagnostic",
-                })
+                vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "Go to definition" })
+                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "Go to declaration" })
+                vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { buffer = bufnr, desc = "Go to implementation" })
+                vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "Go to references" })
+                vim.keymap.set("n", "gen", vim.diagnostic.goto_next, { buffer = bufnr, desc = "Go to next diagnostic" })
+                vim.keymap.set("n", "gep", vim.diagnostic.goto_prev, { buffer = bufnr, desc = "Go to previous diagnostic" })
             end)
 
             require("mason").setup()
