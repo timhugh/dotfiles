@@ -5,6 +5,6 @@ alias     mx-dev='open http://localhost:1080'
 alias     es-dev='open http://localhost:9200'
 alias kibana-dev='open http://localhost:5601'
 
-alias dc="docker-compose"
-alias dcl="docker-compose logs -f --tail 0"
+alias dc="docker compose"
+alias dcl="docker compose logs -f --tail 0"
 
