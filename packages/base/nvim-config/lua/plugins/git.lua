@@ -1,13 +1,11 @@
 return {
     { "airblade/vim-gitgutter" },
     {
-        "f-person/git-blame.nvim",
+        "FabijanZulj/blame.nvim",
         config = function()
-            require("gitblame").setup({
-                enabled = false,
-            })
+            require("blame").setup()
 
-            vim.api.nvim_set_keymap("n", "<leader>gb", "<cmd>GitBlameToggle<cr>", { noremap = true, silent = true })
-        end,
+            vim.api.nvim_set_keymap("n", "<leader>gb", "<cmd>BlameToggle<cr>", { noremap = true, silent = true })
+        end
     }
 }
