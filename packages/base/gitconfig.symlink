@@ -31,7 +31,7 @@
   rbi = rebase -i
   repush = !git pull --rebase && git push
   s = log -S
-  st = status --short --branch
+  st = !git status --short --branch && git diff --shortstat
   u = merge --no-commit --ff-only
 [pull]
 	ff = only
