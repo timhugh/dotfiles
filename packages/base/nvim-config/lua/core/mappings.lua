@@ -13,8 +13,16 @@ vim.keymap.set("n", "<c-l>", "<c-w>l")
 vim.keymap.set("n", "<leader>/", "<cmd>:nohlsearch<cr>")
 
 -- tab navigation
-vim.keymap.set("n", "<c-t>", "<cmd>:tabnew<cr>:NvimTreeFocus<cr>")
+vim.keymap.set("n", "<c-t>", "<cmd>:tabnew %<cr>:NvimTreeFocus<cr>")
 
 -- TODO: this should only be enabled in c/c++ files
 vim.keymap.set("n", "<leader>h", "<cmd>:ClangdSwitchSourceHeader<cr>")
+
+-- copy path to clipboard
+vim.api.nvim_create_user_command("Cppath", function()
+    local path = vim.fn.expand("%:p")
+    vim.fn.setreg("+", path)
+    vim.notify('Copied "' .. path .. '" to the clipboard!')
+end, {})
+vim.keymap.set("n", "<leader>y", "<cmd>:Cppath<cr>")
 
