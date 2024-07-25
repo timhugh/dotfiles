@@ -58,6 +58,9 @@ function header {
 }
 header
 
+# set emacs-style keybinds
+bindkey -e
+
 # override `cd` to run hooks in current directory (if applicable)
 function cd {
   builtin cd "$@" || return 1
