@@ -47,6 +47,7 @@ return {
                     "solargraph",
                     "standardrb",
                     "tailwindcss",
+                    "taplo",
                     "tsserver",
                     "yamlls",
                 },
