@@ -44,7 +44,7 @@ return {
                     "gopls",
                     "html",
                     "lua_ls",
-                    "ruby_lsp",
+                    "solargraph",
                     "standardrb",
                     "tailwindcss",
                     "tsserver",
@@ -70,13 +70,6 @@ return {
                             filetypes = { 'bash', 'zsh' },
                         })
                     end,
-                    ["ruby_lsp"] = function ()
-                        lspconfig.ruby_lsp.setup({
-                            -- TODO: this is not portable and doesn't even match my setup
-                            -- but I use rbenv on my work machine
-                            cmd = { "/Users/tim/.rbenv/shims/ruby-lsp" },
-                        })
-                    end
                 },
             })
         end
