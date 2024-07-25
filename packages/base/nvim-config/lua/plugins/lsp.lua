@@ -28,6 +28,8 @@ return {
                 vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "Go to references" })
                 vim.keymap.set("n", "gen", vim.diagnostic.goto_next, { buffer = bufnr, desc = "Go to next diagnostic" })
                 vim.keymap.set("n", "gep", vim.diagnostic.goto_prev, { buffer = bufnr, desc = "Go to previous diagnostic" })
+
+                vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { buffer = bufnr, desc = "Rename symbol" })
             end)
 
             require("mason").setup()
