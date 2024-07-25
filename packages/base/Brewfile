@@ -5,6 +5,7 @@ brew "whalebrew"
 
 # standard shell tools / upgrade os tools
 brew "bash"
+brew "entr"
 brew "fzf"
 brew "git"
 brew "jq"
@@ -19,8 +20,8 @@ cask "utm"
 
 # nvim
 brew "nvim"
-brew "ripgrep"
 brew "jq"
+brew "ripgrep"
 brew "tidy-html5"
 
 # heroku
