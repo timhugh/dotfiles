@@ -20,6 +20,8 @@ cask "utm"
 # nvim
 brew "nvim"
 brew "ripgrep"
+brew "jq"
+brew "tidy-html5"
 
 # heroku
 tap "heroku/brew"

@@ -20,6 +20,7 @@ return {
                 "graphql",
                 "helm",
                 "html",
+                "http",
                 "java",
                 "javascript",
                 "jq",
