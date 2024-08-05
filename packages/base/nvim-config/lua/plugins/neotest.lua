@@ -7,13 +7,15 @@ return {
         "nvim-treesitter/nvim-treesitter",
 
         "zidhuss/neotest-minitest",
-        "olimorris/neotest-rspec"
+        "olimorris/neotest-rspec",
+        "fredrikaverpil/neotest-golang",
     },
     config = function()
         require("neotest").setup({
             adapters = {
                 require("neotest-minitest"),
                 require("neotest-rspec"),
+                require("neotest-golang"),
             }
         })
 
