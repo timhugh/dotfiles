@@ -26,9 +26,8 @@ vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldlevel = 99
 -- syntax highlight fold start line
 vim.opt.foldtext = ""
--- start with most folds closed
--- (2 leaves space for a namespace and a class name in most languages)
-vim.opt.foldlevelstart = 2
+-- don't fold by default (overrides are in ftplugins)
+vim.opt.foldlevelstart = 99
 -- don't fold more than 4 levels deep
 vim.opt.foldnestmax = 4
 
