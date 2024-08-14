@@ -1,3 +1,4 @@
 brew "golang"
 brew "golangci-lint"
+brew "golangci-lint-langserver"
 cask "goland"

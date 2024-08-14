@@ -43,6 +43,7 @@ return {
                     "clangd",
                     "cmake",
                     "cssls",
+                    "golangci_lint_ls",
                     "gopls",
                     "html",
                     "lua_ls",
