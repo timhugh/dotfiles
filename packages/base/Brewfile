@@ -16,6 +16,7 @@ brew "zsh"
 # misc dev tools
 brew "postgresql"
 brew "sqlite"
+cask "github"
 cask "tableplus"
 cask "utm"
 
