@@ -1,5 +1,4 @@
 cask "dropbox"
-cask "figma"
 cask "libreoffice"
 cask "notion-calendar"
 cask "slack"
