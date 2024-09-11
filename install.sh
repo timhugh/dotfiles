@@ -115,8 +115,7 @@ print "---"
 # Determine the set of packages to install
 # (required_packages will always be installed)
 packages=()
-required_packages=(base)
-default_packages=(office node ruby go)
+default_packages=(base office node ruby go)
 if [[ $(uname) == "Darwin" ]]; then
     default_packages+=(macos)
 fi
@@ -125,10 +124,8 @@ if [[ -z "$*" ]]; then
     print "If you want to install a different set, you can pass them as arguments to this script, like: "
     print "  ./install.sh 3dprinting gamedev"
     print
-    packages+=("${required_packages[@]}")
     packages+=("${default_packages[@]}")
 else
-    packages+=("${required_packages[@]}")
     packages+=("${@[@]}")
 fi
 
