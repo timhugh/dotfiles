@@ -1,0 +1,2 @@
+brew "platformio"
+cask "kicad"
