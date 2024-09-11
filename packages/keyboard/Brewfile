@@ -1,2 +1,5 @@
+tap "qmk/qmk"
+brew "qmk/qmk/qmk"
+
 cask "qmk-toolbox"
 cask "via"

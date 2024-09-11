@@ -16,7 +16,6 @@ brew "zsh"
 # misc dev tools
 brew "postgresql"
 brew "sqlite"
-cask "github"
 cask "tableplus"
 cask "utm"
 
@@ -25,10 +24,6 @@ brew "nvim"
 brew "jq"
 brew "ripgrep"
 brew "tidy-html5"
-
-# heroku
-tap "heroku/brew"
-brew "heroku"
 
 # iterm
 cask "font-meslo-lg-nerd-font"
@@ -54,7 +49,4 @@ mas "velja", id: 1607635845
 # docker / kubernetes
 brew "kubectl"
 cask "docker"
-
-# remote
-cask "xquartz"
 
