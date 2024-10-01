@@ -1,0 +1,3 @@
+mkdir -p "${HOME}"/.config
+
+[[ -L "${HOME}"/.config/zellij ]] || ln -fs "$(pwd)"/zellij "${HOME}"/.config/zellij

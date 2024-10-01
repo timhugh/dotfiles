@@ -10,9 +10,12 @@ brew "fzf"
 brew "git"
 brew "git-lfs"
 brew "jq"
-brew "tmux"
 brew "wget"
 brew "zsh"
+
+# shell multiplexers
+brew "tmux"
+brew "zellij"
 
 # misc dev tools
 brew "postgresql"
