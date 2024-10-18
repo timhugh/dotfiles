@@ -14678,6 +14678,10 @@
 			<string></string>
 			<key>AWDS Window Option</key>
 			<string>No</string>
+			<key>Allow Change Cursor Blink</key>
+			<true/>
+			<key>Allow Title Reporting</key>
+			<true/>
 			<key>Ambiguous Double Width</key>
 			<false/>
 			<key>Ansi 0 Color</key>
@@ -15974,37 +15978,27 @@
 	<false/>
 	<key>PMPrintingExpandedStateForPrint2</key>
 	<false/>
+	<key>PassOnControlClick</key>
+	<true/>
 	<key>PointerActions</key>
 	<dict>
-		<key>Button,1,1,,</key>
+		<key>Button,3,1,,</key>
 		<dict>
 			<key>Action</key>
-			<string>kContextMenuPointerAction</string>
+			<string>kSendHexCodePointerAction</string>
+			<key>Argument</key>
+			<string>0x0f</string>
+			<key>Version</key>
+			<integer>1</integer>
 		</dict>
-		<key>Button,2,1,,</key>
+		<key>Button,4,1,,</key>
 		<dict>
 			<key>Action</key>
-			<string>kPasteFromClipboardPointerAction</string>
-		</dict>
-		<key>Gesture,ThreeFingerSwipeDown,,</key>
-		<dict>
-			<key>Action</key>
-			<string>kPrevWindowPointerAction</string>
-		</dict>
-		<key>Gesture,ThreeFingerSwipeLeft,,</key>
-		<dict>
-			<key>Action</key>
-			<string>kPrevTabPointerAction</string>
-		</dict>
-		<key>Gesture,ThreeFingerSwipeRight,,</key>
-		<dict>
-			<key>Action</key>
-			<string>kNextTabPointerAction</string>
-		</dict>
-		<key>Gesture,ThreeFingerSwipeUp,,</key>
-		<dict>
-			<key>Action</key>
-			<string>kNextWindowPointerAction</string>
+			<string>kSendHexCodePointerAction</string>
+			<key>Argument</key>
+			<string>0x09</string>
+			<key>Version</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>Print In Black And White</key>
