@@ -1,3 +1,4 @@
 cask "blender"
+cask "godot"
 cask "rider"
 cask "unity-hub"
