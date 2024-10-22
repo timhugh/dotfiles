@@ -1,6 +1,5 @@
 cask "dropbox"
 cask "libreoffice"
-cask "notion"
 cask "notion-calendar"
 cask "slack"
 cask "zoom"
