@@ -24,8 +24,9 @@ cask "tableplus"
 cask "utm"
 
 # nvim
-brew "nvim"
 brew "jq"
+brew "libyaml"
+brew "nvim"
 brew "ripgrep"
 brew "tidy-html5"
 
