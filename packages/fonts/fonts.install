@@ -1,10 +1,7 @@
-# Install fonts from this repo
-for font in "$(pwd)"/files/*; do
-    cp "$font" "${HOME}/Library/Fonts"
-done
-
-# Install the font-patcher script for making new fonts
 mkdir -p "${HOME}/tmp"
-wget -O "${HOME}/tmp/font-patcher.zip" https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FontPatcher.zip
-unzip -d "${HOME}/.font-patcher" "${HOME}/tmp/font-patcher.zip"
+[[! -d "${HOME}/tmp/font-patcher.zip" ]] && wget -O "${HOME}/tmp/font-patcher.zip" https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FontPatcher.zip
+[[! -d "${HOME}/.font-patcher" ]] && unzip -o -d "${HOME}/.font-patcher" "${HOME}/tmp/font-patcher.zip"
+
+npm install --global google-font-installer
+nodenv rehash
 

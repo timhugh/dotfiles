@@ -1,0 +1,5 @@
+# Install fonts from this repo
+for font in "$(pwd)"/fonts/*; do
+    cp "$font" "${HOME}/Library/Fonts"
+done
+
