@@ -45,7 +45,6 @@ cask "elgato-stream-deck"
 cask "elgato-camera-hub"
 
 # browsers
-cask "firefox"
 cask "google-chrome"
 cask "postman"
 mas "velja", id: 1607635845
