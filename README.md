@@ -76,3 +76,7 @@ Here are some of the excellent resources I've used to build this.
 - https://macos-defaults.com/
 - https://www.defaults-write.com/
 
+I've also included some fonts, which I've patched with the [nerd fonts font-patcher script](https://github.com/ryanoasis/nerd-fonts?tab=readme-ov-file#font-patcher):
+- [Intel One Mono](https://github.com/intel/intel-one-mono)
+- [Google Space Mono](https://fonts.google.com/specimen/Space+Mono)
+
