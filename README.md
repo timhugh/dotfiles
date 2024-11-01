@@ -25,36 +25,51 @@ The installer is grouped into packages, represented by each directory in `/packa
 /usr/bin/env bash -c "$(curl -fsSL https://raw.githubusercontent.com/timhugh/dotfiles/HEAD/install.sh)" <package1> <package2> ...
 ```
 
-Note the `base` package is always installed because it contains required dependencies for the installer. Also, the installer _intends_ to be idempotent, so it should be safe to run multiple time for the same package.
-
 There are some manual steps after running the installer. Hopefully some of these can be automated later. Skip over ones that aren't relevant, depending on your packages:
 
-- [ ] 1password login
-- [ ] Firefox login
-- [ ] Chrome login
-- [ ] Velja config
-- [ ] Dropbox login
-- [ ] Upload generated ssh key to Github (`cat ~/.ssh/github_key.pub | pbcopy`)
-- [ ] Notion calendar login
-- [ ] Spark login
-- [ ] Slack login
-- [ ] Zoom login
-- [ ] Spotify login
+- [ ] App logins
+  - [ ] 1password login
+  - [ ] Chrome login
+  - [ ] Dropbox login
+  - [ ] Notion calendar login
+  - [ ] Spark login
+  - [ ] Slack login
+  - [ ] Zoom login
+  - [ ] Spotify login
 - [ ] Rectangle setup (I use the old Spectacle bindings -- old habits)
-- [ ] Jetbrains toolbox login
-- [ ] Intellij settings sync
-- [ ] Goland settings sync
-- [ ] Clion settings sync
-- [ ] Rubymine settings sync
-- [ ] Docker login
-- [ ] Set default browser
-- [ ] Set Spark as default mail
-- [ ] Set Notion Calendar as default calendar
+- [ ] Upload generated ssh key to Github (`cat ~/.ssh/github_key.pub | pbcopy`)
+- [ ] Jetbrains settings sync
+  - [ ] Intellij settings sync
+  - [ ] Goland settings sync
+  - [ ] Clion settings sync
+  - [ ] Rubymine settings sync
+  - [ ] Webstorm settings sync
+- [ ] Default apps
+  - [ ] Set Chrome as default browser
+  - [ ] Set Spark as default mail
+  - [ ] Set Notion Calendar as default calendar
 - [ ] Configure login items:
-    - 1Password
-    - Caffeine
     - Rectangle
-    - Velja
+    - Mos
+
+## Todo
+
+In addition to trying to automate some of the manual post-install steps, here are some other things I would like to do automatically (in no particular order):
+
+- [ ] Installer should check if the dotfiles repo remote is set before setting it (right now it just sets it every time)
+- [ ] OS settings I would like to add to packages/macos/settings.install:
+  - [ ] disable clicking on wallpaper to open expose or whatever its called
+  - [ ] dark mode automatically at night
+  - [ ] show battery percentage in menu bar
+  - [ ] set clock to 24hr time
+  - [ ] set display scale to "more space"
+  - [ ] turn off true tone
+- [ ] The OS settings script could probably check settings before setting them and only restart the dock / ui server if necessary
+- [ ] The dockutil script could probably check what's in the dock before changing it
+- [ ] Implement package dependencies
+  - I actually tried to do this initially and scrapped it to keep things simple, but I think the packages get a little bit too big the way it is now, and there are a lot of cross-cutting dependencies (e.g. a lot of things depend on node). It would be nice to just say "install nvim" and have it install nvim plus all of the tools required for the LSPs, etc
+  - In the meantime, going to add `.depends` files to packages just to keep track of those dependencies
+- [ ] zsh autocomplete is case sensitive now because I ditched oh-my-zsh. I think that's the only thing I miss
 
 ## History
 
