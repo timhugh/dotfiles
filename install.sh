@@ -11,7 +11,7 @@ root="${HOME}/share/dotfiles"
 # save stdout descriptor
 exec 3>&1
 # redirect everything else to a file
-mkdir -p "$root"/tmp
+mkdir -p "${HOME}"/tmp/dotfiles
 timestamp=$(date +%Y%m%d%H%M%S)
 logfile="${HOME}/tmp/dotfiles/install-$timestamp.log"
 exec > "$logfile" 2>&1
