@@ -48,7 +48,6 @@ return {
                     "gopls",
                     "html",
                     "lua_ls",
-                    -- "solargraph",
                     "ruby_lsp",
                     "standardrb",
                     "tailwindcss",
