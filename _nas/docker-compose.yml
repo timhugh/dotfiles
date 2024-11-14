@@ -1,7 +1,8 @@
 services:
+
   samba:
-    build: ./samba
     container_name: samba
+    build: ./samba
     restart: unless-stopped
     read_only: true
     ports:
@@ -11,4 +12,20 @@ services:
       - /etc/passwd:/etc/passwd:ro
       - /etc/group:/etc/group:ro
       - /etc/shadow:/etc/shadow:ro
+
+  home-assistant:
+    container_name: home-assistant
+    image: lscr.io/linuxserver/homeassistant:latest
+    restart: unless-stopped
+    volumes:
+      - home-assistant-config:/config
+    ports:
+      - 8123:8123/tcp
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Los_Angeles
+
+volumes:
+  home-assistant-config:
 
