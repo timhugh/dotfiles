@@ -1,5 +1,4 @@
-# TODO: this is usually correct, but it's not for sure
-prefix=/usr/local
+prefix=$(/opt/homebrew/bin/brew --prefix)
 source "${prefix}"/share/chruby/chruby.sh
 source "${prefix}"/share/chruby/auto.sh
 
