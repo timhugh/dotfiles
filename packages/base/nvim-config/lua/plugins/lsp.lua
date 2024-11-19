@@ -39,7 +39,6 @@ return {
 
             mason_lspconfig.setup({
                 ensure_installed = {
-                    "angularls",
                     "bashls",
                     "clangd",
                     "cmake",
@@ -52,7 +51,6 @@ return {
                     "standardrb",
                     "tailwindcss",
                     "taplo",
-                    "tsserver",
                     "yamlls",
                 },
                 handlers = {
