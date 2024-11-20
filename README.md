@@ -38,6 +38,7 @@ There are some manual steps after running the installer. Hopefully some of these
   - [ ] Spotify login
 - [ ] Rectangle setup (I use the old Spectacle bindings -- old habits)
 - [ ] Upload generated ssh key to Github (`cat ~/.ssh/github_key.pub | pbcopy`)
+  - TODO: should be able to automate this with GH CLI: `gh auth login --hostname github.com --git-protocol ssh --web`
 - [ ] Jetbrains settings sync
   - [ ] Intellij settings sync
   - [ ] Goland settings sync
