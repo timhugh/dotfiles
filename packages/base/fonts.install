@@ -1,5 +1,3 @@
 # Install fonts from this repo
-for font in "$(pwd)"/fonts/*; do
-    cp "$font" "${HOME}/Library/Fonts"
-done
+find "$(pwd)/fonts" ! -type d -exec cp "{}" "${HOME}"/Library/Fonts \;
 
