@@ -47,6 +47,7 @@ There are some manual steps after running the installer. Hopefully some of these
   - [ ] Webstorm settings sync
 - [ ] Default apps
   - [ ] Set Chrome as default browser
+    - TODO: maybe use https://github.com/kerma/defaultbrowser ?
   - [ ] Set Spark as default mail
   - [ ] Set Notion Calendar as default calendar
 - [ ] Configure login items:
