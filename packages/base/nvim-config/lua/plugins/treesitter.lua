@@ -7,6 +7,8 @@ return {
                 "cpp",
                 "css",
                 "dockerfile",
+                "gdscript",
+                "gdshader",
                 "git_config",
                 "git_rebase",
                 "gitattributes",
@@ -48,6 +50,16 @@ return {
                 "yaml",
             }
         })
+
+        vim.opt.foldmethod = "expr"
+        vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+        vim.opt.foldlevel = 99
+        -- syntax highlight fold start line
+        vim.opt.foldtext = ""
+        -- don't fold by default (overrides are in ftplugins)
+        vim.opt.foldlevelstart = 99
+        -- don't fold more than 4 levels deep
+        vim.opt.foldnestmax = 4
     end
 }
 

@@ -4,6 +4,7 @@ return {
     keys = {
         { "<leader>O", "<cmd>:NvimTreeToggle<cr>", desc = "toggle NvimTree" },
         { "<leader>o", "<cmd>:NvimTreeFocus<cr>", desc = "focus NvimTree" },
+        { "<c-t>", "<cmd>:tabnew %<cr>:NvimTreeFocus<cr>", desc = "open NvimTree in new tab" },
     },
     opts = {
         update_focused_file = {
