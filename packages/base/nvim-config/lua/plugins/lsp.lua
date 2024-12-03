@@ -1,80 +1,108 @@
 return {
-    {
-        "VonHeikemen/lsp-zero.nvim",
-        branch = "v3.x",
-        dependencies = {
-            "neovim/nvim-lspconfig",
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/nvim-cmp",
-            "L3MON4D3/LuaSnip",
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
-        },
-        config = function()
-            local lsp_zero = require("lsp-zero")
-            lsp_zero.extend_lspconfig()
-
-            lsp_zero.on_attach(function(_, bufnr)
-                lsp_zero.default_keymaps({ buffer = bufnr })
-            end)
-
-            lsp_zero.setup()
-
-            lsp_zero.on_attach(function(_, bufnr)
-                vim.keymap.set('n', '<leader>gd', ":split | pclose | setlocal previewwindow nobuflisted | lua vim.lsp.buf.definition()<cr>", { buffer=0 })
-                vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "Go to definition" })
-                vim.keymap.set("n", "D-<LeftMouse>", vim.lsp.buf.definition, { buffer = bufnr, desc = "Go to definition" })
-                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "Go to declaration" })
-                vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { buffer = bufnr, desc = "Go to implementation" })
-                vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "Go to references" })
-                vim.keymap.set("n", "gen", vim.diagnostic.goto_next, { buffer = bufnr, desc = "Go to next diagnostic" })
-                vim.keymap.set("n", "gep", vim.diagnostic.goto_prev, { buffer = bufnr, desc = "Go to previous diagnostic" })
-
-                vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { buffer = bufnr, desc = "Rename symbol" })
-            end)
-
-            require("mason").setup()
-            local mason_lspconfig = require("mason-lspconfig")
-            local lspconfig = require('lspconfig')
-
-            mason_lspconfig.setup({
-                ensure_installed = {
-                    "bashls",
-                    "clangd",
-                    "cmake",
-                    "cssls",
-                    "golangci_lint_ls",
-                    "gopls",
-                    "html",
-                    "lua_ls",
-                    "ruby_lsp",
-                    "standardrb",
-                    "tailwindcss",
-                    "taplo",
-                    "yamlls",
-                },
-                handlers = {
-                    function(server_name)
-                        require('lspconfig')[server_name].setup({})
-                    end,
-                    ["lua_ls"] = function ()
-                        lspconfig.lua_ls.setup({
-                            settings = {
-                                Lua = {
-                                    diagnostics = {
-                                        globals = { "vim" },
-                                    },
-                                },
-                            },
-                        })
-                    end,
-                    ["bashls"] = function ()
-                        lspconfig.bashls.setup({
-                            filetypes = { 'bash', 'zsh' },
-                        })
-                    end,
-                },
-            })
-        end
+  {
+    "williamboman/mason.nvim",
+    config = true,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = {
+      "williamboman/mason.nvim",
     },
+    opts = {
+      auto_install = true,
+    },
+    config = function()
+      local mason_lspconfig = require("mason-lspconfig")
+      mason_lspconfig.setup({
+        ensure_installed = {
+          "bashls",
+          "clangd",
+          "cmake",
+          "cssls",
+          "eslint",
+          "golangci_lint_ls",
+          "gopls",
+          "html",
+          "jsonls",
+          "lua_ls",
+          "ruby_lsp",
+          "solargraph",
+          "sorbet",
+          "standardrb",
+          "tailwindcss",
+          "taplo",
+          "yamlls",
+        },
+      })
+    end
+  },
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/nvim-cmp",
+    },
+    config = function()
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+      local on_attach = function()
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
+        vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "Go to implementation" })
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
+        vim.keymap.set("n", "gen", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
+        vim.keymap.set("n", "gep", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
+
+        vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename symbol" })
+
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover" })
+        vim.keymap.set("n", "<leader>ih", function()
+          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+        end, { desc = "Toggle inlay hints" })
+      end
+
+      local lspconfig = require("lspconfig")
+      lspconfig.bashls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        filetypes = { 'bash', 'zsh' },
+      })
+      lspconfig.html.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
+            },
+          },
+        },
+      })
+      lspconfig.ruby_lsp.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+      lspconfig.sorbet.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+      lspconfig.ts_ls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+    end,
+  },
+  {
+    "nvimtools/none-ls.nvim",
+    config = function()
+      local null_ls = require("null-ls")
+
+      null_ls.setup()
+    end,
+  },
 }
