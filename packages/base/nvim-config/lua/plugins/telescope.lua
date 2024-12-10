@@ -11,6 +11,7 @@ return {
       vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find file" })
       vim.keymap.set("n", "<leader>fb", builtin.current_buffer_fuzzy_find, { desc = "Grep current buffer" })
       vim.keymap.set("n", "<leader>fG", builtin.live_grep, { desc = "Grep all files" })
+      vim.keymap.set("n", "<leader>f*", builtin.grep_string, { desc = "Grep all files (with current word)" })
 
       vim.keymap.set("n", "<leader>fgs", builtin.git_status, { desc = "Find in git modified files" })
       vim.keymap.set("n", "<leader>fgb", builtin.git_branches, { desc = "Find in git branches" })
@@ -18,6 +19,8 @@ return {
       vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "Find references (LSP)" })
       vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Find symbols in current buffer (LSP)" })
       vim.keymap.set("n", "<leader>fS", builtin.lsp_workspace_symbols, { desc = "Find symbols in workspace (LSP)" })
+
+      vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find mapped keys" })
     end,
   },
   {
