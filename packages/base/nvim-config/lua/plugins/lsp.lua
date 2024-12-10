@@ -25,6 +25,7 @@ return {
           "html",
           "jsonls",
           "lua_ls",
+          "rubocop",
           "ruby_lsp",
           "solargraph",
           "sorbet",
@@ -87,10 +88,10 @@ return {
         capabilities = capabilities,
         on_attach = on_attach,
       })
-      lspconfig.sorbet.setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
+      -- lspconfig.sorbet.setup({
+      --   capabilities = capabilities,
+      --   on_attach = on_attach,
+      -- })
       lspconfig.ts_ls.setup({
         capabilities = capabilities,
         on_attach = on_attach,
