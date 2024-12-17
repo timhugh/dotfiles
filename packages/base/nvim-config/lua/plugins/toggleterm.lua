@@ -1,7 +1,7 @@
 return {
   "akinsho/toggleterm.nvim",
   keys = {
-    { "<leader><m-t>", "<cmd>ToggleTerm<cr>", desc = "Open toggleterm" },
+    { "<leader>T", "<cmd>ToggleTerm direction=horizontal size=20<cr>", desc = "Open toggleterm" },
   },
   config = function()
     require("toggleterm").setup({
@@ -10,6 +10,8 @@ return {
       start_in_insert = true,
     })
 
-    vim.api.nvim_create_user_command("T", ":TermExec direction=horizontal size=20 cmd=<q-args><cr>", { nargs = 1 })
+    vim.api.nvim_create_user_command("X", ":TermExec direction=horizontal size=20 cmd=<q-args><cr>", { nargs = 1 })
+
+    vim.keymap.set("t", "<esc>", "<c-\\><c-n>", { desc = "Exit terminal mode" })
   end,
 }
