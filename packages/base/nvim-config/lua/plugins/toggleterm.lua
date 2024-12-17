@@ -9,5 +9,7 @@ return {
       direction = "float",
       start_in_insert = true,
     })
+
+    vim.api.nvim_create_user_command("T", ":TermExec direction=horizontal size=20 cmd=<q-args><cr>", { nargs = 1 })
   end,
 }
