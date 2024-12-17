@@ -25,6 +25,7 @@ return {
           "html",
           "jsonls",
           "lua_ls",
+          "perlnavigator",
           "rubocop",
           "ruby_lsp",
           "rust_analyzer",
