@@ -36,6 +36,7 @@ return {
         "markdown_inline",
         "regex",
         "ruby",
+        "rust",
         "scss",
         "sql",
         "ssh_config",
