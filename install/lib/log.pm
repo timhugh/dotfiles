@@ -2,61 +2,47 @@ package Log;
 
 use strict;
 use warnings;
+use Curses;
 use POSIX qw(strftime);
 
-my $log_fh;
+sub new {
+    my ($class, $title) = @_;
+    my $logdir = $ENV{'HOME'} . 'tmp/dotfiles';
+    my $self = {
+        title => $title,
+        steps => [],
+        log_fh => undef,
+        logfile => $ENV{LOGFILE} || "$logdir/dotfiles" . strftime("%Y-%m-%d-%H-%M-%S", localtime) . ".log",
+        win => undef,
+        win_x => 0,
+        win_y => 0,
+    };
+    bless $self, $class;
 
-sub init {
-    # Only initialize the logfile once
-    return if defined $log_fh;
+    initscr();
+    cbreak();
+    noecho();
+    curs_set(0);
 
-    # Create a log directory if it doesn't exist
-    my $logdir = $ENV{'HOME'} . "/tmp/dotfiles";
-    mkdir $logdir unless -d $logdir;
+    $self->{win} = newwin(0, 0, 0, 0);
+    $self->{win_x} = 0;
+    $self->{win_y} = 0;
 
-    # Create a logfile for this run
-    my $logfile = $ENV{'LOGFILE'} // $logdir . "/" . strftime("%Y-%m-%d-%H-%M-%S", localtime) . ".log";
-    open($log_fh, ">>", $logfile) or die "Could not open log file $logfile: $!";
-    # Make sure the log file is flushed after every write
-    $log_fh->autoflush(1);
+    open($self->{log_fh}, '>', $self->{logfile}) or die "Could not open file '$self->{logfile}' $!";
+    $self->{log_fh}->autoflush(1);
+
+    return $self;
 }
 
-# Log only to the logfile
-sub l {
-    my ($class, $message) = @_;
-    unless (defined $log_fh) {
-        $class->init();
-    }
-
-    print $log_fh "$message\n";
-}
-
-# Log to the logfile and print to STDOUT
 sub p {
-    my ($class, $message) = @_;
-    $class->l($message);
-    print "$message\n";
-}
+    my ($self, $msg) = @_;
 
-# Log to the logfile and print to STDERR
-sub e {
-    my ($class, $message) = @_;
-    $class->l($message);
-    print STDERR "$message\n";
-}
+    my $win = $self->{win};
+    printw("  - $msg\n");
 
-# Log to the logfile and print a temporary line to STDOUT 
-# (will be overwritten by the next line)
-sub t {
-    my ($class, $message) = @_;
-    $class->l($message);
-    print "$message\r";
-}
+    print {$self->{log_fh}} "  - $msg\n";
 
-# Make sure the logfile is closed when the script ends
-END {
-    close $log_fh if defined $log_fh;
+    $self->{win_y}++;
+    refresh();
 }
-
-1;
 
