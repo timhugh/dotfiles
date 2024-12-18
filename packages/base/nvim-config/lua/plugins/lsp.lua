@@ -67,9 +67,6 @@ return {
           "perlnavigator",
 
           -- python
-          "black",
-          "flake8",
-          "mypy",
           "pylsp",
 
           -- ruby
@@ -149,6 +146,10 @@ return {
       --   on_attach = on_attach,
       -- })
       lspconfig.ts_ls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+      lspconfig.pylsp.setup({
         capabilities = capabilities,
         on_attach = on_attach,
       })
