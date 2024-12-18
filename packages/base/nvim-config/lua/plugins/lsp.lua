@@ -1,3 +1,25 @@
+-- TODO: having to add language servers both to masong_lspconfig ensure_installed and also to the nvim-lspconfig
+-- configured servers is repetitive at best. It looks like there are two potential approaches:
+--
+-- 1. mason_lspconfig has a setup_handlers function that can be used to give a generic setup implementation:
+--
+--     local lspconfig = require('lspconfig')
+--     require('mason').setup({})
+--     require('mason-lspconfig').setup({
+--       ensure_installed = {'sumneko_lua', 'rust_analyzer'}
+--     })
+--
+--     require('mason-lspconfig').setup_handlers({
+--       function(server)
+--         lspconfig[server].setup({})
+--       end,
+--     })
+--
+--    There's more about that in :h mason-lspconfig-automatic-server-setup
+--
+-- 2. mason_lspconfig has an automatic_installation option, which in theory will automatically install any 
+--    language servers that are manually configured by nvim-lspconfig (I think that's the idea, anyway)
+--
 return {
   {
     "williamboman/mason.nvim",
