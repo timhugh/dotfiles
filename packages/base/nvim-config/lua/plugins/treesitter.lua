@@ -35,6 +35,7 @@ return {
         "markdown",
         "markdown_inline",
         "perl",
+        "python",
         "regex",
         "ruby",
         "rust",

@@ -15,25 +15,57 @@ return {
       local mason_lspconfig = require("mason-lspconfig")
       mason_lspconfig.setup({
         ensure_installed = {
+          -- bash/zsh
           "bashls",
+
+          -- c/c++
           "clangd",
           "cmake",
+
+          -- css
           "cssls",
+
+          -- javascript
           "eslint",
+
+          -- go
           "golangci_lint_ls",
           "gopls",
+
+          -- html
           "html",
+
+          -- json
           "jsonls",
+
+          -- lua
           "lua_ls",
+
+          -- perl
           "perlnavigator",
+
+          -- python
+          "black",
+          "flake8",
+          "mypy",
+          "pylsp",
+
+          -- ruby
           "rubocop",
           "ruby_lsp",
-          "rust_analyzer",
           "solargraph",
           "sorbet",
           "standardrb",
+
+          -- rust
+          "rust_analyzer",
+
+          -- tailwind
           "tailwindcss",
+
           "taplo",
+
+          -- yaml
           "yamlls",
         },
       })
