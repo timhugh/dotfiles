@@ -1,5 +1,5 @@
 # build artifacts, etc
-/tmp/
+__pycache__
 
 # ignore lock files
 Brewfile.lock.json
