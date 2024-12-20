@@ -122,6 +122,14 @@ return {
         on_attach = on_attach,
         filetypes = { 'bash', 'zsh' },
       })
+      lspconfig.clangd.setup({
+        capabilities = capabilities,
+        on_attach = function()
+          on_attach()
+
+          vim.keymap.set("n", "<leader>h", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch between source/header" })
+        end,
+      })
       lspconfig.html.setup({
         capabilities = capabilities,
         on_attach = on_attach,

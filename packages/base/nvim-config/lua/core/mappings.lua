@@ -15,9 +15,6 @@ vim.keymap.set("n", "<leader>/", "<cmd>:nohlsearch<cr>")
 -- toggle wrap
 vim.keymap.set("n", "<leader>w", "<cmd>:set wrap!<cr>")
 
--- TODO: this should only be enabled in c/c++ files
-vim.keymap.set("n", "<leader>h", "<cmd>:ClangdSwitchSourceHeader<cr>")
-
 -- copy path to clipboard
 vim.api.nvim_create_user_command("Cppath", function()
     local path = vim.fn.expand("%:p")
