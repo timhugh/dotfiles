@@ -20,6 +20,7 @@ brew "zellij"
 # misc dev tools
 brew "postgresql"
 brew "sqlite"
+cask "dash"
 cask "tableplus"
 cask "utm"
 
