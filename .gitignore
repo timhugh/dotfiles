@@ -1,5 +1,6 @@
 # build artifacts, etc
 __pycache__
+test.log
 
 # ignore lock files
 Brewfile.lock.json
