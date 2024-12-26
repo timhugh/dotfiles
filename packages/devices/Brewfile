@@ -1,0 +1,9 @@
+tap "qmk/qmk"
+brew "qmk/qmk/qmk"
+
+cask "qmk-toolbox"
+cask "via"
+
+cask "logitech-g-hub"
+cask "elgato-stream-deck"
+cask "elgato-camera-hub"

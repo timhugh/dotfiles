@@ -41,8 +41,6 @@ cask "1password-cli"
 cask "jetbrains-toolbox"
 cask "mos"
 cask "rectangle"
-cask "elgato-stream-deck"
-cask "elgato-camera-hub"
 
 # browsers
 cask "google-chrome"
