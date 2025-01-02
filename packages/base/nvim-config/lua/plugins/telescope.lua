@@ -48,6 +48,13 @@ return {
     build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release',
     setup = function()
       require('telescope').load_extension('fzf')
+    end
+  },
+  {
+    "nvim-telescope/telescope-frecency.nvim",
+    version = "*",
+    config = function()
+      require("telescope").load_extension "frecency"
     end,
-  }
+  },
 }
