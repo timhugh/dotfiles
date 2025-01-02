@@ -14,7 +14,10 @@ return {
       vim.keymap.set("n", "<leader>f*", builtin.grep_string, { desc = "Grep all files (with current word)" })
 
       vim.keymap.set("n", "<leader>fgs", builtin.git_status, { desc = "Find in git modified files" })
+      vim.keymap.set("n", "<leader>fgS", builtin.git_stash, { desc = "Find in git commits" })
       vim.keymap.set("n", "<leader>fgb", builtin.git_branches, { desc = "Find in git branches" })
+      vim.keymap.set("n", "<leader>fgc", builtin.git_commits, { desc = "Find in git history" })
+      vim.keymap.set("n", "<leader>fgC", builtin.git_bcommits, { desc = "Find in git history of current file" })
 
       vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "Find references (LSP)" })
       vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Find symbols in current buffer (LSP)" })
@@ -35,6 +38,16 @@ return {
       require("telescope").load_extension("dir")
       vim.keymap.set("n", "<leader>fdg", "<cmd>Telescope dir live_grep<CR>", { desc = "Grep all files in directory", noremap = true, silent = true })
       vim.keymap.set("n", "<leader>fdf", "<cmd>Telescope dir find_files<CR>", { desc = "Find files in directory", noremap = true, silent = true })
+    end,
+  },
+  {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+    },
+    build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release',
+    setup = function()
+      require('telescope').load_extension('fzf')
     end,
   }
 }
