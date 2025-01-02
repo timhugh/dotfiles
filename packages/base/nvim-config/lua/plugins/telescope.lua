@@ -54,7 +54,10 @@ return {
     "nvim-telescope/telescope-frecency.nvim",
     version = "*",
     config = function()
-      require("telescope").load_extension "frecency"
+      require("telescope").load_extension("frecency")
+
+      local frecency = require("telescope").extensions.frecency
+      vim.keymap.set("n", "<leader>fR", frecency.frecency, { desc = "Recent files" })
     end,
   },
 }
