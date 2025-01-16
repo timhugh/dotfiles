@@ -24,5 +24,11 @@ return {
     config = function()
       require("blame").setup()
     end
-  }
+  },
+  {
+    "ruifm/gitlinker.nvim",
+    config = function()
+      require("gitlinker").setup()
+    end,
+  },
 }
