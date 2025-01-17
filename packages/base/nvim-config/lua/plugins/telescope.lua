@@ -13,11 +13,7 @@ return {
       vim.keymap.set("n", "<leader>fG", builtin.live_grep, { desc = "Grep all files" })
       vim.keymap.set("n", "<leader>f*", builtin.grep_string, { desc = "Grep all files (with current word)" })
 
-      vim.keymap.set("n", "<leader>fgs", builtin.git_status, { desc = "Find in git modified files" })
-      vim.keymap.set("n", "<leader>fgS", builtin.git_stash, { desc = "Find in git commits" })
-      vim.keymap.set("n", "<leader>fgb", builtin.git_branches, { desc = "Find in git branches" })
-      vim.keymap.set("n", "<leader>fgc", builtin.git_commits, { desc = "Find in git history" })
-      vim.keymap.set("n", "<leader>fgC", builtin.git_bcommits, { desc = "Find in git history of current file" })
+      vim.keymap.set("n", "<leader>fgS", builtin.git_status, { desc = "Find in git modified files vs HEAD" })
 
       vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "Find references (LSP)" })
       vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Find symbols in current buffer (LSP)" })
@@ -36,8 +32,8 @@ return {
     end,
     init = function()
       require("telescope").load_extension("dir")
-      vim.keymap.set("n", "<leader>fdg", "<cmd>Telescope dir live_grep<CR>", { desc = "Grep all files in directory", noremap = true, silent = true })
-      vim.keymap.set("n", "<leader>fdf", "<cmd>Telescope dir find_files<CR>", { desc = "Find files in directory", noremap = true, silent = true })
+      vim.keymap.set("n", "<leader>fdg", "<cmd>Telescope dir live_grep<CR>", { desc = "Grep all files in directory" })
+      vim.keymap.set("n", "<leader>fdf", "<cmd>Telescope dir find_files<CR>", { desc = "Find files in directory" })
     end,
   },
   {
@@ -53,11 +49,23 @@ return {
   {
     "nvim-telescope/telescope-frecency.nvim",
     version = "*",
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+    },
     config = function()
       require("telescope").load_extension("frecency")
-
       local frecency = require("telescope").extensions.frecency
       vim.keymap.set("n", "<leader>fR", frecency.frecency, { desc = "Recent files" })
+    end,
+  },
+  {
+    "mrloop/telescope-git-branch.nvim",
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+    },
+    config = function()
+      require("telescope").load_extension("git_branch")
+      vim.keymap.set("n", "<leader>fgs", "<cmd>Telescope git_branch<CR>", { desc = "Find in git modified files vs default branch" })
     end,
   },
 }
