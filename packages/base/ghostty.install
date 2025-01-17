@@ -1,0 +1,2 @@
+mkdir -p "${HOME}"/.config/ghostty
+[[ -L "${HOME}"/.config/ghostty/config ]] || ln -fs "$(pwd)"/ghostty-config "${HOME}"/.config/ghostty/config

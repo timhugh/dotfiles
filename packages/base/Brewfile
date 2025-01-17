@@ -13,14 +13,11 @@ brew "jq"
 brew "wget"
 brew "zsh"
 
-# shell multiplexers
-brew "tmux"
-brew "zellij"
-
 # misc dev tools
 brew "postgresql"
 brew "sqlite"
 cask "dash"
+cask "ghostty"
 cask "tableplus"
 cask "utm"
 
@@ -30,9 +27,6 @@ brew "libyaml"
 brew "nvim"
 brew "ripgrep"
 brew "tidy-html5"
-
-# iterm
-cask "iterm2"
 
 # utilities
 brew "openssh"

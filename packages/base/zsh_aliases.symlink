@@ -13,6 +13,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ~='cd ~'
 
-# quickly open nvim config
-alias dotfiles='zsh -c "cd ${HOME}/share/dotfiles && nvim && exit"'
+# quickly access dotfiles
+alias dotfiles='cd ${HOME}/share/dotfiles'
+alias dotfiles-edit='zsh -c "cd ${HOME}/share/dotfiles && nvim && exit"'
 
