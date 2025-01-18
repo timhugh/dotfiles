@@ -130,6 +130,12 @@ return {
           vim.keymap.set("n", "<leader>h", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch between source/header" })
         end,
       })
+      lspconfig.gdscript.setup({
+        name = "godot",
+        cmd = vim.lsp.rpc.connect("127.0.0.1", "6005"),
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
       lspconfig.html.setup({
         capabilities = capabilities,
         on_attach = on_attach,
