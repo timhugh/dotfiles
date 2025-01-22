@@ -29,30 +29,27 @@ There are some manual steps after running the installer. Hopefully some of these
 
 - [ ] App logins
   - [ ] 1password login
-  - [ ] Chrome login
+  - [ ] Firefox login
   - [ ] Dropbox login
   - [ ] Notion calendar login
   - [ ] Spark login
   - [ ] Slack login
   - [ ] Zoom login
   - [ ] Spotify login
-- [ ] Rectangle setup (I use the old Spectacle bindings -- old habits)
+- [ ] Raycast setup
+  - [ ] Disable Spotlight shortcut
+  - [ ] Login for sync
 - [ ] Upload generated ssh key to Github (`cat ~/.ssh/github_key.pub | pbcopy`)
   - TODO: should be able to automate this with GH CLI: `gh auth login --hostname github.com --git-protocol ssh --web`
 - [ ] Jetbrains settings sync
-  - [ ] Intellij settings sync
-  - [ ] Goland settings sync
-  - [ ] Clion settings sync
-  - [ ] Rubymine settings sync
-  - [ ] Webstorm settings sync
 - [ ] Default apps
-  - [ ] Set Chrome as default browser
+  - [ ] Set Firefox as default browser
     - TODO: maybe use https://github.com/kerma/defaultbrowser ?
   - [ ] Set Spark as default mail
   - [ ] Set Notion Calendar as default calendar
 - [ ] Configure login items:
-    - Rectangle
-    - Mos
+  - [ ] Raycast
+  - [ ] Scroll reverser
 
 ## Todo
 

@@ -1,5 +1,4 @@
 # brewfile tools
-brew "dockutil"
 brew "mas"
 brew "whalebrew"
 
@@ -22,7 +21,6 @@ cask "tableplus"
 cask "utm"
 
 # nvim
-brew "jq"
 brew "libyaml"
 brew "nvim"
 brew "ripgrep"
@@ -31,14 +29,12 @@ brew "tidy-html5"
 # utilities
 brew "openssh"
 cask "1password"
-cask "1password-cli"
 cask "jetbrains-toolbox"
-cask "rectangle"
+cask "raycast"
 cask "scroll-reverser"
 
 # browsers
-cask "google-chrome"
-cask "postman"
+cask "firefox"
 
 # docker / kubernetes
 brew "kubectl"
