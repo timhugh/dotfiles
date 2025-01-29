@@ -10,7 +10,7 @@ vim.keymap.set("n", "<leader>\\", "<cmd>:vsplit<cr>")
 -- open blank tab
 vim.keymap.set("n", "<leader>t", "<cmd>:tabnew<cr>")
 
--- window movement
+-- navigating splits
 vim.keymap.set("n", "<c-h>", "<c-w>h")
 vim.keymap.set("n", "<c-j>", "<c-w>j")
 vim.keymap.set("n", "<c-k>", "<c-w>k")
