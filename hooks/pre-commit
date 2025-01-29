@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+root="${HOME}/share/dotfiles"
+exit_codes=()
+
+echo "Running pre-commit hooks..."
+for pre_commit_hook in $(find "${root}/hooks" -name "*.pre-commit" -type f); do
+    "$pre_commit_hook"
+    exit_codes+=($?)
+done
+
+if [[ "${exit_codes[@]}" =~ 1 ]]; then
+    echo "Pre-commit hooks failed"
+    exit 1
+fi
+
+echo "Pre-commit hooks passed"
