@@ -8,4 +8,4 @@ tags
 .nvimlog
 .java-version
 .idea
-
+.ruby-lsp
