@@ -17,6 +17,7 @@ brew "postgresql"
 brew "sqlite"
 cask "dash"
 cask "ghostty"
+cask "ollama"
 cask "tableplus"
 cask "utm"
 
