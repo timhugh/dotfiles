@@ -37,6 +37,7 @@ cask "scroll-reverser"
 
 # browsers
 cask "firefox"
+cask "google-chrome"
 
 # docker / kubernetes
 brew "kubectl"
