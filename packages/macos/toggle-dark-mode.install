@@ -1,1 +1,2 @@
+mkdir -p "${HOME}/Applications"
 [[ -L "${HOME}/Applications/Toggle Dark Mode.app" ]] || ln -fs "$(pwd)/Toggle Dark Mode.app" "${HOME}/Applications/Toggle Dark Mode.app"
