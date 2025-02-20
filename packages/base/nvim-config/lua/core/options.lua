@@ -19,3 +19,7 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 
+-- settings for terminal buffers
+vim.api.nvim_command("autocmd TermOpen * startinsert")
+vim.api.nvim_command("autocmd TermOpen * setlocal nonumber norelativenumber nospell")
+vim.api.nvim_command("autocmd TermEnter * setlocal signcolumn=no")
