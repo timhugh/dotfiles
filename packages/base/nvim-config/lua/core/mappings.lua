@@ -4,11 +4,11 @@ vim.g.mapleader = ","
 vim.keymap.set("i", "jj", "<ESC>")
 
 -- split shortcuts
-vim.keymap.set("n", "<leader>-", "<cmd>:split<cr>")
-vim.keymap.set("n", "<leader>\\", "<cmd>:vsplit<cr>")
+vim.keymap.set("n", "<c-->", "<cmd>:split<cr>")
+vim.keymap.set("n", "<c-\\>", "<cmd>:vsplit<cr>")
 
 -- open blank tab
-vim.keymap.set("n", "<leader>t", "<cmd>:tabnew<cr>")
+vim.keymap.set("n", "<c-t>", "<cmd>:tabnew<cr>")
 
 -- navigating splits
 vim.keymap.set("n", "<c-h>", "<c-w>h")
