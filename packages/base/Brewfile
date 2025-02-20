@@ -38,6 +38,7 @@ cask "scroll-reverser"
 # browsers
 cask "firefox"
 cask "google-chrome"
+mas "velja", id: 1607635845
 
 # docker / kubernetes
 brew "kubectl"
