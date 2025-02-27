@@ -1,8 +1,5 @@
 vim.g.mapleader = ","
 
--- quick exit to normal mode
-vim.keymap.set("i", "jj", "<ESC>")
-
 -- split shortcuts
 vim.keymap.set("n", "<c-->", "<cmd>:split<cr>")
 vim.keymap.set("n", "<c-\\>", "<cmd>:vsplit<cr>")
@@ -30,3 +27,5 @@ vim.api.nvim_create_user_command("Cppath", function()
 end, {})
 vim.keymap.set("n", "<leader>y", "<cmd>:Cppath<cr>")
 
+-- exit terminal mode
+vim.keymap.set("t", "<ESC>", "<c-\\><c-n>")
