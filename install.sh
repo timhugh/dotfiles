@@ -184,6 +184,18 @@ for package in "${packages[@]}"; do
         ln -fs "$root/packages/$package/$f" "$dest"
     done
 
+    for f in *.completion; do
+        echo "Installing $f as completion"
+        dest="${HOME}/.zsh_completions.d/_${f%.completion}"
+        if [[ -e $dest ]]; then
+            echo "Skipping $f, file exists at $dest"
+            continue
+        fi
+
+        echo "Linking $f in completion directory"
+        ln -fs "$root/packages/$package/$f" "$dest"
+    done
+
     for f in *.install; do
         echo "Executing installer $f"
         source "$root/packages/$package/$f"
