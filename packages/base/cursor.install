@@ -1,0 +1,12 @@
+CURSOR_USER_DIR="${HOME}/Library/Application Support/Cursor/User"
+mkdir -p "${CURSOR_USER_DIR}"
+
+if [[ ! -L "${CURSOR_USER_DIR}"/settings.json ]]; then
+    [[ -f "${CURSOR_USER_DIR}"/settings.json ]] && mv "${CURSOR_USER_DIR}"/settings.json "${CURSOR_USER_DIR}"/settings.json.backup
+    ln -fs "$(pwd)"/cursor/settings.json "${CURSOR_USER_DIR}"/settings.json
+fi
+
+if [[ ! -L "${CURSOR_USER_DIR}"/keybindings.json ]]; then
+    [[ -f "${CURSOR_USER_DIR}"/keybindings.json ]] && mv "${CURSOR_USER_DIR}"/keybindings.json "${CURSOR_USER_DIR}"/keybindings.json.backup
+    ln -fs "$(pwd)"/cursor/keybindings.json "${CURSOR_USER_DIR}"/keybindings.json
+fi

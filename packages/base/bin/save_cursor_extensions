@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+root="${HOME}"/share/dotfiles
+extensions_file="${root}"/packages/base/cursor/extensions
+
+cursor --list-extensions > ${extensions_file}

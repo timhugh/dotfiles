@@ -15,6 +15,7 @@ brew "zsh"
 # misc dev tools
 brew "postgresql"
 brew "sqlite"
+cask "cursor"
 cask "dash"
 cask "ghostty"
 cask "ollama"
