@@ -1,6 +1,9 @@
 CURSOR_USER_DIR="${HOME}/Library/Application Support/Cursor/User"
 mkdir -p "${CURSOR_USER_DIR}"
 
+[[ -L "${HOME}"/bin/load_cursor_extensions ]] || ln -fs "$(pwd)"/cursor/load_cursor_extensions "${HOME}"/bin/load_cursor_extensions
+[[ -L "${HOME}"/bin/save_cursor_extensions ]] || ln -fs "$(pwd)"/cursor/save_cursor_extensions "${HOME}"/bin/save_cursor_extensions
+
 if [[ ! -L "${CURSOR_USER_DIR}"/settings.json ]]; then
     [[ -f "${CURSOR_USER_DIR}"/settings.json ]] && mv "${CURSOR_USER_DIR}"/settings.json "${CURSOR_USER_DIR}"/settings.json.backup
     ln -fs "$(pwd)"/cursor/settings.json "${CURSOR_USER_DIR}"/settings.json
