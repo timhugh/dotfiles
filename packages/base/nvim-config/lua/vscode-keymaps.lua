@@ -7,8 +7,10 @@ vim.g.maplocalleader = ","
 -- remove search highlighting
 keymap("n", "<leader>/", "<Esc>:noh<CR>", opts)
 
--- editor tools
+-- restart neovim
 keymap("n", "<leader>R", "<cmd>lua require('vscode').action('vscode-neovim.restart')<CR>", opts)
+
+-- editor navigation
 keymap("n", "<leader>t", "<cmd>lua require('vscode').action('workbench.action.terminal.toggleTerminal')<CR>", opts)
 keymap("n", "<leader>ff", "<cmd>lua require('vscode').action('workbench.action.quickOpen')<CR>", opts)
 keymap("n", "<leader>fG", "<cmd>lua require('vscode').action('workbench.action.findInFiles')<CR>", opts)
@@ -16,10 +18,18 @@ keymap("n", "<leader>fp", "<cmd>lua require('vscode').action('workbench.action.o
 keymap("n", "<leader>fg", "<cmd>lua require('vscode').action('git.openAllChanges')<CR>", opts)
 keymap("n", "<leader>r", "<cmd>lua require('vscode').action('editor.action.rename')<CR>", opts)
 keymap("n", "<leader>q", "<cmd>lua require('vscode').action('editor.action.quickFix')<CR>", opts)
-keymap("n", "<leader>y", "<cmd>lua require('vscode').action('copyRelativeFilePath')<CR>", opts)
 keymap("n", "<leader>o", "<cmd>lua require('vscode').action('workbench.view.explorer')<CR>", opts)
 keymap("n", "<leader>O", "<cmd>lua require('vscode').action('workbench.action.toggleSidebarVisibility')<CR>", opts)
 keymap("n", "<leader>z", "<cmd>lua require('vscode').action('workbench.action.toggleZenMode')<CR>", opts)
+
+-- copying paths
+keymap("n", "<leader>y", "<cmd>lua require('vscode').action('copyRelativeFilePath')<CR>", opts)
+keymap("n", "<leader>gy", "<cmd>lua require('vscode').action('issue.copyGithubPermalink')<CR>", opts)
+
+-- git
+keymap("n", "<leader>gb", "<cmd>lua require('vscode').action('gitlens.toggleFileBlame')<CR>", opts)
+keymap("n", "<leader>gh", "<cmd>lua require('vscode').action('git-blame.command.fileHistory')<CR>", opts)
+keymap("n", "<leader>gl", "<cmd>lua require('vscode').action('git-blame.command.lineHistory')<CR>", opts)
 
 -- debugger
 keymap("n", "<leader>dl", "<cmd>lua require('vscode').action('extension.js-debug.debugLink')<CR>", opts)

@@ -20,5 +20,6 @@
     "files.autoSave": "afterDelay",
     "files.exclude": {
         "**/.git": false
-    }
+    },
+    "git-blame.config.showBlameInline": false
 }
