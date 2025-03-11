@@ -18,3 +18,5 @@ defaults write com.apple.screencapture show-thumbnail -bool false
 echo "Reloading system ui server"
 killall SystemUIServer || true
 
+echo "Enabling key repeat"
+defaults write -g ApplePressAndHoldEnabled -bool false
