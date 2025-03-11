@@ -21,5 +21,7 @@
     "files.exclude": {
         "**/.git": false
     },
-    "git-blame.config.showBlameInline": false
+    "git-blame.config.showBlameInline": false,
+    "gitlens.blame.format": "${author|10} ${ago|15-}",
+    "gitlens.blame.fontSize": 11
 }
