@@ -12,6 +12,7 @@ keymap("n", "<leader>R", "<cmd>lua require('vscode').action('vscode-neovim.resta
 keymap("n", "<leader>t", "<cmd>lua require('vscode').action('workbench.action.terminal.toggleTerminal')<CR>", opts)
 keymap("n", "<leader>ff", "<cmd>lua require('vscode').action('workbench.action.quickOpen')<CR>", opts)
 keymap("n", "<leader>fG", "<cmd>lua require('vscode').action('workbench.action.findInFiles')<CR>", opts)
+keymap("n", "<leader>fr", "<cmd>lua require('vscode').action('workbench.action.openRecent')<CR>", opts)
 keymap("n", "<leader>fg", "<cmd>lua require('vscode').action('git.openAllChanges')<CR>", opts)
 keymap("n", "<leader>r", "<cmd>lua require('vscode').action('editor.action.rename')<CR>", opts)
 keymap("n", "<leader>q", "<cmd>lua require('vscode').action('editor.action.quickFix')<CR>", opts)
