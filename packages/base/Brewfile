@@ -21,6 +21,7 @@ cask "ghostty"
 cask "ollama"
 cask "tableplus"
 cask "utm"
+cask "zed"
 
 # nvim
 brew "libyaml"
