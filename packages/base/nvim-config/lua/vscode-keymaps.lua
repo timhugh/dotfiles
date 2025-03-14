@@ -16,6 +16,7 @@ keymap("n", "<leader>ff", "<cmd>lua require('vscode').action('workbench.action.q
 keymap("n", "<leader>fG", "<cmd>lua require('vscode').action('workbench.action.findInFiles')<CR>", opts)
 keymap("n", "<leader>fp", "<cmd>lua require('vscode').action('workbench.action.openRecent')<CR>", opts)
 keymap("n", "<leader>fg", "<cmd>lua require('vscode').action('git.openAllChanges')<CR>", opts)
+keymap("n", "<leader>fr", "<cmd>lua require('vscode').action('editor.action.goToReferences')<CR>", opts)
 keymap("n", "<leader>r", "<cmd>lua require('vscode').action('editor.action.rename')<CR>", opts)
 keymap("n", "<leader>q", "<cmd>lua require('vscode').action('editor.action.quickFix')<CR>", opts)
 keymap("n", "<leader>o", "<cmd>lua require('vscode').action('workbench.view.explorer')<CR>", opts)
@@ -57,8 +58,3 @@ keymap("n", "<C-k>", "<cmd>lua require('vscode').action('workbench.action.naviga
 keymap("n", "<C-up>", "<cmd>lua require('vscode').action('workbench.action.navigateUp')<CR>", opts)
 keymap("n", "<C-l>", "<cmd>lua require('vscode').action('workbench.action.navigateRight')<CR>", opts)
 keymap("n", "<C-right>", "<cmd>lua require('vscode').action('workbench.action.navigateRight')<CR>", opts)
-
--- cmake
-keymap("n", "<leader>cb", "<cmd>lua require('vscode').action('cmake.build')<CR>", opts)
-keymap("n", "<leader>cr", "<cmd>lua require('vscode').action('cmake.launchTarget')<CR>", opts)
-keymap("n", "<leader>cd", "<cmd>lua require('vscode').action('cmake.debugTarget')<CR>", opts)

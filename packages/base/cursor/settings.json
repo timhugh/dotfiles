@@ -24,5 +24,11 @@
     "git-blame.config.showBlameInline": false,
     "gitlens.blame.format": "${author|10} ${ago|15-}",
     "gitlens.blame.fontSize": 11,
-    "extensions.verifySignature": false
+    "extensions.verifySignature": false,
+    "git.autofetch": true,
+    "cmake-tools-build-wrapper.notifySuccess": false,
+    "cmake.showConfigureWithDebuggerNotification": false,
+    "cmake.revealLog": "error",
+    "gitlens.codeLens.enabled": false,
+    "editor.formatOnSave": true
 }
