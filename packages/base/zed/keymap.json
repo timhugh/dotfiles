@@ -1,0 +1,60 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // navigation
+      ", f": "file_finder::Toggle",
+      ", g": "git_panel::ToggleFocus",
+      ", l": "assistant::ToggleFocus",
+      ", o": "project_panel::ToggleFocus",
+      ", p": "projects::OpenRecent",
+      ", t": "workspace::NewTerminal",
+      ", T": "workspace::NewCenterTerminal",
+
+      ", r": "editor::Rename",
+
+      // Cmake-specific:
+      ", c g": ["task::Spawn", { "task_name": "CMake Generate" }],
+      ", c b": ["task::Spawn", { "task_name": "CMake Build" }],
+      ", c r": ["task::Spawn", { "task_name": "CMake Run" }],
+      ", c t": ["task::Spawn", { "task_name": "CMake Test" }]
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      // use toggle key to close dock
+      ", o": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "AssistantPanel",
+    "bindings": {
+      // use toggle key to close dock
+      ", l": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    "context": "GitPanel",
+    "bindings": {
+      ", P": "git::Push",
+      ", f": "git::Fetch",
+
+      // use toggle key to close dock
+      ", g": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {}
+  },
+  {
+    "context": "Editor || ProjectPanel || GitPanel || AssistantPanel",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
+    }
+  }
+]
