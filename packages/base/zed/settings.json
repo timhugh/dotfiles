@@ -7,48 +7,77 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-	"file_scan_exclusions": [
-		"node_modules/",
-		".git/",
-		".idea/",
-		".vs/",
-		".vscode/"
-	],
-	"edit_predictions": {
-		"disabled_globs": [],
-		"mode": "eager",
-		"copilot": {
-			"proxy": null,
-			"proxy_no_verify": null
-		},
-		"enabled_in_assistant": false
-	},
-	"features": {
-		"edit_prediction_provider": "zed"
-	},
-	"assistant": {
-		"default_model": {
-			"provider": "ollama",
-			"model": "qwen2.5-coder:14b"
-		},
-		"version": "2"
-	},
-	"vim_mode": true,
-	"ui_font_size": 15,
-	"buffer_font_size": 14,
-	"theme": {
-		"mode": "system",
-		"light": "One Light",
-		"dark": "Ayu Dark"
-	},
-	"lsp": {
-		"clangd": {
-			"arguments": ["-background-index"]
-		}
-	},
-	"autosave": "on_focus_change",
-	"format_on_save": "on",
-	"relative_line_numbers": true,
-	"hard_tabs": true,
-	"tab_size": 4
+    "file_scan_exclusions": [
+        "node_modules/",
+        ".git/",
+        ".idea/",
+        ".vs/",
+        ".vscode/",
+        ".next/",
+        "out/"
+    ],
+    "edit_predictions": {
+        "disabled_globs": [],
+        "mode": "eager",
+        "copilot": {
+            "proxy": null,
+            "proxy_no_verify": null
+        },
+        "enabled_in_assistant": false
+    },
+    "features": {
+        "edit_prediction_provider": "zed"
+    },
+    "assistant": {
+        "default_model": {
+            "provider": "zed.dev",
+            "model": "claude-3-7-sonnet-latest"
+        },
+        "version": "2"
+    },
+    "vim_mode": true,
+    "ui_font_size": 15,
+    "buffer_font_size": 14,
+    "theme": {
+        "mode": "system",
+        "light": "One Light",
+        "dark": "Ayu Dark"
+    },
+    "lsp": {
+        "clangd": {
+            "arguments": ["-background-index"]
+        },
+        "ruby-lsp": {
+            "initialization_options": {
+                "enabledFeatures": {
+                    "diagnostics": false
+                }
+            }
+        },
+        "rubocop": {
+            "initialization_options": {
+                "safeAutocorrect": false
+            }
+        }
+    },
+    "autosave": "on_focus_change",
+    "format_on_save": "on",
+    "relative_line_numbers": true,
+    "hard_tabs": false,
+    "tab_size": 2,
+    "languages": {
+        "YAML": {
+            "hard_tabs": false,
+            "tab_size": 2
+        },
+        "Markdown": {
+            "soft_wrap": "bounded"
+        },
+        "Ruby": {
+            "language_servers": ["ruby-lsp", "rubocop"],
+            "enable_language_server": true,
+            "hard_tabs": false,
+            "tab_size": 2
+        }
+    }
 }
