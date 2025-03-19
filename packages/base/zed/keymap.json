@@ -17,13 +17,27 @@
 
       ", r": "editor::Rename",
 
-      // Cmake-specific:
+      // cmake
       ", c g": ["task::Spawn", { "task_name": "CMake Generate" }],
       ", c b": ["task::Spawn", { "task_name": "CMake Build" }],
       ", c r": ["task::Spawn", { "task_name": "CMake Run" }],
       ", c d": ["task::Spawn", { "task_name": "CMake Debug" }],
       ", c t": ["task::Spawn", { "task_name": "CMake Test" }],
-      ", c T": ["task::Spawn", { "task_name": "CMake Debug Tests" }]
+      ", c T": ["task::Spawn", { "task_name": "CMake Debug Tests" }],
+
+      // npm
+      ", n d": ["task::Spawn", { "task_name": "npm run dev" }],
+      ", n b": ["task::Spawn", { "task_name": "npm run build" }],
+      ", n t": ["task::Spawn", { "task_name": "npm run test" }],
+
+      // rails
+      ", r s": ["task::Spawn", { "task_name": "rails server" }],
+      ", r c": ["task::Spawn", { "task_name": "rails console" }],
+      ", r t": ["task::Spawn", { "task_name": "rails spec" }],
+
+      // docker
+      ", d b": ["task::Spawn", { "task_name": "docker build" }],
+      ", d c": ["task::Spawn", { "task_name": "docker compose up" }]
     }
   },
   {
