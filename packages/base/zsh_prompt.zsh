@@ -7,4 +7,3 @@ function git_branch_name() {
 
 setopt prompt_subst
 prompt='%F{green}%~%f $(git_branch_name)%F{red}%#%f '
-

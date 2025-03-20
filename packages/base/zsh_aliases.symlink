@@ -16,4 +16,3 @@ alias ~='cd ~'
 # quickly access dotfiles
 alias dotfiles='cd ${HOME}/share/dotfiles'
 alias dotfiles-edit='zsh -c "cd ${HOME}/share/dotfiles && nvim && exit"'
-

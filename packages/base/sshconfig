@@ -15,4 +15,3 @@ Host gitlab.com
 Host heroku.com
   User git
   IdentityFile ~/.ssh/heroku_key
-

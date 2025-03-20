@@ -1,5 +1,2 @@
 mkdir -p "${HOME}"/bin
 [[ -L "${HOME}"/bin/with_env ]] || ln -fs "$(pwd)"/bin/with_env "${HOME}"/bin/with_env
-[[ -L "${HOME}"/bin/fim_llm ]] || ln -fs "$(pwd)"/bin/fim_llm "${HOME}"/bin/fim_llm
-[[ -L "${HOME}"/bin/llm_chat ]] || ln -fs "$(pwd)"/bin/llm_chat "${HOME}"/bin/llm_chat
-
