@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+mkdir -p "${HOME}/tmp/defaults"
+rm -f "${HOME}/tmp/defaults/"*.plist
+
+export_defaults() {
+  local export_name=$1
+  defaults domains | tr ',' '\n' | while read domain; do
+    [[ -z "$domain" ]] && continue
+    defaults export "$domain" "${HOME}/tmp/defaults/$domain.$export_name.binary.plist"
+    plutil -convert xml1 "${HOME}/tmp/defaults/$domain.$export_name.binary.plist" -o "${HOME}/tmp/defaults/$domain.$export_name.plist"
+  done
+
+  defaults export -g "${HOME}/tmp/defaults/global.$export_name.plist"
+  plutil -convert xml1 "${HOME}/tmp/defaults/global.$export_name.plist" -o "${HOME}/tmp/defaults/global.$export_name.plist"
+}
+
+echo "Exporting current settings..."
+export_defaults "before"
+
+echo "Change settings and press Enter to continue..."
+read -r
+
+echo "Exporting new settings..."
+export_defaults "after"
+
+for before in "${HOME}/tmp/defaults/"*.before.plist; do
+  after="${before/before/after}"
+  if [ ! -f "$after" ]; then
+    continue
+  fi
+  diff_output=$(diff -C 1 "$before" "$after")
+  if [ -n "$diff_output" ]; then
+    echo "Changes found in $before:"
+    echo "$diff_output"
+  fi
+done
