@@ -1,6 +1,3 @@
-prefix=$(/opt/homebrew/bin/brew --prefix)
-source "${prefix}"/share/chruby/chruby.sh
-source "${prefix}"/share/chruby/auto.sh
+rbenv rehash
 
 alias be="bundle exec"
-
