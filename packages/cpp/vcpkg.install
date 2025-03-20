@@ -1,4 +1,0 @@
-mkdir -p "${HOME}"/share
-[[ -d "${HOME}"/share/vcpkg ]] || git clone git@github.com:microsoft/vcpkg.git "${HOME}"/share/vcpkg
-cd "${HOME}"/share/vcpkg
-[[ -f "${HOME}"/share/vcpkg/vcpkg ]] || ./bootstrap-vcpkg.sh
