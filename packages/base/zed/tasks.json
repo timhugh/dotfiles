@@ -41,6 +41,47 @@
     "reveal": "no_focus",
     "hide": "on_success"
   },
+  // Go
+  {
+    "label": "go get",
+    "command": "go get ./...",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "go build",
+    "command": "go build ./...",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "go fmt",
+    "command": "go fmt ./...",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "go vet",
+    "command": "go vet ./...",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "go lint",
+    "command": "golangci-lint run ./...",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
   // Generic ruby tasks
   {
     "label": "bundle",
