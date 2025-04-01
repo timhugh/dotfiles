@@ -4,9 +4,16 @@
     "bindings": {
       // navigation
       ", f": "file_finder::Toggle",
+
       ", g": "git_panel::ToggleFocus",
+      ", G": "workspace::ToggleLeftDock",
+
       ", l": "assistant::ToggleFocus",
+      ", L": "workspace::ToggleRightDock",
+
       ", o": "project_panel::ToggleFocus",
+      ", O": "workspace::ToggleLeftDock",
+
       ", p": "projects::OpenRecent",
       ", t": "workspace::NewTerminal",
       ", T": "workspace::NewCenterTerminal",
