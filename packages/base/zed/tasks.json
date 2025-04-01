@@ -59,6 +59,22 @@
     "hide": "on_success"
   },
   {
+    "label": "go test",
+    "command": "go test ./...",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "go modd",
+    "command": "modd",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
     "label": "go fmt",
     "command": "go fmt ./...",
     "use_new_terminal": false,
@@ -111,6 +127,64 @@
   {
     "label": "rails spec",
     "command": "bundle exec rails spec",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  // Gradle
+  {
+    "label": "gradle build",
+    "command": "gradle build",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "gradle clean build",
+    "command": "gradle clean build",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "gradle test",
+    "command": "gradle test",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "gradle test continuous",
+    "command": "gradle test --continuous",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  // npm
+  {
+    "label": "npm run dev",
+    "command": "npm run dev",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "npm run build",
+    "command": "npm run build",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "npm run test",
+    "command": "npm run test",
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "no_focus",
