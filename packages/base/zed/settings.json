@@ -28,7 +28,7 @@
     "version": "2"
   },
   "vim_mode": true,
-  "ui_font_size": 15,
+  "ui_font_size": 17,
   "buffer_font_size": 14,
   "theme": {
     "mode": "system",
