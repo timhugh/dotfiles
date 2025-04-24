@@ -1,5 +1,4 @@
 services:
-
   samba:
     container_name: samba
     build: ./samba
@@ -36,7 +35,26 @@ services:
       - TZ=America/Los_Angeles
       - ENABLE_AVAHI=0
 
+  omada:
+    container_name: omada
+    image: mbentley/omada-controller:latest
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - MANAGE_HTTP_PORT=8080
+      - MANAGE_HTTPS_PORT=8043
+      - PORTAL_HTTP_PORT=8081
+      - PORTAL_HTTPS_PORT=8843
+      - SHOW_SERVER_LOGS=true
+      - SHOW_MONGODB_LOGS=false
+    volumes:
+      - omada-data:/opt/tplink/EAPController/data
+      - omada-logs:/opt/tplink/EAPController/logs
+      - omada-work:/opt/tplink/EAPController/work
+
 volumes:
   home-assistant-config:
   homebridge:
-
+  omada-data:
+  omada-logs:
+  omada-work:
