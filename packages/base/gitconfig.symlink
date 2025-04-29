@@ -30,6 +30,8 @@
   rbc = rebase --continue
   rbi = rebase -i
   repush = !git pull --rebase && git push
+  revert-to-main = revert --no-commit origin/main..HEAD
+  revert-to-master = revert --no-commit origin/master..HEAD
   s = log -S
   st = !git status --short --branch && git diff --shortstat
   u = merge --no-commit --ff-only
