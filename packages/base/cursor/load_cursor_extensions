@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+unless `which cursor`.empty?
+    saved_extensions = `cat "${HOME}/share/dotfiles/packages/base/cursor/extensions"`.lines.sort
+    installed_extensions = `cursor --list-extensions`.lines.sort
+    
+    added_extensions = saved_extensions - installed_extensions
+    removed_extensions = installed_extensions - saved_extensions
+    
+    puts 'Syncing cursor extensions...'
+    
+    if added_extensions.any?
+        puts "Installing #{added_extensions.size} missing extensions: #{added_extensions.join(', ')}"
+        added_extensions.each do |extension|
+            `cursor --install-extension #{extension}`
+        end
+    end
+    
+    if removed_extensions.any?
+        puts "Uninstalling #{removed_extensions.size} removed extensions: #{removed_extensions.join(', ')}"
+        removed_extensions.each do |extension|
+            `cursor --uninstall-extension #{extension}`
+        end
+    end
+    
+    puts 'Cursor extensions synced!'
+end

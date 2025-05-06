@@ -1,0 +1,34 @@
+{
+    "window.commandCenter": false,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "vscode-neovim.afterInitConfig": [
+        "set relativenumber"
+    ],
+    "zenMode.centerLayout": false,
+    "zenMode.hideLineNumbers": false,
+    "zenMode.hideStatusBar": false,
+    "editor.fontFamily": "\"JetBrains Mono\", Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 13,
+    "editor.lineHeight": 1.7,
+    "workbench.colorTheme": "GitHub Dark Default",
+    "workbench.preferredDarkColorTheme": "GitHub Dark Default",
+    "workbench.preferredLightColorTheme": "GitHub Light Default",
+    "window.autoDetectColorScheme": true,
+    "window.systemColorTheme": "auto",
+    "files.autoSave": "afterDelay",
+    "files.exclude": {
+        "**/.git": false
+    },
+    "git-blame.config.showBlameInline": false,
+    "gitlens.blame.format": "${author|10} ${ago|15-}",
+    "gitlens.blame.fontSize": 11,
+    "extensions.verifySignature": false,
+    "git.autofetch": true,
+    "cmake-tools-build-wrapper.notifySuccess": false,
+    "cmake.showConfigureWithDebuggerNotification": false,
+    "cmake.revealLog": "error",
+    "gitlens.codeLens.enabled": false,
+    "editor.formatOnSave": true
+}

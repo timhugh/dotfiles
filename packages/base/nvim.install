@@ -1,0 +1,2 @@
+mkdir -p "${HOME}"/.config
+[[ -L "${HOME}"/.config/nvim ]] || ln -fs "$(pwd)"/nvim-config "${HOME}"/.config/nvim

@@ -9,24 +9,31 @@ brew "fzf"
 brew "git"
 brew "git-lfs"
 brew "jq"
-brew "vim"
 brew "wget"
 brew "zsh"
 
 # misc dev tools
-brew "overmind"
 brew "postgresql"
 brew "sqlite"
-brew "tmux"
-cask "docker"
+cask "cursor"
+cask "dash"
 cask "ghostty"
 cask "ollama"
 cask "tableplus"
+cask "utm"
 cask "zed"
+
+# nvim
+brew "libyaml"
+brew "llama.cpp"
+brew "nvim"
+brew "ripgrep"
+brew "tidy-html5"
 
 # utilities
 brew "openssh"
 cask "1password"
+cask "jetbrains-toolbox"
 cask "raycast"
 cask "scroll-reverser"
 
@@ -34,3 +41,8 @@ cask "scroll-reverser"
 cask "firefox"
 cask "google-chrome"
 mas "velja", id: 1607635845
+
+# docker / kubernetes
+brew "kubectl"
+cask "docker"
+
