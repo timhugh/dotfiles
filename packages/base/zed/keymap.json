@@ -8,7 +8,7 @@
       ", g": "git_panel::ToggleFocus",
       ", G": "workspace::ToggleLeftDock",
 
-      ", l": "assistant::ToggleFocus",
+      ", l": "agent::ToggleFocus",
       ", L": "workspace::ToggleRightDock",
 
       ", o": "project_panel::ToggleFocus",
