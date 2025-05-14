@@ -11,7 +11,7 @@ keymap("n", "<leader>/", "<Esc>:noh<CR>", opts)
 keymap("n", "<leader>R", "<cmd>lua require('vscode').action('vscode-neovim.restart')<CR>", opts)
 
 -- editor navigation
-keymap("n", "<leader>t", "<cmd>lua require('vscode').action('workbench.action.terminal.toggleTerminal')<CR>", opts)
+keymap("n", "<leader>t", "<cmd>lua require('vscode').action('workbench.action.createTerminalEditor')<CR>", opts)
 keymap("n", "<leader>ff", "<cmd>lua require('vscode').action('workbench.action.quickOpen')<CR>", opts)
 keymap("n", "<leader>fG", "<cmd>lua require('vscode').action('workbench.action.findInFiles')<CR>", opts)
 keymap("n", "<leader>fp", "<cmd>lua require('vscode').action('workbench.action.openRecent')<CR>", opts)
