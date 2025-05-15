@@ -3,15 +3,12 @@
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
     },
-    "vscode-neovim.afterInitConfig": [
-        "set relativenumber"
-    ],
     "zenMode.centerLayout": false,
     "zenMode.hideLineNumbers": false,
     "zenMode.hideStatusBar": false,
-    "editor.fontFamily": "\"JetBrains Mono\", Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "\"Intel One Mono\", Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 13,
-    "editor.lineHeight": 1.7,
+    "editor.lineHeight": 1.8,
     "workbench.colorTheme": "GitHub Dark Default",
     "workbench.preferredDarkColorTheme": "Ayu Dark",
     "workbench.preferredLightColorTheme": "GitHub Light Default",
@@ -21,7 +18,6 @@
     "files.exclude": {
         "**/.git": false
     },
-    "git-blame.config.showBlameInline": false,
     "extensions.verifySignature": false,
     "git.autofetch": true,
     "cmake.showConfigureWithDebuggerNotification": false,
@@ -29,5 +25,8 @@
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file",
     "terminal.integrated.fontSize": 13,
-    "debug.console.fontSize": 13
+    "debug.console.fontSize": 13,
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.enabled": false,
+    "git.blame.editorDecoration.enabled": false,
 }
