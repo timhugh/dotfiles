@@ -4,6 +4,8 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
+vim.api.nvim_set_option("clipboard", "unnamed")
+
 -- remove search highlighting
 keymap("n", "<leader>/", "<Esc>:noh<CR>", opts)
 
@@ -11,7 +13,7 @@ keymap("n", "<leader>/", "<Esc>:noh<CR>", opts)
 keymap("n", "<leader>R", "<cmd>lua require('vscode').action('vscode-neovim.restart')<CR>", opts)
 
 -- editor navigation
-keymap("n", "<leader>t", "<cmd>lua require('vscode').action('workbench.action.createTerminalEditor')<CR>", opts)
+keymap("n", "<leader>T", "<cmd>lua require('vscode').action('workbench.action.createTerminalEditor')<CR>", opts)
 keymap("n", "<leader>ff", "<cmd>lua require('vscode').action('workbench.action.quickOpen')<CR>", opts)
 keymap("n", "<leader>fG", "<cmd>lua require('vscode').action('workbench.action.findInFiles')<CR>", opts)
 keymap("n", "<leader>fp", "<cmd>lua require('vscode').action('workbench.action.openRecent')<CR>", opts)
