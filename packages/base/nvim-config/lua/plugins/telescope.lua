@@ -42,16 +42,6 @@ return {
     end,
   },
   {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    dependencies = {
-      'nvim-telescope/telescope.nvim',
-    },
-    build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release',
-    setup = function()
-      require('telescope').load_extension('fzf')
-    end
-  },
-  {
     "nvim-telescope/telescope-frecency.nvim",
     version = "*",
     dependencies = {

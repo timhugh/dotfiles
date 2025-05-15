@@ -162,6 +162,10 @@ return {
         capabilities = capabilities,
         on_attach = on_attach,
       })
+      lspconfig.standardrb.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
       -- lspconfig.sorbet.setup({
       --   capabilities = capabilities,
       --   on_attach = on_attach,
