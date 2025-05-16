@@ -25,7 +25,6 @@ cask "zed"
 
 # nvim
 brew "libyaml"
-brew "llama.cpp"
 brew "nvim"
 brew "ripgrep"
 brew "tidy-html5"
