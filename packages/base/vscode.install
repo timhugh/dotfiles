@@ -1,0 +1,21 @@
+VSCODE_USER_DIR="${HOME}/Library/Application Support/Code/User"
+CURSOR_USER_DIR="${HOME}/Library/Application Support/Cursor/User"
+VOID_USER_DIR="${HOME}/Library/Application Support/Void/User"
+
+if [ -d "${VSCODE_USER_DIR}"]; then
+    [[ ! -L "${VSCODE_USER_DIR}/settings.json]] && ln -sf "$(pwd)/vscode/keybindings.json"
+    [[ ! -L "${VSCODE_USER_DIR}/settings.json]] && ln -sf "$(pwd)/vscode/settings.json"
+    [[ ! -L "${VSCODE_USER_DIR}/settings.json]] && ln -sf "$(pwd)/vscode/tasks.json"
+fi
+
+if [ -d "${CURSOR_USER_DIR}"]; then
+    [[ ! -L "${CURSOR_USER_DIR}/settings.json]] && ln -sf "$(pwd)/vscode/keybindings.json"
+    [[ ! -L "${CURSOR_USER_DIR}/settings.json]] && ln -sf "$(pwd)/vscode/settings.json"
+    [[ ! -L "${CURSOR_USER_DIR}/settings.json]] && ln -sf "$(pwd)/vscode/tasks.json"
+fi
+
+if [ -d "${VOID_USER_DIR}"]; then
+    [[ ! -L "${VOID_USER_DIR}/settings.json]] && ln -sf "$(pwd)/vscode/keybindings.json"
+    [[ ! -L "${VOID_USER_DIR}/settings.json]] && ln -sf "$(pwd)/vscode/settings.json"
+    [[ ! -L "${VOID_USER_DIR}/settings.json]] && ln -sf "$(pwd)/vscode/tasks.json"
+fi
