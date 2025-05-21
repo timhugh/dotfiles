@@ -22,6 +22,7 @@ cask "ollama"
 cask "tableplus"
 cask "utm"
 cask "zed"
+cask "visual-studio-code"
 
 # nvim
 brew "libyaml"
