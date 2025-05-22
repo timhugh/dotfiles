@@ -21,8 +21,9 @@ cask "ghostty"
 cask "ollama"
 cask "tableplus"
 cask "utm"
-cask "zed"
 cask "visual-studio-code"
+cask "windsurf"
+cask "zed"
 
 # nvim
 brew "libyaml"
