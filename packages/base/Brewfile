@@ -18,7 +18,6 @@ brew "sqlite"
 cask "cursor"
 cask "dash"
 cask "ghostty"
-cask "ollama"
 cask "tableplus"
 cask "utm"
 cask "visual-studio-code"
@@ -30,6 +29,10 @@ brew "libyaml"
 brew "nvim"
 brew "ripgrep"
 brew "tidy-html5"
+
+# llms
+cask "ollama"
+cask "block-goose"
 
 # utilities
 brew "openssh"
