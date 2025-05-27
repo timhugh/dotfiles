@@ -1,0 +1,193 @@
+[
+  // Generic docker tasks
+  {
+    "label": "docker compose up",
+    "command": "docker compose up",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "docker compose up detached",
+    "command": "docker compose up -d",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "docker compose down",
+    "command": "docker compose down",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  // Overmind
+  {
+    "label": "overmind dev",
+    "command": "overmind start -f Procfile.dev",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "overmind prod",
+    "command": "overmind start",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  // Go
+  {
+    "label": "go get",
+    "command": "go get ./...",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "go build",
+    "command": "go build ./...",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "go test",
+    "command": "go test ./...",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "go modd",
+    "command": "modd",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "go fmt",
+    "command": "go fmt ./...",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "go vet",
+    "command": "go vet ./...",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "go lint",
+    "command": "golangci-lint run ./...",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  // Generic ruby tasks
+  {
+    "label": "bundle",
+    "command": "bundle",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  // Generic rails tasks
+  {
+    "label": "rails server",
+    "command": "bundle exec rails server",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "rails console",
+    "command": "bundle exec rails console",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "rails spec",
+    "command": "bundle exec rails spec",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  // Gradle
+  {
+    "label": "gradle build",
+    "command": "gradle build",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "gradle clean build",
+    "command": "gradle clean build",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "gradle test",
+    "command": "gradle test",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "gradle test continuous",
+    "command": "gradle test --continuous",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  // npm
+  {
+    "label": "npm run dev",
+    "command": "npm run dev",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "npm run build",
+    "command": "npm run build",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  },
+  {
+    "label": "npm run test",
+    "command": "npm run test",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  }
+]
