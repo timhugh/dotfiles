@@ -1,2 +1,4 @@
-cask "solvespace"
+cask "freecad"
+cask "openscad"
 cask "prusaslicer"
+cask "shapr3d"

@@ -1,2 +1,1 @@
 brew "nodenv"
-cask "webstorm"
