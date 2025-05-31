@@ -132,6 +132,11 @@ return {
 
           vim.keymap.set("n", "<leader>h", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch between source/header" })
         end,
+        settings = {
+          clangd = {
+            onConfigChanged = "restart",
+          },
+        },
       })
       lspconfig.gdscript.setup({
         name = "godot",
