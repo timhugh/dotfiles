@@ -1,5 +1,9 @@
 return {
   "Civitasv/cmake-tools.nvim",
-  opts = { },
+  opts = {
+    cmake_compile_commands_options = {
+      action = "none",
+    },
+  },
 }
 
