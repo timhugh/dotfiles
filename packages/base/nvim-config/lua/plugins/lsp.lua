@@ -130,6 +130,13 @@ return {
         on_attach = function()
           on_attach()
 
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            pattern = "*.cpp,*.hpp,*.c,*.h",
+            callback = function()
+              vim.lsp.buf.format({ async = false })
+            end,
+          })
+
           vim.keymap.set("n", "<leader>h", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch between source/header" })
         end,
         settings = {
