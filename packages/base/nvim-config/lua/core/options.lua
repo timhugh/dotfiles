@@ -12,8 +12,6 @@ vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.wrap = false
 
-vim.opt.spell = true
-
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
