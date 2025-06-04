@@ -1,3 +1,4 @@
 brew "cmake"
 brew "make"
+brew "ninja"
 brew "platformio"
