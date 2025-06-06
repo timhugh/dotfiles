@@ -4,11 +4,11 @@ brew "whalebrew"
 
 # standard shell tools / upgrade os tools
 brew "bash"
-brew "entr"
 brew "fzf"
 brew "git"
 brew "git-lfs"
 brew "jq"
+brew "watchexec"
 brew "wget"
 brew "zsh"
 
