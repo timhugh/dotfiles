@@ -1,3 +1,3 @@
-rbenv rehash
+eval "$(rbenv init - zsh)"
 
 alias be="bundle exec"
