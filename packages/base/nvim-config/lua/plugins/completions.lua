@@ -12,8 +12,6 @@ return {
         },
         sources = {
           { name = 'nvim_lsp' },
-          { name = 'codeium' },
-          -- { name = 'minuet' },
         },
         performance = {
           fetching_timeout = 2000,
@@ -28,113 +26,6 @@ return {
       }
     end
   },
-  {
-    "Exafunction/windsurf.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
-    },
-    config = function()
-      require("codeium").setup({
-      })
-    end
-  },
-  -- {
-  --   'milanglacier/minuet-ai.nvim',
-  --   opts = {
-  --     cmp = {
-  --       enable_auto_complete = false, -- toggle to enable cmp
-  --     },
-  --     virtualtext = {
-  --       auto_trigger_ft = { },
-  --       auto_trigger_ignore_ft = {},
-  --       keymap = {
-  --         accept = '<c-CR>',
-  --         accept_line = nil,
-  --         accept_n_lines = nil,
-  --         -- Cycle to next completion item, or manually invoke completion
-  --         next = '<c-y>',
-  --         -- Cycle to prev completion item, or manually invoke completion
-  --         prev = '<c-Y>',
-  --         dismiss = '<c-esc>',
-  --       },
-  --       -- Whether show virtual text suggestion when the completion menu
-  --       -- (nvim-cmp or blink-cmp) is visible.
-  --       show_on_completion_menu = false,
-  --     },
-  --     presets = {
-  --       -- this is the default preset
-  --       ollama = {
-  --         provider = "openai_fim_compatible",
-  --         context_window = 2000,
-  --         throttle = 400,
-  --         debounce = 100,
-  --         stream = true,
-  --         provider_options = {
-  --           openai_fim_compatible = {
-  --             api_key = 'TERM',
-  --             name = 'Ollama',
-  --             end_point = 'http://localhost:11434/v1/completions',
-  --             model = 'qwen2.5-coder:7b',
-  --             optional = {
-  --               max_tokens = 256,
-  --               top_p = 0.9,
-  --             },
-  --           },
-  --         },
-  --       },
-  --       openrouter = {
-  --         provider = "openai_compatible",
-  --         context_window = 20000,
-  --         request_timeout = 4,
-  --         throttle = 3000,
-  --         debounce = 1000,
-  --         stream = true,
-  --         provider_options = {
-  --           openai_compatible = {
-  --             model = 'google/gemini-2.5-flash-preview',
-  --           },
-  --         },
-  --         model = 'google/gemini-2.5-flash-preview',
-  --       },
-  --     },
-  --     provider = "openai_fim_compatible",
-  --     context_window = 2000,
-  --     throttle = 400,
-  --     debounce = 100,
-  --     provider_options = {
-  --       openai = {
-  --         optional = {
-  --           max_tokens = 256,
-  --         },
-  --       },
-  --       gemini = {
-  --         optional = {
-  --           generationConfig = {
-  --             maxOutputTokens = 256,
-  --             thinkingConfig = {
-  --               thinkingBudget = 0,
-  --             },
-  --           },
-  --           safetySettings = {
-  --             category = "HARM_CATEGORY_DANGEROUS_CONTENT",
-  --             threshold = "BLOCK_ONLY_HIGH",
-  --           },
-  --         },
-  --       },
-  --       openai_fim_compatible = {
-  --         api_key = 'TERM',
-  --         name = 'Ollama',
-  --         end_point = 'http://localhost:11434/v1/completions',
-  --         model = 'qwen2.5-coder:7b',
-  --         optional = {
-  --           max_tokens = 256,
-  --           top_p = 0.9,
-  --         },
-  --       },
-  --     },
-  --   },
-  -- },
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
@@ -193,8 +84,22 @@ return {
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
       {
         "zbirenbaum/copilot.lua",
-        config = function()
-          require("copilot").setup()
+        cmd = "Copilot",
+        event = "InsertEnter",
+        opts = {
+          keymap = {
+            jump_prev = "[[",
+            jump_next = "]]",
+            accept = "<c-y>",
+            refresh = "gr",
+            open = "<M-CR>"
+          },
+          suggestion = {
+            auto_trigger = true,
+          },
+        },
+        config = function(opts)
+          require("copilot").setup(opts)
         end
       },
       {
