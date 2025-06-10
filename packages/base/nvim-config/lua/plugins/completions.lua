@@ -27,17 +27,37 @@ return {
     end
   },
   {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    opts = {
+      keymap = {
+        jump_prev = "[[",
+        jump_next = "]]",
+        accept = "<c-y>",
+        refresh = "gr",
+        open = "<M-CR>"
+      },
+      suggestion = {
+        auto_trigger = true,
+      },
+    }
+  },
+  {
     "yetone/avante.nvim",
     event = "VeryLazy",
     version = false, -- Never set this value to "*"! Never!
     opts = {
-      provider = "openrouter",
-      auto_suggestions_provider = "openrouter",
+      provider = "copilot",
+      auto_suggestions_provider = "copilot",
       behavior = {
         auto_suggestions = false,
         enable_cursor_planning_mode = true,
       },
       providers = {
+        copilot = {
+          model = "gpt-4o",
+        },
         ollama = {
           endpoint = "http://127.0.0.1:11434",
           model = "qwen2.5-coder:14b",
@@ -82,26 +102,7 @@ return {
       "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
       "ibhagwan/fzf-lua", -- for file_selector provider fzf
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      {
-        "zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-        event = "InsertEnter",
-        opts = {
-          keymap = {
-            jump_prev = "[[",
-            jump_next = "]]",
-            accept = "<c-y>",
-            refresh = "gr",
-            open = "<M-CR>"
-          },
-          suggestion = {
-            auto_trigger = true,
-          },
-        },
-        config = function(opts)
-          require("copilot").setup(opts)
-        end
-      },
+      "zbirenbaum/copilot.lua",
       {
         -- support for image pasting
         "HakonHarnes/img-clip.nvim",
