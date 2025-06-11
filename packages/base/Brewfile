@@ -4,6 +4,7 @@ brew "whalebrew"
 
 # standard shell tools / upgrade os tools
 brew "bash"
+brew "fd"
 brew "fzf"
 brew "git"
 brew "git-lfs"
