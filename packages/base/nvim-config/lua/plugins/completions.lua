@@ -32,6 +32,7 @@ return {
     event = "InsertEnter",
     opts = {
       keymap = {
+        -- TODO: these don't seem to be working
         jump_prev = "[[",
         jump_next = "]]",
         accept = "<c-y>",
