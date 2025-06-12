@@ -3,6 +3,3 @@ brew "winetricks"
 cask "discord"
 cask "spotify"
 cask "steam"
-
-# TODO:
-# - boxer

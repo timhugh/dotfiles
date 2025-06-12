@@ -1,7 +1,4 @@
-cask "dropbox"
 cask "libreoffice"
 cask "notion-calendar"
 cask "slack"
-cask "zoom"
-mas "goodnotes", id: 1444383602
 mas "spark", id: 1176895641
