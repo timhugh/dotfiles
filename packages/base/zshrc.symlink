@@ -7,6 +7,9 @@ export PATH="./bin:${PATH}"
 
 os="$(uname)"
 
+# default world chars: *?_-.[]~=/&;!#$%^(){}<>
+export WORDCHARS=""
+
 # load installed zsh configs
 for f in "${HOME}/.zsh_profile.d"/*.zsh; do
   source "$f"
