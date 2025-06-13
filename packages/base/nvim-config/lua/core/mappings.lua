@@ -11,8 +11,8 @@ vim.keymap.set("n", "<c-t>", "<cmd>:tabnew<cr>")
 
 -- open terminal
 vim.keymap.set("n", "<leader>t", "<cmd>:terminal<cr>")
-vim.keymap.set("n", "<leader>t\\", "<cmd>:vsplit | terminal<cr>")
-vim.keymap.set("n", "<leader>t-", "<cmd>:split | terminal<cr>")
+vim.keymap.set("n", "<leader>t\\", "<cmd>:vsplit | wincmd l | terminal<cr>")
+vim.keymap.set("n", "<leader>t-", "<cmd>:split | wincmd j | terminal<cr>")
 
 -- navigating splits
 vim.keymap.set("n", "<c-h>", "<c-w>h")
