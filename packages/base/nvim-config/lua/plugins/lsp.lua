@@ -192,7 +192,29 @@ return {
       -- })
       lspconfig.ts_ls.setup({
         capabilities = capabilities,
-        on_attach = on_attach,
+        on_attach = function()
+          on_attach()
+
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            pattern = "*.ts,*.tsx",
+            callback = function()
+              vim.lsp.buf.format({ async = false })
+            end,
+          })
+        end,
+      })
+      lspconfig.eslint.setup({
+        capabilities = capabilities,
+        on_attach = function()
+          on_attach()
+
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            pattern = "*.js,*.jsx",
+            callback = function()
+              vim.lsp.buf.format({ async = false })
+            end,
+          })
+        end,
       })
       lspconfig.pylsp.setup({
         capabilities = capabilities,
