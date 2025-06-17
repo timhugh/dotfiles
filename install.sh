@@ -33,6 +33,7 @@ function install_homebrew() {
 
     echo "Let's install Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
     echo "Great. Now you can install all the things!"
 }
 
@@ -133,7 +134,7 @@ for package in "${packages[@]}"; do
 
     if [[ -f Brewfile ]]; then
         echo "Bundling brewfile"
-        /opt/homebrew/bin/brew bundle
+        brew bundle
     fi
 
     for f in *.zsh; do

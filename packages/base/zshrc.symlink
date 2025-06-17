@@ -1,5 +1,4 @@
 # add extra bin directories to path
-export PATH="/opt/homebrew/bin:${PATH}"
 export PATH="/usr/local/bin:${PATH}"
 export PATH="${HOME}/.local/bin:${PATH}"
 export PATH="${HOME}/bin:${PATH}"

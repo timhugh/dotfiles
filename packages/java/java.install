@@ -1,5 +1,4 @@
-mise="$(brew --prefix mise)/bin/mise"
 version="$(cat "${HOME}"/.java-version)"
 
-${mise} install java@"${version}"
-${mise} settings add idiomatic_version_file_enable_tools java
+mise install java@"${version}"
+mise settings add idiomatic_version_file_enable_tools java

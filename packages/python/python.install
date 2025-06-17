@@ -1,5 +1,4 @@
-mise="$(brew --prefix mise)/bin/mise"
 version="$(cat "${HOME}"/.python-version)"
 
-${mise} install python@"${version}"
-${mise} settings add idiomatic_version_file_enable_tools python
+mise install python@"${version}"
+mise settings add idiomatic_version_file_enable_tools python

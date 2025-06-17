@@ -1,5 +1,4 @@
-mise="$(brew --prefix mise)/bin/mise"
 version="$(cat "${HOME}"/.ruby-version)"
 
-${mise} install ruby@"${version}"
-${mise} settings add idiomatic_version_file_enable_tools ruby
+mise install ruby@"${version}"
+mise settings add idiomatic_version_file_enable_tools ruby
