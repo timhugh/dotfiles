@@ -1,4 +1,4 @@
-vim.lsp.config('clangd', {
+return {
   cmd = { 
     'clangd',
     '--background-index',
@@ -31,4 +31,4 @@ vim.lsp.config('clangd', {
       client.offset_encoding = init_result.offsetEncoding
     end
   end,
-})
+}

@@ -9,60 +9,28 @@ return {
     },
     opts = {
       ensure_installed = {
-        -- bash/zsh
         "bashls",
-
-        -- c/c++
         "clangd",
         "cmake",
-
-        -- css
         "cssls",
-
-        -- java
-        "jdtls",
-
-        -- javascript
         "eslint",
-
-        -- go
+        "glslls",
         "golangci_lint_ls",
         "gopls",
-
-        -- html
         "html",
-
-        -- json
+        "jdtls",
         "jsonls",
-
-        -- lua
         "lua_ls",
-
-        -- openGL
-        "glslls",
-
-        -- perl
-        "perlnavigator",
-
-        -- python
+        "nginx_language_server",
         "pylsp",
-
-        -- ruby
         "rubocop",
         "ruby_lsp",
+        "rust_analyzer",
         "solargraph",
         "sorbet",
         "standardrb",
-
-        -- rust
-        "rust_analyzer",
-
-        -- tailwind
         "tailwindcss",
-
         "taplo",
-
-        -- yaml
         "yamlls",
       },
     },
