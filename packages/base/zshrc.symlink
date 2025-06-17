@@ -24,8 +24,9 @@ source "${HOME}/.zsh_aliases"
 # add custom autocompletions to fpath
 FPATH="${HOME}/.zsh_completions.d:${FPATH}"
 # load autocompletions
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
+# allow case insensitive matching
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 # and display a nice banner
 function mountains_header {

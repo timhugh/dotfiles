@@ -43,8 +43,7 @@ There are some manual steps after running the installer. Hopefully some of these
   - TODO: should be able to automate this with GH CLI: `gh auth login --hostname github.com --git-protocol ssh --web`
 - [ ] Jetbrains settings sync
 - [ ] Default apps
-  - [ ] Set Firefox as default browser
-    - TODO: maybe use https://github.com/kerma/defaultbrowser ?
+  - [ ] Set Velja as default browser
   - [ ] Set Spark as default mail
   - [ ] Set Notion Calendar as default calendar
 - [ ] Configure login items:
@@ -55,7 +54,7 @@ There are some manual steps after running the installer. Hopefully some of these
 
 In addition to trying to automate some of the manual post-install steps, here are some other things I would like to do automatically (in no particular order):
 
-- [ ] Installer should check if the dotfiles repo remote is set before setting it (right now it just sets it every time)
+- [x] Installer should check if the dotfiles repo remote is set before setting it (right now it just sets it every time)
 - [ ] OS settings I would like to add to packages/macos/settings.install:
   - [ ] disable clicking on wallpaper to open expose or whatever its called
   - [ ] dark mode automatically at night
@@ -65,10 +64,13 @@ In addition to trying to automate some of the manual post-install steps, here ar
   - [ ] turn off true tone
 - [ ] The OS settings script could probably check settings before setting them and only restart the dock / ui server if necessary
 - [ ] The dockutil script could probably check what's in the dock before changing it
+- [ ] Set default browser automatically
+    - maybe use https://github.com/kerma/defaultbrowser ?
+    - [ ] figure out a way to sync Velja config (or replace it)
 - [ ] Implement package dependencies
   - I actually tried to do this initially and scrapped it to keep things simple, but I think the packages get a little bit too big the way it is now, and there are a lot of cross-cutting dependencies (e.g. a lot of things depend on node). It would be nice to just say "install nvim" and have it install nvim plus all of the tools required for the LSPs, etc
   - In the meantime, going to add `.depends` files to packages just to keep track of those dependencies
-- [ ] zsh autocomplete is case sensitive now because I ditched oh-my-zsh. I think that's the only thing I miss
+- [x] zsh autocomplete is case sensitive now because I ditched oh-my-zsh. I think that's the only thing I miss
 
 ## History
 
