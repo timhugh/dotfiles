@@ -4,6 +4,14 @@
 
 Some time ago, my beautiful bash profile was lost in a tragic backup accident, and I was forced to start fresh. With very little memory of what was actually in the original, I am now on a journey to terminal re-enlightenment, and you can follow along.
 
+## Prerequisites
+
+Mostly the installer tries to install everything it needs as it goes, and it has been tested on fresh macOS installations so everything it needs should already be there, however:
+
+- You must already be logged into the App Store for mas recipes to work
+  - I haven't really been able to test this, but it seems like mas can't install apps that aren't already "purchased" on your account, so you might run into errors from that. I don't have a workaround yet
+- `curl` and `zsh` have to be present (but they should already be)
+
 ## Installation
 
 Before getting into it, some notes:
@@ -17,13 +25,15 @@ To run the installer, you don't have to clone this repo (the installer does that
 /usr/bin/env zsh -c "$(curl -fsSL https://raw.githubusercontent.com/timhugh/dotfiles/HEAD/install.sh)"
 ```
 
-It will occasionally ask for your password for sudo things, and anything installed using `mas` (App Store) will require logging into an Apple account, if you haven't already.
+It will occasionally ask for your password for sudo things (this is all coming from homebrew, not from this installer).
 
 The installer is grouped into packages, represented by each directory in `/packages`. The installer will install the `base`, `office`, and `macos` packages by default. For more eccentric setups, the installer can be given other packages as command line arguments: 
 
 ```
 /usr/bin/env zsh -c "$(curl -fsSL https://raw.githubusercontent.com/timhugh/dotfiles/HEAD/install.sh)" <package1> <package2> ...
 ```
+
+Generally speaking, most packages will at least depend on something from the `base` package, though, so it's recommended (but not strictly required) to always install that.
 
 There are some manual steps after running the installer. Hopefully some of these can be automated later. Skip over ones that aren't relevant, depending on your packages:
 
