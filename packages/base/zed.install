@@ -1,4 +1,0 @@
-mkdir -p "${HOME}"/.config/zed
-[[ -L "${HOME}"/.config/zed/keymap.json ]] || ln -fs "$(pwd)"/zed/keymap.json "${HOME}"/.config/zed/keymap.json
-[[ -L "${HOME}"/.config/zed/settings.json ]] || ln -fs "$(pwd)"/zed/settings.json "${HOME}"/.config/zed/settings.json
-[[ -L "${HOME}"/.config/zed/tasks.json ]] || ln -fs "$(pwd)"/zed/tasks.json "${HOME}"/.config/zed/tasks.json
