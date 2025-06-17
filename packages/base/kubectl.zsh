@@ -1,5 +1,0 @@
-alias kc='kubectl'
-alias kp='kubectl get pod'
-alias kd='kubectl get deployment'
-alias ks='kubectl get svc'
-alias ki='kubectl get ingress'
