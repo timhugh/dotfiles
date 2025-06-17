@@ -47,6 +47,9 @@ return {
           -- css
           "cssls",
 
+          -- java
+          "jdtls",
+
           -- javascript
           "eslint",
 
@@ -99,11 +102,42 @@ return {
       "williamboman/mason-lspconfig.nvim",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/nvim-cmp",
+      "lewis6991/gitsigns.nvim",
     },
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local gitsigns = require("gitsigns")
 
-      local on_attach = function()
+      local function format_changed_hunks()
+        local hunks = gitsigns.get_hunks()
+
+        if not hunks then
+          vim.notify("No changed hunks found", vim.log.levels.WARN)
+          return
+        end
+
+        for _, hunk in ipairs(hunks) do
+          if hunk.added.count > 0 then
+            local start_line = hunk.added.start - 1
+            local end_line = start_line + hunk.added.count
+            vim.lsp.buf.format({
+              range = {
+                start = { start_line, 0 },
+                ["end"] = { end_line, 0 },
+              },
+            })
+          end
+        end
+      end
+
+      local on_attach = function(client, bufnr)
+        if client.server_capabilities.documentRangeFormattingProvider then
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            callback = format_changed_hunks,
+          })
+        end
+
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
         vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "Go to implementation" })
@@ -127,16 +161,8 @@ return {
       })
       lspconfig.clangd.setup({
         capabilities = capabilities,
-        on_attach = function()
-          on_attach()
-
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            pattern = "*.cpp,*.hpp,*.c,*.h",
-            callback = function()
-              vim.lsp.buf.format({ async = false })
-            end,
-          })
-
+        on_attach = function(client, bufnr)
+          on_attach(client, bufnr)
           vim.keymap.set("n", "<leader>h", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch between source/header" })
         end,
         settings = {
@@ -186,35 +212,13 @@ return {
         capabilities = capabilities,
         on_attach = on_attach,
       })
-      -- lspconfig.sorbet.setup({
-      --   capabilities = capabilities,
-      --   on_attach = on_attach,
-      -- })
       lspconfig.ts_ls.setup({
         capabilities = capabilities,
-        on_attach = function()
-          on_attach()
-
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            pattern = "*.ts,*.tsx",
-            callback = function()
-              vim.lsp.buf.format({ async = false })
-            end,
-          })
-        end,
+        on_attach = on_attach,
       })
       lspconfig.eslint.setup({
         capabilities = capabilities,
-        on_attach = function()
-          on_attach()
-
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            pattern = "*.js,*.jsx",
-            callback = function()
-              vim.lsp.buf.format({ async = false })
-            end,
-          })
-        end,
+        on_attach = on_attach,
       })
       lspconfig.pylsp.setup({
         capabilities = capabilities,
