@@ -176,6 +176,18 @@ for package in "${packages[@]}"; do
         ln -fs "$root/packages/$package/$f" "$dest"
     done
 
+    for f in *.bin; do
+        dest="${HOME}/bin/${f%.bin}"
+        mkdir -p "${HOME}/bin"
+        if [[ -e $dest ]]; then
+            echo "Skipping $f, file exists at $dest"
+            continue
+        fi
+
+        echo "Linking $f in bin directory"
+        ln -fs "$root/packages/$package/$f" "$dest"
+    done
+
     for f in *.completion; do
         echo "Installing $f as completion"
         dest="${HOME}/.zsh_completions.d/_${f%.completion}"
