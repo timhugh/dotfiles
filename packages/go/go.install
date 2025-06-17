@@ -1,0 +1,5 @@
+mise="$(brew --prefix mise)/bin/mise"
+version="$(cat "${HOME}"/.go-version)"
+
+${mise} install go@"${version}"
+${mise} settings add idiomatic_version_file_enable_tools go

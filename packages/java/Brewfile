@@ -1,3 +1,2 @@
 brew "gradle"
-brew "jenv"
 brew "maven"

@@ -1,10 +1,5 @@
-VERSION="$(cat "${HOME}"/.ruby-version)"
+mise="$(brew --prefix mise)/bin/mise"
+version="$(cat "${HOME}"/.ruby-version)"
 
-installed_versions=`rbenv versions`
-if [[ ${installed_versions} =~ ${VERSION} ]]; then
-  echo "ruby ${VERSION} is already installed."
-else
-  echo "Installing ruby ${VERSION}..."
-  rbenv install "${VERSION}"
-  echo "ruby ${VERSION} installed."
-fi
+${mise} install ruby@"${version}"
+${mise} settings add idiomatic_version_file_enable_tools ruby
