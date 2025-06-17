@@ -14,3 +14,8 @@ vim.keymap.set("n", "<leader>gc", "<cmd>:Econtroller<cr>", { desc = "(Rails) Nav
 vim.keymap.set("n", "<leader>tgc", "<cmd>:Tcontroller<cr>", { desc = "(Rails) New tab at controller" })
 vim.keymap.set("n", "<leader>xgc", "<cmd>:Scontroller<cr>", { desc = "(Rails) New hsplit at controller" })
 vim.keymap.set("n", "<leader>vgc", "<cmd>:Vcontroller<cr>", { desc = "(Rails) New vsplit at controller" })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'ruby', 'eruby', 'haml', 'slim' },
+  callback = function() vim.treesitter.start() end,
+})

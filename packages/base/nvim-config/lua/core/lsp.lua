@@ -37,10 +37,19 @@ local on_attach = function(client, bufnr)
 
   vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename symbol" })
 
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover" })
-  vim.keymap.set("n", "<leader>ih", function()
+  vim.keymap.set("n", "<leader>li", vim.lsp.buf.hover, { desc = "Show hover" })
+  vim.keymap.set("n", "<leader>lh", function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
   end, { desc = "Toggle inlay hints" })
+
+  vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "Format document" })
+
+  vim.keymap.set("n", "<leader>lq", function()
+    vim.lsp.buf.code_action({
+      context = { only = { "quickfix" } },
+      apply = true,
+    })
+  end, { desc = "Quickfix code action" })
 end
 
 local augroup = vim.api.nvim_create_augroup('my.lsp', {})
@@ -52,3 +61,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
     on_attach(client, bufnr)
   end,
 })
+
+vim.api.nvim_create_user_command('LspLog', function()
+  local log_path = vim.lsp.get_log_path()
+  if log_path then
+    vim.cmd('edit ' .. log_path)
+  else
+    vim.notify("LSP log path not found", vim.log.levels.ERROR)
+  end
+end, { desc = "Open LSP log" })
+
+vim.api.nvim_create_user_command('LspInfo', function()
+  vim.cmd('checkhealth vim.lsp')
+end, { desc = "Show LSP health dashboard" })

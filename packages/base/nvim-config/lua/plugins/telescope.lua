@@ -1,7 +1,6 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.8",
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
@@ -46,7 +45,6 @@ return {
   },
   {
     "nvim-telescope/telescope-frecency.nvim",
-    version = "*",
     dependencies = {
       'nvim-telescope/telescope.nvim',
     },
