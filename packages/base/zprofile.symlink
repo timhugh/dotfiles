@@ -1,14 +1,5 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Setting PATH for Python 2.7
-# The original version is saved in .zprofile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
 
-
-# Added by Toolbox App
-export PATH="$PATH:/Users/tim/Library/Application Support/JetBrains/Toolbox/scripts"
-
-
-# Added by `rbenv init` on Wed Mar 19 17:46:02 PDT 2025
-eval "$(rbenv init - --no-rehash zsh)"
