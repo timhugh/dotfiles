@@ -28,6 +28,7 @@ function install_homebrew() {
     if command -v /opt/homebrew/bin/brew &> /dev/null
     then
         echo "Nice! You already have Homebrew installed."
+        eval "$(/opt/homebrew/bin/brew shellenv)"
         return
     fi
 
