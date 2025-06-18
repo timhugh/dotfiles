@@ -1,4 +1,4 @@
-version="$(cat "${HOME}"/.java-version)"
+mise settings add idiomatic_version_file_enable_tools java
 
 mise install java@"${version}"
-mise settings add idiomatic_version_file_enable_tools java
+version="$(cat "${HOME}"/.java-version)"

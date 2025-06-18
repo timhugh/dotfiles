@@ -1,4 +1,4 @@
-version="$(cat "${HOME}"/.node-version)"
-
-mise install node@"${version}"
 mise settings add idiomatic_version_file_enable_tools node
+
+version="$(cat "${HOME}"/.node-version)"
+mise install node@"${version}"

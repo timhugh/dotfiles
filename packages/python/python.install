@@ -1,4 +1,4 @@
-version="$(cat "${HOME}"/.python-version)"
-
-mise install python@"${version}"
 mise settings add idiomatic_version_file_enable_tools python
+
+version="$(cat "${HOME}"/.python-version)"
+mise install python@"${version}"
