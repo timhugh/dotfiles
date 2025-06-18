@@ -26,8 +26,6 @@ brew "fd"
 brew "fzf"
 brew "nvim"
 brew "ripgrep"
-# these are commented out because I can't remember what they were dependencies for
-# brew "libyaml"
 # brew "tidy-html5"
 
 # utilities

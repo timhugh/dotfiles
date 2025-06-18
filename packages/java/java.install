@@ -1,4 +1,7 @@
 mise settings add idiomatic_version_file_enable_tools java
 
-mise install java@"${version}"
-version="$(cat "${HOME}"/.java-version)"
+mise use --global java@21
+
+mise use --global gradle@latest
+mise use --global maven@latest
+

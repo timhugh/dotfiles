@@ -1,4 +1,3 @@
-version="$(cat "${HOME}"/.ruby-version)"
-
-mise install ruby@"${version}"
 mise settings add idiomatic_version_file_enable_tools ruby
+
+mise use --global ruby@latest
