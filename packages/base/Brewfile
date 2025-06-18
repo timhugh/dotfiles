@@ -4,6 +4,7 @@ brew "whalebrew"
 
 # standard shell tools / upgrade os tools
 brew "bash"
+brew "curl"
 brew "git"
 brew "git-lfs"
 brew "gpg"

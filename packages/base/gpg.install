@@ -1,0 +1,4 @@
+# disable keyboxd backend until it is more battle-tested
+killall gpg-agent || true
+killall keyboxd || true
+echo > ~/.gnupg/common.conf
