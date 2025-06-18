@@ -40,18 +40,13 @@ There are some manual steps after running the installer. Hopefully some of these
 - [ ] App logins
   - [ ] 1password login
   - [ ] Firefox login
-  - [ ] Dropbox login
   - [ ] Notion calendar login
   - [ ] Spark login
   - [ ] Slack login
-  - [ ] Zoom login
-  - [ ] Spotify login
 - [ ] Raycast setup
   - [ ] Disable Spotlight shortcut
   - [ ] Login for sync
 - [ ] Upload generated ssh key to Github (`cat ~/.ssh/github_key.pub | pbcopy`)
-  - TODO: should be able to automate this with GH CLI: `gh auth login --hostname github.com --git-protocol ssh --web`
-- [ ] Jetbrains settings sync
 - [ ] Default apps
   - [ ] Set Velja as default browser
   - [ ] Set Spark as default mail
@@ -65,6 +60,7 @@ There are some manual steps after running the installer. Hopefully some of these
 In addition to trying to automate some of the manual post-install steps, here are some other things I would like to do automatically (in no particular order):
 
 - [x] Installer should check if the dotfiles repo remote is set before setting it (right now it just sets it every time)
+- [ ] Automate github ssh key upload this with GH CLI: `gh auth login --hostname github.com --git-protocol ssh --web`
 - [ ] OS settings I would like to add to packages/macos/settings.install:
   - [ ] disable clicking on wallpaper to open expose or whatever its called
   - [ ] dark mode automatically at night

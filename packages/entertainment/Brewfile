@@ -1,5 +1,4 @@
 cask "wine-stable", args: {no_quarantine: true}
 brew "winetricks"
 cask "discord"
-cask "spotify"
 cask "steam"
