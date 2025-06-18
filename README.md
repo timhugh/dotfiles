@@ -62,14 +62,11 @@ In addition to trying to automate some of the manual post-install steps, here ar
 - [x] Installer should check if the dotfiles repo remote is set before setting it (right now it just sets it every time)
 - [ ] Automate github ssh key upload this with GH CLI: `gh auth login --hostname github.com --git-protocol ssh --web`
 - [ ] OS settings I would like to add to packages/macos/settings.install:
-  - [ ] disable clicking on wallpaper to open expose or whatever its called
-  - [ ] dark mode automatically at night
+  - [x] disable clicking on wallpaper to open expose or whatever its called
   - [ ] show battery percentage in menu bar
-  - [ ] set clock to 24hr time
+  - [x] set clock to 24hr time
   - [ ] set display scale to "more space"
   - [ ] turn off true tone
-- [ ] The OS settings script could probably check settings before setting them and only restart the dock / ui server if necessary
-- [ ] The dockutil script could probably check what's in the dock before changing it
 - [ ] Set default browser automatically
     - maybe use https://github.com/kerma/defaultbrowser ?
     - [ ] figure out a way to sync Velja config (or replace it)

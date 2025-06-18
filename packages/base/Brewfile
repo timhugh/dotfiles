@@ -9,6 +9,7 @@ brew "git-lfs"
 brew "gpg"
 brew "jq"
 brew "mise"
+brew "openssh"
 brew "watchexec"
 brew "wget"
 brew "zsh"
@@ -18,22 +19,19 @@ brew "postgresql"
 brew "sqlite"
 cask "ghostty"
 cask "tableplus"
-cask "utm"
 
 # nvim
 brew "fd"
 brew "fzf"
-brew "libyaml"
 brew "nvim"
 brew "ripgrep"
-brew "tidy-html5"
-
-# llms
-cask "ollama"
+# these are commented out because I can't remember what they were dependencies for
+# brew "libyaml"
+# brew "tidy-html5"
 
 # utilities
-brew "openssh"
 cask "1password"
+cask "docker"
 cask "raycast"
 cask "scroll-reverser"
 
@@ -41,7 +39,4 @@ cask "scroll-reverser"
 cask "firefox"
 cask "google-chrome"
 mas "velja", id: 1607635845
-
-# docker
-cask "docker"
 

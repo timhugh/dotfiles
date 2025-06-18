@@ -1,22 +1,25 @@
-echo "Configuring dock settings"
+echo "Setting dock to autohide"
 defaults write com.apple.dock autohide -bool true
+echo "Disabling dock recent applications"
 defaults write com.apple.dock show-recents -bool false
+echo "Enabling dock minimize to application"
 defaults write com.apple.dock minimize-to-application -bool true
-
-echo "Reloading dock"
-killall Dock || true
-
-echo "Configuring other macos settings"
-# don't rearrange spaces 
+echo "Enabling key repeat"
+defaults write -g ApplePressAndHoldEnabled -bool false
+echo "Disabling automatic space rearrangement"
 defaults write com.apple.dock mru-spaces -bool false
-
-# save screenshots to ~/Downloads
+echo "Setting ~/Downloads as the default location for screenshots"
 defaults write com.apple.screencapture location -string "${HOME}"/Downloads
-# don't display screenshot thumbnails
+echo "Disabling screenshot thumbnails"
 defaults write com.apple.screencapture show-thumbnail -bool false
+echo "Disabling click on wallpaper to show desktop"
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
+echo "Setting clock to 24-hour format"
+defaults write -g AppleICUForce24HourTime -bool true
 
 echo "Reloading system ui server"
 killall SystemUIServer || true
 
-echo "Enabling key repeat"
-defaults write -g ApplePressAndHoldEnabled -bool false
+echo "Reloading dock"
+killall Dock || true
+
