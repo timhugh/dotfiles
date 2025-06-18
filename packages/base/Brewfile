@@ -4,8 +4,6 @@ brew "whalebrew"
 
 # standard shell tools / upgrade os tools
 brew "bash"
-brew "fd"
-brew "fzf"
 brew "git"
 brew "git-lfs"
 brew "gpg"
@@ -23,6 +21,8 @@ cask "tableplus"
 cask "utm"
 
 # nvim
+brew "fd"
+brew "fzf"
 brew "libyaml"
 brew "nvim"
 brew "ripgrep"
