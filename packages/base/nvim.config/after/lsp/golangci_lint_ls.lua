@@ -1,15 +1,11 @@
 return {
   cmd = { 'golangci-lint-langserver' },
-  filetypes = { 'go', 'gomod' },
+  filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
   init_options = {
-    command = { 'golangci-lint', 'run', '--output.json.path=stdout', '--show-stats=false' },
+    -- https://github.com/nametake/golangci-lint-langserver?tab=readme-ov-file#configuration-for-vim-lsp
+    command = { 'golangci-lint', 'run', '--output.json.path', 'stdout', '--show-stats=false', '--issues-exit-code=1' },
   },
   root_markers = {
-    '.golangci.yml',
-    '.golangci.yaml',
-    '.golangci.toml',
-    '.golangci.json',
-    'go.work',
     'go.mod',
     '.git',
   },

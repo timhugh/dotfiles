@@ -1,8 +1,8 @@
 if vim.g.vscode then
-    require('vscode-keymaps')
+  require('vscode-keymaps')
 else
-    require("core.options")
-    require("core.mappings")
-    require("core.lazy").setup()
-    require("core.lsp")
+  require("core.options")
+  require("core.mappings")
+  require("core.lsp")
+  require("core.lazy").setup()
 end
