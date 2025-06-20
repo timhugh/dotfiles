@@ -87,10 +87,21 @@ end
 
 local on_attach = function(client, bufnr)
   if client.server_capabilities.documentRangeFormattingProvider then
+    if vim.b[bufnr].lsp_format_hunks_autocmd then
+      vim.notify(
+        string.format(
+          "LSP %s attempted to duplicate format_hunks autocmd for buffer %d. Formatting capability might need to be disabled.",
+          client.name, bufnr
+        ),
+        vim.log.levels.WARN
+      )
+      return
+    end
     vim.api.nvim_create_autocmd("BufWritePre", {
       buffer = bufnr,
       callback = format_changed_hunks,
     })
+    vim.b[bufnr].lsp_format_hunks_autocmd = true
   end
   trigger_workspace_diagnostics(client, bufnr, workspace_files)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
