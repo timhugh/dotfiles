@@ -25,13 +25,11 @@ end
 local loaded_clients = {}
 local function trigger_workspace_diagnostics(client, bufnr, workspace_files)
   if vim.tbl_contains(loaded_clients, client.id) then
-    print("Client", client.name, "already processed, skipping")
     return
   end
   table.insert(loaded_clients, client.id)
 
   if not lsp_supports_workspace_diagnostics(client) then
-    print("Client", client.name, "does not support workspace diagnostics, skipping")
     return
   end
 
