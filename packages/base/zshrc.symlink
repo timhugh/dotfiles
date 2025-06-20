@@ -26,6 +26,7 @@ FPATH="${HOME}/.zsh_completions.d:${FPATH}"
 autoload -Uz compinit && compinit
 # allow case insensitive matching
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' menu select
 
 # and display a nice banner
 function mountains_header {
