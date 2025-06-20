@@ -17,31 +17,6 @@ local function switch_source_header(bufnr)
   end, bufnr)
 end
 
-local function symbol_info()
-  local bufnr = vim.api.nvim_get_current_buf()
-  local clangd_client = vim.lsp.get_clients({ bufnr = bufnr, name = 'clangd' })[1]
-  if not clangd_client or not clangd_client.supports_method 'textDocument/symbolInfo' then
-    return vim.notify('Clangd client not found', vim.log.levels.ERROR)
-  end
-  local win = vim.api.nvim_get_current_win()
-  local params = vim.lsp.util.make_position_params(win, clangd_client.offset_encoding)
-  clangd_client.request('textDocument/symbolInfo', params, function(err, res)
-    if err or #res == 0 then
-      return
-    end
-    local container = string.format('container: %s', res[1].containerName) ---@type string
-    local name = string.format('name: %s', res[1].name) ---@type string
-    vim.lsp.util.open_floating_preview({ name, container }, '', {
-      height = 2,
-      width = math.max(string.len(name), string.len(container)),
-      focusable = false,
-      focus = false,
-      border = 'single',
-      title = 'Symbol Info',
-    })
-  end, bufnr)
-end
-
 return {
   cmd = {
     'clangd',
@@ -78,7 +53,6 @@ return {
   on_attach = function(client, bufnr)
     if client.name == 'clangd' then
       vim.keymap.set('n', '<leader>ch', switch_source_header, { buffer = bufnr, desc = 'Switch source/header' })
-      vim.keymap.set('n', '<leader>ci', symbol_info, { buffer = bufnr, desc = 'Show symbol info' })
     end
   end,
 }
