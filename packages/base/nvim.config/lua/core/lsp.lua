@@ -154,3 +154,5 @@ vim.api.nvim_create_user_command('LspRestart', function()
     end
   end
 end, { desc = "Restart LSP servers" })
+
+vim.lsp.enable('gdscript', true)
