@@ -165,5 +165,6 @@ vim.api.nvim_create_user_command('LspRestart', function()
     end
   end
 end, { desc = "Restart LSP servers" })
-
+-- enable LSPs that aren't managed by mason-lspconfig
 vim.lsp.enable('gdscript', true)
+vim.lsp.enable('sourcekit', true)
