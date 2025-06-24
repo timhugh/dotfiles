@@ -24,8 +24,10 @@ cask "tableplus"
 # nvim
 brew "fd"
 brew "fzf"
+brew "luarocks"
 brew "nvim"
 brew "ripgrep"
+brew "xclip"
 # brew "tidy-html5"
 
 # utilities

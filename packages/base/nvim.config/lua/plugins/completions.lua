@@ -13,6 +13,7 @@ return {
         },
         sources = {
           { name = 'nvim_lsp' },
+          { name = 'orgmode' },
         },
         performance = {
           fetching_timeout = 2000,
