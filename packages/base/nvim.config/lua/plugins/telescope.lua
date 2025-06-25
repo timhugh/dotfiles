@@ -7,22 +7,24 @@ return {
     },
     keys = {
       -- file related bindings
-      { "<leader>fb", "<cmd>Telescope buffers<CR>", desc = "Find buffers" },
-      { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find file" },
-      { "<leader>fgS", "<cmd>Telescope git_status<CR>", desc = "Find in git modified files vs HEAD" },
+      { "<leader>fb",  "<cmd>Telescope buffers<CR>",                   desc = "Find buffers" },
+      { "<leader>ff",  "<cmd>Telescope find_files<CR>",                desc = "Find file" },
+      { "<leader>fgS", "<cmd>Telescope git_status<CR>",                desc = "Find in git modified files vs HEAD" },
 
       -- grep related bindings
-      { "<leader>fg", "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "Grep current buffer" },
-      { "<leader>fG", "<cmd>Telescope live_grep<CR>", desc = "Grep all files" },
-      { "<leader>f*", "<cmd>Telescope grep_string<CR>", desc = "Grep all files (with current word)" },
+      { "<leader>fg",  "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "Grep current buffer" },
+      { "<leader>fG",  "<cmd>Telescope live_grep<CR>",                 desc = "Grep all files" },
+      { "<leader>f*",  "<cmd>Telescope grep_string<CR>",               desc = "Grep all files (with current word)" },
 
       -- lsp related bindings
-      { "<leader>fr", "<cmd>Telescope lsp_references<CR>", desc = "Find references (LSP)" },
-      { "<leader>fs", "<cmd>Telescope lsp_document_symbols<CR>", desc = "Find symbols in current buffer (LSP)" },
-      { "<leader>fS", "<cmd>Telescope lsp_workspace_symbols<CR>", desc = "Find symbols in workspace (LSP)" },
+      { "<leader>fr",  "<cmd>Telescope lsp_references<CR>",            desc = "Find references (LSP)" },
+      { "<leader>fs",  "<cmd>Telescope lsp_document_symbols<CR>",      desc = "Find symbols in current buffer (LSP)" },
+      { "<leader>fS",  "<cmd>Telescope lsp_workspace_symbols<CR>",     desc = "Find symbols in workspace (LSP)" },
 
       -- other
-      { "<leader>fk", "<cmd>Telescope keymaps<CR>", desc = "Find mapped keys" },
+      { "<leader>fk",  "<cmd>Telescope keymaps<CR>",                   desc = "Find mapped keys" },
+      { "<leader>ft",  "<cmd>Telescope builtin<CR>",                   desc = "Find builtin commands" },
+      { "<leader>fh",  "<cmd>Telescope command_history<CR>",           desc = "Find command history" },
     },
   },
   {
