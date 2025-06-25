@@ -1,6 +1,7 @@
 return {
   {
     "mfussenegger/nvim-dap",
+    enabled = true,
     config = function()
       local dap = require("dap")
       dap.adapters.godot = {

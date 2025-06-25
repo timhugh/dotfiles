@@ -1,6 +1,6 @@
 timestamp=$(date +%s)
-mkdir -p "${HOME}/tmp"
-logfile="${HOME}/tmp/dotfiles-cpp-install-gnu-gpg-import-${timestamp}.log"
+mkdir -p "${HOME}/tmp/dotfiles"
+logfile="${HOME}/tmp/dotfiles/cpp-install-gnu-gpg-import-${timestamp}.log"
 
 echo "Importing GNU project GPG keys. This is noisy, so logs will be saved to:"
 echo "${logfile}"

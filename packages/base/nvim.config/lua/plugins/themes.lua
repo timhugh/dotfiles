@@ -1,6 +1,7 @@
 return {
   {
     "f-person/auto-dark-mode.nvim",
+    enabled = true,
     dependencies = {
       "gosukiwi/vim-atom-dark",
       "rmehri01/onenord.nvim",
@@ -21,6 +22,7 @@ return {
   },
   {
     "zaldih/themery.nvim",
+    enabled = true,
     config = function()
       require("themery").setup({
         themes = {

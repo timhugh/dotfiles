@@ -1,6 +1,7 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
+    enabled = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
@@ -26,6 +27,7 @@ return {
   },
   {
     "princejoogie/dir-telescope.nvim",
+    enabled = true,
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },
@@ -45,6 +47,7 @@ return {
   },
   {
     "nvim-telescope/telescope-frecency.nvim",
+    enabled = true,
     dependencies = {
       'nvim-telescope/telescope.nvim',
     },
@@ -57,6 +60,7 @@ return {
   },
   {
     "mrloop/telescope-git-branch.nvim",
+    enabled = true,
     dependencies = {
       'nvim-telescope/telescope.nvim',
     },

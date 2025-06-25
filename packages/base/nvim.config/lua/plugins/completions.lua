@@ -1,8 +1,10 @@
 return {
   {
     "hrsh7th/nvim-cmp",
+    enabled = true,
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
+      "L3MON4D3/LuaSnip",
     },
     opts = function()
       local cmp = require('cmp')
@@ -13,7 +15,8 @@ return {
         },
         sources = {
           { name = 'nvim_lsp' },
-          { name = 'orgmode' },
+          { name = "copilot", },
+          { name = "luasnip", },
         },
         performance = {
           fetching_timeout = 2000,
@@ -30,24 +33,34 @@ return {
   },
   {
     "zbirenbaum/copilot.lua",
+    enabled = true,
     cmd = "Copilot",
     event = "InsertEnter",
     opts = {
       keymap = {
-        -- TODO: these don't seem to be working
         jump_prev = "[[",
         jump_next = "]]",
         accept = "<c-y>",
         refresh = "gr",
-        open = "<M-CR>"
+        open = "<M-CR>",
       },
       suggestion = {
+        enabled = true,
         auto_trigger = true,
+      },
+      panel = {
+        enabled = false,
+      },
+      filetypes = {
+        org = false,
+        markdown = false,
+        ["*"] = true,
       },
     }
   },
   {
     "yetone/avante.nvim",
+    enabled = true,
     event = "VeryLazy",
     version = false, -- Never set this value to "*"! Never!
     opts = {

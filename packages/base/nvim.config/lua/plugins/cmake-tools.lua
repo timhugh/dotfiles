@@ -1,10 +1,15 @@
 return {
-  "Civitasv/cmake-tools.nvim",
-  opts = {
-    cmake_compile_commands_options = {
-      action = "none",
+  {
+    "Civitasv/cmake-tools.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
     },
-    cmake_regenerate_on_save = false,
+    enabled = true,
+    opts = {
+      cmake_compile_commands_options = {
+        action = "none",
+      },
+      cmake_regenerate_on_save = false,
+    },
   },
 }
-

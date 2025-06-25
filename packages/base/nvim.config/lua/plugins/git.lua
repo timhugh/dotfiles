@@ -1,9 +1,11 @@
 return {
   {
     "tpope/vim-fugitive",
+    enabled = true,
   },
   {
     "lewis6991/gitsigns.nvim",
+    enabled = true,
     config = function()
       require("gitsigns").setup()
 
@@ -18,17 +20,15 @@ return {
   },
   {
     "FabijanZulj/blame.nvim",
+    enabled = true,
     keys = {
       { "<leader>gb", "<cmd>BlameToggle<cr>", desc = "Toggle git blame" }
     },
-    config = function()
-      require("blame").setup()
-    end
+    opts = {},
   },
   {
     "ruifm/gitlinker.nvim",
-    config = function()
-      require("gitlinker").setup()
-    end,
+    enabled = true,
+    opts = {},
   },
 }

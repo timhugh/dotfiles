@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-mkdir -p "${HOME}/tmp/defaults"
-rm -f "${HOME}/tmp/defaults/"*.plist
+mkdir -p "${HOME}/tmp/dotfiles/defaults"
+rm -f "${HOME}/tmp/dotfiles/defaults/"*.plist
 
 export_defaults() {
   local export_name=$1
