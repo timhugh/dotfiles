@@ -67,7 +67,6 @@ local function format_changed_hunks()
   local hunks = require('gitsigns').get_hunks()
 
   if not hunks then
-    vim.notify("No changed hunks found", vim.log.levels.WARN)
     return
   end
 
