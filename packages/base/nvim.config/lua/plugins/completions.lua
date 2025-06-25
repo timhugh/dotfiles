@@ -4,7 +4,10 @@ return {
     enabled = true,
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
-      "L3MON4D3/LuaSnip",
+      {
+        "L3MON4D3/LuaSnip",
+        opts = {},
+      },
     },
     opts = function()
       local cmp = require('cmp')
@@ -17,6 +20,7 @@ return {
           { name = 'nvim_lsp' },
           { name = "copilot", },
           { name = "luasnip", },
+          { name = "neorg", },
         },
         performance = {
           fetching_timeout = 2000,
@@ -52,7 +56,6 @@ return {
         enabled = false,
       },
       filetypes = {
-        org = false,
         markdown = false,
         ["*"] = true,
       },

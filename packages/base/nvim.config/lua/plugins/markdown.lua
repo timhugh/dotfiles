@@ -1,4 +1,4 @@
-local types = { "markdown", "Avante", "org" }
+local types = { "markdown", "Avante" }
 
 return {
   {
