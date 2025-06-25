@@ -3,6 +3,7 @@ return {
     "nvim-neorg/neorg",
     lazy = false,
     version = "*",
+    build = ":Neorg sync-parsers",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -29,6 +30,11 @@ return {
           config = {
             engine = "nvim-cmp",
           },
+        },
+        ["core.journal"] = {
+          journal_folder = "journal",
+          strategy = "%Y/%m/%d-%a",
+          workspace = "journal",
         },
         ["core.integrations.nvim-cmp"] = {},
         ["core.integrations.telescope"] = {},

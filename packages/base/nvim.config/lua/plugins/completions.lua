@@ -57,6 +57,7 @@ return {
       },
       filetypes = {
         markdown = false,
+        norg = false,
         ["*"] = true,
       },
     }
