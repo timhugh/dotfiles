@@ -19,6 +19,14 @@ return {
       require("bujo").setup(opts)
 
       require("telescope").load_extension("bujo")
+
+      vim.api.nvim_create_autocmd("BufEnter", {
+        pattern = { "*.md" },
+        callback = function()
+          vim.api.nvim_set_keymap("n", "gf", "<CMD>Bujo follow<CR>",
+            { desc = "Bujo: Follow link", noremap = true, silent = true })
+        end,
+      })
     end,
   },
 }
