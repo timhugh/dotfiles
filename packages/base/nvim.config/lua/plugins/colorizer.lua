@@ -31,8 +31,5 @@ return {
         },
       },
     },
-    config = function(opts)
-      require("colorizer").setup({opts})
-    end,
   }
 }
