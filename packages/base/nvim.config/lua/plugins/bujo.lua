@@ -25,6 +25,8 @@ return {
         callback = function()
           vim.api.nvim_set_keymap("n", "gf", "<CMD>Bujo follow<CR>",
             { desc = "Bujo: Follow link", noremap = true, silent = true })
+          vim.api.nvim_set_keymap("n", "<C-Space>", "<CMD>Bujo togglecheck<CR>",
+            { desc = "Bujo: Toggle checkbox", noremap = true, silent = true })
         end,
       })
     end,
