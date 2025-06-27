@@ -9,10 +9,16 @@ return {
       "leafo/etlua",
     },
     opts = {
-      entries_template = "weekly-entry.etlua",
-      telescope_picker_keybind = "<leader>fn",
-      auto_commit_journal = true,
-      auto_push_journal = true,
+      journal = {
+        template = "weekly-entry.etlua",
+      },
+      picker = {
+        open_keybind = "<leader>fn",
+      },
+      git = {
+        auto_commit = true,
+        auto_push = true,
+      },
     },
     config = function(_, opts)
       require("bujo").setup(opts)
