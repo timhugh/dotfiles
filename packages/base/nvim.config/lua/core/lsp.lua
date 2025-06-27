@@ -102,6 +102,7 @@ local on_attach = function(client, bufnr)
     })
     vim.b[bufnr].lsp_format_hunks_autocmd = true
   end
+
   trigger_workspace_diagnostics(client, bufnr, workspace_files)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })

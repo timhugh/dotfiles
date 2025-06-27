@@ -19,6 +19,9 @@ return {
         auto_commit = true,
         auto_push = true,
       },
+      markdown = {
+        execute_code_block_keybind = "<leader>rb",
+      },
     },
     config = function(_, opts)
       require("bujo").setup(opts)
