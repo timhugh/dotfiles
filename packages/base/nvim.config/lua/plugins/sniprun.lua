@@ -23,7 +23,6 @@ return {
       repl_enable = {
         "JS_TS_deno",
         "Lua_nvim",
-        "Ruby_original",
       },
     },
   },
