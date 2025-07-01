@@ -3,7 +3,7 @@ local types = { "markdown", "Avante" }
 return {
   {
     'MeanderingProgrammer/render-markdown.nvim',
-    enabled = true,
+    enabled = false,
     lazy = true,
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
