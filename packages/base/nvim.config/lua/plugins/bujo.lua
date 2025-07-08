@@ -9,8 +9,10 @@ return {
       "leafo/etlua",
     },
     opts = {
+      base_directory = "~/.journal",
       journal = {
         template = "weekly-entry.etlua",
+        iteration_max_steps = 8,
       },
       picker = {
         open_keybind = "<leader>fn",
