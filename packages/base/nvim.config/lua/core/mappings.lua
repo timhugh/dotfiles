@@ -20,10 +20,6 @@ vim.keymap.set("n", "<c-j>", "<c-w>j")
 vim.keymap.set("n", "<c-k>", "<c-w>k")
 vim.keymap.set("n", "<c-l>", "<c-w>l")
 
--- navigating quickfix lists
-vim.keymap.set("n", "]q", ":cnext<CR>", { desc = "Next quickfix item" })
-vim.keymap.set("n", "[q", ":cprev<CR>", { desc = "Previous quickfix item" })
-
 -- clear highlights after searching
 vim.keymap.set("n", "<leader>/", "<cmd>:nohlsearch<cr>")
 
