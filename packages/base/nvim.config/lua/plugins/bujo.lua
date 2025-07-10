@@ -10,7 +10,7 @@ return {
     },
     opts = {
       base_directory = "~/.journal",
-      journal = {
+      spreads = {
         template = "weekly-entry.etlua",
         iteration_max_steps = 8,
       },
