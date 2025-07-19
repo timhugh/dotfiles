@@ -1,6 +1,7 @@
 return {
   {
     dir = "~/git/bujo.nvim",
+    -- "timhugh/bujo.nvim",
     enabled = true,
     lazy = true,
     event = "VeryLazy",
@@ -11,8 +12,10 @@ return {
     opts = {
       base_directory = "~/.journal",
       spreads = {
-        template = "weekly-entry.etlua",
-        iteration_max_steps = 8,
+        weekly = {
+          filename_template = "spreads/%Y/W%V",
+          template = "weekly-spread.etlua",
+        },
       },
       picker = {
         open_keybind = "<leader>fn",
