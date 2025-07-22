@@ -37,7 +37,7 @@ return {
   },
   {
     "zbirenbaum/copilot.lua",
-    enabled = true,
+    enabled = false,
     cmd = "Copilot",
     event = "InsertEnter",
     opts = {
@@ -64,7 +64,7 @@ return {
   },
   {
     "yetone/avante.nvim",
-    enabled = true,
+    enabled = false,
     event = "VeryLazy",
     version = false, -- Never set this value to "*"! Never!
     opts = {
