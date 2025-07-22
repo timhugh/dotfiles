@@ -1,0 +1,1 @@
+[[ -L "${HOME}/Library/Services/Open in Ghostty.workflow" ]] || ln -sf "$(pwd)/Open in Ghostty.workflow" "${HOME}/Library/Services/Open in Ghostty.workflow"
