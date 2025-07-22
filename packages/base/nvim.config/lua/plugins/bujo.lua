@@ -1,7 +1,7 @@
 return {
   {
-    dir = "~/git/bujo.nvim",
-    -- "timhugh/bujo.nvim",
+    -- dir = "~/git/bujo.nvim",
+    "timhugh/bujo.nvim",
     enabled = true,
     lazy = true,
     event = "VeryLazy",
