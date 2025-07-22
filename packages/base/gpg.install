@@ -1,9 +1,6 @@
-if [ ! -d ~/.gnupg ]; then
-    echo "no ~/.gnupg directory found, skipping gpg setup"
-    exit 0
+if [ -d ~/.gnupg ]; then
+    # disable keyboxd backend until it is more battle-tested
+    killall gpg-agent || true
+    killall keyboxd || true
+    echo > ~/.gnupg/common.conf
 fi
-
-# disable keyboxd backend until it is more battle-tested
-killall gpg-agent || true
-killall keyboxd || true
-echo > ~/.gnupg/common.conf
