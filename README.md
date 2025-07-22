@@ -72,6 +72,7 @@ In addition to trying to automate some of the manual post-install steps, here ar
     - [ ] figure out a way to sync Velja config (or replace it)
 - [ ] Implement package dependencies
   - I actually tried to do this initially and scrapped it to keep things simple, but I think the packages get a little bit too big the way it is now, and there are a lot of cross-cutting dependencies (e.g. a lot of things depend on node). It would be nice to just say "install nvim" and have it install nvim plus all of the tools required for the LSPs, etc
+  - [ ] there's an issue right now with circular dependencies as well -- nvim.install depends on node, python, and ruby, but they all depend on mise
   - In the meantime, going to add `.depends` files to packages just to keep track of those dependencies
 - [x] zsh autocomplete is case sensitive now because I ditched oh-my-zsh. I think that's the only thing I miss
 
