@@ -61,13 +61,13 @@ return {
       vim.keymap.set("n", "bmv",            api.marks.bulk.move,                opts("Move Bookmarked"))
 
       -- filtering
-      vim.keymap.set("n", "B",              api.tree.toggle_no_buffer_filter,   opts("Toggle Filter: No Buffer"))
-      vim.keymap.set("n", "C",              api.tree.toggle_git_clean_filter,   opts("Toggle Filter: Git Clean"))
       vim.keymap.set("n", "F",              api.live_filter.clear,              opts("Live Filter: Clear"))
       vim.keymap.set("n", "f",              api.live_filter.start,              opts("Live Filter: Start"))
+      vim.keymap.set("n", "B",              api.tree.toggle_no_buffer_filter,   opts("Toggle Filter: No Buffer"))
+      vim.keymap.set("n", "C",              api.tree.toggle_git_clean_filter,   opts("Toggle Filter: Git Clean"))
       vim.keymap.set("n", "H",              api.tree.toggle_hidden_filter,      opts("Toggle Filter: Dotfiles"))
       vim.keymap.set("n", "I",              api.tree.toggle_gitignore_filter,   opts("Toggle Filter: Git Ignore"))
-      vim.keymap.set("n", "M",              api.tree.toggle_no_bookmark_filter, opts("Toggle Filter: No Bookmark"))
+      -- vim.keymap.set("n", "M",              api.tree.toggle_no_bookmark_filter, opts("Toggle Filter: No Bookmark"))
 
       -- navigation
       vim.keymap.set("n", "[c",             api.node.navigate.git.prev,         opts("Prev Git"))
