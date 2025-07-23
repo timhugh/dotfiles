@@ -17,7 +17,7 @@ brew "wget"
 brew "zsh"
 
 # misc dev tools
-brew "postgresql"
+brew "postgresql@16"
 brew "sqlite"
 cask "ghostty"
 cask "tableplus"
