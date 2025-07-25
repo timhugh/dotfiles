@@ -36,13 +36,13 @@ return {
     end
   },
   {
-    "zbirenbaum/copilot.lua",
+    "timhugh/copilot.lua",
+    -- dir = "~/git/copilot.lua",
     enabled = true,
     cmd = "Copilot",
     event = "InsertEnter",
-    -- use mise for a later node version so we can open projects using older versions without issue
-    copilot_node_command = "mise x node@lts -- node",
     opts = {
+      copilot_node_command = "mise x node@lts -- node",
       keymap = {
         jump_prev = "[[",
         jump_next = "]]",
@@ -124,7 +124,7 @@ return {
       "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
       "ibhagwan/fzf-lua", -- for file_selector provider fzf
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua",
+      "timhugh/copilot.lua",
       'MeanderingProgrammer/render-markdown.nvim',
       {
         -- support for image pasting
