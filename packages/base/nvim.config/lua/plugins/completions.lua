@@ -40,6 +40,8 @@ return {
     enabled = true,
     cmd = "Copilot",
     event = "InsertEnter",
+    -- use mise for a later node version so we can open projects using older versions without issue
+    copilot_node_command = "mise x node@lts -- node",
     opts = {
       keymap = {
         jump_prev = "[[",
