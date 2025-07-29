@@ -9,6 +9,11 @@ return {
       "nvim-telescope/telescope.nvim",
       "leafo/etlua",
     },
+    keys = {
+      { "<leader>ngp", "<cmd>lua require('bujo.git').pull()<cr>", desc = "Bujo: Git pull" },
+      { "<leader>ngP", "<cmd>lua require('bujo.git').push()<cr>", desc = "Bujo: Git push" },
+      { "<leader>ngc", "<cmd>lua require('bujo.git').commit()<cr>", desc = "Bujo: Git commit" },
+    },
     opts = {
       base_directory = "~/.journal",
       spreads = {
