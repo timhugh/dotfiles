@@ -19,6 +19,13 @@ return {
         },
         shortcut = {
           {
+            icon = '',
+            desc = 'New file',
+            group = 'DashboardShortCut',
+            action = 'enew',
+            key = 'N',
+          },
+          {
             icon = '',
             desc = 'Edit dotfiles',
             group = 'DashboardShortCut',
