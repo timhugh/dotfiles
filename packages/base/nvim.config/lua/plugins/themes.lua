@@ -7,6 +7,10 @@ return {
       "rmehri01/onenord.nvim",
       "EdenEast/nightfox.nvim",
       "olimorris/onedarkpro.nvim",
+      "folke/tokyonight.nvim",
+      "catppuccin/nvim",
+      "rebelot/kanagawa.nvim",
+      "Mofiqul/vscode.nvim",
     },
     opts = {
       update_interval = 1000,
@@ -26,9 +30,49 @@ return {
     config = function()
       require("themery").setup({
         themes = {
-          "atom-dark", "carbonfox", "dayfox", "desert", "evening", "koehler", "murphy", "onedark", "onelight", "pablo", "retrobox", "slate", "torte", "zaibatsu",
-          "atom-dark-256", "darkblue", "default", "duskfox", "habamax", "lunaperche", "nightfox", "onedark_dark", "onenord", "peachpuff", "ron", "sorbet", "vim", "zellner",
-          "blue", "dawnfox", "delek", "elflord", "industry", "morning", "nordfox", "onedark_vivid", "onenord-light", "quiet", "shine", "terafox", "wildcharm"
+          -- default themes
+          "blue",
+          "darkblue",
+          "default",
+          "delek",
+          "desert",
+          "elflord",
+          "evening",
+          "habamax",
+          "industry",
+          "koehler",
+          "lunaperche",
+          "morning",
+          "murphy",
+          "pablo",
+          "peachpuff",
+          "quiet",
+          "retrobox",
+          "ron",
+          "shine",
+          "slate",
+          "sorbet",
+          "torte",
+          "vim",
+          "wildcharm",
+          "zaibatsu",
+          "zellner",
+          -- gosukiwi/vim-atom-dark
+          "atom-dark", "atom-dark-256",
+          -- rmehri01/onenord.nvim
+          "onenord", "onenord-light",
+          -- EdenEast/nightfox.nvim
+          "carbonfox", "dawnfox", "dayfox", "duskfox", "nightfox", "nordfox", "terafox",
+          -- olimorris/onedarkpro.nvim
+          "onedark", "onedark_dark", "onedark_vivid", "onelight",
+          -- folke/tokyonight.nvim
+          "tokyonight", "tokyonight-day", "tokyonight-moon", "tokyonight-night", "tokyonight-storm",
+          -- catppuccin/nvim
+          "catppuccin", "catppuccin-frappe", "catppuccin-latte", "catppuccin-macchiato", "catppuccin-mocha",
+          -- rebelot/kanagawa.nvim
+          "kanagawa", "kanagawa-dragon", "kanagawa-lotus", "kanagawa-wave",
+          -- Mofiqul/vscode.nvim
+          "vscode"
         },
         livePreview = true,
       })
