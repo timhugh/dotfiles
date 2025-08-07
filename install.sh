@@ -101,7 +101,7 @@ echo "---"
 echo "Now that we have the basics, let's install some packages!"
 
 packages=()
-default_packages=(base python node ruby go lua)
+default_packages=(base python node ruby go lua cpp java rust)
 if [[ $(uname) == "Darwin" ]]; then
     default_packages+=(macos)
 fi
