@@ -37,6 +37,7 @@ return {
   },
   {
     "timhugh/copilot.lua",
+    branch = "relax-node-cmd-validation",
     -- dir = "~/git/copilot.lua",
     enabled = true,
     cmd = "Copilot",
