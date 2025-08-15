@@ -76,7 +76,7 @@ return {
         if hasStarted and not vim.list_contains(noIndent, ctx.match) then
           vim.opt.foldmethod = "expr"
           vim.opt.foldlevel = 99
-          vim.opt.foldlevelstart = 3
+          vim.opt.foldlevelstart = 99
           vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
           vim.opt.foldtext = ''
         end
