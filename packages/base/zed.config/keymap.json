@@ -14,9 +14,8 @@
       ", o": "project_panel::ToggleFocus",
       ", O": "workspace::ToggleLeftDock",
 
-      ", p": "projects::OpenRecent",
-      ", t": "workspace::NewTerminal",
-      ", T": "workspace::NewCenterTerminal",
+      ", P": "projects::OpenRecent",
+      ", p": "file_finder::Toggle",
 
       // close search
       ", /": "buffer_search::Dismiss",
@@ -24,6 +23,12 @@
       // window splits
       ", \\": "pane::SplitRight",
       ", -": "pane::SplitDown",
+
+      // git
+      ", g R": "git::Restore",
+
+      // terminals
+      ", t": "workspace::NewCenterTerminal",
 
       ", r": "editor::Rename",
 
@@ -60,14 +65,26 @@
   },
   {
     "context": "Terminal",
-    "bindings": {}
+    "bindings": {
+      "ctrl-H": "workspace::ActivatePaneLeft",
+      "ctrl-L": "workspace::ActivatePaneRight",
+      "ctrl-K": "workspace::ActivatePaneUp",
+      "ctrl-J": "workspace::ActivatePaneDown"
+    }
   },
   {
     "context": "Editor || ProjectPanel || GitPanel || AssistantPanel",
     "bindings": {
+      "ctrl-H": "workspace::ActivatePaneLeft",
       "ctrl-h": "workspace::ActivatePaneLeft",
+
+      "ctrl-L": "workspace::ActivatePaneRight",
       "ctrl-l": "workspace::ActivatePaneRight",
+
+      "ctrl-K": "workspace::ActivatePaneUp",
       "ctrl-k": "workspace::ActivatePaneUp",
+
+      "ctrl-J": "workspace::ActivatePaneDown",
       "ctrl-j": "workspace::ActivatePaneDown"
     }
   }

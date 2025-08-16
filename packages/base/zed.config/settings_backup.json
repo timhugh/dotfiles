@@ -7,16 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "vim_mode": true,
-  "ui_font_size": 17,
-  "buffer_font_size": 14,
-  "theme": {
-    "mode": "system",
-    "light": "One Light",
-    "dark": "Carbonfox - opaque"
-  },
-  "buffer_font_family": "IntoneMono Nerd Font",
-  "wrap_guides": [120],
+  "icon_theme": "Catppuccin Frappé",
   "edit_predictions": {
     "disabled_globs": [],
     "mode": "subtle",
@@ -30,13 +21,20 @@
     "edit_prediction_provider": "zed"
   },
   "agent": {
-    "use_modifier_to_send": true,
-    "play_sound_when_agent_done": true,
     "default_profile": "ask",
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4.1"
-    }
+      "provider": "zed.dev",
+      "model": "claude-3-7-sonnet-latest"
+    },
+    "version": "2"
+  },
+  "vim_mode": true,
+  "ui_font_size": 17,
+  "buffer_font_size": 14,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Ayu Dark"
   },
   "lsp": {
     "clangd": {
