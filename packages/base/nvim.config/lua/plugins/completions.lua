@@ -36,9 +36,7 @@ return {
     end
   },
   {
-    "timhugh/copilot.lua",
-    branch = "relax-node-cmd-validation",
-    -- dir = "~/git/copilot.lua",
+    "zbirenbaum/copilot.lua",
     enabled = true,
     cmd = "Copilot",
     event = "InsertEnter",
@@ -125,7 +123,7 @@ return {
       "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
       "ibhagwan/fzf-lua", -- for file_selector provider fzf
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "timhugh/copilot.lua",
+      "zbirenbaum/copilot.lua",
       'MeanderingProgrammer/render-markdown.nvim',
       {
         -- support for image pasting
