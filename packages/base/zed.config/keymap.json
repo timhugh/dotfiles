@@ -17,6 +17,8 @@
       ", P": "projects::OpenRecent",
       ", p": "file_finder::Toggle",
 
+      "alt-l": "editor::AcceptEditPrediction",
+
       // close search
       ", /": "buffer_search::Dismiss",
 

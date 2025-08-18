@@ -15,6 +15,7 @@ brew "mise"
 brew "pkg-config"
 brew "openssh"
 brew "watchexec"
+brew "watchman"
 brew "wget"
 brew "zsh"
 
