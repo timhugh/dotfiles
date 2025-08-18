@@ -37,11 +37,12 @@ brew "xclip"
 cask "1password"
 cask "docker"
 cask "openvpn-connect"
+cask "notion-calendar"
 cask "raycast"
 cask "scroll-reverser"
+mas "edison mail", id: 1489591003
 
 # browsers
 cask "firefox"
 cask "google-chrome"
 mas "velja", id: 1607635845
-
