@@ -68,10 +68,31 @@
   {
     "context": "Terminal",
     "bindings": {
+      // no lower case bindings in terminal because they conflict with terminal bindings
+
       "ctrl-H": "workspace::ActivatePaneLeft",
+      "ctrl-alt-h": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "left" }
+      ],
+
       "ctrl-L": "workspace::ActivatePaneRight",
+      "ctrl-alt-l": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "right" }
+      ],
+
       "ctrl-K": "workspace::ActivatePaneUp",
-      "ctrl-J": "workspace::ActivatePaneDown"
+      "ctrl-alt-k": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "up" }
+      ],
+
+      "ctrl-J": "workspace::ActivatePaneDown",
+      "ctrl-alt-j": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "down" }
+      ]
     }
   },
   {
@@ -79,15 +100,31 @@
     "bindings": {
       "ctrl-H": "workspace::ActivatePaneLeft",
       "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-alt-h": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "left" }
+      ],
 
       "ctrl-L": "workspace::ActivatePaneRight",
       "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-alt-l": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "right" }
+      ],
 
       "ctrl-K": "workspace::ActivatePaneUp",
       "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-alt-k": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "up" }
+      ],
 
       "ctrl-J": "workspace::ActivatePaneDown",
-      "ctrl-j": "workspace::ActivatePaneDown"
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-alt-j": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "down" }
+      ]
     }
   }
 ]
