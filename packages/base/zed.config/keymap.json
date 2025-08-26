@@ -26,6 +26,9 @@
       ", \\": "pane::SplitRight",
       ", -": "pane::SplitDown",
 
+      // zoom
+      ", z": "workspace::ToggleZoom",
+
       // git
       ", g R": "git::Restore",
 
