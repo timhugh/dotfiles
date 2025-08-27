@@ -20,7 +20,6 @@ return {
           { name = 'nvim_lsp' },
           { name = "copilot", },
           { name = "luasnip", },
-          { name = "neorg", },
         },
         performance = {
           fetching_timeout = 2000,
@@ -36,12 +35,14 @@ return {
     end
   },
   {
-    "zbirenbaum/copilot.lua",
+    -- "zbirenbaum/copilot.lua",
+    "timhugh/copilot.lua",
+    branch = "timheuett/nodejs-commands",
     enabled = true,
     cmd = "Copilot",
     event = "InsertEnter",
     opts = {
-      copilot_node_command = "mise x node@lts -- node",
+      copilot_node_command = {"mise", "x", "node@lts", "--", "node" },
       keymap = {
         jump_prev = "[[",
         jump_next = "]]",
@@ -58,7 +59,6 @@ return {
       },
       filetypes = {
         markdown = false,
-        norg = false,
         ["*"] = true,
       },
     }
@@ -123,7 +123,8 @@ return {
       "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
       "ibhagwan/fzf-lua", -- for file_selector provider fzf
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua",
+      -- "zbirenbaum/copilot.lua",
+      "timhugh/copilot.lua",
       'MeanderingProgrammer/render-markdown.nvim',
       {
         -- support for image pasting
