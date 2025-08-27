@@ -52,7 +52,7 @@ local function trigger_workspace_diagnostics(client, bufnr, workspace_files)
         languageId = filetype
       }
     }
-    client.notify('textDocument/didOpen', params)
+    client:notify('textDocument/didOpen', params)
 
     ::continue::
   end
@@ -77,7 +77,7 @@ local function format_changed_hunks()
       vim.lsp.buf.format({
         range = {
           start = { start_line, 0 },
-          ["end"] = { end_line, 0 },
+          ["end"] = { end_line, 0 }, -- end is a reserved keyword in Lua
         },
       })
     end
@@ -108,10 +108,10 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
   vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "Go to implementation" })
   vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
-  vim.keymap.set("n", "gen", function()
+  vim.keymap.set("n", "]g", function()
     vim.diagnostic.jump({ count = 1, float = true })
   end, { desc = "Go to next diagnostic" })
-  vim.keymap.set("n", "gep", function()
+  vim.keymap.set("n", "[g", function()
     vim.diagnostic.jump({ count = -1, float = true })
   end, { desc = "Go to previous diagnostic" })
 
@@ -168,3 +168,4 @@ end, { desc = "Restart LSP servers" })
 -- enable LSPs that aren't managed by mason-lspconfig
 vim.lsp.enable('gdscript', true)
 vim.lsp.enable('sourcekit', true)
+
