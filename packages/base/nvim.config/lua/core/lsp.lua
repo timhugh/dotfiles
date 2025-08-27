@@ -85,7 +85,9 @@ local function format_changed_hunks()
 end
 
 local on_attach = function(client, bufnr)
+  -- vim.notify('attaching buffer ' .. bufnr .. ' to LSP client ' .. client.name, vim.log.levels.INFO)
   if client.server_capabilities.documentRangeFormattingProvider then
+    -- vim.notify("LSP " .. client.name .. " supports document range formatting", vim.log.levels.INFO)
     if vim.b[bufnr].lsp_format_hunks_autocmd then
       vim.notify(
         string.format(
