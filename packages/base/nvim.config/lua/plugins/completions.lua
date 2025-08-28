@@ -77,7 +77,7 @@ return {
       },
       providers = {
         copilot = {
-          model = "gpt-4o",
+          model = "gpt-4.1",
         },
         ollama = {
           endpoint = "http://127.0.0.1:11434",
