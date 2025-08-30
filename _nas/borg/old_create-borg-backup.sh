@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-# secrets just contained the BORG_PASSPHRASE
-source ~/.secrets
+# set BORG_PASSPHRASE
+source "${HOME}/.secrets"
 
 archive_name="vault-$(date +%Y%m%dT%H%M%S)"
-echo "$(date) creating backup ${archive_name}"
+echo "$(date) - BORG: creating backup ${archive_name}"
 
 borg_options="--stats --compression zstd,22"
 
 borg create ${borg_options} /mnt/vault/backups::${archive_name} /mnt/vault/shared
-echo "$(date) backup complete"
+echo "$(date) - BOR: backup created"
 
