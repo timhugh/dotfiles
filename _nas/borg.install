@@ -19,7 +19,8 @@ for g in "${groups[@]}"; do
 done
 
 echo "Installing backup and sync scripts"
-sudo cp "${root}"/borg/*.sh "${borg_home}/"
+sudo cp "${root}"/borg/*.sh "${borg_home}"/
+sudo chown b2borgbackup:vault "${borg_home}"/*.sh
 sudo chmod 750 "${borg_home}"/*.sh
 
 secrets_file="${borg_home}/.secrets"
@@ -33,11 +34,15 @@ else
 fi
 
 echo "Installing systemd service and timer"
-sudo cp "${root}"/b2-borg-backup-and-sync.service "${root}"/b2-borg-backup-and-sync.timer /etc/systemd/system/
+sudo cp "${root}"/borg/b2-borg-backup-and-sync.service "${root}"/borg/b2-borg-backup-and-sync.timer /etc/systemd/system/
 
 echo "Enabling and starting systemd timer"
-sudo systemctl daemon-reload
-sudo systemctl enable --now b2-borg-backup-and-sync.timer
+# sudo systemctl daemon-reload
+# sudo systemctl enable --now b2-borg-backup-and-sync.timer
 
 echo "Backup and sync automation installed and enabled for user b2borgbackup."
+
+# manual steps:
+# borg init --encryption=repokey-blake2 /mnt/vault/backups
+# borg key export /mnt/vault/backups ~/borg-key-backup.txt
 
