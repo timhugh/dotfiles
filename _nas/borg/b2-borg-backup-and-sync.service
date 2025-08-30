@@ -1,0 +1,16 @@
+[Unit]
+Description=Borg Backup and Sync Service
+After=network.target
+
+[Service]
+Type=oneshot
+User=b2borgbackup
+Group=vault
+WorkingDirectory=/mnt/vault
+Environment=HOME=/home/b2borgbackup
+ExecStart=/bin/bash /home/b2borgbackup/b2-borg-backup-and-sync.sh
+Nice=10
+
+[Install]
+WantedBy=multi-user.target
+
