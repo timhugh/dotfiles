@@ -1,17 +1,4 @@
 services:
-  samba:
-    container_name: samba
-    build: ./samba
-    restart: unless-stopped
-    read_only: true
-    ports:
-      - 445:445/tcp
-    volumes:
-      - /mnt/vault:/media/vault
-      - /etc/passwd:/etc/passwd:ro
-      - /etc/group:/etc/group:ro
-      - /etc/shadow:/etc/shadow:ro
-
   home-assistant:
     container_name: home-assistant
     image: lscr.io/linuxserver/homeassistant:latest
