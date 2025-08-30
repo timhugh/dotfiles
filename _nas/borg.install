@@ -1,3 +1,43 @@
 #!/usr/bin/env bash
 set -e
 
+root="${HOME}/share/dotfiles/_nas"
+borg_home="/home/b2borgbackup"
+
+sudo apt-get install -y borgbackup rclone
+
+groups=(vault private)
+if ! id -u b2borgbackup >/dev/null 2>&1; then
+    sudo useradd -m -s /bin/bash b2borgbackup
+    echo "Created user b2borgbackup."
+else
+    echo "User b2borgbackup already exists."
+fi
+for g in "${groups[@]}"; do
+    sudo usermod -aG "$g" b2borgbackup
+    echo "Added b2borgbackup to group $g."
+done
+
+echo "Installing backup and sync scripts"
+sudo cp "${root}"/borg/*.sh "${borg_home}/"
+sudo chmod 750 "${borg_home}"/*.sh
+
+secrets_file="${borg_home}/.secrets"
+if [ ! -f "${secrets_file}" ]; then
+    sudo touch "${secrets_file}"
+    sudo chown b2borgbackup:vault "${secrets_file}"
+    sudo chmod 640 "${secrets_file}"
+    echo "Created empty ${secrets_file} file. Please edit it to add your secrets."
+else
+    echo "${secrets_file} already exists."
+fi
+
+echo "Installing systemd service and timer"
+sudo cp "${root}"/b2-borg-backup-and-sync.service "${root}"/b2-borg-backup-and-sync.timer /etc/systemd/system/
+
+echo "Enabling and starting systemd timer"
+sudo systemctl daemon-reload
+sudo systemctl enable --now b2-borg-backup-and-sync.timer
+
+echo "Backup and sync automation installed and enabled for user b2borgbackup."
+
