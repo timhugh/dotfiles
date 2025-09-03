@@ -37,12 +37,15 @@ echo "Installing systemd service and timer"
 sudo cp "${root}"/borg/b2-borg-backup-and-sync.service "${root}"/borg/b2-borg-backup-and-sync.timer /etc/systemd/system/
 
 echo "Enabling and starting systemd timer"
-# sudo systemctl daemon-reload
-# sudo systemctl enable --now b2-borg-backup-and-sync.timer
+sudo systemctl daemon-reload
+sudo systemctl enable --now b2-borg-backup-and-sync.timer
 
 echo "Backup and sync automation installed and enabled for user b2borgbackup."
 
 # manual steps:
 # borg init --encryption=repokey-blake2 /mnt/vault/backups
 # borg key export /mnt/vault/backups ~/borg-key-backup.txt
+
+# then configure backup:
+# rclone config
 
