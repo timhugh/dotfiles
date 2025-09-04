@@ -24,3 +24,9 @@ vim.opt.colorcolumn = "120"
 vim.api.nvim_command("autocmd TermOpen * startinsert")
 vim.api.nvim_command("autocmd TermOpen * setlocal nonumber norelativenumber nospell")
 vim.api.nvim_command("autocmd TermEnter * setlocal signcolumn=no")
+
+-- inline diagnostics
+vim.diagnostic.config({
+    virtual_text = true,
+})
+
