@@ -110,12 +110,6 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
   vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "Go to implementation" })
   vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
-  vim.keymap.set("n", "]d", function()
-    vim.diagnostic.jump({ count = 1, float = true })
-  end, { desc = "Go to next diagnostic" })
-  vim.keymap.set("n", "[d", function()
-    vim.diagnostic.jump({ count = -1, float = true })
-  end, { desc = "Go to previous diagnostic" })
 
   vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename symbol" })
 
