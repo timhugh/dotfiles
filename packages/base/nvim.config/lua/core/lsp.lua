@@ -79,6 +79,7 @@ local function format_changed_hunks()
           start = { start_line, 0 },
           ["end"] = { end_line, 0 }, -- end is a reserved keyword in Lua
         },
+        async = false,
       })
     end
   end
