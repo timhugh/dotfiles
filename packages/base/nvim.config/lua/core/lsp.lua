@@ -58,6 +58,7 @@ local function trigger_workspace_diagnostics(client, bufnr, workspace_files)
   end
 end
 
+-- TODO: ls-files sometimes includes deleted files; those should be filtered out
 local workspace_files = vim.fn.split(vim.fn.system('git ls-files'), "\n")
 workspace_files = vim.tbl_map(function(path)
   return vim.fn.fnamemodify(path, ":p")
