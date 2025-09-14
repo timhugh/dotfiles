@@ -1,2 +1,0 @@
-brew "golangci-lint"
-brew "golangci-lint-langserver"

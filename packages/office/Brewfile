@@ -1,4 +1,3 @@
-cask "libreoffice"
 cask "notion-calendar"
 cask "slack"
 mas "spark", id: 1176895641

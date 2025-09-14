@@ -1,5 +1,3 @@
 cask "chirp"
-cask "garmin-basecamp"
-cask "garmin-express"
 cask "qgis"
 

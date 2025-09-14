@@ -2,4 +2,5 @@ mise settings add idiomatic_version_file_enable_tools go
 
 mise use --global go@latest
 mise use --global golangci-lint@latest
+mise use --global golangci-lint-langserver@latest
 
