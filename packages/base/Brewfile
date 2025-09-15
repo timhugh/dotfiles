@@ -31,7 +31,6 @@ brew "luarocks"
 brew "nvim"
 brew "ripgrep"
 brew "xclip"
-# brew "tidy-html5"
 
 # utilities
 cask "1password"
@@ -40,9 +39,7 @@ cask "openvpn-connect"
 cask "notion-calendar"
 cask "raycast"
 cask "scroll-reverser"
-mas "edison mail", id: 1489591003
+mas "spark", id: 1176895641
 
 # browsers
 cask "firefox"
-cask "google-chrome"
-mas "velja", id: 1607635845
