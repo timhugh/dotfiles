@@ -19,12 +19,12 @@ ASDF_CMAKE_FORCE_SOURCE_INSTALL=1 mise use --global cmake@latest
 echo "Installing meson"
 mise use --global meson@latest
 
-echo "Installing clang"
-mise use --global clang@latest
-echo "Creating clang++ symlink"
+# echo "Installing clang"
+# mise use --global clang@latest
+# echo "Creating clang++ symlink"
 # mise-llvm only supplies a clang binary
-clang_dir=$(dirname $(mise which clang))
-ln -sf "${clang_dir}/clang" "${clang_dir}/clang++"
+# clang_dir=$(dirname $(mise which clang))
+# ln -sf "${clang_dir}/clang" "${clang_dir}/clang++"
 
 echo "Installing clang-format"
 mise use --global clang-format@latest
