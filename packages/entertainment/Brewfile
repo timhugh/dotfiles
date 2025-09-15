@@ -1,4 +1,2 @@
-cask "wine-stable", args: {no_quarantine: true}
-brew "winetricks"
 cask "discord"
 cask "steam"

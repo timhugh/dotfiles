@@ -35,11 +35,8 @@ brew "xclip"
 # utilities
 cask "1password"
 cask "docker"
-cask "openvpn-connect"
-cask "notion-calendar"
 cask "raycast"
 cask "scroll-reverser"
-mas "spark", id: 1176895641
 
 # browsers
 cask "firefox"
