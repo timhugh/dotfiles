@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+brew --prefix llvm > /dev/null && exec "$(brew --prefix llvm)/bin/clang-tidy" "$@"
+
+echo "Error: could not find 'clang-tidy'" >&2
+exit 1
+
