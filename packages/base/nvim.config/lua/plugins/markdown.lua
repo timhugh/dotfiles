@@ -57,4 +57,42 @@ return {
       }
     },
   },
+  {
+    "3rd/image.nvim",
+    enabled = true,
+    build = false,
+    opts = {
+      processor = "magick_cli",
+    }
+  },
+  {
+    "3rd/diagram.nvim",
+    dependencies = {
+      "3rd/image.nvim",
+    },
+    opts = {
+      -- Disable automatic rendering for manual-only workflow
+      events = {
+        render_buffer = {}, -- Empty = no automatic rendering
+        clear_buffer = { "BufLeave" },
+      },
+      renderer_options = {
+        mermaid = {
+          background = "transparent",
+          theme = "neutral",
+        },
+      },
+    },
+    keys = {
+      {
+        "<leader>md",
+        function()
+          require("diagram").show_diagram_hover()
+        end,
+        mode = "n",
+        ft = { "markdown" },
+        desc = "Show diagram in new tab",
+      },
+    },
+  },
 }
