@@ -1,3 +1,1 @@
-# Install fonts from this repo
-find "$(pwd)/fonts" ! -type d -exec cp "{}" "${HOME}"/Library/Fonts \;
-
+swift ./register_fonts.swift ./fonts
