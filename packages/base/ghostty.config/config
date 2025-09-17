@@ -1,2 +1,5 @@
-font-family = IntoneMono Nerd Font
+font-family = Martian Mono Std xLt
+font-size = 14
+adjust-cell-height = 30%
+
 theme = dark:Builtin Pastel Dark,light:Catppuccin Latte
