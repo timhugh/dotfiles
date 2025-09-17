@@ -16,7 +16,7 @@ vim.keymap.set("n", "<leader>xgc", "<cmd>:Scontroller<cr>", { desc = "(Rails) Ne
 vim.keymap.set("n", "<leader>vgc", "<cmd>:Vcontroller<cr>", { desc = "(Rails) New vsplit at controller" })
 
 vim.lsp.enable('ruby_lsp')
-vim.lsp.enable('solargraph')
-vim.lsp.enable('sorbet')
-vim.lsp.enable('standardrb')
+-- vim.lsp.enable('solargraph')
+-- vim.lsp.enable('sorbet')
+-- vim.lsp.enable('standardrb')
 vim.lsp.enable('rubocop')
