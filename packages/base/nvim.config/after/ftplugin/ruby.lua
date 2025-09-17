@@ -14,3 +14,9 @@ vim.keymap.set("n", "<leader>gc", "<cmd>:Econtroller<cr>", { desc = "(Rails) Nav
 vim.keymap.set("n", "<leader>tgc", "<cmd>:Tcontroller<cr>", { desc = "(Rails) New tab at controller" })
 vim.keymap.set("n", "<leader>xgc", "<cmd>:Scontroller<cr>", { desc = "(Rails) New hsplit at controller" })
 vim.keymap.set("n", "<leader>vgc", "<cmd>:Vcontroller<cr>", { desc = "(Rails) New vsplit at controller" })
+
+vim.lsp.enable('ruby_lsp')
+vim.lsp.enable('solargraph')
+vim.lsp.enable('sorbet')
+vim.lsp.enable('standardrb')
+vim.lsp.enable('rubocop')
