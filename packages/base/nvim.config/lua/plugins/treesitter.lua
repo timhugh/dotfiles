@@ -10,55 +10,72 @@ return {
   init = function()
     local ensure_installed = {
       "bash",
+      "make",
+      "jq",
+      "ssh_config",
+
+      "ledger",
+
+      "cmake",
       "c",
       "cpp",
+      "glsl",
+      "llvm",
+
       "css",
       "dockerfile",
+
       "gdscript",
       "gdshader",
+      "godot_resource",
+
       "git_config",
       "git_rebase",
       "gitattributes",
       "gitcommit",
       "gitignore",
-      "glsl",
+
       "go",
       "gomod",
       "gosum",
       "gotmpl",
       "gowork",
-      "graphql",
+
       "helm",
-      "html",
       "http",
+
       "java",
-      "javascript",
-      "jq",
-      "json",
       "kotlin",
-      "ledger",
-      "llvm",
-      "lua",
-      "make",
-      "markdown",
-      "markdown_inline",
-      "perl",
-      "python",
-      "regex",
-      "ruby",
-      "rust",
-      "scss",
-      "sql",
-      "ssh_config",
-      "terraform",
-      "toml",
+
+      "graphql",
+      "javascript",
       "tsv",
       "tsx",
       "typescript",
-      "vim",
       "vue",
-      "xml",
+
+      "json",
+      "toml",
       "yaml",
+
+      "html",
+      "markdown",
+      "markdown_inline",
+      "regex",
+      "scss",
+      "sql",
+      "xml",
+
+      "ruby",
+
+      "python",
+
+      "lua",
+      "vim",
+
+      "perl",
+
+      "rust",
     }
 
     require("nvim-treesitter").install(ensure_installed)
@@ -68,7 +85,7 @@ return {
     end
 
     vim.api.nvim_create_autocmd("FileType", {
-      desc = "User: enable treesitter highlighting",
+      desc = "User: enable treesitter",
       callback = function(ctx)
         local hasStarted = pcall(vim.treesitter.start)
 
