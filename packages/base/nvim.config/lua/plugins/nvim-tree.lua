@@ -19,6 +19,11 @@ return {
     view = {
       adaptive_size = true,
     },
+    filters = {
+      custom = {
+        ".gd.uid$", -- godot uid files
+      },
+    },
     on_attach = function(bufnr)
       local api = require("nvim-tree.api")
 
@@ -67,6 +72,7 @@ return {
       vim.keymap.set("n", "C",              api.tree.toggle_git_clean_filter,   opts("Toggle Filter: Git Clean"))
       vim.keymap.set("n", "H",              api.tree.toggle_hidden_filter,      opts("Toggle Filter: Dotfiles"))
       vim.keymap.set("n", "I",              api.tree.toggle_gitignore_filter,   opts("Toggle Filter: Git Ignore"))
+      vim.keymap.set("n", "U",              api.tree.toggle_custom_filter,      opts("Toggle Filter: Custom"))
       -- vim.keymap.set("n", "M",              api.tree.toggle_no_bookmark_filter, opts("Toggle Filter: No Bookmark"))
 
       -- navigation
