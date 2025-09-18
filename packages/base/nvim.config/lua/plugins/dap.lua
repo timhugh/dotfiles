@@ -20,12 +20,14 @@ return {
         },
       }
 
-      vim.keymap.set("n", "<leader>dc", "<cmd>lua require('dap').continue()<cr>")
-      vim.keymap.set("n", "<leader>db", "<cmd>lua require('dap').toggle_breakpoint()<cr>")
-      vim.keymap.set("n", "<leader>dn", "<cmd>lua require('dap').step_over()<cr>")
-      vim.keymap.set("n", "<leader>di", "<cmd>lua require('dap').step_into()<cr>")
-      vim.keymap.set("n", "<leader>do", "<cmd>lua require('dap').step_out()<cr>")
-      vim.keymap.set("n", "<leader>dr", "<cmd>lua require('dap').repl.toggle()<cr>")
+      vim.keymap.set("n", "<leader>dd", "<cmd>:DapNew<cr>")
+      vim.keymap.set("n", "<leader>dD", "<cmd>:DapTerminate<cr>")
+      vim.keymap.set("n", "<leader>dc", "<cmd>:DapContinue<cr>")
+      vim.keymap.set("n", "<leader>db", "<cmd>:DapToggleBreakpoint<cr>")
+      vim.keymap.set("n", "<leader>dn", "<cmd>:DapStepOver<cr>")
+      vim.keymap.set("n", "<leader>di", "<cmd>:DapStepInto<cr>")
+      vim.keymap.set("n", "<leader>do", "<cmd>:DapStepOut<cr>")
+      vim.keymap.set("n", "<leader>dr", "<cmd>:DapToggleRepl<cr>")
     end,
   },
 }
