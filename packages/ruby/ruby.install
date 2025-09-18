@@ -1,9 +1,5 @@
 mise settings add idiomatic_version_file_enable_tools ruby
 
+"$(pwd)"/install-ruby.bin latest
 mise use --global ruby@latest
 
-gem install \
-    bundler \
-    rubocop \
-    sorbet \
-    ;
