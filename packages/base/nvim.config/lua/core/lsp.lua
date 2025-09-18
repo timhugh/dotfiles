@@ -163,7 +163,17 @@ vim.api.nvim_create_user_command('LspRestart', function()
     end
   end
 end, { desc = "Restart LSP servers" })
--- enable LSPs that aren't managed by mason-lspconfig
-vim.lsp.enable('gdscript', true)
-vim.lsp.enable('sourcekit', true)
 
+vim.lsp.enable('gdscript')
+
+vim.lsp.enable('sourcekit')
+
+vim.lsp.enable('clangd')
+vim.lsp.enable('cmake')
+
+vim.lsp.enable('ruby_lsp')
+-- temp disabled until I set up project-specific configs
+-- vim.lsp.enable('solargraph')
+-- vim.lsp.enable('sorbet')
+-- vim.lsp.enable('standardrb')
+vim.lsp.enable('rubocop')

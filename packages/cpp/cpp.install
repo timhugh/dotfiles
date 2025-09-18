@@ -4,6 +4,7 @@ logfile="${HOME}/tmp/dotfiles/cpp-install-gnu-gpg-import-${timestamp}.log"
 
 echo "Importing GNU project GPG keys. This is noisy, so logs will be saved to:"
 echo "${logfile}"
+# TODO: cache file and only re-import if md5sum changes
 curl -s https://ftp.gnu.org/gnu/gnu-keyring.gpg | gpg --import > "${logfile}" 2>&1
 
 echo "Installing GNU make"
@@ -25,6 +26,9 @@ mise use --global meson@latest
 # mise-llvm only supplies a clang binary
 # clang_dir=$(dirname $(mise which clang))
 # ln -sf "${clang_dir}/clang" "${clang_dir}/clang++"
+
+echo "Installing clangd"
+mise use --global clangd@latest
 
 echo "Installing clang-format"
 mise use --global clang-format@latest

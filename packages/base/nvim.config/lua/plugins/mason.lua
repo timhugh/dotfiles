@@ -11,8 +11,6 @@ return {
     opts = {
       ensure_installed = {
         "bashls",
-        "clangd",
-        "cmake",
         "cssls",
         "eslint",
         "glsl_analyzer",
