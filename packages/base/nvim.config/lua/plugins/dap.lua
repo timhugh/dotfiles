@@ -32,7 +32,7 @@ return {
   },
   {
     "rcarriga/nvim-dap-ui",
-    enabled = true,
+    enabled = false,
     dependencies = {
       "mfussenegger/nvim-dap",
       "nvim-neotest/nvim-nio",
@@ -56,5 +56,14 @@ return {
         dapui.close()
       end
     end,
-  }
+  },
+  {
+    "igorlfs/nvim-dap-view",
+    enabled = true,
+    keys = {
+      { "<leader>dv", "<cmd>:DapViewOpen<cr>", desc = "dapview: Open" },
+      { "<leader>dV", "<cmd>:DapViewClose<cr>", desc = "dapview: Close" },
+    },
+    opts = {},
+  },
 }
