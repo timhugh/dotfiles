@@ -1,3 +1,5 @@
+M = {}
+
 -- some LSPs (like copilot) are not actually LSPs and need to be handled differently at times
 local unsupported_lsps = {
   copilot = true,
@@ -22,12 +24,12 @@ local function lsp_supports_workspace_diagnostics(client)
   return vim.tbl_get(client.server_capabilities, 'textDocumentSync', 'openClose') and is_supported_lsp(client)
 end
 
-local loaded_clients = {}
+M.loaded_clients = {}
 local function trigger_workspace_diagnostics(client, bufnr, workspace_files)
-  if vim.tbl_contains(loaded_clients, client.id) then
+  if vim.tbl_contains(M.loaded_clients, client.id) then
     return
   end
-  table.insert(loaded_clients, client.id)
+  table.insert(M.loaded_clients, client.id)
 
   if not lsp_supports_workspace_diagnostics(client) then
     return
@@ -58,11 +60,14 @@ local function trigger_workspace_diagnostics(client, bufnr, workspace_files)
   end
 end
 
--- TODO: ls-files sometimes includes deleted files; those should be filtered out
-local workspace_files = vim.fn.split(vim.fn.system('git ls-files'), "\n")
-workspace_files = vim.tbl_map(function(path)
-  return vim.fn.fnamemodify(path, ":p")
-end, workspace_files)
+local function get_workspace_files()
+  local all_files = vim.fn.split(vim.fn.system('git ls-files'), "\n")
+  local absolute_files = vim.tbl_map(function(path) return vim.fn.fnamemodify(path, ":p") end, all_files)
+  -- git ls-files can return files that don't actually exist (e.g. if they were deleted but not committed)
+  local existing_files = vim.tbl_filter(function(path) return vim.fn.filereadable(path) == 1 end, absolute_files)
+  return existing_files
+end
+M.workspace_files = get_workspace_files()
 
 local function format_changed_hunks()
   local hunks = require('gitsigns').get_hunks()
@@ -86,10 +91,10 @@ local function format_changed_hunks()
   end
 end
 
-local on_attach = function(client, bufnr)
-  -- vim.notify('attaching buffer ' .. bufnr .. ' to LSP client ' .. client.name, vim.log.levels.INFO)
+M.on_attach = function(client, bufnr)
+  vim.notify('attaching buffer ' .. bufnr .. ' to LSP client ' .. client.name, vim.log.levels.INFO)
   if client.server_capabilities.documentRangeFormattingProvider then
-    -- vim.notify("LSP " .. client.name .. " supports document range formatting", vim.log.levels.INFO)
+    vim.notify("LSP " .. client.name .. " supports document range formatting", vim.log.levels.INFO)
     if vim.b[bufnr].lsp_format_hunks_autocmd then
       vim.notify(
         string.format(
@@ -107,7 +112,7 @@ local on_attach = function(client, bufnr)
     vim.b[bufnr].lsp_format_hunks_autocmd = true
   end
 
-  trigger_workspace_diagnostics(client, bufnr, workspace_files)
+  trigger_workspace_diagnostics(client, bufnr, M.workspace_files)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
   vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "Go to implementation" })
@@ -130,15 +135,15 @@ local on_attach = function(client, bufnr)
   end, { desc = "Quickfix code action" })
 end
 
-local augroup = vim.api.nvim_create_augroup('my.lsp', {})
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = augroup,
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    local bufnr = args.buf
-    on_attach(client, bufnr)
-  end,
-})
+-- local augroup = vim.api.nvim_create_augroup('my.lsp', {})
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--   group = augroup,
+--   callback = function(args)
+--     local client = vim.lsp.get_client_by_id(args.data.client_id)
+--     local bufnr = args.buf
+--     on_attach(client, bufnr)
+--   end,
+-- })
 
 vim.api.nvim_create_user_command('LspLog', function()
   local log_path = vim.lsp.get_log_path()
@@ -177,3 +182,5 @@ vim.lsp.enable('ruby_lsp')
 -- vim.lsp.enable('sorbet')
 -- vim.lsp.enable('standardrb')
 vim.lsp.enable('rubocop')
+
+return M
