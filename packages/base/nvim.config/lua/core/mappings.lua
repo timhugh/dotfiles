@@ -36,6 +36,9 @@ vim.keymap.set("t", "<m-l>", "<c-\\><c-n><c-w>l")
 -- clear highlights after searching
 vim.keymap.set("n", "<leader>/", "<cmd>:nohlsearch<cr>")
 
+-- show messages
+vim.keymap.set("n", "<leader>m", "<cmd>:messages<cr>")
+
 -- toggle wrap
 vim.keymap.set("n", "<leader>w", "<cmd>:set wrap!<cr>")
 

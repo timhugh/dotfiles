@@ -1,6 +1,7 @@
 return {
   {
     "rcarriga/nvim-notify",
+    enabled = false,
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },
