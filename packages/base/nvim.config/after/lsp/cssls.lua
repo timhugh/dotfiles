@@ -5,6 +5,9 @@ return {
   init_options= {
     provideFormatter=true,
   },
+  on_attach = function(client, bufnr)
+    require('core.lsp').on_attach(client, bufnr)
+  end,
   settings= {
     css= { validate=true },
     scss= { validate=true },

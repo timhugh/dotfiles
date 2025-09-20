@@ -10,4 +10,7 @@ return {
     'typescript.tsx',
   },
   root_markers = { 'tsconfig.json', 'jsconfig.json', 'package.json', '.git' },
+  on_attach = function(client, bufnr)
+    require('core.lsp').on_attach(client, bufnr)
+  end,
 }

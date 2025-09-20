@@ -3,9 +3,8 @@ return {
   filetypes = { 'lua' },
   root_markers = { '.git' },
   on_attach = function(client, bufnr)
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentRangeFormattingProvider = false
-    vim.notify('on_attach for lua_ls called for buffer ' .. bufnr, vim.log.levels.INFO)
+    -- client.server_capabilities.documentFormattingProvider = false
+    -- client.server_capabilities.documentRangeFormattingProvider = false
     require('core.lsp').on_attach(client, bufnr)
   end,
   on_init = function(client)

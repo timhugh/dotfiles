@@ -11,4 +11,7 @@ return {
   cmd = cmd,
   filetypes = { 'gd', 'gdscript', 'gdscript3' },
   root_markers = { 'project.godot', '.git' },
+  on_attach = function(client, bufnr)
+    require('core.lsp').on_attach(client, bufnr)
+  end,
 }

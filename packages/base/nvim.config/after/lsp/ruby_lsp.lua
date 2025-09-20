@@ -5,4 +5,7 @@ return {
   init_options = {
     formatter = 'auto',
   },
+  on_attach = function(client, bufnr)
+    require('core.lsp').on_attach(client, bufnr)
+  end,
 }

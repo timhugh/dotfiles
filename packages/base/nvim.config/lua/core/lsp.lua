@@ -92,9 +92,7 @@ local function format_changed_hunks()
 end
 
 M.on_attach = function(client, bufnr)
-  vim.notify('attaching buffer ' .. bufnr .. ' to LSP client ' .. client.name, vim.log.levels.INFO)
   if client.server_capabilities.documentRangeFormattingProvider then
-    vim.notify("LSP " .. client.name .. " supports document range formatting", vim.log.levels.INFO)
     if vim.b[bufnr].lsp_format_hunks_autocmd then
       vim.notify(
         string.format(
@@ -129,21 +127,14 @@ M.on_attach = function(client, bufnr)
 
   vim.keymap.set("n", "<leader>lq", function()
     vim.lsp.buf.code_action({
-      context = { only = { "quickfix" } },
+      context = {
+        diagnostics = vim.lsp.diagnostic.get_line_diagnostics(),
+        only = { "quickfix" }
+      },
       apply = true,
     })
   end, { desc = "Quickfix code action" })
 end
-
--- local augroup = vim.api.nvim_create_augroup('my.lsp', {})
--- vim.api.nvim_create_autocmd('LspAttach', {
---   group = augroup,
---   callback = function(args)
---     local client = vim.lsp.get_client_by_id(args.data.client_id)
---     local bufnr = args.buf
---     on_attach(client, bufnr)
---   end,
--- })
 
 vim.api.nvim_create_user_command('LspLog', function()
   local log_path = vim.lsp.get_log_path()

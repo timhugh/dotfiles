@@ -54,5 +54,6 @@ return {
     if client.name == 'clangd' then
       vim.keymap.set('n', '<leader>ch', switch_source_header, { buffer = bufnr, desc = 'Switch source/header' })
     end
+    require('core.lsp').on_attach(client, bufnr)
   end,
 }

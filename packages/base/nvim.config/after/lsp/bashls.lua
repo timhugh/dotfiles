@@ -7,5 +7,8 @@ return {
       globPattern=vim.env.GLOB_PATTERN or '**/*.{sh,bash,zsh}',
     },
   },
-  capabilities=require('cmp_nvim_lsp').default_capabilities(),
+  capabilities = require('cmp_nvim_lsp').default_capabilities(),
+  on_attach = function(client, bufnr)
+    require('core.lsp').on_attach(client, bufnr)
+  end,
 }

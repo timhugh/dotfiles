@@ -12,7 +12,6 @@ return {
       ensure_installed = {
         "bashls",
         "cssls",
-        "eslint",
         "glsl_analyzer",
         "golangci_lint_ls",
         "gopls",
