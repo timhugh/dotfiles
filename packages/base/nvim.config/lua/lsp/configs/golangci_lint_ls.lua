@@ -1,4 +1,4 @@
-return {
+require('lsp').setup('golangci_lint_ls', {
   cmd = { 'golangci-lint-langserver' },
   filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
   init_options = {
@@ -9,7 +9,4 @@ return {
     'go.mod',
     '.git',
   },
-  on_attach = function(client, bufnr)
-    require('core.lsp').on_attach(client, bufnr)
-  end,
-}
+})

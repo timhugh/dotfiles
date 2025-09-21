@@ -17,7 +17,7 @@ local function switch_source_header(bufnr)
   end, bufnr)
 end
 
-return {
+require('lsp').setup('clangd', {
   cmd = {
     'clangd',
     '--background-index',
@@ -37,14 +37,14 @@ return {
       onConfigChanged = 'restart',
     },
   },
-  capabilities = require('cmp_nvim_lsp').default_capabilities({
+  capabilities = {
     textDocument = {
       completion = {
         editsNearCursor = true,
       },
     },
     offSetEncoding = { 'utf-8', 'utf-16' },
-  }),
+  },
   on_init = function(client, init_result)
     if init_result.offsetEncoding then
       client.offset_encoding = init_result.offsetEncoding
@@ -54,6 +54,5 @@ return {
     if client.name == 'clangd' then
       vim.keymap.set('n', '<leader>ch', switch_source_header, { buffer = bufnr, desc = 'Switch source/header' })
     end
-    require('core.lsp').on_attach(client, bufnr)
   end,
-}
+})

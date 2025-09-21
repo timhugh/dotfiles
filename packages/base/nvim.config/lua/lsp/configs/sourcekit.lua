@@ -1,4 +1,4 @@
-return {
+require('lsp').setup('sourcekit', {
   cmd = { 'sourcekit-lsp' },
   filetypes = { 'swift', 'objc', 'objcpp' },
   root_markers = { '*.xcodeproj', '.git' },
@@ -15,7 +15,4 @@ return {
       },
     },
   },
-  on_attach = function(client, bufnr)
-    require('core.lsp').on_attach(client, bufnr)
-  end,
-}
+})

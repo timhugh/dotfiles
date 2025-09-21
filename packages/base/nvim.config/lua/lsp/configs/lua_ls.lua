@@ -1,12 +1,7 @@
-return {
+require('lsp').setup('lua_ls', {
   cmd = { 'lua-language-server' },
   filetypes = { 'lua' },
   root_markers = { '.git' },
-  on_attach = function(client, bufnr)
-    -- client.server_capabilities.documentFormattingProvider = false
-    -- client.server_capabilities.documentRangeFormattingProvider = false
-    require('core.lsp').on_attach(client, bufnr)
-  end,
   on_init = function(client)
     if client.workspace_folders then
       local path = client.workspace_folders[1].name
@@ -34,4 +29,4 @@ return {
   settings = {
     Lua = {}
   }
-}
+})

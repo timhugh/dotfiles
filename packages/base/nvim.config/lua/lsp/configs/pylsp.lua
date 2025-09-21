@@ -1,4 +1,4 @@
-return {
+require('lsp').setup('pylsp', {
   cmd = { 'pylsp' },
   filetypes = { 'python' },
   root_markers = {
@@ -9,7 +9,4 @@ return {
     'Pipfile',
     '.git',
   },
-  on_attach = function(client, bufnr)
-    require('core.lsp').on_attach(client, bufnr)
-  end,
-}
+})

@@ -1,4 +1,4 @@
-return {
+require('lsp').setup('tailwindcss', {
   cmd = { 'tailwindcss-language-server', '--stdio' },
   filetypes = {
     'html',
@@ -55,6 +55,5 @@ return {
     -- tailwind always runs in tandem with either cssls or one of the JS lsps which already provide formatting
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
-    require('core.lsp').on_attach(client, bufnr)
   end,
-}
+})

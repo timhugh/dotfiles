@@ -1,4 +1,4 @@
-M = {}
+local M = {}
 
 -- some LSPs (like copilot) are not actually LSPs and need to be handled differently at times
 local unsupported_lsps = {
@@ -136,42 +136,35 @@ M.on_attach = function(client, bufnr)
   end, { desc = "Quickfix code action" })
 end
 
-vim.api.nvim_create_user_command('LspLog', function()
-  local log_path = vim.lsp.get_log_path()
-  if log_path then
-    vim.cmd('edit ' .. log_path)
-  else
-    vim.notify("LSP log path not found", vim.log.levels.ERROR)
+M.setup = function(server_name, config)
+  config = config or {}
+  local lspconfig_ok, lspconfig = pcall(require, 'lspconfig')
+  if not lspconfig_ok then
+    return
   end
-end, { desc = "Open LSP log" })
 
-vim.api.nvim_create_user_command('LspInfo', function()
-  vim.cmd('checkhealth vim.lsp')
-end, { desc = "Show LSP health dashboard" })
-
-vim.api.nvim_create_user_command('LspRestart', function()
-  local bufnr = vim.api.nvim_get_current_buf()
-  local clients = vim.lsp.get_clients({ bufnr = bufnr })
-  for _, client in ipairs(clients) do
-    if is_supported_lsp(client) then
-      vim.lsp.enable(client.name, false)
-      vim.lsp.enable(client.name, true)
+  local custom_on_attach = config.on_attach
+  config.on_attach = function(client, bufnr)
+    if custom_on_attach then
+      custom_on_attach(client, bufnr)
     end
+    M.on_attach(client, bufnr)
   end
-end, { desc = "Restart LSP servers" })
 
-vim.lsp.enable('gdscript')
+  local default_config = {
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+  }
 
-vim.lsp.enable('sourcekit')
+  local merged_config = vim.tbl_deep_extend('force', default_config, config)
 
-vim.lsp.enable('clangd')
-vim.lsp.enable('cmake')
+  if lspconfig[server_name] then
+    lspconfig[server_name].setup(merged_config)
+  else
+    vim.notify(string.format("LSP config for %s not found", server_name), vim.log.levels.WARN)
+  end
+end
 
-vim.lsp.enable('ruby_lsp')
--- temp disabled until I set up project-specific configs
--- vim.lsp.enable('solargraph')
--- vim.lsp.enable('sorbet')
--- vim.lsp.enable('standardrb')
-vim.lsp.enable('rubocop')
+require('lsp.commands')
+require('core.autoloader').load("lsp.configs")
 
 return M
