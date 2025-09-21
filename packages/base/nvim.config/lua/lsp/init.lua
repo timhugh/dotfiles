@@ -37,30 +37,6 @@ M.on_attach = function(client, bufnr)
     })
     vim.b[bufnr].lsp_format_hunks_autocmd = true
   end
-
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
-  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
-  vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "Go to implementation" })
-  vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
-
-  vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename symbol" })
-
-  vim.keymap.set("n", "<leader>li", vim.lsp.buf.hover, { desc = "Show hover" })
-  vim.keymap.set("n", "<leader>lh", function()
-    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-  end, { desc = "Toggle inlay hints" })
-
-  vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "Format document" })
-
-  vim.keymap.set("n", "<leader>lq", function()
-    vim.lsp.buf.code_action({
-      context = {
-        diagnostics = vim.lsp.diagnostic.get_line_diagnostics(),
-        only = { "quickfix" }
-      },
-      apply = true,
-    })
-  end, { desc = "Quickfix code action" })
 end
 
 M.configure_lsp = function(server_name, config)
