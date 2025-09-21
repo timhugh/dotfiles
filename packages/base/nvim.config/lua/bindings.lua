@@ -39,6 +39,11 @@ vim.keymap.set("n", "<leader>/", "<cmd>:nohlsearch<cr>")
 -- show messages
 vim.keymap.set("n", "<leader>m", "<cmd>:messages<cr>")
 
+-- omni-omnifunc
+vim.keymap.set("i", "<c-n>", function()
+  if vim.fn.pumvisible() == 1 then return "<c-n>" else return "<c-x><c-o>" end
+end, { expr = true, desc = "Trigger omnifunc or select next item in completion menu" })
+
 -- copy path to clipboard
 vim.api.nvim_create_user_command("CopyProjectPath", function()
   local path = vim.fn.expand("%")
