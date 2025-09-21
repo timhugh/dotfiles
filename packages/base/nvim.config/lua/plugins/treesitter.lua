@@ -9,73 +9,73 @@ return {
   end,
   init = function()
     local ensure_installed = {
-      "bash",
-      "make",
-      "jq",
-      "ssh_config",
-
-      "ledger",
-
-      "cmake",
-      "c",
-      "cpp",
-      "glsl",
-      "llvm",
-
-      "css",
-      "dockerfile",
-
-      "gdscript",
-      "gdshader",
-      "godot_resource",
-
-      "git_config",
-      "git_rebase",
-      "gitattributes",
-      "gitcommit",
-      "gitignore",
-
-      "go",
-      "gomod",
-      "gosum",
-      "gotmpl",
-      "gowork",
-
-      "helm",
-      "http",
-
-      "java",
-      "kotlin",
-
-      "graphql",
-      "javascript",
-      "tsv",
-      "tsx",
-      "typescript",
-      "vue",
-
-      "json",
-      "toml",
-      "yaml",
-
-      "html",
-      "markdown",
-      "markdown_inline",
-      "regex",
-      "scss",
-      "sql",
-      "xml",
-
-      "ruby",
-
-      "python",
-
-      "lua",
-      "vim",
-
-      "perl",
-
-      "rust",
+      -- "bash",
+      -- "make",
+      -- "jq",
+      -- "ssh_config",
+      --
+      -- "ledger",
+      --
+      -- "cmake",
+      -- "c",
+      -- "cpp",
+      -- "glsl",
+      -- "llvm",
+      --
+      -- "css",
+      -- "dockerfile",
+      --
+      -- "gdscript",
+      -- "gdshader",
+      -- "godot_resource",
+      --
+      -- "git_config",
+      -- "git_rebase",
+      -- "gitattributes",
+      -- "gitcommit",
+      -- "gitignore",
+      --
+      -- "go",
+      -- "gomod",
+      -- "gosum",
+      -- "gotmpl",
+      -- "gowork",
+      --
+      -- "helm",
+      -- "http",
+      --
+      -- "java",
+      -- "kotlin",
+      --
+      -- "graphql",
+      -- "javascript",
+      -- "tsv",
+      -- "tsx",
+      -- "typescript",
+      -- "vue",
+      --
+      -- "json",
+      -- "toml",
+      -- "yaml",
+      --
+      -- "html",
+      -- "markdown",
+      -- "markdown_inline",
+      -- "regex",
+      -- "scss",
+      -- "sql",
+      -- "xml",
+      --
+      -- "ruby",
+      --
+      -- "python",
+      --
+      -- "lua",
+      -- "vim",
+      --
+      -- "perl",
+      --
+      -- "rust",
     }
 
     require("nvim-treesitter").install(ensure_installed)
