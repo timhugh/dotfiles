@@ -46,12 +46,8 @@ M.on_attach = function(client, bufnr)
   end, { desc = "Quickfix code action" })
 end
 
-M.setup = function(server_name, config)
+M.configure_lsp = function(server_name, config)
   config = config or {}
-  local lspconfig_ok, lspconfig = pcall(require, 'lspconfig')
-  if not lspconfig_ok then
-    return
-  end
 
   local custom_on_attach = config.on_attach
   config.on_attach = function(client, bufnr)
@@ -67,14 +63,13 @@ M.setup = function(server_name, config)
 
   local merged_config = vim.tbl_deep_extend('force', default_config, config)
 
-  if lspconfig[server_name] then
-    lspconfig[server_name].setup(merged_config)
-  else
-    vim.notify(string.format("LSP config for %s not found", server_name), vim.log.levels.WARN)
-  end
+  vim.lsp.config(server_name, merged_config)
+  vim.lsp.enable(server_name, true)
 end
 
-require('lsp.commands')
-require('core.autoloader').load("lsp.configs")
+M.setup = function()
+  require('lsp.commands')
+  require('core.autoloader').load("lsp.configs")
+end
 
 return M

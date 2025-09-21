@@ -1,4 +1,4 @@
-require('lsp').setup('pylsp', {
+require('lsp').configure_lsp('pylsp', {
   cmd = { 'pylsp' },
   filetypes = { 'python' },
   root_markers = {

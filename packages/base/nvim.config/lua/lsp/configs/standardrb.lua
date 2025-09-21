@@ -1,4 +1,4 @@
-require('lsp').setup('standardrb', {
+require('lsp').configure_lsp('standardrb', {
   cmd = { 'standardrb', '--lsp' },
   filetypes = { 'ruby' },
   root_markers = { 'Gemfile', '.git' },

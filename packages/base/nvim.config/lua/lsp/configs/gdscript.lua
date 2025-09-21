@@ -7,7 +7,7 @@ if not is_server_running then
   vim.fn.serverstart(server_pipe_path)
 end
 
-require('lsp').setup('gdscript', {
+require('lsp').configure_lsp('gdscript', {
   cmd = cmd,
   filetypes = { 'gd', 'gdscript', 'gdscript3' },
   root_markers = { 'project.godot', '.git' },

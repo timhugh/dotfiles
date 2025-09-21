@@ -1,4 +1,4 @@
-require('lsp').setup('yamlls', {
+require('lsp').configure_lsp('yamlls', {
   cmd = { 'yaml-language-server', '--stdio' },
   filetypes = { 'yaml', 'yaml.docker-compose', 'yaml.gitlab', 'yaml.helm-values' },
   root_markers = { '.git' },

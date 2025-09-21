@@ -1,4 +1,4 @@
-require('lsp').setup('jsonls', {
+require('lsp').configure_lsp('jsonls', {
   cmd = { 'vscode-json-language-server', '--stdio' },
   filetypes = { 'json', 'jsonc' },
   init_options = {

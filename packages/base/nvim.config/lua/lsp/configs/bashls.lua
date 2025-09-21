@@ -1,4 +1,4 @@
-require('lsp').setup('bashls', {
+require('lsp').configure_lsp('bashls', {
   cmd = { 'bash-language-server', 'start' },
   filetypes = { 'sh', 'bash', 'zsh' },
   root_markers = { '.git' },

@@ -1,4 +1,4 @@
-require('lsp').setup('solargraph', {
+require('lsp').configure_lsp('solargraph', {
   cmd = { 'solargraph', 'stdio' },
   settings = {
     solargraph = {

@@ -1,4 +1,4 @@
-require('lsp').setup('tailwindcss', {
+require('lsp').configure_lsp('tailwindcss', {
   cmd = { 'tailwindcss-language-server', '--stdio' },
   filetypes = {
     'html',

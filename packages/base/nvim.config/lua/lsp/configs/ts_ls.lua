@@ -1,4 +1,4 @@
-require('lsp').setup('ts_ls', {
+require('lsp').configure_lsp('ts_ls', {
   init_options = { hostInfo = 'neovim' },
   cmd = { 'typescript-language-server', '--stdio' },
   filetypes = {

@@ -1,4 +1,4 @@
-require('lsp').setup('cssls', {
+require('lsp').configure_lsp('cssls', {
   cmd = { 'vscode-css-language-server', '--stdio' },
   filetypes = { 'css', 'scss', 'less' },
   root_markers = { 'package.json', '.git' },
