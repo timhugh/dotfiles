@@ -39,16 +39,19 @@ vim.keymap.set("n", "<leader>/", "<cmd>:nohlsearch<cr>")
 -- show messages
 vim.keymap.set("n", "<leader>m", "<cmd>:messages<cr>")
 
--- toggle wrap
-vim.keymap.set("n", "<leader>w", "<cmd>:set wrap!<cr>")
-
 -- copy path to clipboard
-vim.api.nvim_create_user_command("Cppath", function()
-    local path = vim.fn.expand("%:p")
-    vim.fn.setreg("+", path)
-    vim.notify('Copied "' .. path .. '" to the clipboard!')
+vim.api.nvim_create_user_command("CopyProjectPath", function()
+  local path = vim.fn.expand("%")
+  vim.fn.setreg("+", path)
+  vim.notify('Copied "' .. path .. '" to the clipboard!')
 end, {})
-vim.keymap.set("n", "<leader>y", "<cmd>:Cppath<cr>")
+vim.api.nvim_create_user_command("CopyAbsolutePath", function()
+  local path = vim.fn.expand("%:p")
+  vim.fn.setreg("+", path)
+  vim.notify('Copied "' .. path .. '" to the clipboard!')
+end, {})
+vim.keymap.set("n", "<leader>y", "<cmd>:CopyProjectPath<cr>")
+vim.keymap.set("n", "<leader>Y", "<cmd>:CopyAbsolutePath<cr>")
 
 -- exit terminal mode
 vim.keymap.set("t", "<ESC>", "<c-\\><c-n>")

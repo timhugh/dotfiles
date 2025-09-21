@@ -58,6 +58,6 @@ end
 
 M.setup = function()
   require('lsp.commands')
-  require('core.autoloader').load("lsp/configs")
+  require('util.autoloader').load("lsp/configs")
 end
 return M
