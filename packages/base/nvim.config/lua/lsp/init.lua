@@ -1,17 +1,6 @@
 local M = {}
 
--- some LSPs (like copilot) are not actually LSPs and need to be handled differently at times
-local unsupported_lsps = {
-  copilot = true,
-}
-
-local function is_unsupported_lsp(client)
-  return unsupported_lsps[client.name] or false
-end
-
-local function is_supported_lsp(client)
-  return not is_unsupported_lsp(client)
-end
+local utils = require('lsp.utils')
 
 -- This is adapted from https://artem.rocks/posts/workspace_diagnostics_nvim
 -- I added some extra checks to ensure that the client is actually going to provide diagnostics correctly (e.g. not copilot)
@@ -21,7 +10,7 @@ end
 -- all of the files at launch and whether or not that will be a performance problem, and also whether or not it will update
 -- correctly as files are changed.
 local function lsp_supports_workspace_diagnostics(client)
-  return vim.tbl_get(client.server_capabilities, 'textDocumentSync', 'openClose') and is_supported_lsp(client)
+  return vim.tbl_get(client.server_capabilities, 'textDocumentSync', 'openClose') and utils.is_supported_lsp(client)
 end
 
 M.loaded_clients = {}

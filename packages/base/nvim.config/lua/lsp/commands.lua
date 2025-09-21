@@ -1,15 +1,4 @@
--- some LSPs (like copilot) are not actually LSPs and need to be handled differently at times
-local unsupported_lsps = {
-  copilot = true,
-}
-
-local function is_unsupported_lsp(client)
-  return unsupported_lsps[client.name] or false
-end
-
-local function is_supported_lsp(client)
-  return not is_unsupported_lsp(client)
-end
+local utils = require('lsp.utils')
 
 vim.api.nvim_create_user_command('LspLog', function()
   local log_path = vim.lsp.get_log_path()
@@ -28,7 +17,7 @@ vim.api.nvim_create_user_command('LspRestart', function()
   local bufnr = vim.api.nvim_get_current_buf()
   local clients = vim.lsp.get_clients({ bufnr = bufnr })
   for _, client in ipairs(clients) do
-    if is_supported_lsp(client) then
+    if utils.is_supported_lsp(client) then
       vim.lsp.enable(client.name, false)
       vim.lsp.enable(client.name, true)
     end
