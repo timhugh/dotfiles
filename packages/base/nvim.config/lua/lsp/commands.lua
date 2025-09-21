@@ -24,3 +24,7 @@ vim.api.nvim_create_user_command('LspRestart', function()
   end
 end, { desc = "Restart LSP servers" })
 
+vim.api.nvim_create_user_command('LspWorkspaceDiagnostics', function()
+  require('lsp.workspace_diagnostics').run()
+end, { desc = 'Run workspace diagnostics for the entire project' })
+
