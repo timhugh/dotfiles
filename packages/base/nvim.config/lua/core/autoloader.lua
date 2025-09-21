@@ -8,7 +8,7 @@ function M.load(module_path)
     if file:match("%.lua$") then
       local module_name = file:gsub("%.lua$", "")
       local full_module_path = module_path .. "." .. module_name
-      pcall(require, full_module_path)
+      require(full_module_path)
     end
   end
 end

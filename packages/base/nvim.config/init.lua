@@ -3,6 +3,6 @@ if vim.g.vscode then
 else
   require("core.options")
   require("core.mappings")
-  require("lsp").setup()
   require("core.lazy").setup()
+  require("lsp").setup()
 end
