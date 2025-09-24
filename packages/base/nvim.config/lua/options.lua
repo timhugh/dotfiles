@@ -32,5 +32,4 @@ vim.diagnostic.config({
 
 -- fuzzy omnifunc
 vim.opt.completeopt = { "fuzzy", "menuone", "noinsert" }
-vim.opt.omnifunc = "v:lua.vim.lsp.omnifunc"
 
