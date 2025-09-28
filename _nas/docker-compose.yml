@@ -1,4 +1,22 @@
 services:
+  tailscale:
+    container_name: tailscale
+    hostname: apollo
+    image: tailscale/tailscale:latest
+    network_mode: host
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    devices:
+      - /dev/net/tun
+    volumes:
+      - tailscale-state:/var/lib/tailscale
+    environment:
+      - TS_AUTHKEY=$TAILSCALE_AUTH_KEY
+      - TS_STATE_DIR=/var/lib/tailscale
+      - TS_USERSPACE=false
+
   home-assistant:
     container_name: home-assistant
     image: lscr.io/linuxserver/homeassistant:latest
@@ -45,3 +63,4 @@ volumes:
   omada-data:
   omada-logs:
   omada-work:
+  tailscale-state:
