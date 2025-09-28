@@ -19,7 +19,7 @@ services:
 
   home-assistant:
     container_name: home-assistant
-    image: lscr.io/linuxserver/homeassistant:latest
+    image: ghcr.io/home-assistant/home-assistant:latest
     restart: unless-stopped
     volumes:
       - home-assistant-config:/config
