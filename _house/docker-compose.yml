@@ -3,8 +3,12 @@ services:
     container_name: home-assistant
     image: ghcr.io/home-assistant/home-assistant:latest
     restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
     volumes:
       - home-assistant-config:/config
+      - /run/dbus:/run/dbus:ro
     network_mode: host
     environment:
       - PUID=1000
