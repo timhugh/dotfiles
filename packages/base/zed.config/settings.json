@@ -14,7 +14,7 @@
   "theme": {
     "mode": "system",
     "light": "macOS Classic Light",
-    "dark": "Ayu Dark"
+    "dark": "Carbonfox"
   },
   "buffer_font_family": "IntoneMono Nerd Font",
   "wrap_guides": [120],
@@ -78,10 +78,10 @@
     "Ruby": {
       "language_servers": [
         "ruby-lsp",
-        "standard",
-        "sorbet",
+        "!standard",
+        "!sorbet",
         "!solargraph",
-        "!rubocop"
+        "rubocop"
       ],
       "formatter": "language_server",
       "enable_language_server": true
