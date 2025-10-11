@@ -24,6 +24,12 @@ brew "zsh"
 brew "sqlite"
 cask "ghostty"
 cask "tableplus"
+brew "libyaml" # for ruby
+
+# devices
+cask "via"
+cask "elgato-stream-deck"
+cask "elgato-camera-hub"
 
 # nvim
 brew "fd"
@@ -41,3 +47,11 @@ cask "scroll-reverser"
 
 # browsers
 cask "firefox"
+
+# cpp
+# note we're not actually using this version of clang because it's managed by mise
+# but we still want clang-tidy, etc
+brew "llvm"
+
+brew "cmake-language-server"
+brew "platformio"

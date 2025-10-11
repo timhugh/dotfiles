@@ -1,6 +1,0 @@
-# note we're not actually using this version of clang because it's managed by mise
-# but we still want clang-tidy, etc
-brew "llvm"
-
-brew "cmake-language-server"
-brew "platformio"
