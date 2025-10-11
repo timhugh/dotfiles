@@ -1,5 +1,5 @@
-font-family = Source Code Pro
+font-family = Lilex
 font-size = 15
-adjust-cell-height = 30%
+adjust-cell-height = 40%
 
 theme = dark:Builtin Pastel Dark,light:Catppuccin Latte
