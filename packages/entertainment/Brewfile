@@ -1,2 +1,4 @@
 cask "discord"
+cask "dosbox"
+cask "retroarch"
 cask "steam"
