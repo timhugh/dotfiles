@@ -4,6 +4,10 @@ return {
     keys = {
       { "<leader>z", "<cmd>ZenMode<cr>", desc = "Toggle zen mode" },
     },
-    opts = { }
-  }
+    opts = {
+      window = {
+        width = 1,
+      },
+    },
+  },
 }
