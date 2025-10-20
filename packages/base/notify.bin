@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [ -d /Applications/terminal-notifier.app ]; then
+    /Applications/terminal-notifier.app/Contents/MacOS/terminal-notifier -message "$@"
+fi
+say -v Alex "$*"
