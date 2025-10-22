@@ -4,7 +4,7 @@ tar -xzvf "${HOME}"/share/nvim-macos-arm64.tar.gz "${HOME}"/share/nvim-macos-arm
 rm "${HOME}"/share/nvim-macos-arm64.tar.gz
 
 rm -rf /opt/homebrew/lib/node_modules/neovim
-npm install -g neovim
+npm install -g neovim tree-sitter-cli
 pip install neovim
 gem install neovim
 
