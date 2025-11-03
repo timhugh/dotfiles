@@ -3,23 +3,27 @@ mkdir -p "${HOME}/.gnupg"
 keyring_file="${HOME}/.gnupg/gnu-keyring.gpg"
 keyring_temp_file="${HOME}/tmp/dotfiles/gnu-keyring.gpg"
 
-echo "Checking for GNU project GPG key updates"
-existing_md5sum=$(md5sum "${keyring_file}" 2>/dev/null | awk '{print $1}' || echo "")
-wget -q -O "${keyring_temp_file}" https://ftp.gnu.org/gnu/gnu-keyring.gpg
-new_md5sum=$(md5sum "${keyring_temp_file}" | awk '{print $1}')
-echo "Old keyring md5: ${existing_md5sum}"
-echo "New keyring md5: ${new_md5sum}"
-if [ "${existing_md5sum}" != "${new_md5sum}" ]; then
-    timestamp=$(date +%s)
-    logfile="${HOME}/tmp/dotfiles/cpp-install-gnu-gpg-import-${timestamp}.log"
-    echo "Importing GNU project GPG keys. This is noisy, so logs will be saved to:"
-    echo "${logfile}"
-    mv "${keyring_temp_file}" "${keyring_file}"
-    gpg --import "${keyring_file}" > "${logfile}" 2>&1
-else
-    echo "GNU keyring is up to date, no changes made."
-    rm "${keyring_temp_file}"
-fi
+# echo "Checking for GNU project GPG key updates"
+# existing_md5sum=$(cat "${keyring_file}.md5" 2>/dev/null || echo "none")
+# echo "Downloading latest GNU project GPG keyring"
+# wget -q -O "${keyring_temp_file}" https://ftp.gnu.org/gnu/gnu-keyring.gpg
+# echo "Calculating md5sum of downloaded keyring"
+# new_md5sum=$(md5sum "${keyring_temp_file}" | awk '{print $1}')
+# echo "Old keyring md5: ${existing_md5sum}"
+# echo "New keyring md5: ${new_md5sum}"
+# if [ "${existing_md5sum}" != "${new_md5sum}" ]; then
+#     timestamp=$(date +%s)
+#     logfile="${HOME}/tmp/dotfiles/cpp-install-gnu-gpg-import-${timestamp}.log"
+#     echo "Importing GNU project GPG keys. This is noisy, so logs will be saved to:"
+#     echo "${logfile}"
+#     mv "${keyring_temp_file}" "${keyring_file}"
+#     gpg --import "${keyring_file}" > "${logfile}" 2>&1
+#     echo "${new_md5sum}" > "${keyring_file}.md5"
+#     echo "GNU project GPG keys imported and keyring updated."
+# else
+#     echo "GNU keyring is up to date, no changes made."
+#     rm "${keyring_temp_file}"
+# fi
 
 echo "Installing GNU make"
 mise use --global make@latest
@@ -37,8 +41,8 @@ mise use --global meson@latest
 echo "Installing clang"
 mise install clang@latest
 echo "Creating clang++ symlink"
-mise-llvm only supplies a clang binary
-clang_dir=$(dirname $(mise which clang))
+# mise-llvm only supplies a clang binary
+clang_dir=$(dirname $(mise exec clang@latest -- which clang))
 ln -sf "${clang_dir}/clang" "${clang_dir}/clang++"
 
 echo "Installing clangd"
