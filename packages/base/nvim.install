@@ -1,9 +1,3 @@
-mkdir -p "${HOME}"/share
-wget -O "${HOME}"/share/nvim-macos-arm64.tar.gz https://github.com/neovim/neovim/releases/download/nightly/nvim-macos-arm64.tar.gz
-tar -xzvf "${HOME}"/share/nvim-macos-arm64.tar.gz "${HOME}"/share/nvim-macos-arm64
-rm "${HOME}"/share/nvim-macos-arm64.tar.gz
-
-rm -rf /opt/homebrew/lib/node_modules/neovim
 npm install -g neovim tree-sitter-cli
 pip install neovim
 gem install neovim

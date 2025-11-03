@@ -1,1 +1,7 @@
-swift ./register_fonts.swift ./fonts
+if [[ $(uname) == "Darwin" ]]; then
+  swift ./register_fonts.swift ./fonts
+elif [[ $(uname) == "Linux" ]]; then
+  mkdir -p ~/.local/share/fonts
+  cp -r ./fonts/* ~/.local/share/fonts/
+  fc-cache -f ~/.local/share/fonts
+fi

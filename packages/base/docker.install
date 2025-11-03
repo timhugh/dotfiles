@@ -1,2 +1,0 @@
-mkdir -p "${HOME}/.zsh_completions.d"
-docker completion zsh > "${HOME}/.zsh_completions.d/_docker"

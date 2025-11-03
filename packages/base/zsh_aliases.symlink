@@ -14,7 +14,7 @@ alias ...='cd ../..'
 alias ~='cd ~'
 
 # quickly access dotfiles
-alias dotfiles='cd ${HOME}/share/dotfiles'
-alias dotfiles-edit='zsh -c "cd ${HOME}/share/dotfiles && nvim && exit"'
+alias dotfiles='cd ${HOME}/git/timhugh/dotfiles'
+alias dotfiles-edit='zsh -c "cd ${HOME}/git/timhugh/dotfiles && nvim && exit"'
 
 alias watch='watchexec --clear clear --restart'

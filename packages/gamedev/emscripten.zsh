@@ -1,4 +1,4 @@
-if [ -d "$HOME/share/emsdk" ]; then
+if [ -d "$HOME/git/emscripten-core/emsdk" ]; then
   export EMSDK_QUIET=1
-  source "$HOME/share/emsdk/emsdk_env.sh"
+  source "$HOME/git/emscripten-core/emsdk/emsdk_env.sh"
 fi

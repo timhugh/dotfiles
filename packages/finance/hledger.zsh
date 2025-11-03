@@ -1,1 +1,1 @@
-export LEDGER_FILE="$HOME/share/ledger/ledger"
+export LEDGER_FILE="$HOME/git/timhugh/ledger/ledger"

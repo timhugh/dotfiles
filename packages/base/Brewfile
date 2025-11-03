@@ -27,11 +27,6 @@ cask "ghostty"
 cask "tableplus"
 brew "libyaml" # for ruby
 
-# devices
-cask "via"
-cask "elgato-stream-deck"
-cask "elgato-camera-hub"
-
 # nvim
 brew "fd"
 brew "fzf"

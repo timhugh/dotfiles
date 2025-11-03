@@ -29,7 +29,7 @@ return {
             icon = '',
             desc = 'Edit dotfiles',
             group = 'DashboardShortCut',
-            action = 'cd ~/.dotfiles | edit .',
+            action = 'cd ~/git/timhugh/dotfiles | edit .',
             key = 'D',
           },
           {
