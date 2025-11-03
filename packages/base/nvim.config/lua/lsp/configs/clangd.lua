@@ -50,9 +50,7 @@ require('lsp').configure_lsp('clangd', {
       client.offset_encoding = init_result.offsetEncoding
     end
   end,
-  on_attach = function(client, bufnr)
-    if client.name == 'clangd' then
-      vim.keymap.set('n', '<leader>ch', switch_source_header, { buffer = bufnr, desc = 'Switch source/header' })
-    end
+  on_attach = function(_, bufnr)
+    vim.keymap.set('n', '<leader>ch', switch_source_header, { buffer = bufnr, desc = 'Switch source/header' })
   end,
 })
