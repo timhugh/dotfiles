@@ -1,4 +1,0 @@
-cask "notion-calendar"
-cask "openvpn-connect"
-cask "slack"
-mas "spark", id: 1176895641

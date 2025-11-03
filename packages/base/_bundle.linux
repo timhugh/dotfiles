@@ -1,7 +1,3 @@
-#!/usr/bin/env bash
-
-set -euo pipefail
-
 sudo apt-get update
 sudo apt-get upgrade
 
@@ -19,7 +15,17 @@ sudo apt-get install -y \
 	jq \
 	pkgconf \
 	sqlite3 \
+    libffi-dev \
+    libyaml-dev \
 	zsh
+
+echo "changing user ${USER}'s shell to zsh"
+chsh -s /usr/bin/zsh
+
+echo 'installing mise'
+curl https://mise.run | sh
+echo 'activating mise'
+eval "$(mise activate bash)"
 
 echo 'installing neovim dependencies'
 sudo apt-get install -y \

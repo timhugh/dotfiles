@@ -1,7 +1,0 @@
-mkdir -p "${HOME}/tmp"
-[[! -d "${HOME}/tmp/font-patcher.zip" ]] && wget -O "${HOME}/tmp/font-patcher.zip" https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FontPatcher.zip
-[[! -d "${HOME}/.font-patcher" ]] && unzip -o -d "${HOME}/.font-patcher" "${HOME}/tmp/font-patcher.zip"
-
-npm install --global google-font-installer
-nodenv rehash
-

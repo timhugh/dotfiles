@@ -7,4 +7,3 @@ alias kibana-dev='open http://localhost:5601'
 
 alias dc="docker compose"
 alias dcl="docker compose logs -f --tail 0"
-
