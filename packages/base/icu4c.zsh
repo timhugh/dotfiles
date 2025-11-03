@@ -1,4 +1,4 @@
-if command -v brew; then
+if command -v brew >/dev/null 2>&1; then
 	icu4c="$(brew --prefix icu4c)"
 
 	export PATH="$icu4c/bin:$PATH"
