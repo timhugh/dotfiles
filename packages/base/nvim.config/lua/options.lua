@@ -31,8 +31,4 @@ vim.diagnostic.config({
 })
 
 -- fuzzy omnifunc
-if vim.fn.exists("&autocomplete") == 1 then
-    vim.opt.autocomplete = true
-end
 vim.opt.completeopt = { "fuzzy", "menuone", "noinsert", "popup" }
-
