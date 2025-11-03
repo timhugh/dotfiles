@@ -29,7 +29,8 @@ function replace_symlink() {
             return
         fi
     fi
-    ln -fs "$src" "$dest"
+    rm -f "$dest"
+    ln -s "$src" "$dest"
 }
 
 echo "Welcome to your friendly dotfiles installer!"
