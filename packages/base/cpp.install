@@ -32,8 +32,7 @@ echo "Installing Ninja build system"
 mise use --global ninja@latest
 
 echo "Installing CMake"
-# Building from source because for some reason the cmake binaries are not valid
-ASDF_CMAKE_FORCE_SOURCE_INSTALL=1 mise use --global cmake@latest
+mise use --global cmake@latest
 
 echo "Installing meson"
 mise use --global meson@latest

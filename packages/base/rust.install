@@ -1,1 +1,2 @@
 mise use --global rust@latest
+mise use --global rust-analyzer@latest
