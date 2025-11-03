@@ -8,6 +8,30 @@ branch=main
 dotfiles_src="https://github.com/timhugh/dotfiles/archive/${branch}.zip"
 dot_root="${HOME}/git/timhugh/dotfiles"
 
+function replace_symlink() {
+    local src="$1"
+    local dest="$2"
+
+    if [[ -e "$dest" && ! -L "$dest" ]]; then
+        echo "Hold up! There's something at $dest."
+        echo "Would you like to delete it, back it up, or skip linking? (d/b/S) > "
+        read -rk 1 action
+        echo
+        if [[ $action == "d" ]]; then
+            echo "Deleting $dest"
+            rm -rf "$dest"
+        elif [[ $action == "b" ]]; then
+            timestamp=$(date +%Y%m%d%H%M%S)
+            echo "Backing up $dest to ${dest}.backup.${timestamp}"
+            mv "$dest" "${dest}.backup.${timestamp}"
+        else
+            echo "Skipping linking for $dest"
+            return
+        fi
+    fi
+    ln -fs "$src" "$dest"
+}
+
 echo "Welcome to your friendly dotfiles installer!"
 os=
 if [[ $(uname) == "Darwin" ]]; then
@@ -56,39 +80,37 @@ for package in "${packages[@]}"; do
 
     cd "$dot_root/packages/$package"
 
-    if [[ -f "_install.${os}" ]]; then
-        echo "Running ${os} installer"
-        source "_install.${os}"
+    if [[ -f "_bundle.${os}" ]]; then
+        echo "Installing ${os} bundle"
+        source "_bundle.${os}"
     fi
 
     for f in *.zsh; do
         dest="${HOME}/.zsh_profile.d/${f}"
-        echo "Installing $f in zsh profile"
-        echo "Linking $f in zsh profile"
-        ln -fs "$dot_root/packages/$package/$f" "$dest"
-
+        echo "Installing ${dest}"
+        replace_symlink "$dot_root/packages/$package/$f" "$dest"
         echo "Sourcing ${dest}"
         source "$dest"
     done
 
     for f in *.symlink; do
         dest="${HOME}/.${f%.symlink}"
-        echo "Linking $f in home directory"
-        ln -fs "$dot_root/packages/$package/$f" "$dest"
+        echo "Installing ${dest}"
+        replace_symlink "$dot_root/packages/$package/$f" "$dest"
     done
 
     for f in *.config; do
         dest="${HOME}/.config/${f%.config}"
         mkdir -p "${HOME}/.config"
-        echo "Linking $f in config directory"
-        ln -fs "$dot_root/packages/$package/$f" "$dest"
+        echo "Installing ${dest}"
+        replace_symlink "$dot_root/packages/$package/$f" "$dest"
     done
 
     for f in *.bin; do
         dest="${HOME}/.local/bin/${f%.bin}"
         mkdir -p "${HOME}/.local/bin"
-        echo "Linking $f in bin directory"
-        ln -fs "$dot_root/packages/$package/$f" "$dest"
+        echo "Installing ${dest}"
+        replace_symlink "$dot_root/packages/$package/$f" "$dest"
     done
 
     for f in *.install; do
