@@ -9,11 +9,22 @@ dotfiles_src="https://github.com/timhugh/dotfiles/archive/${branch}.zip"
 dot_root="${HOME}/git/timhugh/dotfiles"
 
 echo "Welcome to your friendly dotfiles installer!"
+os=
+if [[ $(uname) == "Darwin" ]]; then
+    echo "Detected macOS"
+    os="macos"
+elif [[ $(uname) == "Linux" ]]; then
+    echo "Detected Linux"
+    os="linux"
+else
+    echo "Sorry, I don't recognize your operating system: $(uname)"
+    exit 1
+fi
 
 default_packages=(base)
-if [[ $(uname) == "Darwin" ]]; then
+if [[ $os == "macos" ]]; then
     default_packages+=(macos)
-elif [[ $(uname) == "Linux" ]]; then
+elif [[ $os == "linux" ]]; then
     default_packages+=(linux)
 fi
 packages=()
@@ -45,9 +56,9 @@ for package in "${packages[@]}"; do
 
     cd "$dot_root/packages/$package"
 
-    if [[ -f Brewfile ]]; then
-        echo "Bundling brewfile"
-        brew bundle
+    if [[ -f "_install.${os}" ]]; then
+        echo "Running ${os} installer"
+        source "_install.${os}"
     fi
 
     for f in *.zsh; do
