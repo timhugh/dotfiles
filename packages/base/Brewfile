@@ -9,6 +9,7 @@ brew "curl"
 brew "direnv"
 brew "git"
 brew "git-lfs"
+brew "gh"
 brew "gpg"
 brew "icu4c" # for postgres
 brew "jq"
