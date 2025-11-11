@@ -1,16 +1,17 @@
 echo 'installing extra applications'
 sudo apt-get install -y \
-    blender
+    blender \
+    python3-numpy
 
 echo 'downloading and installing discord'
-if ! command -v discord; then
+if ! command -v discord &> /dev/null; then
     wget "https://discord.com/api/download?platform=linux" -O ~/Downloads/discord.deb
     sudo apt-get --fix-broken install ~/Downloads/discord.deb
     rm ~/Downloads/discord.deb
 fi
 
 echo 'downloading and installing godot'
-if ! command -v godot; then
+if ! command -v godot &> /dev/null; then
 	godot_version=4.5.1
 	wget "https://downloads.godotengine.org/?version=${godot_version}&flavor=stable&slug=linux.x86_64.zip&platform=linux.64" -O ~/Downloads/godot.zip
 	unzip ~/Downloads/godot.zip -d ~/Downloads/

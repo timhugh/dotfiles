@@ -36,7 +36,7 @@ sudo apt-get install -y \
 	xclip
 
 echo 'installing docker'
-if ! command -v docker; then
+if ! command -v docker &> /dev/null; then
 	sudo install -m 0755 -d /etc/apt/keyrings
 	sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 	sudo chmod a+r /etc/apt/keyrings/docker.asc
@@ -52,21 +52,21 @@ echo 'installing firefox'
 sudo snap install firefox
 
 echo 'downloading and installing watchexec'
-if ! command -v watchexec; then
+if ! command -v watchexec &> /dev/null; then
 	wget https://github.com/watchexec/watchexec/releases/download/v2.3.2/watchexec-2.3.2-x86_64-unknown-linux-gnu.deb -O ~/Downloads/watchexec.deb
 	sudo apt-get --fix-broken install ~/Downloads/watchexec.deb
 	rm ~/Downloads/watchexec.deb
 fi
 
 echo 'downloading and installing 1password'
-if ! command -v 1password; then
+if ! command -v 1password &> /dev/null; then
 	wget https://downloads.1password.com/linux/debian/amd64/stable/1password-latest.deb -O ~/Downloads/1password.deb -O ~/Downloads/1password.deb
 	sudo apt-get --fix-broken install ~/Downloads/1password.deb
 	rm ~/Downloads/1password.deb
 fi
 
 echo 'downloading and installing ghostty'
-if ! command -v ghostty; then
+if ! command -v ghostty &> /dev/null; then
 	wget https://github.com/mkasberg/ghostty-ubuntu/releases/download/1.2.3-0-ppa1/ghostty_1.2.3-0.ppa1_amd64_24.04.deb -O ~/Downloads/ghostty.deb
 	sudo apt-get --fix-broken install ~/Downloads/ghostty.deb
 	rm ~/Downloads/ghostty.deb
