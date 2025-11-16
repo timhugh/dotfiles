@@ -39,6 +39,8 @@ M.on_attach = function(client, bufnr)
   end
 end
 
+--- @param server_name string
+--- @param config vim.lsp.Config
 M.configure_lsp = function(server_name, config)
   config = config or {}
 
