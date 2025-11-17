@@ -1,5 +1,5 @@
 font-family = Lilex
 font-size = 15
 adjust-cell-height = 40%
-
+window-inherit-working-directory = false
 theme = dark:Builtin Pastel Dark,light:Catppuccin Latte
