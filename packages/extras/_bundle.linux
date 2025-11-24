@@ -1,19 +1,27 @@
 echo 'installing extra applications'
+
 sudo apt-get install -y \
     blender \
-    python3-numpy
+    python3-numpy \
+    dosbox
 
-echo 'downloading and installing discord'
 if ! command -v discord &> /dev/null; then
+    echo 'downloading and installing discord'
     wget "https://discord.com/api/download?platform=linux" -O ~/Downloads/discord.deb
     sudo apt-get --fix-broken install ~/Downloads/discord.deb
     rm ~/Downloads/discord.deb
 fi
 
-echo 'downloading and installing godot'
 if ! command -v godot &> /dev/null; then
+    echo 'downloading and installing godot'
 	godot_version=4.5.1
 	wget "https://downloads.godotengine.org/?version=${godot_version}&flavor=stable&slug=linux.x86_64.zip&platform=linux.64" -O ~/Downloads/godot.zip
 	unzip ~/Downloads/godot.zip -d ~/Downloads/
 	mv ~/Downloads/Godot_v${godot_version}-stable_linux.x86_64 ~/.local/bin/godot
+fi
+
+if [ ! -f ~/.dosbox/dosbox-0.74-3.conf ]; then
+    echo 'installing dosbox config'
+    mkdir -p ~/.dosbox
+    ln -s "$(pwd)/dosbox.conf" ~/.dosbox/dosbox-0.74-3.conf
 fi

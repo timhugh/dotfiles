@@ -1,1 +1,6 @@
 brew bundle
+
+if [ ! -f "~/Library/Preferences/DOSBox 0.74-3 Preferences" ]; then
+    echo 'installing dosbox config'
+    ln -s "$(pwd)/dosbox.conf" "~/Library/Preferences/DOSBox 0.74-3 Preferences"
+fi
