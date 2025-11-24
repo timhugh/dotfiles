@@ -20,8 +20,8 @@ if ! command -v godot &> /dev/null; then
 	mv ~/Downloads/Godot_v${godot_version}-stable_linux.x86_64 ~/.local/bin/godot
 fi
 
-if [ ! -f ~/.dosbox/dosbox-0.74-3.conf ]; then
-    echo 'installing dosbox config'
-    mkdir -p ~/.dosbox
-    ln -s "$(pwd)/dosbox.conf" ~/.dosbox/dosbox-0.74-3.conf
-fi
+# we need the replace_symlink function
+source ../../_util.sh
+
+dosbox_config_path="$HOME/.dosbox/dosbox-0.74-3.conf"
+replace_symlink "$(pwd)/dosbox.conf" "$dosbox_config_path"

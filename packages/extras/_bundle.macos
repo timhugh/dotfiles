@@ -1,6 +1,7 @@
 brew bundle
 
-if [ ! -f "~/Library/Preferences/DOSBox 0.74-3 Preferences" ]; then
-    echo 'installing dosbox config'
-    ln -s "$(pwd)/dosbox.conf" "~/Library/Preferences/DOSBox 0.74-3 Preferences"
-fi
+# we need the replace_symlink function
+source ../../_util.sh
+
+dosbox_config_path="$HOME/Library/Preferences/DOSBox 0.74-3 Preferences"
+replace_symlink "$(pwd)/dosbox.conf" "$dosbox_config_path"
