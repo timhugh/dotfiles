@@ -5,11 +5,19 @@ sudo apt-get install -y \
     python3-numpy \
     dosbox
 
+echo 'creating discord install script at ~/.local/bin/install_discord'
+cat << 'EOF' > ~/.local/bin/install_discord
+#!/bin/bash
+set -euo pipefail
+echo 'downloading and installing discord'
+wget "https://discord.com/api/download?platform=linux" -O ~/Downloads/discord.deb
+sudo apt-get --fix-broken install "${HOME}"/Downloads/discord.deb
+rm "${HOME}"/Downloads/discord.deb
+EOF
+chmod +x ~/.local/bin/install_discord
+
 if ! command -v discord &> /dev/null; then
-    echo 'downloading and installing discord'
-    wget "https://discord.com/api/download?platform=linux" -O ~/Downloads/discord.deb
-    sudo apt-get --fix-broken install ~/Downloads/discord.deb
-    rm ~/Downloads/discord.deb
+    ~/.local/bin/install_discord
 fi
 
 if ! command -v godot &> /dev/null; then
