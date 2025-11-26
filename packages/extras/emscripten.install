@@ -1,6 +1,9 @@
 EMSDK_DIR="${HOME}/git/emscripten-core/emsdk"
 if [ ! -d "${EMSDK_DIR}" ]; then
   git clone https://github.com/emscripten-core/emsdk.git "${EMSDK_DIR}"
+else
+  cd "${EMSDK_DIR}"
+  git pull
 fi
 
 cd "${EMSDK_DIR}"
