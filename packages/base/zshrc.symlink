@@ -14,6 +14,9 @@ done
 # load aliases
 source "${HOME}/.zsh_aliases"
 
+# load completions
+autoload -Uz compinit && compinit
+
 # allow case insensitive matching
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' menu select
