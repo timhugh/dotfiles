@@ -32,7 +32,12 @@ echo "Installing Ninja build system"
 mise use --global ninja@latest
 
 echo "Installing CMake"
-mise use --global cmake@latest
+if [ "$(uname)" = "Darwin" ]; then
+    echo "Installing CMake with Darwin universal binary support"
+    ASDF_CMAKE_DARWIN_UNIVERSAL=1 mise use --global cmake@latest
+else
+    mise use --global cmake@latest
+fi
 
 echo "Installing meson"
 mise use --global meson@latest
