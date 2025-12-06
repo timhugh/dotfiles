@@ -20,6 +20,9 @@ vim.opt.autoindent = true
 
 vim.opt.colorcolumn = "120"
 
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
 -- settings for terminal buffers
 vim.api.nvim_command("autocmd TermOpen * startinsert")
 vim.api.nvim_command("autocmd TermOpen * setlocal nonumber norelativenumber nospell")
