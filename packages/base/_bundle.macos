@@ -1,1 +1,10 @@
 brew bundle
+
+if [ ! -f "${HOME}"/.local/bin/clang-tidy ]; then
+    cat << EOF > "${HOME}"/.local/bin/clang-tidy
+#!/usr/bin/env zsh
+
+exec "$(brew --prefix llvm)/bin/clang-tidy" "\$@"
+EOF
+    chmod +x "${HOME}"/.local/bin/clang-tidy
+fi
