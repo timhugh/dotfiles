@@ -15,6 +15,7 @@ done
 source "${HOME}/.zsh_aliases"
 
 # load completions
+fpath+=("${HOME}/.zsh_completions.d")
 autoload -Uz compinit && compinit
 
 # allow case insensitive matching

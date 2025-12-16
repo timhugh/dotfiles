@@ -6,6 +6,10 @@ setopt nullglob
 source ./_util.sh
 
 echo "Welcome to your friendly dotfiles installer!"
+
+########################################
+# Detect OS
+########################################
 os=
 if [[ $(uname) == "Darwin" ]]; then
     echo "Detected macOS"
@@ -18,6 +22,9 @@ else
     exit 1
 fi
 
+########################################
+# Determine packages to install
+########################################
 default_packages=(base)
 if [[ $os == "macos" ]]; then
     default_packages+=(macos)
@@ -44,7 +51,13 @@ read -rk 1 reply
 echo
 [[ $reply == "y" ]] || exit 1
 
+########################################
+# Install packages
+########################################
 mkdir -p "${HOME}/.zsh_profile.d"
+mkdir -p "${HOME}/.zsh_completions.d"
+mkdir -p "${HOME}/.local/bin"
+mkdir -p "${HOME}/.config"
 
 echo
 for package in "${packages[@]}"; do
@@ -66,6 +79,12 @@ for package in "${packages[@]}"; do
         source "$dest"
     done
 
+    for f in *.zsh_completions; do
+        dest="${HOME}/.zsh_completions.d/${f%.zsh_completions}"
+        echo "Installing ${dest}"
+        replace_symlink "$dot_root/packages/$package/$f" "$dest"
+    done
+
     for f in *.symlink; do
         dest="${HOME}/.${f%.symlink}"
         echo "Installing ${dest}"
@@ -74,14 +93,12 @@ for package in "${packages[@]}"; do
 
     for f in *.config; do
         dest="${HOME}/.config/${f%.config}"
-        mkdir -p "${HOME}/.config"
         echo "Installing ${dest}"
         replace_symlink "$dot_root/packages/$package/$f" "$dest"
     done
 
     for f in *.bin; do
         dest="${HOME}/.local/bin/${f%.bin}"
-        mkdir -p "${HOME}/.local/bin"
         echo "Installing ${dest}"
         replace_symlink "$dot_root/packages/$package/$f" "$dest"
     done
