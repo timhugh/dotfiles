@@ -25,12 +25,14 @@ fi
 ########################################
 # Determine packages to install
 ########################################
-default_packages=(base)
+default_packages=()
 if [[ $os == "macos" ]]; then
     default_packages+=(macos)
 elif [[ $os == "linux" ]]; then
     default_packages+=(linux)
 fi
+default_packages+=(base)
+
 packages=()
 if [[ -z "$*" ]]; then
     echo "You didn't specify any packages, so I'll use the default set"

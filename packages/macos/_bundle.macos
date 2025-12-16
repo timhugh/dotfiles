@@ -1,0 +1,51 @@
+function install_xcode_tools() {
+    if xcode-select -p &> /dev/null
+    then
+        echo "I see you already have Xcode Command Line Tools installed."
+        return;
+    fi
+
+    echo "Let's install Xcode Command Line Tools..."
+    # touch this file so softwareupdate will anticipate an xcode install
+    touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+    # get the version of the latest xcode tools and install
+    VER="$(softwareupdate --list | grep "\*.*Command Line" | tail -n 1 | sed 's/^[^C]* //')"
+    softwareupdate --install "$VER"
+    echo "Okay, now you have a C compiler."
+}
+
+function install_homebrew() {
+    if command -v /opt/homebrew/bin/brew &> /dev/null
+    then
+        echo "Nice! You already have Homebrew installed."
+        return
+    fi
+
+    echo "Let's install Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo "Great. Now you can install all the things!"
+}
+
+function install_rosetta() {
+    if [[ "$(uname -m)" != "arm64" ]]; then
+        echo "You're on an Intel Mac, no need to install Rosetta."
+        return
+    fi
+
+    if arch -arch x86_64 uname -m &> /dev/null
+    then
+        echo "You already have Rosetta installed."
+        return
+    fi
+
+    echo "Let's install Rosetta..."
+    /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+    echo "All done! Now you can run Intel apps on your arm64 Mac."
+}
+
+install_xcode_tools
+install_homebrew
+install_rosetta
+
+/opt/homebrew/bin/brew bundle
+
