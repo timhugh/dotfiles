@@ -57,6 +57,7 @@ echo
 mkdir -p "${HOME}/.zsh_profile.d"
 mkdir -p "${HOME}/.zsh_completions.d"
 mkdir -p "${HOME}/.local/bin"
+mkdir -p "${HOME}/.local/share"
 mkdir -p "${HOME}/.config"
 
 echo
@@ -91,6 +92,12 @@ for package in "${packages[@]}"; do
         replace_symlink "$dot_root/packages/$package/$f" "$dest"
     done
 
+    for f in *.share; do
+        dest="${HOME}/.local/share/${f%.share}"
+        echo "Installing ${dest}"
+        replace_symlink "$dot_root/packages/$package/$f" "$dest"
+    done
+
     for f in *.config; do
         dest="${HOME}/.config/${f%.config}"
         echo "Installing ${dest}"
@@ -110,7 +117,7 @@ for package in "${packages[@]}"; do
 
     for f in *.install; do
         echo "Executing installer $f"
-        source "$dot_root/packages/$package/$f"
+        /usr/bin/env zsh "$dot_root/packages/$package/$f"
     done
 
     echo "Done installing $package"

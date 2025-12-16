@@ -1,0 +1,24 @@
+#compdef edit edit_cd
+
+_edit() {
+    local root_dir="${HOME}/git" # default value, overridden by config file
+    source "${HOME}/.config/edit.conf" 2>/dev/null || true
+
+    local cur="${words[CURRENT]}"
+    local selected
+
+    selected=$({
+        for dir in "${root_dir}/"*(N/); do
+            echo "${dir:t}"
+        done
+        for user_dir in "${root_dir}/"*(N/); do
+            for repo in "${user_dir}/"*(N/); do
+                echo "${user_dir:t}/${repo:t}"
+            done
+        done
+    } | fzf --query="$cur" --select-1 --exit-0)
+
+    [[ -n "$selected" ]] && compadd -U "$selected"
+}
+
+_edit "$@"
