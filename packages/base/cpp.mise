@@ -33,8 +33,7 @@ mise use --global ninja@latest
 
 echo "Installing CMake"
 if [ "$(uname)" = "Darwin" ]; then
-    echo "Installing CMake with Darwin universal binary support"
-    ASDF_CMAKE_DARWIN_UNIVERSAL=1 mise use --global cmake@latest
+    mise use --global aqua:Kitware/CMake@latest
 else
     mise use --global cmake@latest
 fi
