@@ -1,0 +1,35 @@
+#compdef edit_project open_project
+
+RED_TEXT='\e[31m'
+YELLOW_TEXT='\e[33m'
+GREEN_TEXT='\e[32m'
+DEFAULT_TEXT='\e[0m'
+
+ERROR="${RED_TEXT}[ERROR]${DEFAULT_TEXT}"
+WARNING="${YELLOW_TEXT}[WARNING]${DEFAULT_TEXT}"
+
+EDIT_PROJECT_SCRIPT="${HOME}/.local/share/edit_project.sh"
+EDIT_PROJECT_CONFIG="${HOME}/.config/edit_project.conf"
+
+_edit_project() {
+    [[ ! -f "$EDIT_PROJECT_CONFIG" ]] && echo "configuration file not found at ${EDIT_PROJECT_CONFIG}" >&2 && return 1
+    source "${HOME}/.config/edit_project.conf" 2>/dev/null || true
+    [[ -z "$root_dir" ]] && echo "configuration is incomplete! root_dir is not set" >&2 && return 1
+    [[ ! -d "$root_dir" ]] && echo "root_dir does not exist" >&2 && return 1
+
+    local cur="${words[CURRENT]}"
+    local selected
+
+    selected=$({
+        for dir in "${root_dir}/"*(N/); do
+            echo "${dir:t}"
+        done
+        for user_dir in "${root_dir}/"*(N/); do
+            for repo in "${user_dir}/"*(N/); do
+                echo "${user_dir:t}/${repo:t}"
+            done
+        done
+    } | fzf --query="$cur" --select-1 --exit-0)
+
+    [[ -n "$selected" ]] && compadd -U "$selected"
+}

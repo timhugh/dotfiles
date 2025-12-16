@@ -1,15 +1,29 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "Installing timhugh/edit"
+echo "Installing timhugh/edit_project"
 
-config_file="${HOME}/.config/edit.conf"
-mkdir -p "$(dirname "${config_file}")"
+RED_TEXT='\e[31m'
+YELLOW_TEXT='\e[33m'
+GREEN_TEXT='\e[32m'
+DEFAULT_TEXT='\e[0m'
+
+ERROR="${RED_TEXT}[ERROR]${DEFAULT_TEXT}"
+WARNING="${YELLOW_TEXT}[WARNING]${DEFAULT_TEXT}"
+
+EDIT_PROJECT_SCRIPT="${HOME}/.local/share/edit_project.sh"
+EDIT_PROJECT_CONFIG="${HOME}/.config/edit_project.conf"
+
+mkdir -p "$(dirname "${EDIT_PROJECT_CONFIG}")"
+
+################################
+# Helper functions
+################################
 
 usage() {
     echo "Usage: $0 [-h]"
     echo
-    echo "This script installs the timhugh/edit tool."
+    echo "This script installs the timhugh/edit_project tool."
     echo
     echo "Options:"
     echo "  -h    Show this help message and exit"
@@ -48,7 +62,7 @@ use_ssh="true"
 github_username=""
 editor=""
 
-source "${config_file}" 2>/dev/null || true
+source "${EDIT_PROJECT_CONFIG}" 2>/dev/null || true
 
 ################################
 # Prompt for configuration
@@ -90,7 +104,7 @@ if [ "${configure}" = "true" ]; then
 fi
 
 if [ "${configure}" = "true" ] || [ -z "${editor}" ]; then
-    read -r -p "What editor do you want to use? ('cd' to just change directories) [${editor}] " editor_input
+    read -r -p "What editor do you want to use? [${editor}] " editor_input
     editor="${editor_input:-${editor}}"
 fi
 
@@ -118,8 +132,8 @@ if [ "${configure}" = "true" ]; then
 fi
 
 echo
-echo "Saving configuration to ${config_file}"
-cat << EOF > "${config_file}"
+echo "Saving configuration to ${EDIT_PROJECT_CONFIG}"
+cat << EOF > "${EDIT_PROJECT_CONFIG}"
 github_username="${github_username}"
 root_dir="${root_dir}"
 auto_clone="${auto_clone}"
