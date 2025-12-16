@@ -1,7 +1,7 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 set -euo pipefail
-setopt nullglob
+shopt -s nullglob
 
 source ./_util.sh
 
@@ -46,8 +46,8 @@ echo "Here's what I'm going to install:"
 for package in "${packages[@]}"; do
     echo "  - $package"
 done
-print "Sound good? (y/N) > "
-read -rk 1 reply
+echo -n "Sound good? (y/N) > "
+read -r -n 1 reply
 echo
 [[ $reply == "y" ]] || exit 1
 
@@ -76,8 +76,6 @@ for package in "${packages[@]}"; do
         dest="${HOME}/.zsh_profile.d/${f}"
         echo "Installing ${dest}"
         replace_symlink "$dot_root/packages/$package/$f" "$dest"
-        echo "Sourcing ${dest}"
-        source "$dest"
     done
 
     for f in *.zsh_completions; do
@@ -117,7 +115,7 @@ for package in "${packages[@]}"; do
 
     for f in *.install; do
         echo "Executing installer $f"
-        /usr/bin/env zsh "$dot_root/packages/$package/$f"
+        /usr/bin/env bash "$dot_root/packages/$package/$f"
     done
 
     echo "Done installing $package"
