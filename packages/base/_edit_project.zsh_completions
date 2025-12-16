@@ -12,6 +12,10 @@ EDIT_PROJECT_SCRIPT="${HOME}/.local/share/edit_project.sh"
 EDIT_PROJECT_CONFIG="${HOME}/.config/edit_project.conf"
 
 _edit_project() {
+    # only complete the first argument
+    [[ $CURRENT -gt 2 ]] && return 0
+
+    # load configuration and validate
     [[ ! -f "$EDIT_PROJECT_CONFIG" ]] && echo "configuration file not found at ${EDIT_PROJECT_CONFIG}" >&2 && return 1
     source "${HOME}/.config/edit_project.conf" 2>/dev/null || true
     [[ -z "$root_dir" ]] && echo "configuration is incomplete! root_dir is not set" >&2 && return 1
