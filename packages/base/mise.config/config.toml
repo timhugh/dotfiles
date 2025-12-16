@@ -6,6 +6,7 @@ idiomatic_version_file_enable_tools = ["ruby", "go", "node", "java", "python"]
 clang-format = "21.1.7"
 clangd = "21.1.7"
 deno = "2.6.0"
+emsdk = "4.0.21"
 go = "1.25.5"
 golangci-lint = "2.7.2"
 golangci-lint-langserver = "0.0.11"
