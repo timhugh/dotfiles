@@ -14,6 +14,12 @@ return {
       win_options = {
         signcolumn = "yes:2",
       },
+      keymaps = {
+        ["<C-h>"] = false,
+        ["<C-->"] = { "actions.select", opts = { horizontal = true } },
+        ["<C-s>"] = false,
+        ["<C-\\>"] = { "actions.select", opts = { vertical = true } },
+      },
     },
   },
   {
