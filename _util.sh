@@ -1,6 +1,3 @@
-git_repo="git@github.com:timhugh/dotfiles.git"
-branch=main
-dotfiles_src="https://github.com/timhugh/dotfiles/archive/${branch}.zip"
 dot_root="${HOME}/git/timhugh/dotfiles"
 
 function replace_symlink() {
