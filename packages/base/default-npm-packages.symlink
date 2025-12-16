@@ -1,5 +1,7 @@
 @anthropic-ai/claude-code
-bash-language-server
 @tailwindcss/language-server
-typescript-language-server
+bash-language-server
+neovim
+tree-sitter-cli
 typescript
+typescript-language-server

@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-npm install -g neovim tree-sitter-cli
-pip install neovim
-gem install neovim
-
 # TODO: mason install all the LSPs
 nvim --headless "+Lazy! sync" +qa
