@@ -1,8 +1,6 @@
 return {
   {
     "zbirenbaum/copilot.lua",
-    -- "timhugh/copilot.lua",
-    -- branch = "timheuett/nodejs-commands",
     enabled = true,
     cmd = "Copilot",
     event = "InsertEnter",
