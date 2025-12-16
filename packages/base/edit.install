@@ -1,0 +1,7 @@
+if [ ! -d "${HOME}"/git/timhugh/edit ]; then
+    git clone "git@github.com:timhugh/edit.git" "${HOME}/git/timhugh/edit"
+fi
+
+(cd "${HOME}/git/timhugh/edit" && ./install.sh -y)
+
+ln -sf "${HOME}/.local/share/timhugh/edit/_edit" "${HOME}/.zsh_completions.d/_edit"
