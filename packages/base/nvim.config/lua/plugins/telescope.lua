@@ -7,24 +7,25 @@ return {
     },
     keys = {
       -- file related bindings
-      { "<leader>fb",  "<cmd>Telescope buffers<CR>",                   desc = "Find buffers" },
-      { "<leader>ff",  "<cmd>Telescope find_files<CR>",                desc = "Find file" },
-      { "<leader>fgS", "<cmd>Telescope git_status<CR>",                desc = "Find in git modified files vs HEAD" },
+      { "<leader>fb",  "<cmd>Telescope buffers<CR>",                   desc = "[Telescope] Find buffers" },
+      { "<leader>ff",  "<cmd>Telescope find_files<CR>",                desc = "[Telescope] Find file" },
+      { "<leader>fgS", "<cmd>Telescope git_status<CR>",                desc = "[Telescope] Find in git modified files vs HEAD" },
 
       -- grep related bindings
-      { "<leader>fg",  "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "Grep current buffer" },
-      { "<leader>fG",  "<cmd>Telescope live_grep<CR>",                 desc = "Grep all files" },
-      { "<leader>f*",  "<cmd>Telescope grep_string<CR>",               desc = "Grep all files (with current word)" },
+      { "<leader>fg",  "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "[Telescope] Grep current buffer" },
+      { "<leader>fG",  "<cmd>Telescope live_grep<CR>",                 desc = "[Telescope] Grep all files" },
+      { "<leader>f*",  "<cmd>Telescope grep_string<CR>",               desc = "[Telescope] Grep all files (with current word)" },
 
       -- lsp related bindings
-      { "<leader>fr",  "<cmd>Telescope lsp_references<CR>",            desc = "Find references (LSP)" },
-      { "<leader>fs",  "<cmd>Telescope lsp_document_symbols<CR>",      desc = "Find symbols in current buffer (LSP)" },
-      { "<leader>fS",  "<cmd>Telescope lsp_workspace_symbols<CR>",     desc = "Find symbols in workspace (LSP)" },
+      { "<leader>fr",  "<cmd>Telescope lsp_references<CR>",            desc = "[Telescope] Find references (LSP)" },
+      { "<leader>fs",  "<cmd>Telescope lsp_document_symbols<CR>",      desc = "[Telescope] Find symbols in current buffer (LSP)" },
+      { "<leader>fS",  "<cmd>Telescope lsp_workspace_symbols<CR>",     desc = "[Telescope] Find symbols in workspace (LSP)" },
+      { "<leader>fD",  "<cmd>Telescope diagnostics<CR>",               desc = "[Telescope] Find diagnostics (LSP)" },
 
       -- other
-      { "<leader>fk",  "<cmd>Telescope keymaps<CR>",                   desc = "Find mapped keys" },
-      { "<leader>ft",  "<cmd>Telescope builtin<CR>",                   desc = "Find builtin commands" },
-      { "<leader>fh",  "<cmd>Telescope command_history<CR>",           desc = "Find command history" },
+      { "<leader>fk",  "<cmd>Telescope keymaps<CR>",                   desc = "[Telescope] Find mapped keys" },
+      { "<leader>ft",  "<cmd>Telescope builtin<CR>",                   desc = "[Telescope] Find builtin commands" },
+      { "<leader>fh",  "<cmd>Telescope command_history<CR>",           desc = "[Telescope] Find command history" },
     },
   },
   {
