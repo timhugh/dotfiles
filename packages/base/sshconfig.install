@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
 mkdir -p "${HOME}"/.ssh/config.d
 
 [[ -L "${HOME}"/.ssh/config ]] || ln -fs "$(pwd)"/sshconfig "${HOME}"/.ssh/config

@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
 if [ -d ~/.gnupg ]; then
     # disable keyboxd backend until it is more battle-tested
     killall gpg-agent || true

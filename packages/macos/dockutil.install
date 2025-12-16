@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
 dockutil --remove all
 dockutil --add "${HOME}" --display folder --view grid
 dockutil --add "${HOME}"/Downloads --display folder --view grid

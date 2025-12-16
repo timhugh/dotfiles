@@ -115,7 +115,7 @@ for package in "${packages[@]}"; do
 
     for f in *.install; do
         echo "Executing installer $f"
-        /usr/bin/env bash "$dot_root/packages/$package/$f"
+        "$dot_root/packages/$package/$f"
     done
 
     echo "Done installing $package"
