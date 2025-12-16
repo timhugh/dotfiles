@@ -35,7 +35,7 @@ packages=()
 if [[ -z "$*" ]]; then
     echo "You didn't specify any packages, so I'll use the default set"
     echo "If you want to install a different set, you can pass them as arguments to this script, like: "
-    echo "  ./install.sh 3dprinting gamedev"
+    echo "  ./install.sh extras"
     echo
     packages+=("${default_packages[@]}")
 else
