@@ -11,7 +11,7 @@ function replace_symlink() {
         echo "  (S)kip linking"
         echo "  or ctrl-c to abort installer"
         echo "> "
-        read -rk 1 action
+        read -r -n 1 action
         echo
         if [[ $action == "d" ]]; then
             echo "Deleting $dest"

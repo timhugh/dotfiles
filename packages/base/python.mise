@@ -1,3 +1,0 @@
-mise settings add idiomatic_version_file_enable_tools python
-
-mise use --global python@latest

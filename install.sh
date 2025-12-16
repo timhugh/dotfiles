@@ -108,11 +108,6 @@ for package in "${packages[@]}"; do
         replace_symlink "$dot_root/packages/$package/$f" "$dest"
     done
 
-    for f in *.mise; do
-        echo "Executing mise installer $f"
-        source "$dot_root/packages/$package/$f"
-    done
-
     for f in *.install; do
         echo "Executing installer $f"
         "$dot_root/packages/$package/$f"
