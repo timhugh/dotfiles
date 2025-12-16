@@ -1,9 +1,0 @@
-#!/bin/zsh
-set -e
-
-if ! command -v zellij &> /dev/null; then
-    exit 0
-fi
-
-zellij setup --check > /dev/null
-echo "Zellij setup check passed"
