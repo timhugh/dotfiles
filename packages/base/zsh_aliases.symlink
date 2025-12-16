@@ -13,9 +13,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ~='cd ~'
 
-# quickly access dotfiles
-alias dotfiles='cd ${HOME}/git/timhugh/dotfiles'
-alias dotfiles-edit='zsh -c "cd ${HOME}/git/timhugh/dotfiles && nvim && exit"'
+alias e='edit_project'
+alias pd='open_project'
 
 alias watch='watchexec --clear clear --restart'
 
