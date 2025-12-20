@@ -13,7 +13,6 @@ brew "gh"
 brew "gpg"
 brew "icu4c" # for postgres
 brew "jq"
-brew "mise"
 brew "pkg-config"
 brew "openssh"
 brew "watchexec"

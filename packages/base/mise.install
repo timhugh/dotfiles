@@ -5,4 +5,7 @@ if ! command -v mise &> /dev/null; then
   curl https://mise.run | sh
 fi
 
+mise completion zsh > "${HOME}/.zsh_completions.d/_mise"
+chmod +x "${HOME}/.zsh_completions.d/_mise"
+
 mise install
