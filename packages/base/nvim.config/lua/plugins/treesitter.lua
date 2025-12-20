@@ -35,6 +35,7 @@ return {
       "gitcommit",
       "gitignore",
 
+      "dingo",
       "go",
       "gomod",
       "gosum",
