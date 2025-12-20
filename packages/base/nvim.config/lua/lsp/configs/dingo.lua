@@ -1,5 +1,5 @@
 require('lsp').configure_lsp('dingo', {
-  enabled = false,
+  enabled = true,
   cmd = { 'dingo-lsp' },
   filetypes = { 'dingo' },
   root_markers = { 'go.mod', '.git' },
