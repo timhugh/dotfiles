@@ -1,4 +1,5 @@
 require('lsp').configure_lsp('ruby_lsp', {
+  enabled = true,
   cmd = { 'ruby-lsp' },
   filetypes = { 'ruby' },
   root_markers = { 'Gemfile', '.git' },

@@ -1,4 +1,5 @@
 require('lsp').configure_lsp('html', {
+  enabled = true,
   cmd = { 'vscode-html-language-server', '--stdio' },
   filetypes = { 'html', 'templ' },
   root_markers = { 'package.json', '.git' },

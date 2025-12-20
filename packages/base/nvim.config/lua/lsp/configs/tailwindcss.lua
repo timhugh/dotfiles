@@ -1,4 +1,5 @@
 require('lsp').configure_lsp('tailwindcss', {
+  enabled = true,
   cmd = { 'tailwindcss-language-server', '--stdio' },
   filetypes = {
     'html',

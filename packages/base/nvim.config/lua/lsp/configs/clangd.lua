@@ -18,6 +18,7 @@ local function switch_source_header(bufnr)
 end
 
 require('lsp').configure_lsp('clangd', {
+  enabled = true,
   cmd = {
     'clangd',
     '--background-index',

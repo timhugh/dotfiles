@@ -1,4 +1,5 @@
 require('lsp').configure_lsp('lua_ls', {
+  enabled = true,
   cmd = { 'lua-language-server' },
   filetypes = { 'lua' },
   root_markers = { '.git' },

@@ -1,4 +1,5 @@
 require('lsp').configure_lsp('golangci_lint_ls', {
+  enabled = true,
   cmd = { 'golangci-lint-langserver' },
   filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
   init_options = {

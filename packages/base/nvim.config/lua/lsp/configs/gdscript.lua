@@ -4,6 +4,7 @@ local cmd = vim.lsp.rpc.connect('127.0.0.1', tonumber(port))
 local server_pipe_path = vim.fn.getcwd() .. '/server.pipe'
 
 require('lsp').configure_lsp('gdscript', {
+  enabled = true,
   cmd = cmd,
   filetypes = { 'gd', 'gdscript', 'gdscript3' },
   root_markers = { 'project.godot', '.git' },
