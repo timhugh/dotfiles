@@ -24,16 +24,21 @@ _edit_project() {
     local cur="${words[CURRENT]}"
     local selected
 
+    local fzf_flags=(
+        --query="$cur"
+        --preview "${HOME}/.local/share/_edit_project_preview.sh \"{}\" \"${root_dir}\""
+        --select-1
+        --exit-0
+        --reverse
+    )
+
     selected=$({
-        for dir in "${root_dir}/"*(N/); do
-            echo "${dir:t}"
-        done
         for user_dir in "${root_dir}/"*(N/); do
             for repo in "${user_dir}/"*(N/); do
                 echo "${user_dir:t}/${repo:t}"
             done
         done
-    } | fzf --query="$cur" --select-1 --exit-0)
+    } | fzf "${fzf_flags[@]}")
 
     [[ -n "$selected" ]] && compadd -U "$selected"
 }
