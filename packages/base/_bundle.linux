@@ -22,11 +22,6 @@ sudo apt-get install -y \
 echo "changing user ${USER}'s shell to zsh"
 chsh -s /usr/bin/zsh
 
-echo 'installing mise'
-curl https://mise.run | sh
-echo 'activating mise'
-eval "$(mise activate bash)"
-
 echo 'installing neovim dependencies'
 sudo apt-get install -y \
 	fdclone \
