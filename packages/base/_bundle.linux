@@ -19,8 +19,11 @@ sudo apt-get install -y \
     libyaml-dev \
 	zsh
 
-echo "changing user ${USER}'s shell to zsh"
-chsh -s /usr/bin/zsh
+current_shell=$(getent passwd $USER | grep -oe '/[^:]*$')
+if [ "$current_shell" != "/usr/bin/zsh" ]; then
+    echo "changing user ${USER}'s shell to zsh"
+    chsh -s /usr/bin/zsh
+fi
 
 echo 'installing neovim dependencies'
 sudo apt-get install -y \
