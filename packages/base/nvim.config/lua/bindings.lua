@@ -1,5 +1,7 @@
 vim.g.mapleader = ","
 
+vim.keymap.set("n", "<leader>L", "<cmd>:Lazy<cr>")
+
 -- split shortcuts
 vim.keymap.set("n", "<leader>-", "<cmd>:split<cr>")
 
