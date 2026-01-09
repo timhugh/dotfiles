@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+vcpkg_root="${HOME}/.local/share/vcpkg"
+
+if [ ! -d "$vcpkg_root" ]; then
+  git clone https://github.com/microsoft/vcpkg "$vcpkg_root"
+  cd "$vcpkg_root" || exit 1
+  ./bootstrap-vcpkg.sh
+fi
