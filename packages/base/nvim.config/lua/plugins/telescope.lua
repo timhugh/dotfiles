@@ -9,7 +9,7 @@ return {
       -- file related bindings
       { "<leader>fb",  "<cmd>Telescope buffers<CR>",                   desc = "[Telescope] Find buffers" },
       { "<leader>ff",  "<cmd>Telescope find_files<CR>",                desc = "[Telescope] Find file" },
-      { "<leader>fgS", "<cmd>Telescope git_status<CR>",                desc = "[Telescope] Find in git modified files vs HEAD" },
+      { "<leader>fgs", "<cmd>Telescope git_status<CR>",                desc = "[Telescope] Find in git modified files vs HEAD" },
 
       -- grep related bindings
       { "<leader>fg",  "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "[Telescope] Grep current buffer" },
@@ -68,7 +68,7 @@ return {
       'nvim-telescope/telescope.nvim',
     },
     keys = {
-      { "<leader>fgs", "<cmd>Telescope git_branch<CR>", desc = "Find in git modified files vs default branch" },
+      { "<leader>fgS", "<cmd>Telescope git_branch<CR>", desc = "Find in git modified files vs default branch" },
     },
     init = function()
       require("telescope").load_extension("git_branch")
