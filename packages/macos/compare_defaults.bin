@@ -1,18 +1,19 @@
 #!/usr/bin/env bash
 
-mkdir -p "${HOME}/tmp/dotfiles/defaults"
-rm -f "${HOME}/tmp/dotfiles/defaults/"*.plist
+tmp_dir="${HOME}/tmp/dotfiles/defaults"
+rm -rf "${tmp_dir}"
+mkdir -p "${tmp_dir}"
 
 export_defaults() {
   local export_name=$1
   defaults domains | tr ',' '\n' | while read domain; do
     [[ -z "$domain" ]] && continue
-    defaults export "$domain" "${HOME}/tmp/defaults/$domain.$export_name.binary.plist"
-    plutil -convert xml1 "${HOME}/tmp/defaults/$domain.$export_name.binary.plist" -o "${HOME}/tmp/defaults/$domain.$export_name.plist"
+    defaults export "$domain" "${tmp_dir}/$domain.$export_name.binary.plist"
+    plutil -convert xml1 "${tmp_dir}/$domain.$export_name.binary.plist" -o "${tmp_dir}/$domain.$export_name.plist"
   done
 
-  defaults export -g "${HOME}/tmp/defaults/global.$export_name.plist"
-  plutil -convert xml1 "${HOME}/tmp/defaults/global.$export_name.plist" -o "${HOME}/tmp/defaults/global.$export_name.plist"
+  defaults export -g "${tmp_dir}/global.$export_name.plist"
+  plutil -convert xml1 "${tmp_dir}/global.$export_name.plist" -o "${tmp_dir}/global.$export_name.plist"
 }
 
 echo "Exporting current settings..."
@@ -24,7 +25,7 @@ read -r
 echo "Exporting new settings..."
 export_defaults "after"
 
-for before in "${HOME}/tmp/defaults/"*.before.plist; do
+for before in "${tmp_dir}/"*.before.plist; do
   after="${before/before/after}"
   if [ ! -f "$after" ]; then
     continue
