@@ -19,10 +19,7 @@ end
 
 require('lsp').configure_lsp('clangd', {
   enabled = true,
-  cmd = {
-    'clangd',
-    '--background-index',
-  },
+  cmd = { 'clangd' },
   filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
   root_markers = {
     '.clangd',
