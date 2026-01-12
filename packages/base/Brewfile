@@ -37,8 +37,7 @@ brew "xclip"
 # utilities
 brew "hledger"
 cask "1password"
-cask "chirp"
-cask "docker"
+cask "docker-desktop"
 cask "notion-calendar"
 cask "openvpn-connect"
 cask "qgis"
@@ -49,6 +48,7 @@ mas "spark", id: 1176895641
 
 # browsers
 cask "firefox"
+cask "google-chrome"
 
 # cpp
 # note we're not actually using this version of clang because it's managed by mise
