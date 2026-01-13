@@ -22,23 +22,19 @@ _edit_project() {
     [[ ! -d "$root_dir" ]] && echo "root_dir does not exist" >&2 && return 1
 
     local cur="${words[CURRENT]}"
-    local selected
 
     local fzf_flags=(
         --query="$cur"
         --preview "${HOME}/.local/share/_edit_project_preview.sh \"{}\" \"${root_dir}\""
+        --bind "start:reload:${HOME}/.local/share/_edit_project_list_options.sh \"${cur}\""
+        --bind "change:reload:${HOME}/.local/share/_edit_project_list_options.sh \"${cur}\""
         --select-1
         --exit-0
         --reverse
+        --ansi
     )
 
-    selected=$({
-        for user_dir in "${root_dir}/"*(N/); do
-            for repo in "${user_dir}/"*(N/); do
-                echo "${user_dir:t}/${repo:t}"
-            done
-        done
-    } | fzf "${fzf_flags[@]}")
+    local selected=$(fzf "${fzf_flags[@]}")
 
     [[ -n "$selected" ]] && compadd -U "$selected"
 }
