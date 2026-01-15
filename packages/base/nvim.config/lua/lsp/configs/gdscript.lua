@@ -7,7 +7,8 @@ require('lsp').configure_lsp('gdscript', {
   enabled = true,
   cmd = cmd,
   filetypes = { 'gd', 'gdscript', 'gdscript3' },
-  root_markers = { 'project.godot', '.git' },
+  workspace_required = true,
+  root_markers = { 'project.godot' },
   on_attach = function()
     local is_server_running = vim.uv.fs_stat(server_pipe_path)
     if not is_server_running then

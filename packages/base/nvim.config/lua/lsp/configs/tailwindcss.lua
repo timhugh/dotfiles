@@ -9,6 +9,7 @@ require('lsp').configure_lsp('tailwindcss', {
     'javascriptreact',
     'typescriptreact'
   },
+  workspace_required = true,
   root_markers = {
     'tailwind.config.js',
     'tailwind.config.cjs',

@@ -2,8 +2,6 @@ require('lsp').configure_lsp('cmake', {
   enabled = true,
   cmd = { 'cmake-language-server' },
   filetypes = { 'cmake' },
-  root_markers = { 'CMakePresets.json', 'CTestConfig.cmake', '.git', 'build', 'cmake' },
-  -- init_options = {
-  --   buildDirectory = 'build',
-  -- },
+  workspace_required = true,
+  root_markers = { 'CMakeLists.txt' },
 })

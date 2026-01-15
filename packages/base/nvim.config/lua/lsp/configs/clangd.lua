@@ -20,15 +20,11 @@ end
 require('lsp').configure_lsp('clangd', {
   enabled = true,
   cmd = { 'clangd' },
-  filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
+  filetypes = { 'c', 'cpp' },
+  workspace_required = true,
   root_markers = {
-    '.clangd',
-    '.clang-tidy',
-    '.clang-format',
     'compile_commands.json',
-    'compile_flags.txt',
-    'configure.ac',
-    '.git',
+    'CMakeLists.txt',
   },
   settings = {
     clangd = {
