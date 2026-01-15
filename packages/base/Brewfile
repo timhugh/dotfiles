@@ -54,4 +54,5 @@ cask "google-chrome"
 # note we're not actually using this version of clang because it's managed by mise
 # but we still want clang-tidy, etc
 brew "llvm"
-brew "platformio"
+
+brew "arduino-cli"

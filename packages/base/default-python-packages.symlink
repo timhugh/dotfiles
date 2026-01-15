@@ -1,3 +1,4 @@
 cmake-language-server
 neovim
 python-lsp-server
+platformio
