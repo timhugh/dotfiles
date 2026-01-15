@@ -13,9 +13,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ~='cd ~'
 
-alias e='edit_project'
-alias pd='open_project'
-
 alias watch='watchexec --clear clear --restart'
 
 alias unquarantine='xattr -dr com.apple.quarantine'
