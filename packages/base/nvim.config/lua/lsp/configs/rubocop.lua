@@ -1,6 +1,6 @@
 require('lsp').configure_lsp('rubocop', {
-  enabled = true,
+  enabled = false,
   cmd = { 'rubocop', '--lsp' },
   filetypes = { 'ruby' },
-  root_markers = { '.rubocop.yml', 'Gemfile', '.git' },
+  root_markers = { '.rubocop.yml', 'Gemfile' },
 })
