@@ -1,0 +1,10 @@
+{
+  "workspaces": [
+    {
+      "path": "~/git",
+      "user_prefixes": true
+    }
+  ],
+  "git_users": ["timhugh"],
+  "editor": "nvim"
+}
