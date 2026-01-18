@@ -1,4 +1,5 @@
 /opt/homebrew/bin/brew bundle
+/opt/homebrew/bin/brew update
 
 if [ ! -f "${HOME}"/.local/bin/clang-tidy ]; then
     cat << EOF > "${HOME}"/.local/bin/clang-tidy
