@@ -2,29 +2,40 @@
 brew "mas"
 brew "whalebrew"
 
-# standard shell tools / upgrade os tools
+# upgrade os tools
 brew "bash"
 brew "coreutils"
 brew "curl"
-brew "direnv"
-brew "git"
-brew "git-lfs"
-brew "gh"
 brew "gpg"
-brew "icu4c" # for postgres
-brew "jq"
 brew "pkg-config"
-brew "openssh"
-brew "watchexec"
-brew "watchman"
 brew "wget"
 brew "zsh"
 
-# misc dev tools
-brew "sqlite"
-cask "ghostty"
-cask "tableplus"
+# git and github
+brew "git"
+brew "git-lfs"
+brew "gh"
+
+# browsers
+cask "google-chrome"
+cask "waterfox"
+
+# misc tools
+brew "arduino-cli"
+brew "direnv"
+brew "icu4c" # for postgres
+brew "jq"
 brew "libyaml" # for ruby
+brew "sqlite"
+brew "watchexec"
+brew "watchman"
+cask "1password"
+cask "docker-desktop"
+cask "ghostty"
+cask "raycast"
+cask "scroll-reverser"
+cask "slack"
+cask "tableplus"
 
 # nvim
 brew "fd"
@@ -34,21 +45,5 @@ brew "nvim"
 brew "ripgrep"
 brew "xclip"
 
-# utilities
-cask "1password"
-cask "docker-desktop"
-cask "openvpn-connect"
-cask "raycast"
-cask "scroll-reverser"
-cask "slack"
-
-# browsers
-cask "firefox"
-cask "google-chrome"
-
 # cpp
-# note we're not actually using this version of clang because it's managed by mise
-# but we still want clang-tidy, etc
 brew "llvm"
-
-brew "arduino-cli"
