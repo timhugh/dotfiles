@@ -11,6 +11,7 @@ return {
       "catppuccin/nvim",
       "rebelot/kanagawa.nvim",
       "Mofiqul/vscode.nvim",
+      "projekt0n/github-nvim-theme",
     },
     opts = {
       update_interval = 1000,
@@ -72,7 +73,10 @@ return {
           -- rebelot/kanagawa.nvim
           "kanagawa", "kanagawa-dragon", "kanagawa-lotus", "kanagawa-wave",
           -- Mofiqul/vscode.nvim
-          "vscode"
+          "vscode",
+          -- projekt0n/github-nvim-theme
+          "github_dark", "github_dark_dimmed", "github_dark_default", "github_dark_high_contrast", "github_dark_colorblind", "github_dark_tritanopia",
+          "github_light", "github_light_default", "github_light_high_contrast", "github_light_colorblind", "github_light_tritanopia",
         },
         livePreview = true,
       })
