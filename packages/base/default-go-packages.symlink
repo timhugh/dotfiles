@@ -2,5 +2,6 @@ github.com/a-h/templ/cmd/templ@latest
 github.com/arduino/arduino-language-server@0.7.7
 github.com/go-delve/delve/cmd/dlv@latest
 github.com/mattn/goreman@latest
+github.com/timhugh/edit_project/cmd/edit-cli@latest
 golang.org/x/tools/cmd/goimports@latest
 golang.org/x/tools/gopls@latest
