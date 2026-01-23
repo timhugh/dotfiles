@@ -41,7 +41,7 @@ if [[ -z "$*" ]]; then
     echo
     packages+=("${default_packages[@]}")
 else
-    packages+=("${@[@]}")
+    packages+=("$@")
 fi
 
 echo "Here's what I'm going to install:"
