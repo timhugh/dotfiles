@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+set -euo pipefail
+
+if [[ $# -ne 1 ]]; then
+  echo "Usage: $0 <title>" >&2
+  exit 1
+fi
+
+title="$1"
+print -Pn "\e]0;${title}\a"

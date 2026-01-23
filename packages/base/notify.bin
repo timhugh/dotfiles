@@ -2,7 +2,34 @@
 
 set -euo pipefail
 
-if [ -d /Applications/terminal-notifier.app ]; then
-    /Applications/terminal-notifier.app/Contents/MacOS/terminal-notifier -message "$@"
+cmd="$1"
+if [[ -z "$cmd" ]]; then
+  echo "Usage: $0 <command>" >&2
+  exit 1
 fi
-say -v Alex "$*"
+
+function _terminal_notify() {
+    if [ -d /Applications/terminal-notifier.app ]; then
+        /Applications/terminal-notifier.app/Contents/MacOS/terminal-notifier -message "$1"
+    fi
+}
+function _speech_notify() {
+    if command -v say > /dev/null 2>&1; then
+        say -v Alex "$1"
+    fi
+}
+function _terminal_title() {
+    printf "\e]0;%s\a" "$1"
+}
+
+if bash -lc "$cmd"; then
+    _terminal_notify "Passed: $cmd"
+    _speech_notify "Pass"
+    _terminal_title "✅ Pass: $cmd"
+    exit 0
+else
+    _terminal_notify "Failed: $cmd"
+    _speech_notify "Fail"
+    _terminal_title "🔴 Fail: $cmd"
+    exit 1
+fi

@@ -1,3 +1,9 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
-watchexec --clear clear --restart "$@ && notify 'pass' || notify 'fail'"
+test_cmd="$1"
+if [[ -z "$test_cmd" ]]; then
+  echo "Usage: $0 <test-command>" >&2
+  exit 1
+fi
+
+watchexec --clear clear --restart "notify \"$test_cmd\""
