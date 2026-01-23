@@ -37,6 +37,7 @@ cask "raycast"
 cask "scroll-reverser"
 cask "slack"
 cask "tableplus"
+cask "zed"
 
 # nvim
 brew "fd"
