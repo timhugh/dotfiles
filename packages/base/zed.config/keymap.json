@@ -3,7 +3,7 @@
     "context": "Workspace",
     "bindings": {
       // navigation
-      ", f": "file_finder::Toggle",
+      ", f f": "file_finder::Toggle",
 
       ", g": "git_panel::ToggleFocus",
       ", G": "workspace::ToggleLeftDock",
@@ -41,22 +41,22 @@
       ", t b": ["task::Spawn", { "task_name": "Build" }],
       ", t r": ["task::Spawn", { "task_name": "Run" }],
       ", t t": ["task::Spawn", { "task_name": "Test" }],
-      ", t d": ["task::Spawn", { "task_name": "Debug" }]
-    }
+      ", t d": ["task::Spawn", { "task_name": "Debug" }],
+    },
   },
   {
     "context": "ProjectPanel",
     "bindings": {
       // use toggle key to close dock
-      ", o": "workspace::ToggleLeftDock"
-    }
+      ", o": "workspace::ToggleLeftDock",
+    },
   },
   {
     "context": "AssistantPanel",
     "bindings": {
       // use toggle key to close dock
-      ", l": "workspace::ToggleRightDock"
-    }
+      ", l": "workspace::ToggleRightDock",
+    },
   },
   {
     "context": "GitPanel",
@@ -65,8 +65,8 @@
       ", f": "git::Fetch",
 
       // use toggle key to close dock
-      ", g": "workspace::ToggleLeftDock"
-    }
+      ", g": "workspace::ToggleLeftDock",
+    },
   },
   {
     "context": "Terminal",
@@ -76,27 +76,27 @@
       "ctrl-H": "workspace::ActivatePaneLeft",
       "ctrl-alt-h": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "left" }
+        { "direction": "left" },
       ],
 
       "ctrl-L": "workspace::ActivatePaneRight",
       "ctrl-alt-l": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "right" }
+        { "direction": "right" },
       ],
 
       "ctrl-K": "workspace::ActivatePaneUp",
       "ctrl-alt-k": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "up" }
+        { "direction": "up" },
       ],
 
       "ctrl-J": "workspace::ActivatePaneDown",
       "ctrl-alt-j": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "down" }
-      ]
-    }
+        { "direction": "down" },
+      ],
+    },
   },
   {
     "context": "Editor || ProjectPanel || GitPanel || AssistantPanel",
@@ -105,29 +105,29 @@
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-alt-h": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "left" }
+        { "direction": "left" },
       ],
 
       "ctrl-L": "workspace::ActivatePaneRight",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-alt-l": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "right" }
+        { "direction": "right" },
       ],
 
       "ctrl-K": "workspace::ActivatePaneUp",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-alt-k": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "up" }
+        { "direction": "up" },
       ],
 
       "ctrl-J": "workspace::ActivatePaneDown",
       "ctrl-j": "workspace::ActivatePaneDown",
       "ctrl-alt-j": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "down" }
-      ]
-    }
-  }
+        { "direction": "down" },
+      ],
+    },
+  },
 ]

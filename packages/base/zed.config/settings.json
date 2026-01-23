@@ -30,7 +30,7 @@
   "theme": {
     "mode": "system",
     "light": "Ayu Light",
-    "dark": "Carbonfox",
+    "dark": "Catppuccin Frappé",
   },
   "wrap_guides": [120],
   "hard_tabs": false,
