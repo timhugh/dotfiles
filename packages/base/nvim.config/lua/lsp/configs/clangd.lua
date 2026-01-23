@@ -23,8 +23,11 @@ require('lsp').configure_lsp('clangd', {
   filetypes = { 'c', 'cpp' },
   workspace_required = true,
   root_markers = {
+    '.clangd',
+    '.clang-tidy',
+    '.clang-format',
     'compile_commands.json',
-    'CMakeLists.txt',
+    '.git',
   },
   settings = {
     clangd = {

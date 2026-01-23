@@ -3,5 +3,8 @@ require('lsp').configure_lsp('cmake', {
   cmd = { 'cmake-language-server' },
   filetypes = { 'cmake' },
   workspace_required = true,
-  root_markers = { 'CMakeLists.txt' },
+  root_markers = { 
+    'CMakePresets.json',
+    '.git',
+  },
 })
