@@ -21,7 +21,7 @@
     "favorite_models": [],
     "model_parameters": [],
   },
-  "autosave": "off",
+  "autosave": "on_focus_change",
   "format_on_save": "on",
   "vim_mode": true,
   "ui_font_size": 16.0,

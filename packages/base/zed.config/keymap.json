@@ -36,12 +36,6 @@
       ", t": "workspace::NewCenterTerminal",
 
       ", r": "editor::Rename",
-
-      // cmake
-      ", t b": ["task::Spawn", { "task_name": "Build" }],
-      ", t r": ["task::Spawn", { "task_name": "Run" }],
-      ", t t": ["task::Spawn", { "task_name": "Test" }],
-      ", t d": ["task::Spawn", { "task_name": "Debug" }],
     },
   },
   {
@@ -128,6 +122,12 @@
         "workspace::MoveItemToPaneInDirection",
         { "direction": "down" },
       ],
+    },
+  },
+  {
+    "context": "(Editor && edit_prediction)",
+    "bindings": {
+      "tab": null,
     },
   },
 ]
