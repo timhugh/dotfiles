@@ -11,6 +11,7 @@
 [alias]
   br = branch
   c = commit -m
+  cp = !git commit -m \"$1\" && git push origin HEAD && :
   ca = commit --amend --reuse-message=HEAD
   cam = commit --amend -m
   co = checkout
