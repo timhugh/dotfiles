@@ -1,2 +1,2 @@
-export EDITOR='nvim'
-alias e='nvim'
+export EDITOR='zed'
+alias e="$EDITOR"
