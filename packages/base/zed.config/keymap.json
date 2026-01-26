@@ -91,6 +91,12 @@
 		},
 	},
 	{
+		"context": "Terminal",
+		"bindings": {
+			"g t": "vim::GoToTab",
+		},
+	},
+	{
 		"context": "(Editor && edit_prediction)",
 		"bindings": {
 			"tab": null,

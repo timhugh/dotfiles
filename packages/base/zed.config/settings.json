@@ -29,7 +29,7 @@
 	},
 	"minimap": {
 		"thumb_border": "none",
-  "thumb": "always",
+		"thumb": "always",
 		"display_in": "active_editor",
 		"show": "auto",
 	},
@@ -63,9 +63,9 @@
 	"theme": {
 		"mode": "system",
 		"light": "Catppuccin Latte",
-		"dark": "BlackFox",
+		"dark": "Monokai Charcoal",
 	},
-	"wrap_guides": [120],
+	"wrap_guides": [80, 120],
 	"hard_tabs": true,
 	"tab_size": 2,
 	"relative_line_numbers": "enabled",
