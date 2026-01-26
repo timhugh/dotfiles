@@ -13,6 +13,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ~='cd ~'
 
+export EDITOR='zed'
+alias e='$EDITOR'
+
 alias watch='watchexec --clear clear --restart'
 
 alias unquarantine='xattr -dr com.apple.quarantine'
