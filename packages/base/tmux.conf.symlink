@@ -1,0 +1,48 @@
+# remap prefix
+unbind C-b
+set-option -g prefix C-space
+bind-key C-space send-prefix
+
+# reload config file
+bind ! source-file ~/.tmux.conf \; display "Reloaded config"
+
+# remove delay for escape key
+set -s escape-time 0
+
+# open new windows in the same path
+bind c new-window -c "#{pane_current_path}"
+
+# split panes using | and -
+bind \\ split-window -h -c "#{pane_current_path}"
+unbind %
+bind - split-window -v -c "#{pane_current_path}"
+unbind '"'
+
+# hide and show panes
+bind-key j command-prompt -p "join pane from:"  "join-pane -s '%%'"
+bind-key s command-prompt -p "send pane to:"  "join-pane -t '%%'"
+
+# switch panes using Alt
+bind -n M-Left select-pane -L
+bind -n M-h select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-l select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-k select-pane -U
+bind -n M-Down select-pane -D
+bind -n M-j select-pane -D
+
+# move panes using Ctrl-Alt
+bind -n C-M-Up swap-pane -U
+bind -n C-M-k swap-pane -U
+bind -n C-M-Down swap-pane -D
+bind -n C-M-j swap-pane -D
+
+# enable mouse
+set -g mouse on
+
+# disable auto-renaming windows
+set-option -g allow-rename off
+# remap rename key to r
+unbind ,
+bind r command-prompt -p "(rename-window)" "rename-window '%%'"
