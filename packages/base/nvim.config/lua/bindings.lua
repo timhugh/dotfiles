@@ -36,6 +36,11 @@ vim.keymap.set("n", "<leader>/", "<cmd>:nohlsearch<cr>")
 -- show messages
 vim.keymap.set("n", "<leader>m", "<cmd>:messages<cr>")
 
+-- lsp format
+vim.keymap.set("n", "grf", function()
+  vim.lsp.buf.format { async = true }
+end, { desc = "LSP Format Document" })
+
 -- omni-omnifunc
 vim.keymap.set("i", "<c-n>", function()
   if vim.fn.pumvisible() == 1 then return "<c-n>" else return "<c-x><c-o>" end
