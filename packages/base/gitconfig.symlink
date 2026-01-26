@@ -36,6 +36,8 @@
   s = log -S
   st = !git status --short --branch && git diff --shortstat
   u = merge --no-commit --ff-only
+  hide = update-index --assume-unchanged
+  unhide = update-index --no-assume-unchanged
 [pull]
 	ff = only
 [hub]
