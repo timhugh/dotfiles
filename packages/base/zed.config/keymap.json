@@ -19,6 +19,8 @@
 
 			"alt-l": "editor::AcceptEditPrediction",
 
+			", f *": "pane::DeploySearch",
+
 			// close search
 			", /": "buffer_search::Dismiss",
 
