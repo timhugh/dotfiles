@@ -7,7 +7,12 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-	"drop_target_size": 0.2,
+	"sticky_scroll": {
+  "enabled": true
+ },
+ "hover_popover_enabled": true,
+ "double_click_in_multibuffer": "open",
+ "drop_target_size": 0.2,
 	"colorize_brackets": false,
 	"lsp_document_colors": "inlay",
 	"inlay_hints": {
@@ -33,7 +38,7 @@
 		"display_in": "active_editor",
 		"show": "auto",
 	},
-	"auto_signature_help": true,
+	"auto_signature_help": false,
 	"show_signature_help_after_edits": true,
 	"which_key": {
 		"enabled": true,
