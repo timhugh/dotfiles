@@ -2,71 +2,19 @@
 	{
 		"context": "Workspace",
 		"bindings": {
-			// navigation
-			", f f": "file_finder::Toggle",
+			"g F": "file_finder::Toggle",
+			"g P": "projects::OpenRecent",
+			", space": "workspace::CloseAllDocks",
 
-			", g": "git_panel::ToggleFocus",
-			", G": "workspace::ToggleLeftDock",
+			", g d": "git::Diff",
+			", g P": "git::Push",
+			", g f": "git::Fetch",
 
-			", l": "agent::ToggleFocus",
-			", L": "workspace::ToggleRightDock",
-
-			", o": "project_panel::ToggleFocus",
-			", O": "workspace::ToggleLeftDock",
-
-			", P": "projects::OpenRecent",
-			", p": "file_finder::Toggle",
-
-			"alt-l": "editor::AcceptEditPrediction",
-
-			", f *": "pane::DeploySearch",
-
-			// close search
 			", /": "buffer_search::Dismiss",
 
-			// window splits
 			", \\": "pane::SplitRight",
 			", -": "pane::SplitDown",
 
-			// zoom
-			", z": "workspace::ToggleZoom",
-
-			// git
-			", g R": "git::Restore",
-
-			// terminals
-			", t": "workspace::NewCenterTerminal",
-
-			", r": "editor::Rename",
-		},
-	},
-	{
-		"context": "ProjectPanel",
-		"bindings": {
-			// use toggle key to close dock
-			", o": "workspace::ToggleLeftDock",
-		},
-	},
-	{
-		"context": "AssistantPanel",
-		"bindings": {
-			// use toggle key to close dock
-			", l": "workspace::ToggleRightDock",
-		},
-	},
-	{
-		"context": "GitPanel",
-		"bindings": {
-			", P": "git::Push",
-			", f": "git::Fetch",
-
-			// use toggle key to close dock
-			", g": "workspace::ToggleLeftDock",
-		},
-	},
-	{
-		"context": "Editor || ProjectPanel || GitPanel || AssistantPanel || Terminal",
-		"bindings": {
 			"alt-h": "workspace::ActivatePaneLeft",
 			"ctrl-alt-h": [
 				"workspace::MoveItemToPaneInDirection",
@@ -90,6 +38,18 @@
 				"workspace::MoveItemToPaneInDirection",
 				{ "direction": "down" },
 			],
+
+			", z": "workspace::ToggleZoom",
+
+			", t": "workspace::NewCenterTerminal",
+
+			", r": "editor::Rename",
+		},
+	},
+	{
+		"context": "Editor",
+		"bindings": {
+			", g R": "git::Restore",
 		},
 	},
 	{
@@ -98,10 +58,18 @@
 			"g t": "vim::GoToTab",
 		},
 	},
+	// everything below here is disabling a default keybind that interferes
+	// with something above
 	{
 		"context": "(Editor && edit_prediction)",
 		"bindings": {
 			"tab": null,
+		},
+	},
+	{
+		"context": "Editor",
+		"bindings": {
+			"ctrl-alt-h": null,
 		},
 	},
 ]
