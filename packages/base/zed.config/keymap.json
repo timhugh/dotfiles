@@ -1,9 +1,12 @@
 [
 	{
-		"context": "Workspace",
+		"context": "Workspace && !CommandPalette && !(vim_mode == insert)",
 		"bindings": {
 			"g F": "file_finder::Toggle",
 			"g P": "projects::OpenRecent",
+			", E": "project_panel::ToggleFocus",
+			", A": "agent::ToggleFocus",
+			", G": "git_panel::ToggleFocus",
 			", space": "workspace::ToggleAllDocks",
 
 			", g d": "git::Diff",
@@ -14,30 +17,10 @@
 
 			", \\": "pane::SplitRight",
 			", -": "pane::SplitDown",
-
 			"alt-h": "workspace::ActivatePaneLeft",
-			"ctrl-alt-h": [
-				"workspace::MoveItemToPaneInDirection",
-				{ "direction": "left" },
-			],
-
 			"alt-l": "workspace::ActivatePaneRight",
-			"ctrl-alt-l": [
-				"workspace::MoveItemToPaneInDirection",
-				{ "direction": "right" },
-			],
-
 			"alt-k": "workspace::ActivatePaneUp",
-			"ctrl-alt-k": [
-				"workspace::MoveItemToPaneInDirection",
-				{ "direction": "up" },
-			],
-
 			"alt-j": "workspace::ActivatePaneDown",
-			"ctrl-alt-j": [
-				"workspace::MoveItemToPaneInDirection",
-				{ "direction": "down" },
-			],
 
 			", z": "workspace::ToggleZoom",
 
@@ -50,17 +33,16 @@
 		"context": "ProjectPanel",
 		"bindings": {
 			"g .": "project_panel::ToggleHideGitIgnore",
-			"z M": "project_panel::CollapseAllEntries",
 		},
 	},
 	{
-		"context": "Editor",
+		"context": "Editor && !(vim_mode == insert)",
 		"bindings": {
 			", g R": "git::Restore",
 		},
 	},
 	{
-		"context": "Terminal",
+		"context": "Terminal && !(vim_mode == insert)",
 		"bindings": {
 			"g t": "vim::GoToTab",
 		},
@@ -68,15 +50,9 @@
 	// everything below here is disabling a default keybind that interferes
 	// with something above
 	{
-		"context": "(Editor && edit_prediction)",
+		"context": "Editor && edit_prediction",
 		"bindings": {
 			"tab": null,
-		},
-	},
-	{
-		"context": "Editor",
-		"bindings": {
-			"ctrl-alt-h": null,
 		},
 	},
 ]
