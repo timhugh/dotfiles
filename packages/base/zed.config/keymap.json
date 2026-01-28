@@ -9,6 +9,7 @@
 			", G": "git_panel::ToggleFocus",
 			", space": "workspace::ToggleAllDocks",
 
+			", g b": "git::Blame",
 			", g d": "git::Diff",
 			", g P": "git::Push",
 			", g f": "git::Fetch",
