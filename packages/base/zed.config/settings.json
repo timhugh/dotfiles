@@ -7,7 +7,24 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-	"edit_predictions": {
+	"collaboration_panel": {
+  "dock": "right"
+ },
+ "outline_panel": {
+  "dock": "right"
+ },
+ "git_panel": {
+  "dock": "right"
+ },
+ "project_panel": {
+  "hide_hidden": false,
+  "hide_root": false,
+  "starts_open": false,
+  "hide_gitignore": true,
+  "default_width": 240.0,
+  "dock": "right"
+ },
+ "edit_predictions": {
 		"mode": "subtle",
 	},
 	"features": {

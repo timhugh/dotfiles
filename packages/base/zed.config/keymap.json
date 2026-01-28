@@ -4,7 +4,7 @@
 		"bindings": {
 			"g F": "file_finder::Toggle",
 			"g P": "projects::OpenRecent",
-			", space": "workspace::CloseAllDocks",
+			", space": "workspace::ToggleAllDocks",
 
 			", g d": "git::Diff",
 			", g P": "git::Push",
@@ -44,6 +44,13 @@
 			", t": "workspace::NewCenterTerminal",
 
 			", r": "editor::Rename",
+		},
+	},
+	{
+		"context": "ProjectPanel",
+		"bindings": {
+			"g .": "project_panel::ToggleHideGitIgnore",
+			"z M": "project_panel::CollapseAllEntries",
 		},
 	},
 	{
