@@ -8,23 +8,23 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
 	"collaboration_panel": {
-  "dock": "right"
- },
- "outline_panel": {
-  "dock": "right"
- },
- "git_panel": {
-  "dock": "right"
- },
- "project_panel": {
-  "hide_hidden": false,
-  "hide_root": false,
-  "starts_open": false,
-  "hide_gitignore": true,
-  "default_width": 240.0,
-  "dock": "right"
- },
- "edit_predictions": {
+		"dock": "right",
+	},
+	"outline_panel": {
+		"dock": "right",
+	},
+	"git_panel": {
+		"dock": "right",
+	},
+	"project_panel": {
+		"hide_hidden": false,
+		"hide_root": false,
+		"starts_open": false,
+		"hide_gitignore": false,
+		"default_width": 240.0,
+		"dock": "right",
+	},
+	"edit_predictions": {
 		"mode": "subtle",
 	},
 	"features": {
@@ -56,6 +56,7 @@
 		"breadcrumbs": true,
 	},
 	"minimap": {
+		"max_width_columns": 40,
 		"thumb_border": "none",
 		"thumb": "always",
 		"display_in": "active_editor",
