@@ -1,6 +1,6 @@
 [
 	{
-		"context": "Workspace && !CommandPalette && !(vim_mode == insert)",
+		"context": "Workspace && !Terminal && !CommandPalette && !(vim_mode == insert)",
 		"bindings": {
 			"g F": "file_finder::Toggle",
 			"g P": "projects::OpenRecent",
@@ -40,12 +40,6 @@
 		"context": "Editor && !(vim_mode == insert)",
 		"bindings": {
 			", g R": "git::Restore",
-		},
-	},
-	{
-		"context": "Terminal && !(vim_mode == insert)",
-		"bindings": {
-			"g t": "vim::GoToTab",
 		},
 	},
 	// everything below here is disabling a default keybind that interferes
