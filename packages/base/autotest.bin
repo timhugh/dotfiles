@@ -6,4 +6,4 @@ if [[ -z "$test_cmd" ]]; then
   exit 1
 fi
 
-watchexec --clear clear --restart "notify \"$test_cmd\""
+watchexec --clear clear --restart --debounce 1s "notify \"$test_cmd\""
