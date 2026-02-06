@@ -20,15 +20,13 @@
 		"hide_hidden": false,
 		"hide_root": false,
 		"starts_open": false,
-		"hide_gitignore": false,
+		"hide_gitignore": true,
 		"default_width": 240.0,
 		"dock": "right",
 	},
 	"edit_predictions": {
+		"provider": "copilot",
 		"mode": "subtle",
-	},
-	"features": {
-		"edit_prediction_provider": "copilot",
 	},
 	"sticky_scroll": {
 		"enabled": true,
@@ -74,12 +72,12 @@
 	"buffer_font_weight": 400.0,
 	"agent": {
 		"dock": "left",
-  "use_modifier_to_send": true,
+		"use_modifier_to_send": true,
 		"play_sound_when_agent_done": true,
-		"default_profile": "write",
+		"default_profile": "ask",
 		"default_model": {
 			"provider": "copilot_chat",
-			"model": "gpt-4.1",
+			"model": "gpt-5.2",
 		},
 		"favorite_models": [],
 		"model_parameters": [],
@@ -93,7 +91,7 @@
 	"theme": {
 		"mode": "system",
 		"light": "Catppuccin Latte",
-		"dark": "Monokai Charcoal",
+		"dark": "Nightfox - opaque",
 	},
 	"wrap_guides": [80, 120],
 	"hard_tabs": true,
