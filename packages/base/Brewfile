@@ -17,9 +17,7 @@ brew "git-lfs"
 brew "gh"
 
 # browsers
-cask "google-chrome"
 cask "ungoogled-chromium"
-cask "waterfox"
 
 # misc tools
 brew "arduino-cli"
