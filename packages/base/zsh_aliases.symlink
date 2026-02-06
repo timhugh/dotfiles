@@ -13,7 +13,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ~='cd ~'
 
-export EDITOR='zed'
+export EDITOR='nvim'
 alias e='$EDITOR'
 
 alias watch='watchexec --clear clear --restart --debounce 1s'
