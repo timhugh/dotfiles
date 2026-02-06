@@ -31,7 +31,7 @@
 		},
 	},
 	{
-		"context": "ProjectPanel",
+		"context": "ProjectPanel && not_editing",
 		"bindings": {
 			"g .": "project_panel::ToggleHideGitIgnore",
 		},
