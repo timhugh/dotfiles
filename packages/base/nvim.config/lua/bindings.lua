@@ -36,6 +36,44 @@ vim.keymap.set("n", "<leader>/", "<cmd>:nohlsearch<cr>")
 -- show messages
 vim.keymap.set("n", "<leader>m", "<cmd>:messages<cr>")
 
+local function bujo_edit(cmd)
+  local spread = vim.fn.system(cmd)
+  if spread == "" then
+    vim.notify("Unable to open spread", vim.log.levels.ERROR)
+  else
+    vim.cmd("edit " .. spread)
+  end
+end
+
+-- bujo bindings
+vim.keymap.set("n", "<leader>ns", function()
+  -- TODO: this is going to have to call `bujo list` and pass it to a picker
+  -- because `bujo search` can't run interactively
+end, { desc = "Bujo: search documents" })
+vim.keymap.set("n", "<leader>nn", function()
+  bujo_edit("bujo spread current")
+end, { desc = "Bujo: current spread" })
+vim.keymap.set("n", "<leader>nf", function()
+  bujo_edit("bujo spread next")
+end, { desc = "Bujo: spread next" })
+vim.keymap.set("n", "<leader>nF", function()
+  local current_spread = vim.fn.expand("%:p")
+  bujo_edit("bujo spread next " .. current_spread)
+end, { desc = "Bujo: spread forward" })
+vim.keymap.set("n", "<leader>nb", function()
+  bujo_edit("bujo spread previous")
+end, { desc = "Bujo: spread previous" })
+vim.keymap.set("n", "<leader>nB", function()
+  local current_spread = vim.fn.expand("%:p")
+  bujo_edit("bujo spread previous " .. current_spread)
+end, { desc = "Bujo: spread backward" })
+vim.keymap.set("n", "<leader>nC", function()
+  vim.fn.system("bujo commit")
+end, { desc = "Bujo: commit" })
+vim.keymap.set("n", "<leader>nP", function()
+  vim.fn.system("bujo push")
+end, { desc = "Bujo: push" })
+
 -- lsp format
 vim.keymap.set("n", "grf", function()
   vim.lsp.buf.format { async = true }

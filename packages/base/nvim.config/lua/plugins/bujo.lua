@@ -2,7 +2,7 @@ return {
   {
     -- dir = "~/git/bujo.nvim",
     "timhugh/bujo.nvim",
-    enabled = true,
+    enabled = false,
     lazy = true,
     event = "VeryLazy",
     dependencies = {
