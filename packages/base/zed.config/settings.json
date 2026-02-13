@@ -91,7 +91,7 @@
 	"theme": {
 		"mode": "system",
 		"light": "Catppuccin Latte",
-		"dark": "Nightfox - opaque",
+		"dark": "Carbonfox - opaque",
 	},
 	"wrap_guides": [80, 120],
 	"hard_tabs": true,
