@@ -1,0 +1,16 @@
+{
+    "journal_root_dir": "~/.journal",
+    "templates_dir": ".templates",
+    "notes_dir": "notes",
+    "spreads_dir": "spreads",
+    "spreads": [
+        {
+            "key": "weekly",
+            "filename_template": "%G/W%V.md"
+        }
+    ],
+    "git": {
+        "auto_push": true,
+        "commit_message_template": "."
+    }
+}
