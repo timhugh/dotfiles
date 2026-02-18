@@ -6,7 +6,8 @@
     "spreads": [
         {
             "key": "weekly",
-            "filename_template": "%G/W%V.md"
+            "filename_template": "%G/W%V.md",
+            "default_template": "weekly_spread.md"
         }
     ],
     "git": {
