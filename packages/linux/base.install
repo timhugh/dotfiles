@@ -1,0 +1,14 @@
+sudo pacman -S --noconfirm --needed \
+    base-devel \
+    direnv \
+    fzf \
+    ghostty \
+    git \
+    github-cli \
+    jq \
+    libyaml \
+    neovim \
+    openssh \
+    ufw \
+    watchexec \
+    zed

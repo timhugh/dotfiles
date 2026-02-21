@@ -1,0 +1,9 @@
+sudo pacman -S --noconfirm --needed \
+    pipewire \
+    pipewire-pulse \
+    pipewire-alsa \
+    pipewire-jack \
+    wireplumber \
+    pavucontrol \
+    pamixer \
+    playerctl

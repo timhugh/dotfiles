@@ -1,0 +1,7 @@
+sudo pacman -S --noconfirm --needed \
+    hyprland \
+    hyprpaper \
+    hyprlauncher \
+    hyprpolkitagent \
+    xdg-desktop-portal-hyprland \
+    xdg-desktop-portal-gtk
