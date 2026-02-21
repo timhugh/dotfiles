@@ -6,5 +6,5 @@ if [[ $(uname) == "Darwin" ]]; then
 elif [[ $(uname) == "Linux" ]]; then
   mkdir -p ~/.local/share/fonts
   cp -r ./fonts/* ~/.local/share/fonts/
-  fc-cache -f ~/.local/share/fonts
+  fc-cache ~/.local/share/fonts
 fi
