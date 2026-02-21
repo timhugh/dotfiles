@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-test_cmd="$1"
-if [[ -z "$test_cmd" ]]; then
-  echo "Usage: $0 <test-command>" >&2
-  exit 1
-fi
-
-watchexec --clear clear --restart --debounce 1s "notify \"$test_cmd\""
