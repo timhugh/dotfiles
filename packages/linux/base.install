@@ -1,14 +1,17 @@
 sudo pacman -S --noconfirm --needed \
+    avahi nss-mdns \
     base-devel \
     direnv \
     fzf \
     ghostty \
-    git \
-    github-cli \
+    git github-cli \
     jq \
     libyaml \
     neovim \
     openssh \
     ufw \
-    watchexec \
-    zed
+    watchexec
+
+# update nsswitch.conf to include mdns_minimal for .local hostname resolution
+sudo sed -i 's/hosts: mymachines resolve/hosts: mymachines mdns_minimal [NOTFOUND=return] resolve/' /etc/nsswitch.conf
+sudo systemctl enable --now avahi-daemon.service
