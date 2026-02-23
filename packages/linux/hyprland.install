@@ -8,4 +8,5 @@ sudo pacman -S --noconfirm --needed \
     hyprlauncher \
     hyprpolkitagent \
     xdg-desktop-portal-hyprland \
-    xdg-desktop-portal-gtk
+    xdg-desktop-portal-gtk \
+    waybar
