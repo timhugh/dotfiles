@@ -9,4 +9,6 @@ sudo pacman -S --noconfirm --needed \
     hyprpolkitagent \
     xdg-desktop-portal-hyprland \
     xdg-desktop-portal-gtk \
-    waybar
+    waybar \
+    grim slurp \
+    wl-clipboard
