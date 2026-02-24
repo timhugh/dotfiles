@@ -5,10 +5,13 @@ set -e
 sudo pacman -S --noconfirm --needed \
     hyprland \
     hyprpaper \
-    hyprlauncher \
     hyprpolkitagent \
     xdg-desktop-portal-hyprland \
     xdg-desktop-portal-gtk \
     waybar \
     grim slurp \
     wl-clipboard
+
+# TODO: this adds a dependency on yay, which might not be installed yet
+yay -S --noconfirm --needed \
+    tofi
