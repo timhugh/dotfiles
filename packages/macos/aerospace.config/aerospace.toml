@@ -23,6 +23,17 @@ outer.right =      0
 6 = 2
 
 [mode.main.binding]
+cmd-alt-t = '''exec-and-forget osascript -e '
+tell application "Ghostty"
+  if it is running then
+    activate
+    tell application "System Events" to keystroke "n" using {command down}
+  else
+    activate
+  end if
+end tell'
+'''
+
 cmd-alt-h = 'focus left'
 cmd-alt-j = 'focus down'
 cmd-alt-k = 'focus up'
