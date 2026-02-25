@@ -1,5 +1,5 @@
 {
-    "journal_root_dir": "~/.journal",
+    "journal_root_dir": "~/git/timhugh/journal-data",
     "templates_dir": ".templates",
     "notes_dir": "notes",
     "spreads_dir": "spreads",
