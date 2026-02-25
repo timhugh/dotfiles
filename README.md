@@ -4,75 +4,31 @@
 
 Some time ago, my beautiful bash profile was lost in a tragic backup accident, and I was forced to start fresh. With very little memory of what was actually in the original, I am now on a journey to terminal re-enlightenment, and you can follow along.
 
-## Prerequisites
+## Usage
 
-Mostly the installer tries to install everything it needs as it goes, and it has been tested on fresh macOS installations so everything it needs should already be there, however:
+I've removed the old steps because they were wildly out of date, but there isn't really an updated guide yet outside of the following notes.
 
-- You must already be logged into the App Store for mas recipes to work
-  - I haven't really been able to test this, but it seems like mas can't install apps that aren't already "purchased" on your account, so you might run into errors from that. I don't have a workaround yet
-- `curl` and `zsh` have to be present (but they should already be)
+There are basically four packages at the moment:
+- macos for mac-specific configuration and applications
+- linux, which is currently arch-specific configuration and applications
+- base, which is the majority of this repo, and contains application setup and config that I would want anywhere
+- extras, which contains non-work stuff that is really just for my personal laptop
 
-## Installation
-
-Before getting into it, some notes:
-
-- I wouldn't actually recommend running this installer unless you want your laptop set up exactly like mine
-- This is super mac-specific, and will probably remain as such for a while
-
-To run the installer, you don't have to clone this repo (the installer does that!), just run this command:
-
-```
-/usr/bin/env zsh -c "$(curl -fsSL https://raw.githubusercontent.com/timhugh/dotfiles/HEAD/install.sh)"
-```
-
-It will occasionally ask for your password for sudo things (this is all coming from homebrew, not from this installer).
-
-The installer is grouped into packages, represented by each directory in `/packages`. The installer will install the `base`, `office`, and `macos` packages by default. For more eccentric setups, the installer can be given other packages as command line arguments: 
-
-```
-/usr/bin/env zsh -c "$(curl -fsSL https://raw.githubusercontent.com/timhugh/dotfiles/HEAD/install.sh)" <package1> <package2> ...
-```
-
-Generally speaking, most packages will at least depend on something from the `base` package, though, so it's recommended (but not strictly required) to always install that.
-
-There are some manual steps after running the installer. Hopefully some of these can be automated later. Skip over ones that aren't relevant, depending on your packages:
-
-- [ ] App logins
-  - [ ] 1password login
-  - [ ] Firefox login
-  - [ ] Notion calendar login
-  - [ ] Spark login
-  - [ ] Slack login
-- [ ] Raycast setup
-  - [ ] Disable Spotlight shortcut
-  - [ ] Login for sync
-- [ ] Upload generated ssh key to Github (`cat ~/.ssh/github_key.pub | pbcopy`)
-- [ ] Default apps
-  - [ ] Set Spark as default mail
-  - [ ] Set Notion Calendar as default calendar
-- [ ] Configure login items:
-  - [ ] Raycast
-  - [ ] Scroll reverser
+Actual installation right now requires cloning the repo and running the installer. For the most part the packages install correctly first try, but there are some kinks to work out with dependencies being out of order or parts of the installer depending on environment setup that hasn't taken effect yet. Most errors can be resolved by starting a new terminal session and running the installer again.
 
 ## Todo
 
 In addition to trying to automate some of the manual post-install steps, here are some other things I would like to do automatically (in no particular order):
 
-- [x] Installer should check if the dotfiles repo remote is set before setting it (right now it just sets it every time)
 - [ ] Automate github ssh key upload this with GH CLI: `gh auth login --hostname github.com --git-protocol ssh --web`
 - [ ] OS settings I would like to add to packages/macos/settings.install:
-  - [x] disable clicking on wallpaper to open expose or whatever its called
   - [ ] show battery percentage in menu bar
-  - [x] set clock to 24hr time
   - [ ] set display scale to "more space"
   - [ ] turn off true tone
-- [ ] Set default browser automatically
-    - maybe use https://github.com/kerma/defaultbrowser ?
 - [ ] Implement package dependencies
   - I actually tried to do this initially and scrapped it to keep things simple, but I think the packages get a little bit too big the way it is now, and there are a lot of cross-cutting dependencies (e.g. a lot of things depend on node). It would be nice to just say "install nvim" and have it install nvim plus all of the tools required for the LSPs, etc
   - [ ] there's an issue right now with circular dependencies as well -- nvim.install depends on node, python, and ruby, but they all depend on mise
   - In the meantime, going to add `.depends` files to packages just to keep track of those dependencies
-- [x] zsh autocomplete is case sensitive now because I ditched oh-my-zsh. I think that's the only thing I miss
 
 ## History
 
