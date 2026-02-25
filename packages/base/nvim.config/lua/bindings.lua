@@ -68,8 +68,19 @@ vim.keymap.set("n", "<leader>nB", function()
   bujo_edit("bujo spread previous " .. current_spread)
 end, { desc = "Bujo: spread backward" })
 vim.keymap.set("n", "<leader>nS", function()
-  vim.fn.system("bujo sync")
-  vim.notify("Bujo: sync complete!")
+  handle = vim.loop.spawn('bujo', {
+    args = { 'sync' },
+  }, function(code, signal)
+    if code == 0 then
+      vim.schedule(function()
+        vim.notify("Bujo: sync complete 🎉", vim.log.levels.INFO)
+      end)
+    else
+      vim.schedule(function()
+        vim.notify("Bujo: sync failed 🥲", vim.log.levels.ERROR)
+      end)
+    end
+  end)
 end, { desc = "Bujo: sync" })
 
 -- lsp format
