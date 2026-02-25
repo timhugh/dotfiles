@@ -1,1 +1,2 @@
 brew "dockutil"
+cask "nikitabobko/tap/aerospace"
