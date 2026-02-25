@@ -30,6 +30,15 @@ In addition to trying to automate some of the manual post-install steps, here ar
   - [ ] there's an issue right now with circular dependencies as well -- nvim.install depends on node, python, and ruby, but they all depend on mise
   - In the meantime, going to add `.depends` files to packages just to keep track of those dependencies
 
+Some other potential ideas, again in no particular order:
+- Separate install steps for initial install vs config/auth
+  - A little hand-wavy, but an example is when configuring an arch setup, the initial install would install a bunch of packages like a desktop environment, and later the config/auth can rely on e.g. being able to open a browser to authenticate the github CLI, etc.
+- Some concept of "migrations" could be really neat. Example use cases that have come up:
+  - deleting a .zsh file that is no longer needed, but then a symbolic link still exists in ~/.zsh_profile.d/ and causes errors until it is manually removed
+  - updating the location of something, e.g. I recently moved ~/.journal to ~/git/timhugh/journal_data and had to manually do that on each system I use to match the config change
+- A really light package manager implementation that keeps track of which packages are present on a given system
+  - This might not be as much of a pain point after the introduction of migrations, but generally being able to run an update script that just re-runs installers for the installed packages would be useful
+
 ## History
 
 Previously, all of this configuration was scattered across separate repos and gists:
