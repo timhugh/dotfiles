@@ -23,10 +23,10 @@ outer.right =      0
 6 = 2
 
 [mode.main.binding]
-cmd-h = 'focus left'
-cmd-j = 'focus down'
-cmd-k = 'focus up'
-cmd-l = 'focus right'
+cmd-alt-h = 'focus left'
+cmd-alt-j = 'focus down'
+cmd-alt-k = 'focus up'
+cmd-alt-l = 'focus right'
 
 cmd-1 = 'workspace 1'
 cmd-2 = 'workspace 2'
