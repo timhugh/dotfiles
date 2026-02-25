@@ -6,5 +6,5 @@
     }
   ],
   "git_users": ["timhugh"],
-  "editor": "zed"
+  "editor": "nvim"
 }
