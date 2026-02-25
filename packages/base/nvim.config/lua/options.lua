@@ -36,3 +36,11 @@ vim.diagnostic.config({
 
 -- fuzzy omnifunc
 vim.opt.completeopt = { "fuzzy", "menuone", "noinsert", "popup" }
+
+-- autoresize when terminal is resized
+vim.api.nvim_create_autocmd("VimResized", {
+    pattern = "*",
+    callback = function()
+        vim.cmd("wincmd =")
+    end,
+})
