@@ -1,6 +1,6 @@
 font-family = Lilex
-font-size = 15
-adjust-cell-height = 40%
+font-size = 13
+adjust-cell-height = 20%
 theme = dark:Builtin Pastel Dark,light:Catppuccin Latte
 shell-integration-features = no-title
 keybind = global:cmd+opt+space=toggle_quick_terminal
