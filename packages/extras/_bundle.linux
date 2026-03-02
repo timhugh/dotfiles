@@ -2,9 +2,19 @@ echo 'installing extra applications'
 
 sudo pacman -S --noconfirm --needed \
   blender \
+  calibre \
   discord \
   dosbox \
-  godot
+  godot \
+  hledger \
+  prusa-slicer \
+  qflipper \
+  retroarch \
+  steam
+
+# TODO: this adds a dependency on yay, which might not be installed yet
+yay -S --noconfirm --needed \
+  solvespace
 
 # get replace_symlink function
 source ../../_util.sh
