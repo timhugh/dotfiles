@@ -1,35 +1,15 @@
 echo 'installing extra applications'
 
-sudo apt-get install -y \
-    blender \
-    python3-numpy \
-    dosbox
+sudo pacman -S --noconfirm --needed \
+  blender \
+  discord \
+  dosbox \
+  godot
 
-echo 'creating discord install script at ~/.local/bin/install_discord'
-cat << 'EOF' > ~/.local/bin/install_discord
-#!/bin/bash
-set -euo pipefail
-echo 'downloading and installing discord'
-wget "https://discord.com/api/download?platform=linux" -O ~/Downloads/discord.deb
-sudo apt-get --fix-broken install "${HOME}"/Downloads/discord.deb
-rm "${HOME}"/Downloads/discord.deb
-EOF
-chmod +x ~/.local/bin/install_discord
-
-if ! command -v discord &> /dev/null; then
-    ~/.local/bin/install_discord
-fi
-
-if ! command -v godot &> /dev/null; then
-    echo 'downloading and installing godot'
-	godot_version=4.5.1
-	wget "https://downloads.godotengine.org/?version=${godot_version}&flavor=stable&slug=linux.x86_64.zip&platform=linux.64" -O ~/Downloads/godot.zip
-	unzip ~/Downloads/godot.zip -d ~/Downloads/
-	mv ~/Downloads/Godot_v${godot_version}-stable_linux.x86_64 ~/.local/bin/godot
-fi
-
-# we need the replace_symlink function
+# get replace_symlink function
 source ../../_util.sh
 
-dosbox_config_path="$HOME/.dosbox/dosbox-0.74-3.conf"
-replace_symlink "$(pwd)/dosbox.conf" "$dosbox_config_path"
+dosbox_config_dir="$HOME/.dosbox"
+dosbox_config_file="$dosbox_config_dir/dosbox-0.74-3.conf"
+mkdir -p "$dosbox_config_dir"
+replace_symlink "$(pwd)/dosbox.conf" "$dosbox_config_file"
