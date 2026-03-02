@@ -1,8 +1,8 @@
 return {
   {
     "catgoose/nvim-colorizer.lua",
+    enabled = false,
     event = "VeryLazy",
-    enabled = true,
     opts = {
       lazy_load = true,
       filetypes = { "*" },
