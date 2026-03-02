@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+mkdir -p ~/.local/share/fonts
+cp -r ../fonts/* ~/.local/share/fonts/
+fc-cache -f ~/.local/share/fonts

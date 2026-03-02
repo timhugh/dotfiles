@@ -1,18 +1,6 @@
 Include config.d/*
 
-Host github.com
+Host github.com gist.github.com
   User git
   IdentityFile ~/.ssh/github_key
-
-Host gist.github.com
-  User git
-  IdentityFile ~/.ssh/github_key
-
-Host gitlab.com
-  User git
-  IdentityFile ~/.ssh/gitlab_key
-
-Host heroku.com
-  User git
-  IdentityFile ~/.ssh/heroku_key
 

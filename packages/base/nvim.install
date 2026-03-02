@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# TODO: mason install all the LSPs
 nvim --headless "+Lazy! sync" +qa

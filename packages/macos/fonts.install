@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# get dot_root from utils
+source ../../_util.sh
+
+swift ./register_fonts.swift "${dot_root}"/fonts
