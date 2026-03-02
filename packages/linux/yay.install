@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e
+
+aur_root="${HOME}/git/aur"
+yay_root="${aur_root}/yay"
+
+if [ ! -d "$yay_root" ]; then
+    mkdir -p "$aur_root"
+    git clone https://aur.archlinux.org/yay.git "$yay_root"
+fi
+
+if ! command -v yay &> /dev/null; then
+    cd "$yay_root"
+    makepkg -si
+fi

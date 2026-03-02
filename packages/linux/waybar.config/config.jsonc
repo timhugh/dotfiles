@@ -1,0 +1,84 @@
+// -*- mode: jsonc -*-
+{
+    "height": 30,
+    "spacing": 4,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [ 
+        "wireplumber",
+        "custom/audiodevices",
+        "custom/temperature",
+        "custom/darkmode",
+        "cpu",
+        "memory",
+        "tray"
+    ],
+    "wireplumber": {
+        "format-icons": [ "󰕿", "󰖀", "󰕾" ],
+        "format": "{volume}% {icon}",
+        "format-muted": "{format_source} 󰖁",
+        "tooltip": false,
+        "on-click-right": "wpctl set-mute @DEFAULT_SINK@ toggle"
+    },
+    "custom/audiodevices": {
+        "exec": "wpctl status -k | grep '*' | sed -E 's/.*[0-9]+\\. (.+) \\[.*/\\1/' | xargs",
+        "interval": 10,
+        "format": "{}",
+        "tooltip": false,
+        "on-click": "wpctl set-default 45",
+        "on-click-right": "wpctl set-default 56"
+    },
+    "cpu": {
+        "format": "{usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{percentage}% + {swapPercentage}%",
+        "tooltip-format": "Memory: {used} / {total} GiB ({percentage}%)\nSwap: {swapUsed} / {swapTotal} GiB ({swapPercentage}%)",
+    },
+    "clock": {
+        "format": "{:%A %H:%M}",
+        "format-alt": "{:%A %B %d, %Y %H:%M}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-scroll-up": "tz_up",
+            "on-scroll-down": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    "custom/temperature": {
+        "exec": "busctl --user -- get-property rs.wl-gammarelay / rs.wl.gammarelay Temperature",
+        "interval": 10,
+        "format": "{}",
+        "tooltip": false,
+        "on-click": "busctl --user -- set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 6500",
+        "on-click-right": "busctl --user -- set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 1200"
+    },
+    "custom/darkmode": {
+      "exec": "gsettings get org.gnome.desktop.interface color-scheme | sed -E \"s/'.*-(.+)'/\\1/\"",
+      "interval": 10,
+      "format": "{}",
+      "tooltip": false,
+      "on-click": "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'",
+      "on-click-right": "gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'"
+    }
+}

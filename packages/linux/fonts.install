@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+source ../../_util.sh
+
 mkdir -p ~/.local/share/fonts
-cp -r ../fonts/* ~/.local/share/fonts/
-fc-cache -f ~/.local/share/fonts
+cp -r "${dot_root}"/fonts/* ~/.local/share/fonts/
+fc-cache ~/.local/share/fonts

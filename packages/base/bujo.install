@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e
+
+bujo_root="${HOME}/git/timhugh/bujo"
+if [ ! -d "$bujo_root" ]; then
+    mkdir -p ~/git/timhugh
+    git clone https://github.com/timhugh/bujo.git ~/git/timhugh/bujo
+fi
+
+
+if ! command -v bujo &> /dev/null; then
+    cd "${bujo_root}"
+    make
+    sudo make install
+fi
