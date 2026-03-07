@@ -29,8 +29,9 @@
         "interval": 10,
         "format": "{}",
         "tooltip": false,
-        "on-click": "wpctl set-default 45",
-        "on-click-right": "wpctl set-default 56"
+        // TODO: these IDs are not stable
+        "on-click": "wpctl set-default 43",
+        "on-click-right": "wpctl set-default 57"
     },
     "cpu": {
         "format": "{usage}%",
