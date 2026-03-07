@@ -79,7 +79,6 @@
       "interval": 10,
       "format": "{}",
       "tooltip": false,
-      "on-click": "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'",
-      "on-click-right": "gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'"
+      "on-click": "toggle_dark_mode",
     }
 }
