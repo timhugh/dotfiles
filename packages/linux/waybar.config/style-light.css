@@ -1,0 +1,68 @@
+* {
+  font-family: inherit;
+  font-size: 13px;
+  color: rgb(0, 0, 0);
+  transition-property: background-color;
+  transition-duration: .3s;
+}
+
+window#waybar {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.module {
+  padding: 0 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.module:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#workspaces {
+  padding: 0;
+}
+
+#workspaces.module:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#workspaces button {
+  border: none;
+  border-radius: 0;
+}
+
+#workspaces button:hover {
+  background: none;
+}
+
+#workspaces button.active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#wireplumber, #custom-audiodevices { }
+
+#wireplumber.muted {
+  background-color: rgba(128, 28, 28, 0.5);
+}
+
+#custom-temperature { }
+
+#custom-darkmode { }
+
+#clock { }
+
+#tray { }
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
+}
+
+#cpu { }
+
+#memory { }

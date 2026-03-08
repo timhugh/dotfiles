@@ -5,27 +5,26 @@
     "modules-left": [
         "hyprland/workspaces"
     ],
-    "modules-center": [
-        "clock"
-    ],
+    "modules-center": [ ],
     "modules-right": [ 
         "wireplumber",
         "custom/audiodevices",
         "custom/temperature",
         "custom/darkmode",
+        "clock",
+        "tray",
         "cpu",
         "memory",
-        "tray"
     ],
     "wireplumber": {
         "format-icons": [ "󰕿", "󰖀", "󰕾" ],
         "format": "{volume}% {icon}",
         "format-muted": "{format_source} 󰖁",
         "tooltip": false,
-        "on-click-right": "wpctl set-mute @DEFAULT_SINK@ toggle"
+        "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle"
     },
     "custom/audiodevices": {
-        "exec": "wpctl status -k | grep '*' | sed -E 's/.*[0-9]+\\. (.+) \\[.*/\\1/' | xargs",
+        "exec": "wpctl status -k | grep -m 1 '*' | sed -E 's/.*[0-9]+\\. (.+) \\[.*/\\1/' | xargs",
         "interval": 10,
         "format": "{}",
         "tooltip": false,
@@ -34,37 +33,16 @@
         "on-click-right": "wpctl set-default 57"
     },
     "cpu": {
-        "format": "{usage}%",
+        "format": "CPU: {usage}%",
         "tooltip": false
     },
     "memory": {
-        "format": "{percentage}% + {swapPercentage}%",
+        "format": "MEM: {percentage}% + {swapPercentage}%",
         "tooltip-format": "Memory: {used} / {total} GiB ({percentage}%)\nSwap: {swapUsed} / {swapTotal} GiB ({swapPercentage}%)",
     },
     "clock": {
-        "format": "{:%A %H:%M}",
-        "format-alt": "{:%A %B %d, %Y %H:%M}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "calendar": {
-            "mode"          : "year",
-            "mode-mon-col"  : 3,
-            "weeks-pos"     : "right",
-            "on-scroll"     : 1,
-            "format": {
-                "months":     "<span color='#ffead3'><b>{}</b></span>",
-                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-            }
-        },
-        "actions":  {
-            "on-click-right": "mode",
-            "on-scroll-up": "tz_up",
-            "on-scroll-down": "tz_down",
-            "on-scroll-up": "shift_up",
-            "on-scroll-down": "shift_down"
-        }
+        "format": "{:%A %B %d, %Y %H:%M}",
+        "tooltip": false
     },
     "custom/temperature": {
         "exec": "busctl --user -- get-property rs.wl-gammarelay / rs.wl.gammarelay Temperature",
