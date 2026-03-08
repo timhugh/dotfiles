@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+max_gamma=6500
+min_gamma=1000
+gamma_step=500
+
+current_gamma=$(busctl --user -- get-property rs.wl-gammarelay / rs.wl.gammarelay Temperature | awk '{print $2}')
+
+command="$1"
+if [[ -z "$command" ]]; then
+  echo $current_gamma
+  exit 0
+elif [[ "$command" == "up" ]]; then
+  new_gamma=$((current_gamma + gamma_step))
+elif [[ "$command" == "down" ]]; then
+  new_gamma=$((current_gamma - gamma_step))
+elif [[ "$command" == "max" ]]; then
+  new_gamma=$max_gamma
+elif [[ "$command" == "min" ]]; then
+  new_gamma=$min_gamma
+else
+  echo "Invalid command: $command"
+  echo "Usage: $0 [up|down|max|min]"
+  exit 1
+fi
+
+if [[ $new_gamma -gt $max_gamma ]]; then
+  new_gamma=$max_gamma
+fi
+if [[ $new_gamma -lt $min_gamma ]]; then
+  new_gamma=$min_gamma
+fi
+
+busctl --user -- set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q $new_gamma
+echo $new_gamma

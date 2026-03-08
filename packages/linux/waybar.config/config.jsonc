@@ -9,7 +9,7 @@
     "modules-right": [ 
         "wireplumber",
         "custom/audiodevices",
-        "custom/temperature",
+        "custom/gamma",
         "custom/darkmode",
         "clock",
         "tray",
@@ -44,13 +44,13 @@
         "format": "{:%A %B %d, %Y %H:%M}",
         "tooltip": false
     },
-    "custom/temperature": {
-        "exec": "busctl --user -- get-property rs.wl-gammarelay / rs.wl.gammarelay Temperature",
+    "custom/gamma": {
+        "exec": "waybar_gamma",
         "interval": 10,
         "format": "{}",
         "tooltip": false,
-        "on-click": "busctl --user -- set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 6500",
-        "on-click-right": "busctl --user -- set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 1200"
+        "on-scroll-up": "waybar_gamma up",
+        "on-scroll-down": "waybar_gamma down"
     },
     "custom/darkmode": {
       "exec": "gsettings get org.gnome.desktop.interface color-scheme | sed -E \"s/'.*-(.+)'/\\1/\"",
