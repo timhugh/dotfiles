@@ -13,6 +13,7 @@ sudo pacman -S --noconfirm --needed \
     less \
     jq \
     libyaml \
+    ntp \
     neovim \
     ninja \
     openssh \
@@ -25,6 +26,12 @@ sudo pacman -S --noconfirm --needed \
 # update nsswitch.conf to include mdns_minimal for .local hostname resolution
 sudo sed -i 's/hosts: mymachines resolve/hosts: mymachines mdns_minimal [NOTFOUND=return] resolve/' /etc/nsswitch.conf
 sudo systemctl enable --now avahi-daemon.service
+
+# enable ufw
+sudo ufw enable
+
+# enable and start ntpd
+sudo systemctl enable --now ntpd.service
 
 # change shell to zsh
 chsh -s /usr/bin/zsh
