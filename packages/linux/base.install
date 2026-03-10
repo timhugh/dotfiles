@@ -13,6 +13,7 @@ sudo pacman -S --noconfirm --needed \
     less \
     jq \
     libyaml \
+    lldb \
     ntp \
     neovim \
     ninja \
