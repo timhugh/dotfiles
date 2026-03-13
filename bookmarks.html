@@ -24,17 +24,14 @@
   </style>
 </head>
 
-<body
-  class="bg-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200 mt-4 font-mono text-sm font-extralight">
-  <div id="app">
-  </div>
+<body id="app"
+  class="bg-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200 font-mono text-sm font-extralight">
 
   <div class="absolute bottom-4 left-4 text-xs text-neutral-500">
     <h2>Todo:</h2>
     <ul class="list-disc list-inside">
       <li>Fuzzy search with fuse.js</li>
-      <li>Exclusive open of folders</li>
-      <li>Better folder styling</li>
+      <li>Folder slide animation</li>
     </ul>
   </div>
 
@@ -380,36 +377,41 @@
     const {createApp} = Vue;
 
     const RootItem = {
-      props: ['bookmark'],
+      props: ['bookmark', 'isOpen'],
+      emits: ['open'],
       template: `
-        <Folder v-if="bookmark.children" :bookmark="bookmark" :root="true"/>
+        <Folder v-if="bookmark.children" :bookmark="bookmark" :root="true" :isOpen="isOpen" @open="$emit('open', $event)"/>
         <Bookmark v-else :bookmark="bookmark" :root="true"/>
       `
     };
 
     const Item = {
-      props: ['bookmark'],
+      props: ['bookmark', 'isOpen'],
+      emits: ['open'],
       template: `
-        <Folder v-if="bookmark.children" :bookmark="bookmark" :root="false"/>
+        <Folder v-if="bookmark.children" :bookmark="bookmark" :root="false" :isOpen="isOpen" @open="$emit('open', $event)"/>
         <Bookmark v-else :bookmark="bookmark" :root="false"/>
       `
     };
 
     const Folder = {
-      props: ['bookmark', 'root'],
+      props: ['bookmark', 'root', 'isOpen'],
+      emits: ['open'],
       setup() {
-        const open = Vue.ref(false);
+        const openChild = Vue.ref(null);
 
-        return {open};
+        return {openChild};
       },
       template: `
-        <li class="relative" :class="{open: open}">
-          <span @click="open = !open" class="flex flex-row justify-end items-center gap-2 cursor-pointer">
-            <span v-if="!root" :bookmark="bookmark" class="font-bold">{{ bookmark.title }}</span>
-            <span class="iconify w-6 h-6" :data-icon="bookmark.icon || (open ? 'mdi-folder-open' : 'mdi-folder')"></span>
+        <li class="relative" :class="{open: isOpen}">
+          <span @click.stop="$emit('open', bookmark.title)" class="flex flex-row justify-end items-center gap-2 cursor-pointer">
+            <span v-if="!root" class="font-bold">{{ bookmark.title }}</span>
+            <span class="iconify w-6 h-6" :data-icon="bookmark.icon || (isOpen ? 'mdi-folder-open' : 'mdi-folder')"></span>
           </span>
-          <ul v-show="open" class="absolute top-full right-0 text-right min-w-sm flex flex-col gap-4 mt-4">
-            <Item v-for="child in bookmark.children" :key="child.title" :bookmark="child" />
+          <ul v-show="isOpen" @click.stop class="absolute top-full right-0 text-right min-w-sm flex flex-col gap-4 mt-4">
+            <Item v-for="child in bookmark.children" :key="child.title" :bookmark="child"
+              :isOpen="child.children && openChild === child.title"
+              @open="openChild = openChild === $event ? null : $event"/>
           </ul>
         </li>
       `
@@ -437,12 +439,24 @@
     const app = createApp({
       data() {
         return {
-          bookmarks: bookmarks
+          bookmarks: bookmarks,
+          openTitle: null
         };
       },
+      methods: {
+        closeAll() {this.openTitle = null;}
+      },
+      mounted() {
+        document.addEventListener('click', this.closeAll);
+      },
+      unmounted() {
+        document.removeEventListener('click', this.closeAll);
+      },
       template: `
-        <ul class="root flex flex-row justify-around">
-          <RootItem v-for="bookmark in bookmarks" :key="bookmark.title" :bookmark="bookmark" />
+        <ul class="root flex flex-row justify-around pt-4">
+          <RootItem v-for="bookmark in bookmarks" :key="bookmark.title" :bookmark="bookmark"
+            :isOpen="openTitle === bookmark.title"
+            @open="openTitle = openTitle === $event ? null : $event"/>
         </ul>
       `
     });
