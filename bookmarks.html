@@ -366,6 +366,7 @@
         ]
       }
     ];
+    const bookmarksFlat = bookmarks.flatMap(bookmark => bookmark.children ? bookmark.children : bookmark);
 
     const {createApp} = Vue;
 
@@ -429,6 +430,96 @@
       `
     };
 
+    const Search = {
+      props: ['bookmarks'],
+      emits: ['active'],
+      setup(props, {emit}) {
+        const searchQuery = Vue.ref('');
+        const fuse = new Fuse(props.bookmarks, {keys: ['title']});
+
+        function close() {
+          searchQuery.value = '';
+        }
+
+        function handleKey(event) {
+          if (event.key === 'Escape') {
+            close();
+          } else if (event.key === 'Enter') {
+            const results = fuse.search(searchQuery.value);
+            if (results.length > 0) {
+              emit('select', results[0].item.url);
+            }
+          } else if (event.key === 'Backspace') {
+            searchQuery.value = searchQuery.value.slice(0, -1);
+          } else if (
+            event.key.length === 1 &&
+            event.key.match(/^[a-zA-Z0-9 ]$/) &&
+            !event.ctrlKey && !event.metaKey && !event.altKey
+          ) {
+            searchQuery.value += event.key;
+          }
+
+          if (searchQuery.value) {
+            emit('active');
+          }
+        }
+
+        Vue.onMounted(() => document.addEventListener('keyup', handleKey));
+        Vue.onUnmounted(() => document.removeEventListener('keyup', handleKey));
+
+        return {searchQuery, fuse, close};
+      },
+      expose: ['close'],
+      template: `
+        <div v-show="searchQuery" class="flex flex-col items-center pt-4">
+          <span class="font-bold">&gt; {{ searchQuery }}</span>
+          <ul class="flex flex-col items-center">
+            <span v-for="result in fuse.search(searchQuery)" :key="result.item.title">
+              <a :href="result.item.url" class="hover:underline">{{ result.item.title }}</a>
+            </span>
+          </ul>
+        </div>
+      `
+    };
+
+    const BookmarksBar = {
+      props: ['bookmarks'],
+      emits: ['active'],
+      setup(props, {emit}) {
+        const openFolderTitle = Vue.ref(null);
+
+        function closeFolders() {
+          openFolderTitle.value = null;
+        }
+
+        function openFolder(title) {
+          openFolderTitle.value = openFolderTitle.value === title ? null : title;
+          emit('active');
+        }
+
+        function handleKey(event) {
+          if (event.key === 'Escape') {
+            closeFolders();
+          }
+        }
+
+        Vue.onMounted(() => document.addEventListener('click', closeFolders));
+        Vue.onMounted(() => document.addEventListener('keyup', handleKey));
+        Vue.onUnmounted(() => document.removeEventListener('click', closeFolders));
+        Vue.onUnmounted(() => document.removeEventListener('keyup', handleKey));
+
+        return {openFolderTitle, openFolder, closeFolders};
+      },
+      expose: ['closeFolders'],
+      template: `
+        <ul class="root flex flex-row justify-around pt-4">
+          <RootItem v-for="bookmark in bookmarks" :key="bookmark.title" :bookmark="bookmark"
+            :isOpen="openFolderTitle === bookmark.title"
+            @open="openFolder"/>
+        </ul>
+      `
+    };
+
     const TodoList = {
       template: `
         <div class="absolute bottom-4 left-4 text-xs text-neutral-500">
@@ -443,89 +534,37 @@
     const app = createApp({
       data() {
         return {
-          bookmarks: bookmarks,
-          bookmarksFlat: bookmarks.flatMap(bookmark => bookmark.children ? bookmark.children : bookmark),
-          openFolderTitle: null,
-          searchQuery: '',
-          searchResults: []
+          bookmarks,
+          bookmarksFlat,
         };
       },
       methods: {
-        handleKeydown(event) {
-          if (event.key === 'Escape') {
-            this.closeFolders();
-            this.cancelSearch();
-          } else if (event.key === 'Enter') {
-            this.search();
-          } else {
-            this.updateSearchResults(event);
-          }
+        barActive() {
+          this.$refs.search.close();
         },
-        search() {
-          if (this.searchResults.length > 0) {
-            const firstResult = this.searchResults[0];
-            window.location.href = firstResult.url;
-          }
+        searchActive() {
+          this.$refs.bookmarksBar.closeFolders();
         },
-        updateSearchResults(key) {
-          if (event.key === 'Backspace') {
-            this.searchQuery = this.searchQuery.slice(0, -1);
-          } else if (
-            event.key.length === 1 &&
-            event.key.match(/^[a-zA-Z0-9 ]$/) &&
-            !event.ctrlKey && !event.metaKey && !event.altKey
-          ) {
-            this.searchQuery += event.key;
-          }
-
-          if (this.searchQuery) {
-            this.closeFolders();
-            const fuse = new Fuse(this.bookmarksFlat, {keys: ['title']});
-            this.searchResults = fuse.search(this.searchQuery).map(result => result.item);
-          } else {
-            this.searchResults = [];
-          }
+        doSearch(url) {
+          window.location.href = url;
         },
-        cancelSearch() {
-          this.searchQuery = '';
-        },
-        closeFolders() {
-          this.openFolderTitle = null;
-        },
-        openFolder(title) {
-          this.openFolderTitle = this.openFolderTitle === title ? null : title;
-        },
-      },
-      mounted() {
-        document.addEventListener('click', this.closeAll);
-        document.addEventListener('keydown', this.handleKeydown);
-      },
-      unmounted() {
-        document.removeEventListener('click', this.closeAll);
-        document.removeEventListener('keydown', this.handleKeydown);
       },
       template: `
         <div>
-          <ul class="root flex flex-row justify-around pt-4">
-            <RootItem v-for="bookmark in bookmarks" :key="bookmark.title" :bookmark="bookmark"
-              :isOpen="openFolderTitle === bookmark.title"
-              @open="openFolder"/>
-          </ul>
-          <div v-show="searchQuery" class="flex flex-col items-center pt-4">
-            <span class="font-bold">&gt; {{ searchQuery }}</span>
-            <ul class="flex flex-col items-center">
-              <span v-for="result in searchResults" :key="result.title">{{ result.title }}</span>
-            </ul>
-          </div>
+          <BookmarksBar :bookmarks="bookmarks" @active="barActive" ref="bookmarksBar"/>
+          <Search :bookmarks="bookmarksFlat" @active="searchActive" @select="doSearch" ref="search"/>
           <TodoList/>
         </div>
       `
     });
 
+    app.component('BookmarksBar', BookmarksBar);
     app.component('RootItem', RootItem);
     app.component('Item', Item);
     app.component('Folder', Folder);
     app.component('Bookmark', Bookmark);
+
+    app.component('Search', Search);
 
     app.component('TodoList', TodoList);
 
