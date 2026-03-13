@@ -1,0 +1,459 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookmarks</title>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/iconify/3.1.1/iconify.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap"
+    rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --font-mono: 'Cascadia Code', monospace;
+    }
+  </style>
+</head>
+
+<body
+  class="bg-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200 mt-4 font-mono text-sm font-extralight">
+  <div id="app">
+  </div>
+
+  <div class="absolute bottom-4 left-4 text-xs text-neutral-500">
+    <h2>Todo:</h2>
+    <ul class="list-disc list-inside">
+      <li>Fuzzy search with fuse.js</li>
+      <li>Exclusive open of folders</li>
+      <li>Better folder styling</li>
+    </ul>
+  </div>
+
+  <script>
+    const bookmarks = [
+      {
+        title: "DevDocs",
+        icon: "mdi-file-document-outline",
+        url: "https://devdocs.io/"
+      },
+      {
+        title: "YouTube Music",
+        icon: "mdi-music",
+        url: "https://music.youtube.com/"
+      },
+      {
+        title: "Instapaper",
+        icon: "mdi-newspaper-variant-outline",
+        url: "https://www.instapaper.com/u"
+      },
+      {
+        title: "GitHub",
+        icon: "mdi-github",
+        url: "https://github.com"
+      },
+      {
+        title: "Claude",
+        icon: "mdi-robot-confused",
+        url: "https://claude.ai/new"
+      },
+      {
+        title: "Discord",
+        icon: "mdi-chat-alert-outline",
+        url: "https://discord.com/channels/@me"
+      },
+      {
+        title: "Google Meet",
+        icon: "mdi-video-box",
+        url: "https://meet.google.com/"
+      },
+      {
+        title: "Home Assistant",
+        icon: "mdi-home-assistant",
+        url: "http://house.local:8123/"
+      },
+      {
+        title: "Wanderlog",
+        icon: "mdi-plane-train",
+        url: "https://wanderlog.com/plan/aqyketnvsojajiqj/trip-to-new-zealand-2026/shared"
+      },
+      {
+        title: "Games",
+        icon: "mdi-dice-multiple",
+        children: [
+          {
+            title: "LinkedIn Games",
+            icon: "mdi-linkedin",
+            url: "https://www.linkedin.com/games/"
+          },
+          {
+            title: "Worldle",
+            url: "https://worldle.teuteuf.fr/"
+          },
+          {
+            title: "Globle",
+            url: "https://globle-game.com/"
+          },
+          {
+            title: "Travle",
+            url: "https://travle.earth/"
+          },
+          {
+            title: "Travle Challenge",
+            url: "https://travle.earth/challenge"
+          },
+          {
+            title: "Guess The Game",
+            url: "https://guessthe.game/"
+          },
+          {
+            title: "40k",
+            children: [
+              {
+                title: "Core Rules",
+                url: "https://wahapedia.ru/wh40k10ed/the-rules/core-rules/"
+              },
+              {
+                title: "New Recruit",
+                url: "https://www.newrecruit.eu/app/MyLists"
+              },
+              {
+                title: "Combat Patrols",
+                url: "https://warhammer40000.com/combat-patrol/"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        title: "Socials",
+        icon: "mdi-account-details",
+        children: [
+          {
+            title: "Twitter",
+            url: "https://www.twitter.com/"
+          },
+          {
+            title: "Mastodon",
+            url: "https://mastodon.social/home"
+          },
+          {
+            title: "Bluesky",
+            url: "https://bsky.app/"
+          },
+          {
+            title: "Threads",
+            url: "https://threads.com/"
+          },
+          {
+            title: "Reddit",
+            url: "https://www.reddit.com/"
+          }
+        ]
+      },
+      {
+        title: "Entertainment",
+        icon: "mdi-vhs",
+        children: [
+          {
+            title: "YouTube",
+            url: "https://www.youtube.com/"
+          },
+          {
+            title: "Twitch",
+            url: "https://www.twitch.tv/"
+          },
+          {
+            title: "Instagram",
+            url: "https://www.instagram.com/"
+          }
+        ]
+      },
+      {
+        title: "Music",
+        icon: "mdi-piano",
+        children: [
+          {
+            title: "Ultimate Guitar",
+            url: "https://www.ultimate-guitar.com/"
+          },
+          {
+            title: "MuseScore",
+            url: "https://musescore.com/"
+          },
+          {
+            title: "Chordify",
+            url: "https://chordify.net/"
+          },
+          {
+            title: "Arturia Minilab 3 Resources",
+            url: "https://www.arturia.com/products/hybrid-synths/minilab-3/resources"
+          },
+          {
+            title: "Arturia MyArturia",
+            url: "https://www.arturia.com/myarturia#products"
+          },
+          {
+            title: "Ableton Account",
+            url: "https://www.ableton.com/en/account/"
+          },
+          {
+            title: "OP-1 Fun",
+            url: "https://op1.fun/"
+          },
+          {
+            title: "Teenage Engineering OP-1 Guide",
+            url: "https://teenage.engineering/guides/op-1/original"
+          },
+          {
+            title: "Hichord Portal",
+            url: "https://hichord.github.io/hichord-portal/"
+          },
+          {
+            title: "Hichord Manual",
+            url: "https://manual.hichord.shop/"
+          },
+          {
+            title: "ChordBoy",
+            url: "https://jameshsi.com/chordboy/"
+          },
+          {
+            title: "Online Omnichord",
+            url: "https://onlineomnichord.com/"
+          },
+          {
+            title: "Omnichord Jake Fun",
+            url: "https://omnichord.jake.fun/"
+          }
+        ]
+      },
+      {
+        title: "Maps",
+        icon: "mdi-map",
+        children: [
+          {
+            title: "Gaia",
+            url: "https://www.gaiagps.com/map/"
+          },
+          {
+            title: "OsmAnd",
+            url: "https://osmand.net/map/"
+          },
+          {
+            title: "OpenStreetMap",
+            url: "https://www.openstreetmap.org/"
+          },
+          {
+            title: "ShadeMap",
+            url: "https://shademap.app/"
+          },
+          {
+            title: "Windy",
+            url: "https://www.windy.com/"
+          },
+          {
+            title: "Ventusky",
+            url: "https://www.ventusky.com/"
+          },
+          {
+            title: "Copernicus",
+            url: "https://browser.dataspace.copernicus.eu/"
+          },
+          {
+            title: "NOAA Water",
+            url: "https://water.noaa.gov/"
+          }
+        ]
+      },
+      {
+        title: "REPLs",
+        icon: "mdi-console",
+        children: [
+          {
+            title: "TypeScript",
+            url: "https://www.typescriptlang.org/play/"
+          },
+          {
+            title: "C++",
+            url: "https://cpp.sh/"
+          },
+          {
+            title: "Go Playground",
+            url: "https://go.dev/play/"
+          },
+          {
+            title: '"Better" Go Playground',
+            url: "https://goplay.tools/"
+          }
+        ]
+      },
+      {
+        title: "Docs",
+        icon: "mdi-book-open-variant",
+        children: [
+          {
+            title: "Neovim",
+            url: "https://neovim.io/doc/user/index.html"
+          },
+          {
+            title: "Godot",
+            url: "https://docs.godotengine.org/en/stable/index.html"
+          },
+          {
+            title: "Dear ImGui",
+            url: "https://pthom.github.io/imgui_manual_online/manual/imgui_manual.html"
+          },
+          {
+            title: "SDL",
+            url: "https://wiki.libsdl.org/wiki/index"
+          },
+          {
+            title: "GLM",
+            url: "https://glm.g-truc.net/0.9.2/api/a00110_source.html"
+          },
+          {
+            title: "vcpkg",
+            url: "https://vcpkg.io/en/packages.html?query="
+          },
+          {
+            title: "OpenGL",
+            url: "https://registry.khronos.org/OpenGL-Refpages/gl4/"
+          },
+          {
+            title: "Google Test",
+            url: "https://google.github.io/googletest/"
+          },
+          {
+            title: "Tailwind CSS",
+            url: "https://tailwindcss.com/docs/"
+          },
+          {
+            title: "Material Design Icons",
+            url: "https://pictogrammers.com/library/mdi/"
+          },
+          {
+            title: "Iconify",
+            url: "https://icon-sets.iconify.design/"
+          },
+          {
+            title: "Nerd Fonts",
+            url: "https://www.nerdfonts.com/cheat-sheet"
+          },
+          {
+            title: "Game Programming Patterns",
+            url: "https://gameprogrammingpatterns.com/contents.html"
+          },
+          {
+            title: "JQ cheatsheet",
+            url: "https://gist.github.com/olih/f7437fb6962fb3ee9fe95bda8d2c8fa4"
+          },
+          {
+            title: "pacman cheatsheet",
+            url: "https://wiki.archlinux.org/title/Pacman/Rosetta"
+          }
+        ]
+      },
+      {
+        title: "Work",
+        icon: "mdi-briefcase",
+        children: [
+          {
+            title: "Notion",
+            url: "https://www.notion.so/testdouble"
+          },
+          {
+            title: "Present",
+            url: "https://present.testdouble.com/weeks/current"
+          }
+        ]
+      }
+    ];
+
+    const {createApp} = Vue;
+
+    const RootItem = {
+      props: ['bookmark'],
+      template: `
+        <Folder v-if="bookmark.children" :bookmark="bookmark" :root="true"/>
+        <Bookmark v-else :bookmark="bookmark" :root="true"/>
+      `
+    };
+
+    const Item = {
+      props: ['bookmark'],
+      template: `
+        <Folder v-if="bookmark.children" :bookmark="bookmark" :root="false"/>
+        <Bookmark v-else :bookmark="bookmark" :root="false"/>
+      `
+    };
+
+    const Folder = {
+      props: ['bookmark', 'root'],
+      setup() {
+        const open = Vue.ref(false);
+
+        return {open};
+      },
+      template: `
+        <li class="relative" :class="{open: open}">
+          <span @click="open = !open" class="flex flex-row justify-end items-center gap-2 cursor-pointer">
+            <span v-if="!root" :bookmark="bookmark" class="font-bold">{{ bookmark.title }}</span>
+            <span class="iconify w-6 h-6" :data-icon="bookmark.icon || (open ? 'mdi-folder-open' : 'mdi-folder')"></span>
+          </span>
+          <ul v-show="open" class="absolute top-full right-0 text-right min-w-sm flex flex-col gap-4 mt-4">
+            <Item v-for="child in bookmark.children" :key="child.title" :bookmark="child" />
+          </ul>
+        </li>
+      `
+    };
+
+    const Bookmark = {
+      props: ['bookmark', 'root'],
+      setup(props) {
+        const favicon_url = 'https://icons.duckduckgo.com/ip3/' + new URL(props.bookmark.url).hostname + '.ico';
+        return {favicon_url};
+      },
+      template: `
+        <li>
+          <a :href="bookmark.url" class="flex flex-row justify-end items-center gap-2">
+            <span v-if="!root" class="hover:underline">{{ bookmark.title }}</span>
+            <span class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-600" :data-tooltip="bookmark.title">
+              <span v-if="bookmark.icon" class="iconify w-6 h-6" :data-icon="bookmark.icon"></span>
+              <img v-else class="w-6 h-6" :src="favicon_url"/>
+            </span>
+          </a>
+        </li>
+      `
+    };
+
+    const app = createApp({
+      data() {
+        return {
+          bookmarks: bookmarks
+        };
+      },
+      template: `
+        <ul class="root flex flex-row justify-around">
+          <RootItem v-for="bookmark in bookmarks" :key="bookmark.title" :bookmark="bookmark" />
+        </ul>
+      `
+    });
+
+    app.component('Item', Item);
+    app.component('RootItem', RootItem);
+    app.component('Folder', Folder);
+    app.component('Bookmark', Bookmark);
+
+    app.mount('#app');
+  </script>
+</body>
+
+</html>
