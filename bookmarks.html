@@ -22,6 +22,18 @@
       --font-mono: 'Cascadia Code', monospace;
     }
   </style>
+  <style>
+    .folder-enter-active,
+    .folder-leave-active {
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+
+    .folder-enter-from,
+    .folder-leave-to {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+  </style>
 </head>
 
 <body id="app"
@@ -402,11 +414,13 @@
             <span v-if="!root" class="font-bold">{{ bookmark.title }}</span>
             <span class="iconify w-6 h-6" :data-icon="bookmark.icon || (isOpen ? 'mdi-folder-open' : 'mdi-folder')"></span>
           </span>
+          <Transition name="folder">
           <ul v-show="isOpen" @click.stop class="absolute top-full right-0 text-right min-w-sm flex flex-col gap-4 mt-4">
             <Item v-for="child in bookmark.children" :key="child.title" :bookmark="child"
               :isOpen="child.children && openChildFolderTitle === child.title"
               @open="openChildFolderTitle = openChildFolderTitle === $event ? null : $event"/>
           </ul>
+          </Transition>
         </li>
       `
     };
@@ -520,17 +534,6 @@
       `
     };
 
-    const TodoList = {
-      template: `
-        <div class="absolute bottom-4 left-4 text-xs text-neutral-500">
-          <h2>Todo:</h2>
-          <ul class="list-disc list-inside">
-            <li>Folder slide animation</li>
-          </ul>
-        </div>
-      `
-    };
-
     const app = createApp({
       data() {
         return {
@@ -553,7 +556,6 @@
         <div>
           <BookmarksBar :bookmarks="bookmarks" @active="barActive" ref="bookmarksBar"/>
           <Search :bookmarks="bookmarksFlat" @active="searchActive" @select="doSearch" ref="search"/>
-          <TodoList/>
         </div>
       `
     });
@@ -565,8 +567,6 @@
     app.component('Bookmark', Bookmark);
 
     app.component('Search', Search);
-
-    app.component('TodoList', TodoList);
 
     app.mount('#app');
   </script>
