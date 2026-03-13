@@ -378,7 +378,8 @@
         ]
       }
     ];
-    const bookmarksFlat = bookmarks.flatMap(bookmark => bookmark.children ? bookmark.children : bookmark);
+    const flatten = (bookmark) => bookmark.children ? bookmark.children.flatMap(flatten) : bookmark;
+    const bookmarksFlat = bookmarks.flatMap(flatten);
 
     const {createApp} = Vue;
 
