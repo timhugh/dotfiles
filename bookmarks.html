@@ -27,13 +27,6 @@
 <body id="app"
   class="bg-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200 font-mono text-sm font-extralight">
 
-  <div class="absolute bottom-4 left-4 text-xs text-neutral-500">
-    <h2>Todo:</h2>
-    <ul class="list-disc list-inside">
-      <li>Fuzzy search with fuse.js</li>
-      <li>Folder slide animation</li>
-    </ul>
-  </div>
 
   <script>
     const bookmarks = [
@@ -398,9 +391,9 @@
       props: ['bookmark', 'root', 'isOpen'],
       emits: ['open'],
       setup() {
-        const openChild = Vue.ref(null);
+        const openChildFolderTitle = Vue.ref(null);
 
-        return {openChild};
+        return {openChildFolderTitle};
       },
       template: `
         <li class="relative" :class="{open: isOpen}">
@@ -410,8 +403,8 @@
           </span>
           <ul v-show="isOpen" @click.stop class="absolute top-full right-0 text-right min-w-sm flex flex-col gap-4 mt-4">
             <Item v-for="child in bookmark.children" :key="child.title" :bookmark="child"
-              :isOpen="child.children && openChild === child.title"
-              @open="openChild = openChild === $event ? null : $event"/>
+              :isOpen="child.children && openChildFolderTitle === child.title"
+              @open="openChildFolderTitle = openChildFolderTitle === $event ? null : $event"/>
           </ul>
         </li>
       `
@@ -436,35 +429,105 @@
       `
     };
 
+    const TodoList = {
+      template: `
+        <div class="absolute bottom-4 left-4 text-xs text-neutral-500">
+          <h2>Todo:</h2>
+          <ul class="list-disc list-inside">
+            <li>Folder slide animation</li>
+          </ul>
+        </div>
+      `
+    };
+
     const app = createApp({
       data() {
         return {
           bookmarks: bookmarks,
-          openTitle: null
+          bookmarksFlat: bookmarks.flatMap(bookmark => bookmark.children ? bookmark.children : bookmark),
+          openFolderTitle: null,
+          searchQuery: '',
+          searchResults: []
         };
       },
       methods: {
-        closeAll() {this.openTitle = null;}
+        handleKeydown(event) {
+          if (event.key === 'Escape') {
+            this.closeFolders();
+            this.cancelSearch();
+          } else if (event.key === 'Enter') {
+            this.search();
+          } else {
+            this.updateSearchResults(event);
+          }
+        },
+        search() {
+          if (this.searchResults.length > 0) {
+            const firstResult = this.searchResults[0];
+            window.location.href = firstResult.url;
+          }
+        },
+        updateSearchResults(key) {
+          if (event.key === 'Backspace') {
+            this.searchQuery = this.searchQuery.slice(0, -1);
+          } else if (
+            event.key.length === 1 &&
+            event.key.match(/^[a-zA-Z0-9 ]$/) &&
+            !event.ctrlKey && !event.metaKey && !event.altKey
+          ) {
+            this.searchQuery += event.key;
+          }
+
+          if (this.searchQuery) {
+            this.closeFolders();
+            const fuse = new Fuse(this.bookmarksFlat, {keys: ['title']});
+            this.searchResults = fuse.search(this.searchQuery).map(result => result.item);
+          } else {
+            this.searchResults = [];
+          }
+        },
+        cancelSearch() {
+          this.searchQuery = '';
+        },
+        closeFolders() {
+          this.openFolderTitle = null;
+        },
+        openFolder(title) {
+          this.openFolderTitle = this.openFolderTitle === title ? null : title;
+        },
       },
       mounted() {
         document.addEventListener('click', this.closeAll);
+        document.addEventListener('keydown', this.handleKeydown);
       },
       unmounted() {
         document.removeEventListener('click', this.closeAll);
+        document.removeEventListener('keydown', this.handleKeydown);
       },
       template: `
-        <ul class="root flex flex-row justify-around pt-4">
-          <RootItem v-for="bookmark in bookmarks" :key="bookmark.title" :bookmark="bookmark"
-            :isOpen="openTitle === bookmark.title"
-            @open="openTitle = openTitle === $event ? null : $event"/>
-        </ul>
+        <div>
+          <ul class="root flex flex-row justify-around pt-4">
+            <RootItem v-for="bookmark in bookmarks" :key="bookmark.title" :bookmark="bookmark"
+              :isOpen="openFolderTitle === bookmark.title"
+              @open="openFolder"/>
+          </ul>
+          <div v-show="searchQuery" class="flex flex-col items-center pt-4">
+            <span class="font-bold">&gt; {{ searchQuery }}</span>
+            <ul class="flex flex-col items-center">
+              <span v-for="result in searchResults" :key="result.title">{{ result.title }}</span>
+            </ul>
+          </div>
+          <TodoList/>
+        </div>
       `
     });
 
-    app.component('Item', Item);
     app.component('RootItem', RootItem);
+    app.component('Item', Item);
     app.component('Folder', Folder);
     app.component('Bookmark', Bookmark);
+
+    app.component('TodoList', TodoList);
 
     app.mount('#app');
   </script>
