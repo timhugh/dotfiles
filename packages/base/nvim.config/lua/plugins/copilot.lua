@@ -8,7 +8,7 @@ return {
     cmd = "Copilot",
     event = "InsertEnter",
     opts = {
-      copilot_node_command = {"mise", "x", "node@lts", "--", "node" },
+      copilot_node_command = { "mise", "x", "node@lts", "--", "node" },
       suggestion = {
         enabled = true,
         auto_trigger = true,
