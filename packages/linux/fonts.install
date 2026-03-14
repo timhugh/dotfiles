@@ -2,6 +2,9 @@
 
 set -euo pipefail
 
+sudo pacman -S --noconfirm --needed \
+    noto-fonts-emoji
+
 source ../../_util.sh
 
 mkdir -p ~/.local/share/fonts
