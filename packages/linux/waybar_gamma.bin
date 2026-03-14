@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-max_gamma=6500
+max_gamma=10000
 min_gamma=1000
 gamma_step=500
 
