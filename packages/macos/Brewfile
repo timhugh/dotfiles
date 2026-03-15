@@ -25,6 +25,7 @@ cask "ungoogled-chromium"
 # misc tools
 brew "arduino-cli"
 brew "direnv"
+brew "gnutls"
 brew "icu4c" # for postgres
 brew "jq"
 brew "libyaml" # for ruby
