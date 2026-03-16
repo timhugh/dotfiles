@@ -35,7 +35,7 @@ return {
       "nvim-telescope/telescope.nvim",
     },
     keys = {
-      { "<leader>fdg", "<cmd>Telescope dir live_grep<CR>", desc = "Grep all files in directory" },
+      { "<leader>fdg", "<cmd>Telescope dir live_grep<CR>",  desc = "Grep all files in directory" },
       { "<leader>fdf", "<cmd>Telescope dir find_files<CR>", desc = "Find files in directory" },
     },
     init = function()
@@ -72,6 +72,16 @@ return {
     },
     init = function()
       require("telescope").load_extension("git_branch")
+    end,
+  },
+  {
+    "nvim-telescope/telescope-ui-select.nvim",
+    enabled = true,
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+    },
+    init = function()
+      require("telescope").load_extension("ui-select")
     end,
   },
 }
