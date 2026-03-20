@@ -8,3 +8,12 @@ exec "$(brew --prefix llvm)/bin/clang-tidy" "\$@"
 EOF
     chmod +x "${HOME}"/.local/bin/clang-tidy
 fi
+
+if [ ! -f "${HOME}"/.local/bin/clang-format ]; then
+    cat << EOF > "${HOME}"/.local/bin/clang-format
+#!/usr/bin/env zsh
+
+exec "$(brew --prefix llvm)/bin/clang-format" "\$@"
+EOF
+    chmod +x "${HOME}"/.local/bin/clang-format
+fi
