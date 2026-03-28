@@ -2,5 +2,5 @@ font-family = Cascadia Code NF Light
 font-size = 14
 adjust-cell-height = 30%
 adjust-cell-width = 0%
-theme = dark:Builtin Pastel Dark,light:Catppuccin Latte
+theme = dark:Adwaita Dark,light:Adwaita
 keybind = global:cmd+opt+space=toggle_quick_terminal
