@@ -3,8 +3,6 @@ brew "mas"
 brew "whalebrew"
 brew "dockutil"
 
-cask "nikitabobko/tap/aerospace"
-
 # upgrade os tools
 brew "bash"
 brew "coreutils"
@@ -44,6 +42,7 @@ cask "docker-desktop"
 cask "flux-app"
 cask "ghostty@tip"
 cask "notion-calendar"
+cask "rectangle"
 cask "rocket"
 cask "scroll-reverser"
 cask "slack"
