@@ -52,8 +52,7 @@ require('lsp').configure_lsp('tailwindcss', {
       config.settings.editor.tabSize = vim.lsp.util.get_effective_tabstop()
     end
   end,
-  workspace_required = true,
-  on_attach = function(client, bufnr)
+  on_attach = function(client)
     -- tailwind always runs in tandem with either cssls or one of the JS lsps which already provide formatting
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false

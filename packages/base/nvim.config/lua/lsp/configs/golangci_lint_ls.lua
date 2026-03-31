@@ -6,7 +6,6 @@ require('lsp').configure_lsp('golangci_lint_ls', {
     -- https://github.com/nametake/golangci-lint-langserver?tab=readme-ov-file#configuration-for-vim-lsp
     command = { 'golangci-lint', 'run', '--output.json.path', 'stdout', '--show-stats=false', '--issues-exit-code=1' },
   },
-  filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
   workspace_required = true,
   root_markers = { 'go.mod', 'go.work' },
   before_init = function(_, config)
