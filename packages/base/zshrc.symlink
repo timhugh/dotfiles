@@ -3,6 +3,12 @@ source ~/.zprofile
 # default world chars: *?_-.[]~=/&;!#$%^(){}<>
 export WORDCHARS=""
 
+# configure zsh history
+export HISTFILE="${HOME}/.zsh_history"
+export HISTSIZE=100000
+export SAVEHIST=100000
+setopt SHARE_HISTORY
+
 # load installed zsh configs
 for f in "${HOME}/.zsh_profile.d"/*.zsh; do
   source "$f"
