@@ -40,9 +40,14 @@ local function enable_changed_hunk_formatting(client, bufnr)
 end
 
 local function enable_format_on_save(client, bufnr)
-  group = vim.api.nvim_create_augroup("LspFormatOnSave", { clear = true })
+  if not client.server_capabilities.documentFormattingProvider then
+    return
+  end
+
+  local group = vim.api.nvim_create_augroup("LspFormatOnSave", { clear = true })
   vim.api.nvim_create_autocmd("BufWritePre", {
     buffer = bufnr,
+    group = group,
     callback = function()
       vim.lsp.buf.format({ async = false, id = client.id })
     end,
