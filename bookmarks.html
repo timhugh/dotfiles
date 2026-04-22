@@ -43,11 +43,6 @@
   <script>
     const bookmarks = [
       {
-        title: "DevDocs",
-        icon: "mdi-file-document-outline",
-        url: "https://devdocs.io/"
-      },
-      {
         title: "YouTube Music",
         icon: "mdi-music",
         url: "https://music.youtube.com/"
@@ -56,6 +51,16 @@
         title: "Instapaper",
         icon: "mdi-newspaper-variant-outline",
         url: "https://www.instapaper.com/u"
+      },
+      {
+        title: "Milanote",
+        icon: "mdi-developer-board",
+        url: "https://app.milanote.com/"
+      },
+      {
+        title: "Trello",
+        icon: "mdi-view-dashboard-outline",
+        url: "https://trello.com/u/timhugh/boards"
       },
       {
         title: "GitHub",
@@ -76,16 +81,6 @@
         ]
       },
       {
-        title: "Milanote",
-        icon: "mdi-developer-board",
-        url: "https://app.milanote.com/"
-      },
-      {
-        title: "Trello",
-        icon: "mdi-trello",
-        url: "https://trello.com/u/timhugh/boards"
-      },
-      {
         title: "Robots",
         icon: "mdi-robot-confused",
         children: [
@@ -104,11 +99,6 @@
         ]
       },
       {
-        title: "Google Meet",
-        icon: "mdi-video-box",
-        url: "https://meet.google.com/"
-      },
-      {
         title: "Home Assistant",
         icon: "mdi-home-assistant",
         url: "http://house.local:8123/"
@@ -119,7 +109,7 @@
         url: "https://wanderlog.com/plan/aqyketnvsojajiqj/trip-to-new-zealand-2026/shared"
       },
       {
-        title: "Games",
+        title: "Daily Games",
         icon: "mdi-dice-multiple",
         children: [
           {
@@ -333,10 +323,68 @@
           {
             title: '"Better" Go Playground',
             url: "https://goplay.tools/"
+          }
+        ]
+      },
+      {
+        title: "Game dev",
+        icon: "mdi-gamepad-variant",
+        children: [
+          {
+            title: "Itch.io",
+            url: "https://itch.io/dashboard"
           },
           {
-            title: "Book of Shaders",
+            title: "Book of Shaders Playground",
             url: "https://thebookofshaders.com/edit.php"
+          },
+          {
+            title: "Art",
+            icon: "mdi-palette",
+            children: [
+              {
+                title: "Coolors",
+                url: "https://coolors.co/"
+              },
+              {
+                title: "lospec",
+                url: "https://lospec.com/palette-list"
+              }
+            ]
+          },
+          {
+            title: "Docs",
+            icon: "mdi-book-open-variant",
+            children: [
+              {
+                title: "Godot",
+                url: "https://docs.godotengine.org/en/stable/index.html"
+              },
+              {
+                title: "Dear ImGui",
+                url: "https://pthom.github.io/imgui_manual_online/manual/imgui_manual.html"
+              },
+              {
+                title: "SDL",
+                url: "https://wiki.libsdl.org/wiki/index"
+              },
+              {
+                title: "GLM",
+                url: "https://glm.g-truc.net/0.9.2/api/a00110_source.html"
+              },
+              {
+                title: "OpenGL",
+                url: "https://registry.khronos.org/OpenGL-Refpages/gl4/"
+              },
+              {
+                title: "Book of Shaders",
+                url: "https://thebookofshaders.com/"
+              },
+              {
+                title: "Game Programming Patterns",
+                url: "https://gameprogrammingpatterns.com/contents.html"
+              },
+            ]
           }
         ]
       },
@@ -345,36 +393,16 @@
         icon: "mdi-book-open-variant",
         children: [
           {
+            title: "DevDocs",
+            url: "https://devdocs.io/"
+          },
+          {
             title: "Neovim",
             url: "https://neovim.io/doc/user/index.html"
           },
           {
-            title: "Godot",
-            url: "https://docs.godotengine.org/en/stable/index.html"
-          },
-          {
-            title: "Dear ImGui",
-            url: "https://pthom.github.io/imgui_manual_online/manual/imgui_manual.html"
-          },
-          {
-            title: "SDL",
-            url: "https://wiki.libsdl.org/wiki/index"
-          },
-          {
-            title: "GLM",
-            url: "https://glm.g-truc.net/0.9.2/api/a00110_source.html"
-          },
-          {
             title: "vcpkg",
             url: "https://vcpkg.io/en/packages.html?query="
-          },
-          {
-            title: "OpenGL",
-            url: "https://registry.khronos.org/OpenGL-Refpages/gl4/"
-          },
-          {
-            title: "Book of Shaders",
-            url: "https://thebookofshaders.com/"
           },
           {
             title: "Google Test",
@@ -395,10 +423,6 @@
           {
             title: "Nerd Fonts",
             url: "https://www.nerdfonts.com/cheat-sheet"
-          },
-          {
-            title: "Game Programming Patterns",
-            url: "https://gameprogrammingpatterns.com/contents.html"
           },
           {
             title: "JQ cheatsheet",
