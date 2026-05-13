@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# TODO: this depends on vcpkg, which is later in the install process on a fresh mac (alphabetically)
+
 set -e
 
 bujo_root="${HOME}/git/timhugh/bujo"

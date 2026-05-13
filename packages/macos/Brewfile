@@ -23,6 +23,7 @@ cask "ungoogled-chromium"
 
 # misc tools
 brew "arduino-cli"
+brew "cmake"
 brew "direnv"
 brew "fd"
 brew "fzf"
