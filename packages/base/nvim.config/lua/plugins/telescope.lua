@@ -11,6 +11,10 @@ return {
       { "<leader>ff",  "<cmd>Telescope find_files<CR>",                desc = "[Telescope] Find file" },
       { "<leader>fgs", "<cmd>Telescope git_status<CR>",                desc = "[Telescope] Find in git modified files vs HEAD" },
 
+      -- git related bindings
+      { "<leader>fgc", "<cmd>Telescope git_bcommits<CR>",              desc = "[Telescope] Find in current file's git history" },
+      { "<leader>fgC", "<cmd>Telescope git_commits<CR>",               desc = "[Telescope] Find in git history" },
+
       -- grep related bindings
       { "<leader>fg",  "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "[Telescope] Grep current buffer" },
       { "<leader>fG",  "<cmd>Telescope live_grep<CR>",                 desc = "[Telescope] Grep all files" },
