@@ -89,7 +89,7 @@ end
 
 hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("magic"))
 hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
-hl.bind("SUPER + M", hl.dsp.focus({ workspace = "special:music" }))
+hl.bind("SUPER + M", hl.dsp.workspace.toggle_special("music"))
 hl.bind("SUPER + SHIFT + M", hl.dsp.window.move({ workspace = "special:music" }))
 
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
