@@ -3,6 +3,7 @@
 set -e
 
 sudo pacman -S --noconfirm --needed \
+    chromium \
     hyprland \
     hyprpaper \
     hyprpolkitagent \
