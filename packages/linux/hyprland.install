@@ -9,6 +9,7 @@ sudo pacman -S --noconfirm --needed \
     hyprpolkitagent \
     xdg-desktop-portal-hyprland \
     xdg-desktop-portal-gtk \
+    uwsm libnewt \
     waybar \
     dunst \
     grim slurp \
@@ -16,4 +17,11 @@ sudo pacman -S --noconfirm --needed \
 
 # TODO: this adds a dependency on yay, which might not be installed yet
 yay -S --noconfirm --needed \
+    wl-gammarelay \
     tofi
+
+
+systemctl --user enable --now dunst
+systemctl --user enable --now hyprpolkitagent
+systemctl --user enable --now hyprpaper
+systemctl --user enable --now waybar

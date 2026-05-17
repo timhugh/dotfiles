@@ -1,62 +1,66 @@
 // -*- mode: jsonc -*-
 {
-    "height": 30,
-    "spacing": 4,
-    "modules-left": [
-        "hyprland/workspaces"
-    ],
-    "modules-center": [ ],
-    "modules-right": [ 
-        "wireplumber",
-        "custom/audiodevices",
-        "custom/gamma",
-        "custom/darkmode",
-        "clock",
-        "tray",
-        "cpu",
-        "memory",
-    ],
-    "wireplumber": {
-        "format-icons": [ "󰕿", "󰖀", "󰕾" ],
-        "format": "{volume}% {icon}",
-        "format-muted": "{format_source} 󰖁",
-        "tooltip": false,
-        "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle"
-    },
-    "custom/audiodevices": {
-        "exec": "wpctl status -k | grep -m 1 '*' | sed -E 's/.*[0-9]+\\. (.+) \\[.*/\\1/' | xargs",
-        "interval": 10,
-        "format": "{}",
-        "tooltip": false,
-        // TODO: these IDs are not stable
-        "on-click": "wpctl set-default 43",
-        "on-click-right": "wpctl set-default 57"
-    },
-    "cpu": {
-        "format": "CPU: {usage}%",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "MEM: {percentage}% + {swapPercentage}%",
-        "tooltip-format": "Memory: {used} / {total} GiB ({percentage}%)\nSwap: {swapUsed} / {swapTotal} GiB ({swapPercentage}%)",
-    },
-    "clock": {
-        "format": "{:%A %B %d, %Y %H:%M}",
-        "tooltip": false
-    },
-    "custom/gamma": {
-        "exec": "waybar_gamma",
-        "interval": 10,
-        "format": "{}",
-        "tooltip": false,
-        "on-scroll-up": "waybar_gamma up",
-        "on-scroll-down": "waybar_gamma down"
-    },
-    "custom/darkmode": {
-      "exec": "gsettings get org.gnome.desktop.interface color-scheme | sed -E \"s/'.*-(.+)'/\\1/\"",
-      "interval": 10,
-      "format": "{}",
-      "tooltip": false,
-      "on-click": "toggle_dark_mode",
-    }
+	"height": 30,
+	"spacing": 4,
+	"modules-left": [
+		"hyprland/workspaces"
+	],
+	"modules-center": [],
+	"modules-right": [
+		"wireplumber",
+		"custom/audiodevices",
+		"custom/gamma",
+		"custom/darkmode",
+		"clock",
+		"tray",
+		"cpu",
+		"memory",
+	],
+	"wireplumber": {
+		"format-icons": [
+			"󰕿",
+			"󰖀",
+			"󰕾"
+		],
+		"format": "{volume}% {icon}",
+		"format-muted": "{format_source} 󰖁",
+		"tooltip": false,
+		"on-click": "wpctl set-mute @DEFAULT_SINK@ toggle"
+	},
+	"custom/audiodevices": {
+		"exec": "wpctl status -k | grep -m 1 '*' | sed -E 's/.*[0-9]+\\. (.+) \\[.*/\\1/' | xargs",
+		"interval": 10,
+		"format": "{}",
+		"tooltip": false,
+		// TODO: these IDs are not stable
+		"on-click": "wpctl set-default 44",
+		"on-click-right": "wpctl set-default 62"
+	},
+	"cpu": {
+		"format": "CPU: {usage}%",
+		"tooltip": false
+	},
+	"memory": {
+		"format": "MEM: {percentage}% + {swapPercentage}%",
+		"tooltip-format": "Memory: {used} / {total} GiB ({percentage}%)\nSwap: {swapUsed} / {swapTotal} GiB ({swapPercentage}%)",
+	},
+	"clock": {
+		"format": "{:%A %B %d, %Y %H:%M}",
+		"tooltip": false
+	},
+	"custom/gamma": {
+		"exec": "waybar_gamma",
+		"interval": 10,
+		"format": "{}",
+		"tooltip": false,
+		"on-scroll-up": "waybar_gamma up",
+		"on-scroll-down": "waybar_gamma down"
+	},
+	"custom/darkmode": {
+		"exec": "gsettings get org.gnome.desktop.interface color-scheme | sed -E \"s/'.*-(.+)'/\\1/\"",
+		"interval": 10,
+		"format": "{}",
+		"tooltip": false,
+		"on-click": "toggle_dark_mode",
+	}
 }
