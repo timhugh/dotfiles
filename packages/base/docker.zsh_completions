@@ -1,0 +1,4 @@
+# add docker desktop zsh completions
+if [[ -d "$HOME/.docker/completions" ]]; then
+  fpath=("$HOME"/.docker/completions $fpath)
+fi
