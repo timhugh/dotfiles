@@ -10,6 +10,7 @@ compile = false
 go = "1.25.5"
 golangci-lint = "2.7.2"
 golangci-lint-langserver = "0.0.11"
+java = "21"
 lua = "5.1"
 maven = "3.9.11"
 ninja = "1.13.2"
