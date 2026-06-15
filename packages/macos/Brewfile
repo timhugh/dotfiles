@@ -19,6 +19,9 @@ brew "git-lfs"
 brew "gh"
 
 # browsers
+cask "brave-browser"
+cask "firefox"
+cask "google-chrome"
 cask "ungoogled-chromium"
 
 # misc tools
