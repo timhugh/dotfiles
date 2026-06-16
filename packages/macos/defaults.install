@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+duti -s com.mitchellh.ghostty .command all

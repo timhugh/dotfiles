@@ -2,6 +2,7 @@
 brew "mas"
 brew "whalebrew"
 brew "dockutil"
+brew "duti"
 
 # upgrade os tools
 brew "bash"
