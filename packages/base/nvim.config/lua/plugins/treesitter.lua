@@ -48,6 +48,7 @@ return {
       "java",
       "kotlin",
 
+      "astro",
       "graphql",
       "javascript",
       "tsv",
@@ -102,4 +103,3 @@ return {
     })
   end,
 }
-

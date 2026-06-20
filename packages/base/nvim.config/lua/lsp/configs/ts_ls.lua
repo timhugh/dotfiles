@@ -8,12 +8,11 @@ require('lsp').configure_lsp('ts_ls', {
     client.server_capabilities.documentRangeFormattingProvider = false
   end,
   filetypes = {
+    'astro',
     'javascript',
     'javascriptreact',
-    'javascript.jsx',
     'typescript',
     'typescriptreact',
-    'typescript.tsx',
   },
   root_markers = {
     'tsconfig.json',
