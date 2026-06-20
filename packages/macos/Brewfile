@@ -55,4 +55,6 @@ cask "slack"
 # nvim
 brew "luarocks"
 brew "nvim"
+brew "tree-sitter"
+brew "tree-sitter-cli"
 brew "xclip"
