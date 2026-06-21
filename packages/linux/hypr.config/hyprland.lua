@@ -66,6 +66,7 @@ hl.config({
 })
 
 hl.bind("SUPER + SHIFT + CTRL + C", hl.dsp.window.close())
+hl.bind("ALT + TAB", hl.dsp.window.cycle_next())
 hl.bind("SUPER + SHIFT + CTRL + M", hl.dsp.exec_cmd("hyprctl dispatch 'hl.dsp.exit()'"))
 
 hl.bind("SUPER + SHIFT + D", hl.dsp.exec_cmd("toggle_dark_mode"))
