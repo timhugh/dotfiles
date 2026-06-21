@@ -13,7 +13,9 @@ sudo pacman -S --noconfirm --needed \
     waybar \
     dunst \
     grim slurp \
-    wl-clipboard
+    wl-clipboard \
+    vulkan-icd-loader \
+    vulkan-radeon
 
 # TODO: this adds a dependency on yay, which might not be installed yet
 yay -S --noconfirm --needed \
