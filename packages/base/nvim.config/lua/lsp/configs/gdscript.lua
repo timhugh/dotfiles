@@ -6,7 +6,7 @@ local server_pipe_path = vim.fn.getcwd() .. '/server.pipe'
 require('lsp').configure_lsp('gdscript', {
   enabled = true,
   cmd = cmd,
-  filetypes = { 'gd', 'gdscript', 'gdscript3' },
+  filetypes = { 'gdscript' },
   workspace_required = true,
   root_markers = { 'project.godot' },
   on_attach = function()
