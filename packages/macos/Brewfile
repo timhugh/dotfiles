@@ -51,6 +51,7 @@ cask "rectangle"
 cask "rocket"
 cask "scroll-reverser"
 cask "slack"
+cask "zed"
 
 # nvim
 brew "luarocks"
