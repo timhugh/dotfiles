@@ -22,10 +22,10 @@ function _speech_notify() {
 
 if bash -lc "$cmd"; then
     _terminal_notify "Passed: $cmd"
-    # _speech_notify "Pass"
+    _speech_notify "Pass"
     exit 0
 else
     _terminal_notify "Failed: $cmd"
-    # _speech_notify "Fail"
+    _speech_notify "Fail"
     exit 1
 fi
