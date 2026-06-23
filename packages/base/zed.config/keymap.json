@@ -1,8 +1,8 @@
 [
 	{
-		"context": "Workspace && !Terminal && !CommandPalette && !(vim_mode == insert)",
+		"context": "Workspace && !Terminal && !CommandPalette && !ProjectPanel && !(vim_mode == insert)",
 		"bindings": {
-			"g F": "file_finder::Toggle",
+			"f f": "file_finder::Toggle",
 			"g P": "projects::OpenRecent",
 			", E": "project_panel::ToggleFocus",
 			", A": "agent::ToggleFocus",
@@ -40,7 +40,7 @@
 		},
 	},
 	{
-		"context": "ProjectPanel && not_editing",
+		"context": "ProjectPanel && !editing",
 		"bindings": {
 			"g .": "project_panel::ToggleHideGitIgnore",
 		},
