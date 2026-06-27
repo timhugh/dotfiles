@@ -1,7 +1,14 @@
 hl.monitor({
-  output = "",
+  output = "DP-1",
   mode = "preferred",
   position = "auto",
+  scale = "auto",
+})
+
+hl.monitor({
+  output = "DP-2",
+  mode = "preferred",
+  position = "2560x0",
   scale = "auto",
 })
 
@@ -76,6 +83,11 @@ hl.bind("SUPER + Return", hl.dsp.exec_cmd("ghostty"))
 hl.bind("SUPER + E", hl.dsp.exec_cmd("dolphin"))
 hl.bind("SUPER + B", hl.dsp.exec_cmd("chromium"))
 hl.bind("SUPER + CTRL + SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))
+
+hl.bind("SUPER + CTRL + ALT + h", hl.dsp.window.move({ direction = "l" }))
+hl.bind("SUPER + CTRL + ALT + left", hl.dsp.window.move({ direction = "l" }))
+hl.bind("SUPER + CTRL + ALT + l", hl.dsp.window.move({ direction = "r" }))
+hl.bind("SUPER + CTRL + ALT + right", hl.dsp.window.move({ direction = "r" }))
 
 hl.bind("SUPER + h", hl.dsp.focus({ direction = "l" }))
 hl.bind("SUPER + l", hl.dsp.focus({ direction = "r" }))
