@@ -51,8 +51,13 @@
 			", g R": "git::Restore",
 		},
 	},
-	// everything below here is disabling a default keybind that interferes
-	// with something above
+	// everything below here is disabling a default keybind to fix interference
+	{
+		"context": "Terminal",
+		"bindings": {
+			"ctrl-p": null,
+		},
+	},
 	{
 		"context": "Editor && edit_prediction",
 		"bindings": {
