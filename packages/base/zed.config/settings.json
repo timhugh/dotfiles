@@ -7,11 +7,20 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+	"diff_view_style": "unified",
+	"agent_servers": {
+		"claude-acp": {
+			"type": "registry",
+		},
+		"codex-acp": {
+			"type": "registry",
+		},
+	},
 	"project_panel": {
 		"hide_hidden": false,
 		"hide_root": false,
 		"starts_open": false,
-		"hide_gitignore": true,
+		"hide_gitignore": false,
 		"default_width": 240.0,
 	},
 	"edit_predictions": {
@@ -96,10 +105,19 @@
 				"formatter": "standard",
 			},
 		},
+		"zls": {
+			"initialization_options": {
+				"enable_autofix": true,
+				"enable_build_on_save": true,
+			},
+		},
 	},
 	"languages": {
 		"Zig": {
 			"tab_size": 4,
+			"format_on_save": "on",
+			"formatter": "language_server",
+			"language_servers": ["zls"],
 		},
 		"Markdown": {
 			"soft_wrap": "editor_width",
