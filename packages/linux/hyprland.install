@@ -15,12 +15,14 @@ sudo pacman -S --noconfirm --needed \
     grim slurp \
     wl-clipboard \
     vulkan-icd-loader \
-    vulkan-radeon
+    vulkan-radeon \
+    zed
 
 # TODO: this adds a dependency on yay, which might not be installed yet
 yay -S --noconfirm --needed \
-    wl-gammarelay \
-    tofi
+    google-chrome \
+    tofi \
+    wl-gammarelay
 
 
 systemctl --user enable --now dunst

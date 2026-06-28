@@ -5,7 +5,7 @@ hl.monitor({
   scale = "auto",
   cm = "hdredid",
   bitdepth = 16,
-  sdrbrightness = 5.0,
+  sdrbrightness = 3.0,
 })
 
 hl.monitor({
@@ -84,7 +84,7 @@ hl.bind("SUPER + SHIFT + D", hl.dsp.exec_cmd("toggle_dark_mode"))
 hl.bind("SUPER + Space", hl.dsp.exec_cmd("tofi-drun --drun-launch=true"))
 hl.bind("SUPER + Return", hl.dsp.exec_cmd("ghostty"))
 hl.bind("SUPER + E", hl.dsp.exec_cmd("dolphin"))
-hl.bind("SUPER + B", hl.dsp.exec_cmd("chromium"))
+hl.bind("SUPER + B", hl.dsp.exec_cmd("google-chrome-stable"))
 hl.bind("SUPER + CTRL + SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))
 
 hl.bind("SUPER + CTRL + ALT + h", hl.dsp.window.move({ direction = "l" }))
