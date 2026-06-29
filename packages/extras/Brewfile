@@ -1,4 +1,5 @@
 brew "hledger"
+cask "betterdisplay"
 cask "blender"
 cask "calibre"
 cask "discord"
