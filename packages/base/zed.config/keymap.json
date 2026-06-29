@@ -1,67 +1,22 @@
 [
 	{
-		"context": "Workspace && !Terminal && !CommandPalette && !ProjectPanel && !(vim_mode == insert)",
+		"context": "Workspace && !Terminal && !CommandPalette",
 		"bindings": {
-			"f f": "file_finder::Toggle",
-			"g P": "projects::OpenRecent",
-			", E": "project_panel::ToggleFocus",
-			", A": "agent::ToggleFocus",
-			", G": "git_panel::ToggleFocus",
-			", space": "workspace::ToggleAllDocks",
-
-			", g b": "git::Blame",
-			", g d": "git::Diff",
-			", g P": "git::Push",
-			", g f": "git::Fetch",
-
-			", /": "buffer_search::Dismiss",
-
-			", \\": "pane::SplitRight",
-			", -": "pane::SplitDown",
 			"alt-h": "workspace::ActivatePaneLeft",
 			"alt-l": "workspace::ActivatePaneRight",
 			"alt-k": "workspace::ActivatePaneUp",
 			"alt-j": "workspace::ActivatePaneDown",
 
-			", z": "workspace::ToggleZoom",
-
-			", t": "workspace::NewCenterTerminal",
-
-			", r": "editor::Rename",
+			"cmd-t": "workspace::NewCenterTerminal",
 
 			// bujo tasks
-			", n n": ["task::Spawn", { "task_name": "Bujo current" }],
-			", n s": ["task::Spawn", { "task_name": "Bujo search" }],
-			", n f": ["task::Spawn", { "task_name": "Bujo next" }],
-			", n F": ["task::Spawn", { "task_name": "Bujo forward" }],
-			", n b": ["task::Spawn", { "task_name": "Bujo previous" }],
-			", n B": ["task::Spawn", { "task_name": "Bujo backward" }],
-			", n C": ["task::Spawn", { "task_name": "Bujo sync" }],
-		},
-	},
-	{
-		"context": "ProjectPanel && !editing",
-		"bindings": {
-			"g .": "project_panel::ToggleHideGitIgnore",
-		},
-	},
-	{
-		"context": "Editor && !(vim_mode == insert)",
-		"bindings": {
-			", g R": "git::Restore",
-		},
-	},
-	// everything below here is disabling a default keybind to fix interference
-	{
-		"context": "Terminal",
-		"bindings": {
-			"ctrl-p": null,
-		},
-	},
-	{
-		"context": "Editor && edit_prediction",
-		"bindings": {
-			"tab": null,
+			"cmd-g n": ["task::Spawn", { "task_name": "Bujo current" }],
+			"cmd-g s": ["task::Spawn", { "task_name": "Bujo search" }],
+			"cmd-g f": ["task::Spawn", { "task_name": "Bujo next" }],
+			"cmd-g F": ["task::Spawn", { "task_name": "Bujo forward" }],
+			"cmd-g b": ["task::Spawn", { "task_name": "Bujo previous" }],
+			"cmd-g B": ["task::Spawn", { "task_name": "Bujo backward" }],
+			"cmd-g S": ["task::Spawn", { "task_name": "Bujo sync" }],
 		},
 	},
 ]
