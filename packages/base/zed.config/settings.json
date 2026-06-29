@@ -8,13 +8,14 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
 	"diff_view_style": "unified",
+	"cli_default_open_behavior": "existing_window",
 	"agent_servers": {
-		"claude-acp": {
-			"type": "registry",
-		},
 		"codex-acp": {
-			"type": "registry",
+			"type": "registry"
 		},
+		"claude-acp": {
+			"type": "registry"
+		}
 	},
 	"project_panel": {
 		"hide_hidden": false,
@@ -91,7 +92,10 @@
 		"light": "Catppuccin Latte",
 		"dark": "Carbonfox - opaque",
 	},
-	"wrap_guides": [80, 120],
+	"wrap_guides": [
+		80,
+		120
+	],
 	"hard_tabs": true,
 	"tab_size": 2,
 	"relative_line_numbers": "enabled",
@@ -117,7 +121,9 @@
 			"tab_size": 4,
 			"format_on_save": "on",
 			"formatter": "language_server",
-			"language_servers": ["zls"],
+			"language_servers": [
+				"zls"
+			],
 		},
 		"Markdown": {
 			"soft_wrap": "editor_width",
