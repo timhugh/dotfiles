@@ -6,4 +6,14 @@ if [[ -z "$test_cmd" ]]; then
   exit 1
 fi
 
-watchexec --clear clear --restart --debounce 1s "notify \"$test_cmd\""
+cleanup() {
+    if [[ -n "$wpid" ]]; then
+        kill "$wpid" 2>/dev/null
+    fi
+    exit
+}
+trap cleanup EXIT HUP INT TERM
+
+watchexec --clear clear --restart --debounce 1s "notify \"$test_cmd\"" &
+wpid=$!
+wait "$wpid"
