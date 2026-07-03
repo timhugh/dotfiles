@@ -16,6 +16,4 @@ alias ~='cd ~'
 export EDITOR='nvim'
 alias e="$EDITOR"
 
-alias watch='watchexec --clear clear --restart --debounce 1s'
-
 alias unquarantine='xattr -dr com.apple.quarantine'
