@@ -1,15 +1,10 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
 	"diff_view_style": "unified",
 	"cli_default_open_behavior": "existing_window",
 	"agent_servers": {
+		"opencode": {
+			"type": "registry"
+		},
 		"codex-acp": {
 			"type": "registry"
 		},
@@ -22,14 +17,14 @@
 		"hide_root": false,
 		"starts_open": false,
 		"hide_gitignore": false,
-		"default_width": 240.0,
+		"default_width": 240.0
 	},
 	"edit_predictions": {
 		"provider": "copilot",
-		"mode": "subtle",
+		"mode": "subtle"
 	},
 	"sticky_scroll": {
-		"enabled": true,
+		"enabled": true
 	},
 	"hover_popover_enabled": true,
 	"double_click_in_multibuffer": "open",
@@ -38,32 +33,32 @@
 	"lsp_document_colors": "inlay",
 	"inlay_hints": {
 		"show_background": false,
-		"enabled": true,
+		"enabled": true
 	},
 	"show_whitespaces": "selection",
 	"indent_guides": {
 		"background_coloring": "disabled",
-		"coloring": "fixed",
+		"coloring": "fixed"
 	},
 	"vim": {
-		"toggle_relative_line_numbers": false,
+		"toggle_relative_line_numbers": false
 	},
 	"toolbar": {
 		"code_actions": true,
 		"quick_actions": true,
-		"breadcrumbs": true,
+		"breadcrumbs": true
 	},
 	"minimap": {
 		"max_width_columns": 40,
 		"thumb_border": "none",
 		"thumb": "always",
 		"display_in": "active_editor",
-		"show": "auto",
+		"show": "auto"
 	},
 	"auto_signature_help": false,
 	"show_signature_help_after_edits": true,
 	"which_key": {
-		"enabled": true,
+		"enabled": true
 	},
 	"current_line_highlight": "all",
 	"icon_theme": "Zed (Default)",
@@ -76,10 +71,10 @@
 		"default_profile": "ask",
 		"default_model": {
 			"provider": "copilot_chat",
-			"model": "gpt-5.2",
+			"model": "gpt-5.2"
 		},
 		"favorite_models": [],
-		"model_parameters": [],
+		"model_parameters": []
 	},
 	"autosave": "on_focus_change",
 	"format_on_save": "on",
@@ -90,12 +85,9 @@
 	"theme": {
 		"mode": "system",
 		"light": "Catppuccin Latte",
-		"dark": "Carbonfox - opaque",
+		"dark": "Carbonfox - opaque"
 	},
-	"wrap_guides": [
-		80,
-		120
-	],
+	"wrap_guides": [80, 120],
 	"hard_tabs": true,
 	"tab_size": 2,
 	"relative_line_numbers": "enabled",
@@ -104,29 +96,27 @@
 			"initialization_options": {
 				"enabledFeatures": {
 					"diagnostics": false,
-					"formatting": true,
+					"formatting": true
 				},
-				"formatter": "standard",
-			},
+				"formatter": "standard"
+			}
 		},
 		"zls": {
 			"initialization_options": {
 				"enable_autofix": true,
-				"enable_build_on_save": true,
-			},
-		},
+				"enable_build_on_save": true
+			}
+		}
 	},
 	"languages": {
 		"Zig": {
 			"tab_size": 4,
 			"format_on_save": "on",
 			"formatter": "language_server",
-			"language_servers": [
-				"zls"
-			],
+			"language_servers": ["zls"]
 		},
 		"Markdown": {
-			"soft_wrap": "editor_width",
+			"soft_wrap": "editor_width"
 		},
 		"Ruby": {
 			"language_servers": [
@@ -134,13 +124,13 @@
 				"!standard",
 				"!sorbet",
 				"!solargraph",
-				"!rubocop",
+				"!rubocop"
 			],
 			"formatter": "language_server",
-			"enable_language_server": true,
+			"enable_language_server": true
 		},
 		"Make": {
-			"hard_tabs": true,
-		},
-	},
+			"hard_tabs": true
+		}
+	}
 }
