@@ -112,6 +112,10 @@
 		}
 	},
 	"languages": {
+		"JSON": {
+			"tab_size": 2,
+			"hard_tabs": false,
+		},
 		"Zig": {
 			"tab_size": 4,
 			"format_on_save": "on",
