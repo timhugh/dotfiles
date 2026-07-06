@@ -38,7 +38,7 @@
 	"show_whitespaces": "selection",
 	"indent_guides": {
 		"background_coloring": "disabled",
-		"coloring": "fixed"
+		"coloring": "indent_aware"
 	},
 	"vim": {
 		"toggle_relative_line_numbers": false
@@ -87,7 +87,10 @@
 		"light": "Catppuccin Latte",
 		"dark": "Carbonfox - opaque"
 	},
-	"wrap_guides": [80, 120],
+	"wrap_guides": [
+		80,
+		120
+	],
 	"hard_tabs": true,
 	"tab_size": 2,
 	"relative_line_numbers": "enabled",
@@ -113,7 +116,9 @@
 			"tab_size": 4,
 			"format_on_save": "on",
 			"formatter": "language_server",
-			"language_servers": ["zls"]
+			"language_servers": [
+				"zls"
+			]
 		},
 		"Markdown": {
 			"soft_wrap": "editor_width"
