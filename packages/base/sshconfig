@@ -4,3 +4,6 @@ Host github.com gist.github.com
   User git
   IdentityFile ~/.ssh/github_key
 
+Host codeberg.org
+  User git
+  IdentityFile ~/.ssh/codeberg_key

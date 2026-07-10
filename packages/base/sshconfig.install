@@ -6,4 +6,5 @@ mkdir -p "${HOME}"/.ssh/config.d
 [[ -L "${HOME}"/.ssh/config ]] || ln -fs "$(pwd)"/sshconfig "${HOME}"/.ssh/config
 
 [[ -f "${HOME}"/.ssh/github_key ]] || ssh-keygen -f "${HOME}"/.ssh/github_key -q -N ''
+[[ -f "${HOME}"/.ssh/codeberg_key ]] || ssh-keygen -f "${HOME}"/.ssh/codeberg_key -q -N ''
 
