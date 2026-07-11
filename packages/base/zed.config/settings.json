@@ -85,7 +85,7 @@
 	"theme": {
 		"mode": "system",
 		"light": "Catppuccin Latte",
-		"dark": "Carbonfox - opaque"
+		"dark": "Monokai Charcoal (red)"
 	},
 	"wrap_guides": [
 		80,
