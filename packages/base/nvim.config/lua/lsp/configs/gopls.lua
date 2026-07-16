@@ -1,7 +1,0 @@
-require('lsp').configure_lsp('gopls', {
-  enabled = true,
-  cmd = { 'gopls' },
-  filetypes = { 'go', 'gomod', 'gowork' },
-  workspace_required = true,
-  root_markers = { 'go.mod' },
-})
