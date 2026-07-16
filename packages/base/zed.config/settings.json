@@ -87,12 +87,9 @@
 		"light": "Catppuccin Latte",
 		"dark": "Monokai Charcoal (red)"
 	},
-	"wrap_guides": [
-		80,
-		120
-	],
+	"wrap_guides": [80, 120],
 	"hard_tabs": true,
-	"tab_size": 2,
+	"tab_size": 4,
 	"relative_line_numbers": "enabled",
 	"lsp": {
 		"ruby-lsp": {
@@ -114,20 +111,23 @@
 	"languages": {
 		"JSON": {
 			"tab_size": 2,
-			"hard_tabs": false,
+			"hard_tabs": true
+		},
+		"JSONC": {
+			"tab_size": 2,
+			"hard_tabs": true
 		},
 		"Zig": {
-			"tab_size": 4,
 			"format_on_save": "on",
 			"formatter": "language_server",
-			"language_servers": [
-				"zls"
-			]
+			"language_servers": ["zls"]
 		},
+		"GLSL": {},
 		"Markdown": {
 			"soft_wrap": "editor_width"
 		},
 		"Ruby": {
+			"tab_size": 2,
 			"language_servers": [
 				"ruby-lsp",
 				"!standard",
