@@ -88,6 +88,11 @@ vim.keymap.set("n", "grf", function()
   vim.lsp.buf.format { async = true }
 end, { desc = "LSP Format Document" })
 
+-- toggle lsp inlay hints
+vim.keymap.set("n", "grh", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, { desc = "Toggle LSP Inlay Hints" })
+
 -- omni-omnifunc
 vim.keymap.set("i", "<c-n>", function()
   if vim.fn.pumvisible() == 1 then return "<c-n>" else return "<c-x><c-o>" end
