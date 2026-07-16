@@ -31,5 +31,5 @@ vim.lsp.enable({
   "templ",
   "ts_ls",
   "yamlls",
-  "zig",
+  "zls",
 })
