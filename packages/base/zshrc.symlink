@@ -1,3 +1,7 @@
+if [[ -z "$TMUX" ]]; then
+  exec tmux
+fi
+
 source ~/.zprofile
 
 # default world chars: *?_-.[]~=/&;!#$%^(){}<>
