@@ -14,11 +14,9 @@ bind c new-window -c "#{pane_current_path}"
 
 # split panes using | and -
 unbind %
-bind-key -n C-M-\\ split-window -h
-# bind \\ split-window -h -c "#{pane_current_path}"
+bind-key -n C-M-\\ split-window -h -c "#{pane_current_path}"
 unbind '"'
-bind-key -n C-M-- split-window -v
-# bind - split-window -v -c "#{pane_current_path}"
+bind-key -n C-M-- split-window -v -c "#{pane_current_path}"
 
 # hide and show panes
 bind-key j command-prompt -p "join pane from:"  "join-pane -s '%%'"
