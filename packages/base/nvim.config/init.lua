@@ -1,35 +1,3 @@
 require("options")
 require("bindings")
 require("plugin").setup()
-
-vim.lsp.enable({
-  "arduino_lsp",
-  "bashls",
-  "clangd",
-  "cmake",
-  "cssls",
-  "gdscript",
-  "glsl_analyzer",
-  "golangci_lint_ls",
-  "gopls",
-  "html",
-  "jdtls",
-  "jsonls",
-  "kotlin-lsp",
-  "lua_ls",
-  "nginx_language_server",
-  "pylsp",
-  "rubocop",
-  "ruby_lsp",
-  "rust_analyzer",
-  "solargraph",
-  "sorbet",
-  "sourcekit",
-  "standardrb",
-  "tailwindcss",
-  "taplo",
-  "templ",
-  "ts_ls",
-  "yamlls",
-  "zls",
-})

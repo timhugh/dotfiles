@@ -1,7 +1,34 @@
 return {
   {
+    "jay-babu/mason-nvim-dap.nvim",
+    enabled = true,
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    opts = {
+      ensure_installed = {
+        "codelldb",
+        "delve",
+        "jls",
+        "kotlin-debug-adapter",
+        "rdbg",
+      },
+    },
+  },
+  {
     "mfussenegger/nvim-dap",
     enabled = true,
+    keys = {
+      { "<leader>dd", "<cmd>:DapNew<cr>",                 desc = "nvim-dap: new" },
+      { "<leader>dD", "<cmd>:DapTerminate<cr>",           desc = "nvim-dap: terminate" },
+      { "<leader>dc", "<cmd>:DapContinue<cr>",            desc = "nvim-dap: continue" },
+      { "<leader>db", "<cmd>:DapToggleBreakpoint<cr>",    desc = "nvim-dap: toggle breakpoint" },
+      { "<leader>dn", "<cmd>:DapStepOver<cr>",            desc = "nvim-dap: step over" },
+      { "<leader>di", "<cmd>:DapStepInto<cr>",            desc = "nvim-dap: step into" },
+      { "<leader>do", "<cmd>:DapStepOut<cr>",             desc = "nvim-dap: step out" },
+      { "<leader>dr", "<cmd>:DapToggleRepl<cr>",          desc = "nvim-dap: toggle repl" },
+    },
     config = function()
       local dap = require("dap")
       dap.adapters.godot = {
@@ -19,15 +46,6 @@ return {
           launch_scene = true,
         },
       }
-
-      vim.keymap.set("n", "<leader>dd", "<cmd>:DapNew<cr>")
-      vim.keymap.set("n", "<leader>dD", "<cmd>:DapTerminate<cr>")
-      vim.keymap.set("n", "<leader>dc", "<cmd>:DapContinue<cr>")
-      vim.keymap.set("n", "<leader>db", "<cmd>:DapToggleBreakpoint<cr>")
-      vim.keymap.set("n", "<leader>dn", "<cmd>:DapStepOver<cr>")
-      vim.keymap.set("n", "<leader>di", "<cmd>:DapStepInto<cr>")
-      vim.keymap.set("n", "<leader>do", "<cmd>:DapStepOut<cr>")
-      vim.keymap.set("n", "<leader>dr", "<cmd>:DapToggleRepl<cr>")
     end,
   },
   {
@@ -61,8 +79,7 @@ return {
     "igorlfs/nvim-dap-view",
     enabled = true,
     keys = {
-      { "<leader>dv", "<cmd>:DapViewOpen<cr>", desc = "dapview: Open" },
-      { "<leader>dV", "<cmd>:DapViewClose<cr>", desc = "dapview: Close" },
+      { "<leader>dv", "<cmd>:DapViewToggle<cr>", desc = "nvim-dap-view: toggle" },
     },
     opts = {},
   },
