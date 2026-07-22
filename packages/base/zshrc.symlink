@@ -1,4 +1,4 @@
-if [[ -z "$TMUX" ]] && [[ "$TERM_PROGRAM" != "zed" ]]; then
+if [[ -z "$TMUX" ]] && [[ "$TERM_PROGRAM" == "ghostty" ]]; then
   exec tmux
 fi
 
