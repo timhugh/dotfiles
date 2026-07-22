@@ -17,7 +17,9 @@
 		"hide_root": false,
 		"starts_open": false,
 		"hide_gitignore": false,
-		"default_width": 240.0
+		"default_width": 240.0,
+		"auto_fold_dirs": true,
+		"indent_size": 10,
 	},
 	"edit_predictions": {
 		"provider": "copilot",
@@ -104,9 +106,15 @@
 		"zls": {
 			"initialization_options": {
 				"enable_autofix": true,
-				"enable_build_on_save": true
-			}
-		}
+				"enable_build_on_save": true,
+			},
+		},
+		"kotlin-lsp": {
+			"binary": {
+				"path": "/opt/homebrew/bin/kotlin-lsp",
+				"arguments": ["--stdio"],
+			},
+		},
 	},
 	"languages": {
 		"JSON": {
@@ -139,7 +147,11 @@
 			"enable_language_server": true
 		},
 		"Make": {
-			"hard_tabs": true
-		}
-	}
+			"hard_tabs": true,
+		},
+		"Kotlin": {
+			"enable_language_server": true,
+			"format_on_save": "off",
+		},
+	},
 }
