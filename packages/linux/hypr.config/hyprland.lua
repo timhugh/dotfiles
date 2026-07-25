@@ -3,9 +3,9 @@ hl.monitor({
   mode = "preferred",
   position = "auto",
   scale = "auto",
-  cm = "hdredid",
-  bitdepth = 16,
-  sdrbrightness = 3.0,
+  -- cm = "hdredid",
+  -- bitdepth = 16,
+  -- sdrbrightness = 7.0,
 })
 
 hl.monitor({
