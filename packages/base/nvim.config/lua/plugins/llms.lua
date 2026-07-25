@@ -20,10 +20,12 @@ return {
         enabled = false,
       },
       nes = {
-        enabled = false,
+        enabled = true,
         auto_trigger = true,
         keymap = {
-          accept_and_goto = "<S-M-Tab>",
+          accept_and_goto = "<C-M-Tab>",
+          accept = false,
+          dismiss = "<Esc>",
         },
       },
       filetypes = {
@@ -34,7 +36,7 @@ return {
   },
   {
     "copilotlsp-nvim/copilot-lsp",
-    enabled = false,
+    enabled = true,
     init = function()
       vim.g.copilot_nes_debounce = 500
     end,
