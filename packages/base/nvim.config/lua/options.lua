@@ -35,7 +35,10 @@ vim.diagnostic.config({
 })
 
 -- fuzzy omnifunc
-vim.opt.completeopt = { "fuzzy", "menuone", "noinsert", "popup" }
+vim.opt.complete = "F,o"
+vim.opt.completeopt = { "fuzzy", "menuone", "noselect", "popup" }
+vim.opt.autocomplete = true
+vim.opt.autocompletedelay = 250
 
 -- autoresize when terminal is resized
 vim.api.nvim_create_autocmd("VimResized", {
