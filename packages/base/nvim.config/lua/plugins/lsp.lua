@@ -29,7 +29,7 @@ return {
         "html",
         "jdtls",
         "jsonls",
-        "kotlin_lsp",
+        -- "kotlin_lsp",
         "lua_ls",
         "pylsp",
         "rubocop",
@@ -49,6 +49,12 @@ return {
       require("mason-lspconfig").setup(opts)
 
       vim.lsp.enable('gdscript')
+      vim.lsp.config('kotlin_lsp', {
+        cmd = { "kotlin-lsp", "--stdio" },
+        filetypes = { "kotlin" },
+        root_markers = { "settings.gradle", "settings.gradle.kts", "pom.xml", "build.gradle", "build.gradle.kts", "workspace.json" },
+      })
+      vim.lsp.enable('kotlin_lsp')
     end,
   },
 }
