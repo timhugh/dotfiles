@@ -32,6 +32,7 @@ return {
         -- managing kotlin_lsp externally:
         -- "kotlin_lsp",
         "lua_ls",
+        "markdown_oxide",
         "pylsp",
         "rubocop",
         "ruby_lsp",
