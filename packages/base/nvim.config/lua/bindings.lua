@@ -37,6 +37,13 @@ else
   vim.keymap.set("n", "<leader>lg", "<cmd>:silent terminal lazygit<cr>", { desc = "lazygit: Open in terminal" })
 end
 
+-- opencode bindings
+if is_tmux then
+  vim.keymap.set("n", "<leader>oc", "<cmd>:silent !tmux split-window -h opencode<cr>", { desc = "opencode: Open in tmux split" })
+else
+  vim.keymap.set("n", "<leader>oc", "<cmd>:silent vsplit | terminal opencode<cr>", { desc = "opencode: Open in terminal split" })
+end
+
 -- bujo bindings
 vim.keymap.set("n", "<leader>ns", function()
   -- TODO: this is going to have to call `bujo list` and pass it to a picker
