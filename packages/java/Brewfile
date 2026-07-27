@@ -1,2 +1,2 @@
 brew "gradle-completion"
-brew "kotlin-lsp"
+cask "kotlin-lsp"
