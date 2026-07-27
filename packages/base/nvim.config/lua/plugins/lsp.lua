@@ -29,6 +29,7 @@ return {
         "html",
         "jdtls",
         "jsonls",
+        -- managing kotlin_lsp externally:
         -- "kotlin_lsp",
         "lua_ls",
         "pylsp",
