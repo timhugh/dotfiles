@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-nvim --headless "+Lazy! sync" +qa
+nvim --headless \
+  "+Lazy! sync" \
+  "+lua require('nvim-treesitter.install').update(nil, { summary = true }):wait()" \
+  +qa
+
+nvim --headless \
+  -c 'autocmd User MasonUpdateAllComplete quitall' \
+  -c 'MasonUpdateAll'

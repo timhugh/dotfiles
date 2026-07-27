@@ -59,4 +59,22 @@ return {
       vim.lsp.enable('kotlin_lsp')
     end,
   },
+  {
+    "RubixDev/mason-update-all",
+    enabled = true,
+    dependencies = {
+      "williamboman/mason.nvim",
+    },
+    opts = {},
+    config = function(_, opts)
+      require("mason-update-all").setup(opts)
+
+      -- vim.api.nvim_create_autocmd('User', {
+      --   pattern = 'MasonUpdateAllComplete',
+      --   callback = function()
+      --     print('mason-update-all has finished')
+      --   end,
+      -- })
+    end,
+  },
 }
