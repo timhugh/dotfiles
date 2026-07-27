@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+source ../../_util.sh
+
+replace_symlink "$(pwd)/lazygit.yml" "${HOME}/Library/Application Support/lazygit/config.yml"
+
