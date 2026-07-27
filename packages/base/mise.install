@@ -8,4 +8,5 @@ fi
 mise completion zsh > "${HOME}/.zsh_completions.d/_mise"
 chmod +x "${HOME}/.zsh_completions.d/_mise"
 
+mise self-update
 mise install
