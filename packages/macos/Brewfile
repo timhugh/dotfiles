@@ -54,6 +54,7 @@ cask "slack"
 cask "zed"
 
 # nvim
+brew "lazygit"
 brew "luarocks"
 brew "nvim"
 brew "tree-sitter"

@@ -1,5 +1,7 @@
 vim.g.mapleader = ","
 
+local is_tmux = vim.env.TMUX ~= nil
+
 vim.keymap.set("n", "<leader>L", "<cmd>:Lazy<cr>")
 
 -- split shortcuts
@@ -25,6 +27,14 @@ local function bujo_edit(cmd)
   else
     vim.cmd("edit " .. spread)
   end
+end
+
+-- lazygit bindings
+if is_tmux then
+  vim.keymap.set("n", "<leader>lg", "<cmd>:silent !tmux new-window lazygit<cr>", { desc = "lazygit: Open in tmux window" })
+else
+  -- TODO: auto close terminal when lazygit exits
+  vim.keymap.set("n", "<leader>lg", "<cmd>:silent terminal lazygit<cr>", { desc = "lazygit: Open in terminal" })
 end
 
 -- bujo bindings
