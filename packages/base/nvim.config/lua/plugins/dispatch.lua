@@ -8,7 +8,5 @@ return {
       { "<leader>T", "<cmd>:Make test<cr>", desc = "Dispatch: test" },
       { "<leader>R", "<cmd>:Make run<cr>",  desc = "Dispatch: run" },
     },
-    config = function()
-    end,
   }
 }
