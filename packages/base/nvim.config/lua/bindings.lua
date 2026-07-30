@@ -31,7 +31,8 @@ end
 
 -- lazygit bindings
 if is_tmux then
-  vim.keymap.set("n", "<leader>lg", "<cmd>:silent !tmux new-window lazygit<cr>", { desc = "lazygit: Open in tmux window" })
+  vim.keymap.set("n", "<leader>lg", "<cmd>:silent !tmux new-window lazygit<cr>",
+    { desc = "lazygit: Open in tmux window" })
 else
   -- TODO: auto close terminal when lazygit exits
   vim.keymap.set("n", "<leader>lg", "<cmd>:silent terminal lazygit<cr>", { desc = "lazygit: Open in terminal" })
@@ -39,9 +40,11 @@ end
 
 -- opencode bindings
 if is_tmux then
-  vim.keymap.set("n", "<leader>oc", "<cmd>:silent !tmux split-window -h opencode<cr>", { desc = "opencode: Open in tmux split" })
+  vim.keymap.set("n", "<leader>oc", "<cmd>:silent !tmux split-window -h opencode<cr>",
+    { desc = "opencode: Open in tmux split" })
 else
-  vim.keymap.set("n", "<leader>oc", "<cmd>:silent vsplit | terminal opencode<cr>", { desc = "opencode: Open in terminal split" })
+  vim.keymap.set("n", "<leader>oc", "<cmd>:silent vsplit | terminal opencode<cr>",
+    { desc = "opencode: Open in terminal split" })
 end
 
 -- bujo bindings
@@ -86,6 +89,26 @@ end, { desc = "Bujo: sync" })
 vim.keymap.set("n", "grf", function()
   vim.lsp.buf.format { async = true }
 end, { desc = "LSP Format Document" })
+
+vim.api.nvim_create_user_command("LspInfo", function()
+  vim.cmd("checkhealth vim.lsp")
+end, { desc = "Show LSP Info" })
+
+vim.api.nvim_create_user_command("LspLog", function()
+  local log_path = vim.lsp.log.get_filename()
+  vim.cmd("tabnew | edit " .. log_path)
+end, { desc = "Show LSP Log" })
+
+vim.api.nvim_create_user_command("LspLogClear", function()
+  local log_path = vim.lsp.log.get_filename()
+  local log_file = io.open(log_path, "w")
+  if log_file then
+    log_file:close()
+    vim.notify("LSP log file cleared: " .. log_path, vim.log.levels.INFO)
+  else
+    vim.notify("Failed to clear LSP log file: " .. log_path, vim.log.levels.ERROR)
+  end
+end, { desc = "Clear log file" })
 
 -- toggle lsp inlay hints
 vim.keymap.set("n", "grh", function()
