@@ -8,7 +8,8 @@ return {
     keys = {
       -- file related bindings
       { "<leader>fb",  "<cmd>Telescope buffers<CR>",                   desc = "[Telescope] Find buffers" },
-      { "<leader>ff",  "<cmd>Telescope find_files<CR>",                desc = "[Telescope] Find file" },
+      { "<leader>ff",  "<cmd>Telescope git_files<CR>",                desc = "[Telescope] Find file" },
+      { "<leader>fF",  "<cmd>Telescope find_files<CR>",                desc = "[Telescope] Find file" },
       { "<leader>fgs", "<cmd>Telescope git_status<CR>",                desc = "[Telescope] Find in git modified files vs HEAD" },
 
       -- git related bindings
