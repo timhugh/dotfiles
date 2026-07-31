@@ -4,9 +4,10 @@ return {
     enabled = true,
     cmd = "Dispatch",
     keys = {
-      { "<leader>M", "<cmd>:Make<cr>",      desc = "Dispatch: make" },
-      { "<leader>T", "<cmd>:Make test<cr>", desc = "Dispatch: test" },
-      { "<leader>R", "<cmd>:Make run<cr>",  desc = "Dispatch: run" },
+      { "<leader>M", "<cmd>:Make<cr>",       desc = "Dispatch: make" },
+      { "<leader>T", "<cmd>:Make test<cr>",  desc = "Dispatch: test" },
+      { "<leader>R", "<cmd>:Make run<cr>",   desc = "Dispatch: run" },
+      { "<leader>D", "<cmd>:Make debug<cr>", desc = "Dispatch: debug" },
     },
   }
 }
