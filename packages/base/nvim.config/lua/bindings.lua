@@ -60,8 +60,8 @@ local terminal_cmd_wrapper = function(target)
 end
 local dispatch_targets = {
   ["tab"] = is_tmux and tmux_cmd_wrapper("new-window") or terminal_cmd_wrapper("tabnew"),
-  ["vsplit"] = is_tmux and tmux_cmd_wrapper("split-window -v") or terminal_cmd_wrapper("vsplit"),
-  ["hsplit"] = is_tmux and tmux_cmd_wrapper("split-window -h") or terminal_cmd_wrapper("split"),
+  ["vsplit"] = is_tmux and tmux_cmd_wrapper("split-window -h") or terminal_cmd_wrapper("vsplit"),
+  ["hsplit"] = is_tmux and tmux_cmd_wrapper("split-window -v") or terminal_cmd_wrapper("split"),
 }
 local dispatch = function(target, cmd)
   local wrapper = dispatch_targets[target]
@@ -93,12 +93,12 @@ local reuse_cmd = function(target)
     prompt_cmd(target, "?>")
   end
 end
-vim.keymap.set("n", "<leader>r", function() prompt_cmd("tab") end, { desc = "run new command in new tab" })
-vim.keymap.set("n", "<leader>R", function() reuse_cmd("tab") end, { desc = "re-run last command in new tab" })
-vim.keymap.set("n", "<leader>h", function() prompt_cmd("hsplit") end, { desc = "run new command in horizontal split" })
-vim.keymap.set("n", "<leader>H", function() reuse_cmd("hsplit") end, { desc = "re-run last command in horizontal split" })
-vim.keymap.set("n", "<leader>v", function() prompt_cmd("vsplit") end, { desc = "run new command in vertical split" })
-vim.keymap.set("n", "<leader>V", function() reuse_cmd("vsplit") end, { desc = "re-run last command in vertical split" })
+vim.keymap.set("n", "<leader>R", function() prompt_cmd("tab") end, { desc = "run new command in new tab" })
+vim.keymap.set("n", "<leader>r", function() reuse_cmd("tab") end, { desc = "re-run last command in new tab" })
+vim.keymap.set("n", "<leader>H", function() prompt_cmd("hsplit") end, { desc = "run new command in horizontal split" })
+vim.keymap.set("n", "<leader>h", function() reuse_cmd("hsplit") end, { desc = "re-run last command in horizontal split" })
+vim.keymap.set("n", "<leader>V", function() prompt_cmd("vsplit") end, { desc = "run new command in vertical split" })
+vim.keymap.set("n", "<leader>v", function() reuse_cmd("vsplit") end, { desc = "re-run last command in vertical split" })
 
 -- bujo bindings
 vim.keymap.set("n", "<leader>ns", function()
