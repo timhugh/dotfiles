@@ -1,7 +1,7 @@
 return {
   {
     "tpope/vim-dispatch",
-    enabled = true,
+    enabled = false,
     cmd = "Dispatch",
     keys = {
       { "<leader>M", "<cmd>:Make<cr>",       desc = "Dispatch: make" },
