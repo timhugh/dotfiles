@@ -4,7 +4,7 @@ set-option -g prefix C-a
 bind-key C-a send-prefix
 
 # reload config file
-bind ! source-file ~/.tmux.conf \; display "Reloaded config"
+bind R source-file ~/.tmux.conf \; display "Reloaded config"
 
 # remove delay for escape key
 set -s escape-time 0
