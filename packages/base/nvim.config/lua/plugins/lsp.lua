@@ -16,9 +16,10 @@ return {
       "neovim/nvim-lspconfig",
     },
     opts = {
-      automatic_enable = true,
+      automatic_enable = {
+        exclude = { "astro" },
+      },
       ensure_installed = {
-        "astro",
         "bashls",
         "clangd",
         "cmake",
@@ -48,6 +49,15 @@ return {
       },
     },
     config = function(_, opts)
+      local typescript_root = vim.fn.system({ "mise", "where", "npm:typescript@6.0.3" }):gsub("%s+$", "")
+      vim.lsp.config('astro', {
+        cmd = { "mise", "x", "npm:@astrojs/language-server@2.16.13", "--", "astro-ls", "--stdio" },
+        before_init = function(_, config)
+          config.init_options.typescript.tsdk = typescript_root .. "/node_modules/typescript/lib"
+        end,
+      })
+      vim.lsp.enable('astro')
+
       require("mason-lspconfig").setup(opts)
 
       vim.lsp.enable('gdscript')
