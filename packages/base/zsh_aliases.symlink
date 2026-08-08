@@ -13,7 +13,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ~='cd ~'
 
-export EDITOR='emacs'
+export EDITOR='nvim'
 alias e="$EDITOR"
 
 alias unquarantine='xattr -dr com.apple.quarantine'
