@@ -166,6 +166,12 @@
   :custom
   (zig-format-on-save t))
 
+(use-package git-gutter
+  :ensure t
+  :hook((prog-mode org-mode) . git-gutter-mode)
+  :config
+  (setq git-gutter:update-interval 0.02))
+
 (keymap-global-set "M-\\" #'split-window-right)
 (keymap-global-set "M--" #'split-window-below)
 (keymap-global-set "M-h" #'windmove-left)
