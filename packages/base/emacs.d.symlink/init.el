@@ -64,7 +64,11 @@
    '("9" . meow-digit-argument)
    '("0" . meow-digit-argument)
    '("/" . meow-keypad-describe-key)
-   '("?" . meow-cheatsheet))
+   '("?" . meow-cheatsheet)
+   '("p p" . project-switch-project)
+   '("p f" . project-find-file)
+   '("p g" . project-find-regexp)
+   '("p c" . project-compile))
   (meow-normal-define-key
    '("0" . meow-expand-0)
    '("9" . meow-expand-9)
