@@ -44,6 +44,11 @@
 (use-package consult
   :ensure t)
 
+; compilation buffers do not interpret terminal control sequences
+(setq compilation-process-setup-function
+      (lambda ()
+	(setq-local process-connection-type nil)))
+
 ; modal editing
 (defun meow-setup ()
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
@@ -134,6 +139,11 @@
 (use-package meow
   :ensure t
   :config
+  (add-to-list 'meow-mode-state-list '(compilation-mode . normal))
+  (add-hook 'compilation-mode-hook
+	    (lambda ()
+	      (when meow-global-mode
+		(meow-mode 1))))
   (meow-setup)
   (meow-global-mode 1))
 
