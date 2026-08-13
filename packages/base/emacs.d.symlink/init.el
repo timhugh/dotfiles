@@ -149,6 +149,7 @@
 
 ; company and eglot for lsp completion
 (use-package company
+  :ensure t
   :hook (prog-mode . company-mode))
 (use-package eglot
   :config
