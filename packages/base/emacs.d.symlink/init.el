@@ -73,7 +73,12 @@
    '("p p" . project-switch-project)
    '("p f" . project-find-file)
    '("p g" . project-find-regexp)
-   '("p c" . project-compile))
+   '("p c" . project-compile)
+   '("\\" . split-window-right)
+   '("-" . split-window-down)
+   '("k" . delete-window)
+   '("u" . meow-page-up)
+   '("d" . meow-page-down))
   (meow-normal-define-key
    '("0" . meow-expand-0)
    '("9" . meow-expand-9)
@@ -173,8 +178,6 @@
   :config
   (setq git-gutter:update-interval 0.02))
 
-(keymap-global-set "M-\\" #'split-window-right)
-(keymap-global-set "M--" #'split-window-below)
 (keymap-global-set "M-h" #'windmove-left)
 (keymap-global-set "M-j" #'windmove-down)
 (keymap-global-set "M-k" #'windmove-up)
