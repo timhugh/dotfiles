@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+ln -sf "$(brew --caskroom kotlin-lsp)"/*/kotlin-server-*/bin/intellij-server \
+  "${HOME}/.local/bin/intellij-server"
+
