@@ -114,7 +114,7 @@
 		},
 		"kotlin-lsp": {
 			"binary": {
-				"path": "/opt/homebrew/bin/kotlin-lsp",
+				"path": "intellij-server",
 				"arguments": ["--stdio"],
 			},
 		},
