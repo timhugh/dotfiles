@@ -3,6 +3,9 @@ unbind C-b
 set-option -g prefix C-a
 bind-key C-a send-prefix
 
+set -g extended-keys on
+set -g extended-keys-format csi-u
+
 # reload config file
 bind R source-file ~/.tmux.conf \; display "Reloaded config"
 
