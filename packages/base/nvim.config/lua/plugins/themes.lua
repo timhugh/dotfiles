@@ -28,6 +28,9 @@ return {
   {
     "zaldih/themery.nvim",
     enabled = true,
+    keys = {
+      { "<leader>T", "<cmd>Themery<cr>", desc = "Themes" },
+    },
     config = function()
       require("themery").setup({
         themes = {
