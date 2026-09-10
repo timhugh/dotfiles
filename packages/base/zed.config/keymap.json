@@ -7,6 +7,10 @@
 			"alt-k": "workspace::ActivatePaneUp",
 			"alt-j": "workspace::ActivatePaneDown",
 
+			"cmd-alt-\\": [
+				"action::Sequence",
+				["pane::SplitRight", "workspace::NewCenterTerminal"],
+			],
 			"cmd-t": "workspace::NewCenterTerminal",
 
 			// bujo tasks
