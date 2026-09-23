@@ -1,0 +1,24 @@
+-- require('lazyload').on_vim_enter(function()
+--   vim.pack.add({
+--     'https://github.com/copilotlsp-nvim/copilot-lsp',
+--     'https://github.com/zbirenbaum/copilot.lua',
+--   })
+--
+--   require('copilot').setup({
+--     copilot_node_command = { 'mise', 'x', 'node@lts', '--', 'node' },
+--     suggestion = {
+--       enabled = true,
+--       auto_trigger = true,
+--       keymap = {
+--         accept = '<m-tab>',
+--       },
+--     },
+--     panel = {
+--       enabled = false,
+--     },
+--     filetypes = {
+--       markdown = false,
+--       ['*'] = true,
+--     },
+--   })
+-- end)

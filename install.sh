@@ -62,6 +62,8 @@ mkdir -p "${HOME}/.local/bin"
 mkdir -p "${HOME}/.local/share"
 mkdir -p "${HOME}/.config"
 
+replace_symlink "$dot_root" "${HOME}/.dotfiles"
+
 echo
 for package in "${packages[@]}"; do
     echo "---"

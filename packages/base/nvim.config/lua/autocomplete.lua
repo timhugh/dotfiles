@@ -1,7 +1,7 @@
 vim.opt.complete = "F,o"
 vim.opt.completeopt = { "fuzzy", "menuone", "noselect", "popup" }
 vim.opt.autocomplete = true
-vim.opt.autocompletedelay = 250
+vim.opt.autocompletedelay = 1000
 
 vim.keymap.set("n", "<leader>ac", function()
   vim.opt.autocomplete = !vim.opt.autocomplete:get()

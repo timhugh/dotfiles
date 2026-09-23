@@ -24,7 +24,7 @@ vim.api.nvim_create_user_command("LspLogClear", function()
   local log_file = io.open(log_path, "w")
   if log_file then
     log_file:close()
-    vim.notify("LSP log file cleared: " .. log_path, vim.log.levels.INFO)
+    -- vim.notify("LSP log file cleared: " .. log_path, vim.log.levels.INFO)
   else
     vim.notify("Failed to clear LSP log file: " .. log_path, vim.log.levels.ERROR)
   end

@@ -23,16 +23,3 @@ vim.keymap.set("n", "<leader>/", "<cmd>:nohlsearch<cr>")
 
 -- show messages
 vim.keymap.set("n", "<leader>m", "<cmd>:messages<cr>")
-
-vim.api.nvim_create_user_command("CopyProjectPath", function()
-  local path = vim.fn.expand("%")
-  vim.fn.setreg("+", path)
-  vim.notify('Copied "' .. path .. '" to the clipboard!')
-end, {})
-vim.api.nvim_create_user_command("CopyAbsolutePath", function()
-  local path = vim.fn.expand("%:p")
-  vim.fn.setreg("+", path)
-  vim.notify('Copied "' .. path .. '" to the clipboard!')
-end, {})
-vim.keymap.set("n", "<leader>y", "<cmd>:CopyProjectPath<cr>")
-vim.keymap.set("n", "<leader>Y", "<cmd>:CopyAbsolutePath<cr>")
