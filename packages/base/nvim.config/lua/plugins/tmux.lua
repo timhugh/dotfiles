@@ -1,7 +1,7 @@
 return {
   {
     "alexghergh/nvim-tmux-navigation",
-    enabled = true,
+    enabled = false,
     keys = {
       { "<M-h>", "<cmd>NvimTmuxNavigateLeft<cr>",  desc = "Go to left pane" },
       { "<M-j>", "<cmd>NvimTmuxNavigateDown<cr>",  desc = "Go to lower pane" },
