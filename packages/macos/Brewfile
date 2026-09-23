@@ -27,6 +27,7 @@ cask "google-chrome"
 brew "cmake"
 brew "direnv"
 brew "fd"
+brew "figlet"
 brew "fzf"
 brew "gnutls"
 brew "icu4c" # for postgres
