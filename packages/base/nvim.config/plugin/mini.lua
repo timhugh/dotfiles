@@ -17,7 +17,7 @@ require('lazyload').on_vim_enter(function()
   vim.keymap.set('n', '<leader>fgs', function()
       local git_output = vim.fn.system('git status --porcelain')
       if vim.v.shell_error ~= 0 then
-        vim.notify('Failed to get git status: ' .. git_output, vim.logs.level.ERROR)
+        vim.notify('Failed to get git status: ' .. git_output, vim.log.levels.ERROR)
         return
       end
       local git_lines = vim.split(git_output, '\n', { trimempty = true })
@@ -43,7 +43,7 @@ require('lazyload').on_vim_enter(function()
           end,
           choose = function(filepath)
             if not filepath then
-              vim.notify('No file selected', vim.logs.level.INFO)
+              vim.notify('No file selected', vim.log.levels.INFO)
             else
               vim.api.nvim_win_call(
                 require('mini.pick').get_picker_state().windows.target,
@@ -88,7 +88,7 @@ require('lazyload').on_vim_enter(function()
           end,
           choose = function(project_path)
             if not project_path then
-              vim.notify('No project selected', vim.logs.level.INFO)
+              vim.notify('No project selected', vim.log.levels.INFO)
             else
               vim.api.nvim_win_call(
                 require('mini.pick').get_picker_state().windows.target,
