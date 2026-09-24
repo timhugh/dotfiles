@@ -21,7 +21,7 @@ require('lazyload').on_vim_enter(function()
     end,
     set_light_mode = function()
       vim.opt.background = "light"
-      vim.cmd("colorscheme onelight")
+      vim.cmd("colorscheme github_light")
     end,
   })
 end)
