@@ -115,7 +115,7 @@
 		},
 		"kotlin-lsp": {
 			"binary": {
-				"path": "intellij-server",
+				"path": "kotlin-lsp",
 				"arguments": [
 					"--stdio"
 				],

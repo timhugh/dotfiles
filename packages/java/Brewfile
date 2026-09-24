@@ -1,2 +1,4 @@
+tap "jetbrains/utils"
+
 brew "gradle-completion"
-cask "kotlin-lsp"
+brew "jetbrains/utils/kotlin-lsp"
