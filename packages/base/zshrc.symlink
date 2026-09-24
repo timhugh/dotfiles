@@ -1,7 +1,3 @@
-# if [[ -z "$TMUX" ]] && [[ "$TERM_PROGRAM" == "ghostty" ]]; then
-#   exec tmux
-# fi
-
 source ~/.zprofile
 
 # default world chars: *?_-.[]~=/&;!#$%^(){}<>

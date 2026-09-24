@@ -56,3 +56,8 @@ brew "nvim"
 brew "tree-sitter"
 brew "tree-sitter-cli"
 brew "xclip"
+
+# java
+tap "jetbrains/utils"
+brew "gradle-completion"
+brew "jetbrains/utils/kotlin-lsp"
