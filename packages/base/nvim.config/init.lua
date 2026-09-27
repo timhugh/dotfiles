@@ -1,5 +1,4 @@
 require('options')
-require('autocomplete')
 require('bindings')
 require('dispatch')
 require('lsp')
