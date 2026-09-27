@@ -7,7 +7,12 @@ require('lazyload').on_vim_enter(function()
   require('mini.input').setup()
   require('mini.completion').setup()
   require('mini.surround').setup()
-  require('mini.pick').setup()
+  require('mini.pick').setup({
+    mappings = {
+      choose_in_split = '<c-->',
+      choose_in_vsplit = '<c-\\>',
+    },
+  })
   require('mini.extra').setup()
 
   -- standard pickers
@@ -101,6 +106,18 @@ require('lazyload').on_vim_enter(function()
     end,
     { desc = 'mini.pick: projects' }
   )
+
+  -- lsp pickers
+  vim.keymap.set('n', '<leader>fls', function() require('mini.extra').pickers.lsp({ scope = 'document_symbol' }) end,
+    { desc = 'mini.pick: lsp document symbols' })
+  vim.keymap.set('n', '<leader>flS', function() require('mini.extra').pickers.lsp({ scope = 'workspace_symbol' }) end,
+    { desc = 'mini.pick: lsp workspace symbols' })
+  vim.keymap.set('n', '<leader>fld', function() require('mini.extra').pickers.lsp({ scope = 'definition' }) end,
+    { desc = 'mini.pick: lsp definition' })
+  vim.keymap.set('n', '<leader>flD', function() require('mini.extra').pickers.lsp({ scope = 'declaration' }) end,
+    { desc = 'mini.pick: lsp declaration' })
+  vim.keymap.set('n', '<leader>flr', function() require('mini.extra').pickers.lsp({ scope = 'references' }) end,
+    { desc = 'mini.pick: lsp references' })
 
   -- misc pickers
   vim.keymap.set('n', '<leader>fr', require('mini.pick').builtin.resume, { desc = 'mini.pick: resume' })
