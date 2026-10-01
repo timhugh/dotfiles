@@ -16,6 +16,7 @@ alias ~='cd ~'
 export EDITOR='nvim'
 alias e="$EDITOR"
 
+export DOT_ROOT="~/.dotfiles"
 alias dotfiles="cd $DOT_ROOT"
 
 alias unquarantine='xattr -dr com.apple.quarantine'
