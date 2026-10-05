@@ -20,3 +20,5 @@ export DOT_ROOT="~/.dotfiles"
 alias dotfiles="cd $DOT_ROOT"
 
 alias unquarantine='xattr -dr com.apple.quarantine'
+
+alias pi='mise x node@lts -- pi'
