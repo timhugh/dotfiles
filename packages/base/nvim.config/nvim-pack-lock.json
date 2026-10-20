@@ -80,6 +80,10 @@
       "rev": "24c806cb85c1f84d9faaff457cf7aa87c685a070",
       "src": "https://github.com/olimorris/onedarkpro.nvim"
     },
+    "overseer.nvim": {
+      "rev": "a93d9f6d6defdac4bcd6d2c8ba988650e42e0a0e",
+      "src": "https://github.com/stevearc/overseer.nvim"
+    },
     "tokyonight.nvim": {
       "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
       "src": "https://github.com/folke/tokyonight.nvim"
