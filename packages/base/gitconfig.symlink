@@ -39,7 +39,6 @@
   hide = update-index --assume-unchanged
   unhide = update-index --no-assume-unchanged
   wt = worktree
-  wtn = !git worktree add ".worktrees/$1" -b "timheuett/$1" "origin/$(git config get init.defaultBranch)" && :
 [pull]
 	ff = only
 [hub]
