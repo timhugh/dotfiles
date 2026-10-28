@@ -21,7 +21,6 @@ brew "git-delta"
 brew "git-lfs"
 
 # browsers
-cask "brave-browser"
 cask "google-chrome"
 
 # misc tools
