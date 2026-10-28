@@ -15,9 +15,10 @@ brew "wget"
 brew "zsh"
 
 # git and github
-brew "git"
-brew "git-lfs"
 brew "gh"
+brew "git"
+brew "git-delta"
+brew "git-lfs"
 
 # browsers
 cask "brave-browser"

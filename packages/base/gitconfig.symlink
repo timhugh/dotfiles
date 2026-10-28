@@ -4,6 +4,7 @@
 [core]
   editor = nvim
   excludesfile = ~/.gitignore
+  pager = delta
 [push]
   default = simple
 [credential]
