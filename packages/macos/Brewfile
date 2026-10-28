@@ -24,6 +24,10 @@ brew "git-lfs"
 cask "google-chrome"
 
 # misc tools
+brew "diffnav"
+brew "yazi"
+brew "diskbloom"
+
 brew "cmake"
 brew "direnv"
 brew "fd"
