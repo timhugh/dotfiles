@@ -25,7 +25,7 @@ require('lazyload').on_vim_enter(function()
   end
 
   local rerun_cmd = function()
-    if last_cmd then
+    if last_cmd and last_cmd ~= "" then
       run_cmd(last_cmd)
     else
       run_new_cmd()
