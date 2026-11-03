@@ -29,7 +29,6 @@ require('lazyload').on_vim_enter(function()
       'clangd',
       'cmake',
       'cssls',
-      'glsl_analyzer',
       'golangci_lint_ls',
       'gopls',
       'html',
