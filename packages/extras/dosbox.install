@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+source ../../_util.sh
+
+DOSBOX_VERSION="${DOSBOX_VERSION:-0.74-3-3}"
+
+dosbox_config_path="$HOME/Library/Preferences/DOSBox ${DOSBOX_VERSION} Preferences"
+replace_symlink "$(pwd)/dosbox.conf" "$dosbox_config_path"

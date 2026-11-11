@@ -1,7 +1,1 @@
 brew bundle
-
-# we need the replace_symlink function
-source ../../_util.sh
-
-dosbox_config_path="$HOME/Library/Preferences/DOSBox 0.74-3 Preferences"
-replace_symlink "$(pwd)/dosbox.conf" "$dosbox_config_path"
